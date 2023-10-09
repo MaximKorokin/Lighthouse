@@ -1,30 +1,36 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldObject : MonoBehaviour
 {
-    [field: SerializeField]
-    public Stats0 Stats { get; protected set; }
+    public float speed;
 
-    protected void Start()
+    void Start()
     {
-        Debug.Log(Stats.SizeScale);
-        Stats.Changed += OnStatsChange;
+        
     }
-}
 
-[Serializable]
-public class Stats0
-{
-    [field: SerializeField]
-    public float SizeScale { get; private set; }
+    void Update()
+    {
+        var direction = Vector2.zero;
+        if (Input.GetKey(KeyCode.A))
+        {
+            direction += Vector2.left;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            direction += Vector2.down;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            direction += Vector2.right;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            direction += Vector2.up;
+        }
 
-    public event Action<Stats0> Changed;
-}
-
-[Serializable]
-public class Stats1 : Stats0
-{
-    [field: SerializeField]
-    public float HealthPoints { get; private set; }
+        transform.position += (Vector3)direction * speed * Time.deltaTime;
+    }
 }
