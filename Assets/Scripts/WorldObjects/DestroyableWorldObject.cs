@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class DestroyableWorldObject : WorldObject
 {
-    public bool IsAlive { get; protected set; }
+    [field: SerializeField]
+    public bool IsDamagable { get; protected set; }
+    public bool IsAlive { get; protected set; } = true;
 
     private float _currentHealthPoints;
     protected float CurrentHealthPoints
@@ -30,7 +32,7 @@ public class DestroyableWorldObject : WorldObject
 
     public virtual void Damage(float damageValue)
     {
-        if (damageValue <= 0)
+        if (!IsDamagable || damageValue <= 0)
         {
             return;
         }
@@ -48,7 +50,7 @@ public class DestroyableWorldObject : WorldObject
 
     public virtual void DestroyWorldObject()
     {
+        IsAlive = false;
         Debug.Log(name + " destroyed");
-        Destroy(this);
     }
 }

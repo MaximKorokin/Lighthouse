@@ -169,7 +169,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _test1: 0
   _stats:
-    _stats: []
+    _stats:
+    - Name: 1
+      Value: 0
+    - Name: 2
+      Value: 0
+    - Name: 3
+      Value: 0
+    - Name: 4
+      Value: 0
   _test2: 
   _test3: 
 --- !u!1 &519420028
