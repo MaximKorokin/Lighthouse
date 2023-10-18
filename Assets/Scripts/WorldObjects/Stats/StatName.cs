@@ -3,5 +3,5 @@ public enum StatName
     SizeScale = 1,
     MaxHealthPoints,
     Speed,
-    Damage,
+    AttackDamage,
 }

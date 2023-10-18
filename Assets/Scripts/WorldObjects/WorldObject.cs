@@ -1,36 +1,36 @@
 using UnityEngine;
 
-public class WorldObject : MonoBehaviour
+public abstract class WorldObject : MonoBehaviour
 {
-    [SerializeField]
-    private int _test1;
+    [field: SerializeField]
+    public PositioningType PositioningType { get; protected set; }
+    [field: SerializeField]
+    public PositioningType TriggeringType { get; protected set; }
     [SerializeField]
     private Stats _stats;
     protected Stats Stats => _stats;
-    [SerializeField]
-    private string _test2;
-    [SerializeField]
-    private int[] _test3;
 
     protected virtual void Awake()
     {
-        Debug.Log("Awake");
         Stats.Init();
+        OnStatsModified();
     }
 
-    public virtual void ModifyStats(Stats otherStats)
+    public void ModifyStats(Stats otherStats)
     {
-        var previousSizeScale = Stats[StatName.SizeScale];
         Stats.Modify(otherStats);
+        OnStatsModified();
+    }
+
+    /// <summary>
+    /// Called on Awake and each time <see cref="ModifyStats"/> is called
+    /// </summary>
+    protected virtual void OnStatsModified()
+    {
         var sizeScale = Stats[StatName.SizeScale];
-        if (sizeScale != previousSizeScale)
+        if (sizeScale != transform.localScale.z)
         {
             transform.localScale = Vector3.one * sizeScale;
         }
-    }
-
-    private void Update()
-    {
-        Stats.Modify(new Stats());
     }
 }

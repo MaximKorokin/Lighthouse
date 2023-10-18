@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevelingCreature : Creature
+public class PlayerCreature : Creature
 {
     [field: SerializeField]
     public int Level { get; protected set; }

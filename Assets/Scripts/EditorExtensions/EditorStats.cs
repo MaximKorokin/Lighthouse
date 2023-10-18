@@ -26,7 +26,7 @@ public class EditorStats : PropertyDrawer
             var statsProperty = statsPropertyProvider();
             EditorGUI.indentLevel++;
             var statRect = new Rect(
-                position.x,
+                position.x + 40,
                 position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing,
                 0,
                 EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing);
@@ -35,7 +35,7 @@ public class EditorStats : PropertyDrawer
                 var statProperty = statsProperty.GetArrayElementAtIndex(i);
                 possibleStats.Remove(EditorStat.GetStatName(statProperty));
                 EditorGUI.PropertyField(statRect, statProperty, GUIContent.none);
-                if (GUI.Button(new Rect(statRect.x + 250, statRect.y, 20, statRect.height), "-"))
+                if (GUI.Button(new Rect(position.x + 15, statRect.y, 20, statRect.height), "-"))
                 {
                     statsProperty.DeleteArrayElementAtIndex(i);
                     i = Math.Max(0, i - 1);
@@ -87,7 +87,6 @@ public class EditorStats : PropertyDrawer
         var depth = property.depth;
         while (property.NextVisible(false) && property.depth == depth)
         {
-            Debug.Log(property.displayName);
             yield return property;
         }
     }

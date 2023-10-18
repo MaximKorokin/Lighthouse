@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class DestroyableWorldObject : WorldObject
+public abstract class DestroyableWorldObject : WorldObject
 {
     [field: SerializeField]
-    public bool IsDamagable { get; protected set; }
+    public bool IsDamagable { get; protected set; } = true;
     public bool IsAlive { get; protected set; } = true;
 
     private float _currentHealthPoints;
@@ -21,9 +21,15 @@ public class DestroyableWorldObject : WorldObject
         }
     }
 
-    public override void ModifyStats(Stats otherStats)
+    protected override void Awake()
     {
-        base.ModifyStats(otherStats);
+        base.Awake();
+        CurrentHealthPoints = Stats[StatName.MaxHealthPoints];
+    }
+
+    protected override void OnStatsModified()
+    {
+        base.OnStatsModified();
         if (Stats[StatName.MaxHealthPoints] < CurrentHealthPoints)
         {
             CurrentHealthPoints = Stats[StatName.MaxHealthPoints];

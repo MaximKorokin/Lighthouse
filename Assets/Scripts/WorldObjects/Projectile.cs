@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MovableWorldObject
@@ -5,8 +6,15 @@ public class Projectile : MovableWorldObject
     [field: SerializeField]
     public float LifeTime { get; protected set; }
 
-    public void SetDamage(float damage)
+    protected override void Awake()
     {
+        base.Awake();
+        StartCoroutine(LifeTimeCoroutine());
+    }
 
+    private IEnumerator LifeTimeCoroutine()
+    {
+        yield return new WaitForSeconds(LifeTime);
+        DestroyWorldObject();
     }
 }
