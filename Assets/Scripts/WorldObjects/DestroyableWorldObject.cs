@@ -21,6 +21,8 @@ public abstract class DestroyableWorldObject : WorldObject
         }
     }
 
+    public event Action Destroying;
+
     protected override void Awake()
     {
         base.Awake();
@@ -56,6 +58,7 @@ public abstract class DestroyableWorldObject : WorldObject
 
     public virtual void DestroyWorldObject()
     {
+        Destroying?.Invoke();
         IsAlive = false;
         Debug.Log(name + " destroyed");
     }

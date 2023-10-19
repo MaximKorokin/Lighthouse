@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerProjectileManipulator : ProjecltileManipulator
+public class PlayerProjectileManipulator : ProjectileManipulator
 {
     public override bool IsValidTarget(WorldObject worldObject)
     {

@@ -4,7 +4,8 @@ public class ChaseController : TriggerController
 {
     [field: SerializeField]
     public float StopDistance { get; set; }
-    private WorldObject Target;
+
+    public WorldObject Target { get; set; }
 
     private void Update()
     {
