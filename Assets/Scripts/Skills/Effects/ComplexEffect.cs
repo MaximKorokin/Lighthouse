@@ -10,20 +10,20 @@ public abstract class ComplexEffect : Effect
 
     public event Action Ending;
 
-    public override void Invoke(WorldObject source, WorldObject target)
+    public override void Invoke(CastState castState)
     {
         foreach (var effect in Effects)
         {
-            effect.Invoke(source, target);
+            effect.Invoke(castState);
         }
     }
 
-    public virtual void InvokeEnd(WorldObject source, WorldObject target)
+    public virtual void InvokeEnd(CastState castState)
     {
         Ending?.Invoke();
         foreach (var endEffect in EndEffects)
         {
-            endEffect.Invoke(source, target);
+            endEffect.Invoke(castState);
         }
     }
 }

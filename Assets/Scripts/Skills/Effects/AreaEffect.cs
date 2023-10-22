@@ -6,11 +6,12 @@ public class AreaEffect : PeriodicEffect
     [field: SerializeField]
     public float Radius { get; private set; }
 
-    public override void Invoke(WorldObject source, WorldObject target)
+    public override void Invoke(CastState castState)
     {
-        foreach (var worldObject in Physics2DUtils.GetWorldObjectsInRadius(source.transform.position, Radius))
+        foreach (var worldObject in Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, Radius))
         {
-            base.Invoke(source, worldObject);
+            castState.Target = worldObject;
+            base.Invoke(castState);
         }
     }
 }

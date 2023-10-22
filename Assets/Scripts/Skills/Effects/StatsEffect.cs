@@ -6,8 +6,8 @@ public class StatsEffect : Effect
     [field: SerializeField]
     public Stats StatsDelta { get; private set; }
 
-    public override void Invoke(WorldObject source, WorldObject target)
+    public override void Invoke(CastState castState)
     {
-        target.ModifyStats(StatsDelta);
+        castState.Target.ModifyStats(StatsDelta);
     }
 }

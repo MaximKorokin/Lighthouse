@@ -9,6 +9,7 @@ public class Projectile : MovableWorldObject
     public ProjectileEffect Effect { get; private set; }
 
     private int _pierceLeft;
+    private CastState _castState;
 
     protected override void Awake()
     {
@@ -18,15 +19,17 @@ public class Projectile : MovableWorldObject
 
     public override void DestroyWorldObject()
     {
-        Effect?.InvokeEnd(this, this);
+        _castState.Target = this;
+        Effect.InvokeEnd(_castState);
         base.DestroyWorldObject();
     }
 
     public override void Act(WorldObject worldObject)
     {
-        Effect.InvokeEffects(this, worldObject);
+        _castState.Target = worldObject;
+        Effect.InvokeEffects(_castState);
 
-        if (_pierceLeft <= 0)
+        if (--_pierceLeft <= 0)
         {
             DestroyWorldObject();
         }
@@ -35,10 +38,13 @@ public class Projectile : MovableWorldObject
         Debug.Log($"Projectile {name} hit {destroyableWorldObject.name}");
     }
 
-    public void SetEffect(ProjectileEffect effect)
+    public void SetEffect(ProjectileEffect effect, CastState castState)
     {
         Effect = effect;
         _pierceLeft = effect.PierceAmount;
+
+        _castState = castState;
+        _castState.Source = this;
     }
 
     private IEnumerator LifeTimeCoroutine()

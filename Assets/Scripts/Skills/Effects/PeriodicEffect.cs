@@ -10,26 +10,26 @@ public class PeriodicEffect : ComplexEffect
     [field: SerializeField]
     public float Interval { get; private set; }
 
-    protected virtual IEnumerator DurationCoroutine(WorldObject source, WorldObject target)
+    protected virtual IEnumerator DurationCoroutine(CastState castState)
     {
-        var periodicInvokationCoroutine = target.StartCoroutine(PeriodicInvokationCoroutine(source, target));
+        var periodicInvokationCoroutine = castState.Target.StartCoroutine(PeriodicInvokationCoroutine(castState));
         yield return new WaitForSeconds(Duration);
-        target.StopCoroutine(periodicInvokationCoroutine);
-        InvokeEnd(source, target);
+        castState.Target.StopCoroutine(periodicInvokationCoroutine);
+        InvokeEnd(castState);
     }
 
     [SuppressMessage("Blocker Bug", "S2190:Loops and recursions should not be infinite", Justification = "<Pending>")]
-    protected virtual IEnumerator PeriodicInvokationCoroutine(WorldObject source, WorldObject target)
+    protected virtual IEnumerator PeriodicInvokationCoroutine(CastState castState)
     {
         while (true)
         {
-            base.Invoke(source, target);
+            base.Invoke(castState);
             yield return new WaitForSeconds(Interval);
         }
     }
 
-    public override void Invoke(WorldObject source, WorldObject target)
+    public override void Invoke(CastState castState)
     {
-        target.StartCoroutine(DurationCoroutine(source, target));
+        castState.Target.StartCoroutine(DurationCoroutine(castState));
     }
 }

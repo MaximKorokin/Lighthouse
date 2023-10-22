@@ -11,7 +11,7 @@ public abstract class Effect : ScriptableObject
 
     public event Action Invoking;
 
-    public virtual void Invoke(WorldObject source, WorldObject target)
+    public virtual void Invoke(CastState castState)
     {
         Invoking?.Invoke();
     }

@@ -10,7 +10,7 @@ public static class ProjectileUtils
     /// <param name="target"></param>
     /// <param name="yaw"></param>
     /// <param name="effect"></param>
-    public static void CreateProjectiles(ProjectileEffect effect, WorldObject source, WorldObject target)
+    public static void CreateProjectiles(ProjectileEffect effect, CastState castState)
     {
         var spreadStep = 0f;
         var currentYaw = 0f;
@@ -22,12 +22,12 @@ public static class ProjectileUtils
 
         for (int i = 0; i < effect.Amount; i++)
         {
-            var projectile = Object.Instantiate(effect.Projectile, source.transform.position, Quaternion.identity);
-            projectile.SetEffect(effect);
+            var projectile = Object.Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
+            projectile.SetEffect(effect, castState);
             var controller = projectile.GetComponent<ControllerBase>();
-            if (source == target)
+            if (castState.Source == castState.Target)
             {
-                if (!controller.TryFindTarget(effect.TargetType, source, currentYaw))
+                if (!controller.TryFindTarget(effect.TargetType, castState.Source, currentYaw))
                 {
                     projectile.gameObject.SetActive(false);
                     Object.Destroy(projectile.gameObject);
@@ -35,7 +35,7 @@ public static class ProjectileUtils
             }
             else
             {
-                controller.SetTarget(target, currentYaw);
+                controller.SetTarget(castState.Target, currentYaw);
             }
             currentYaw += spreadStep;
         }

@@ -19,9 +19,9 @@ public class ProjectileEffect : ComplexEffect
     /// </summary>
     /// <param name="source"></param>
     /// <param name="target"></param>
-    public override void Invoke(WorldObject source, WorldObject target)
+    public override void Invoke(CastState castState)
     {
-        ProjectileUtils.CreateProjectiles(this, source, target);
+        ProjectileUtils.CreateProjectiles(this, castState);
     }
 
     /// <summary>
@@ -29,8 +29,8 @@ public class ProjectileEffect : ComplexEffect
     /// </summary>
     /// <param name="source"></param>
     /// <param name="target"></param>
-    public void InvokeEffects(WorldObject source, WorldObject target)
+    public void InvokeEffects(CastState castState)
     {
-        base.Invoke(source, target);
+        base.Invoke(castState);
     }
 }
