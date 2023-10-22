@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6949926551165608891}
   - component: {fileID: 2745099284253711988}
   - component: {fileID: 5179061430041321045}
+  - component: {fileID: 4247226826785936614}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
-  - component: {fileID: 4440346812162356915}
-  - component: {fileID: 1257286762771784574}
+  - component: {fileID: 3447483860829897823}
+  - component: {fileID: 6858036627184363089}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: RangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +125,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
+--- !u!58 &4247226826785936614
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!50 &2673697132878341897
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +186,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6382580791305350808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +211,13 @@ MonoBehaviour:
       Value: 1
     - Name: 4
       Value: 1
+    - Name: 5
+      Value: 3
   <IsDamagable>k__BackingField: 1
---- !u!114 &4440346812162356915
+  <CanRotate>k__BackingField: 0
+  _skills:
+  - {fileID: 11400000, guid: 41081e9c1dd4ee547b3cffa3655311cb, type: 2}
+--- !u!114 &3447483860829897823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,10 +226,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 809945631460520319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad592b92c15b3d24da700eaf92839250, type: 3}
+  m_Script: {fileID: 11500000, guid: 187bf7f7c190f57439149c0c630a75df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1257286762771784574
+--- !u!114 &6858036627184363089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,4 +241,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c9be6b6271cd042903ad6052f644d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StopDistance>k__BackingField: 0.2
+  <Target>k__BackingField: {fileID: 0}

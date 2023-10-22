@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6890217733997509643}
   - component: {fileID: 6569218727775133429}
   - component: {fileID: 1770973192567836993}
-  - component: {fileID: 5757483610754945763}
   - component: {fileID: 7123078960929944400}
-  - component: {fileID: 3160135418811670364}
+  - component: {fileID: 7461735635080617453}
+  - component: {fileID: 7313172375181996366}
   m_Layer: 0
   m_Name: EnemyForwardProjectile
   m_TagString: Untagged
@@ -151,18 +151,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5757483610754945763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254378381488008843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 187bf7f7c190f57439149c0c630a75df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7123078960929944400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +176,19 @@ MonoBehaviour:
   <IsDamagable>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <LifeTime>k__BackingField: 5
-  <Effect>k__BackingField: {fileID: 0}
---- !u!114 &3160135418811670364
+--- !u!114 &7461735635080617453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187bf7f7c190f57439149c0c630a75df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7313172375181996366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,4 +200,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ad852864dcd58449d96ea8c3ad50ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Direction>k__BackingField: {x: 1, y: 0}
+  <Direction>k__BackingField: {x: 0, y: 0}

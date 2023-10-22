@@ -15,10 +15,7 @@ public class PeriodicEffect : ComplexEffect
         var periodicInvokationCoroutine = target.StartCoroutine(PeriodicInvokationCoroutine(source, target));
         yield return new WaitForSeconds(Duration);
         target.StopCoroutine(periodicInvokationCoroutine);
-        foreach (var endEffect in EndEffects)
-        {
-            endEffect.Invoke(source, target);
-        }
+        InvokeEnd(source, target);
     }
 
     [SuppressMessage("Blocker Bug", "S2190:Loops and recursions should not be infinite", Justification = "<Pending>")]

@@ -10,10 +10,13 @@ public class Skill : ScriptableObject
     [field: SerializeField]
     public float Cooldown { get; private set; }
 
+    private WorldObject _source;
+
     public void Invoke(WorldObject source) => Invoke(source, source);
 
     public void Invoke(WorldObject source, WorldObject target)
     {
+        _source = source;
         foreach (var effect in Effects)
         {
             effect.Invoke(source, target);

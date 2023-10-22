@@ -6,8 +6,11 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     [field: SerializeField]
     public bool CanRotate { get; protected set; }
 
+    public Vector2 Direction { get; private set; }
+
     private Rigidbody2D _rigidbody;
-    private Vector2 _direction;
+
+    public abstract void Act(WorldObject worldObject);
 
     protected override void Awake()
     {
@@ -19,23 +22,23 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     {
         if (CanRotate)
         {
-            transform.right = _direction;
+            transform.right = Direction;
         }
     }
 
     protected virtual void FixedUpdate()
     {
-        _rigidbody.velocity = Stats[StatName.Speed] * _direction;
+        _rigidbody.velocity = Stats[StatName.Speed] * Direction;
     }
 
     public void Move(Vector2 direction)
     {
-        _direction = direction.normalized;
+        Direction = direction.normalized;
     }
 
     public void Stop()
     {
-        _direction = Vector2.zero;
+        Direction = Vector2.zero;
     }
 
     public override void DestroyWorldObject()

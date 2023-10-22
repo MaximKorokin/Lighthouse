@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AreaEffect", menuName = "ScriptableObjects/Effects/AreaEffect", order = 1)]
@@ -9,8 +8,7 @@ public class AreaEffect : PeriodicEffect
 
     public override void Invoke(WorldObject source, WorldObject target)
     {
-        foreach (var worldObject in Physics2D.OverlapCircleAll(source.transform.position, Radius)
-            .Select(c => c.GetComponent<WorldObject>()).Where(w => w != null))
+        foreach (var worldObject in Physics2DUtils.GetWorldObjectsInRadius(source.transform.position, Radius))
         {
             base.Invoke(source, worldObject);
         }

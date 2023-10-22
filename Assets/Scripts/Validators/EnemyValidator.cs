@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class EnemyProjectileManipulator : ProjectileManipulator
+public class EnemyValidator : ValidatorBase
 {
     public override bool IsValidTarget(WorldObject worldObject)
     {

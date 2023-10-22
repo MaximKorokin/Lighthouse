@@ -4,4 +4,5 @@ public enum StatName
     MaxHealthPoints,
     Speed,
     AttackDamage,
+    ActionRange,
 }
