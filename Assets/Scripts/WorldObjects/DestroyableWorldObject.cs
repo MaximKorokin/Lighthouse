@@ -4,8 +4,11 @@ using UnityEngine;
 public abstract class DestroyableWorldObject : WorldObject
 {
     [field: SerializeField]
-    public bool IsDamagable { get; protected set; } = true;
-    public bool IsAlive { get; protected set; } = true;
+    public bool IsDamagable { get; set; } = true;
+    [field: SerializeField]
+    public bool IsAlive { get; private set; } = true;
+    [field: SerializeField]
+    public Effect DestroyEffect { get; set; }
 
     private float _currentHealthPoints;
     protected float CurrentHealthPoints
@@ -20,8 +23,6 @@ public abstract class DestroyableWorldObject : WorldObject
             }
         }
     }
-
-    public event Action Destroying;
 
     protected override void Awake()
     {
@@ -40,6 +41,11 @@ public abstract class DestroyableWorldObject : WorldObject
 
     public virtual void Damage(float damageValue)
     {
+        if (!IsAlive)
+        {
+            return;
+        }
+
         if (!IsDamagable || damageValue <= 0)
         {
             return;
@@ -49,6 +55,11 @@ public abstract class DestroyableWorldObject : WorldObject
 
     public virtual void Heal(float healValue)
     {
+        if (!IsAlive)
+        {
+            return;
+        }
+
         if (healValue <= 0)
         {
             return;
@@ -58,8 +69,17 @@ public abstract class DestroyableWorldObject : WorldObject
 
     public virtual void DestroyWorldObject()
     {
-        Destroying?.Invoke();
+        if (!IsAlive)
+        {
+            return;
+        }
+
+        if (DestroyEffect != null)
+        {
+            DestroyEffect.Invoke(new CastState(this));
+        }
         IsAlive = false;
-        Debug.Log(name + " destroyed");
+
+        Destroy(gameObject);
     }
 }

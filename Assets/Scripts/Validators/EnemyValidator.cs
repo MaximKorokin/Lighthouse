@@ -2,6 +2,6 @@ public class EnemyValidator : ValidatorBase
 {
     public override bool IsValidTarget(WorldObject worldObject)
     {
-        return worldObject is PlayerCreature playerCreature && playerCreature.IsAlive;
+        return worldObject is EnemyCreature enemyCreature && enemyCreature.IsAlive;
     }
 }

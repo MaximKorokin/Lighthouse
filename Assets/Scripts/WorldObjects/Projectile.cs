@@ -26,6 +26,11 @@ public class Projectile : MovableWorldObject
 
     public override void Act(WorldObject worldObject)
     {
+        if (!IsAlive)
+        {
+            return;
+        }
+
         _castState.Target = worldObject;
         Effect.InvokeEffects(_castState);
 
@@ -33,9 +38,6 @@ public class Projectile : MovableWorldObject
         {
             DestroyWorldObject();
         }
-
-        var destroyableWorldObject = worldObject as DestroyableWorldObject;
-        Debug.Log($"Projectile {name} hit {destroyableWorldObject.name}");
     }
 
     public void SetEffect(ProjectileEffect effect, CastState castState)

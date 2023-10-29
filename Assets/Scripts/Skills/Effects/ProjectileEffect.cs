@@ -21,7 +21,7 @@ public class ProjectileEffect : ComplexEffect
     /// <param name="target"></param>
     public override void Invoke(CastState castState)
     {
-        ProjectileUtils.CreateProjectiles(this, castState);
+        CreateProjectiles(this, castState);
     }
 
     /// <summary>
@@ -32,5 +32,50 @@ public class ProjectileEffect : ComplexEffect
     public void InvokeEffects(CastState castState)
     {
         base.Invoke(castState);
+    }
+
+    /// <summary>
+    /// If <paramref name="source"/> == <paramref name="target"/> it will try to find a new target.
+    /// If no target found, it will not do anything.
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="target"></param>
+    /// <param name="yaw"></param>
+    /// <param name="effect"></param>
+    private static void CreateProjectiles(ProjectileEffect effect, CastState castState)
+    {
+        var spreadStep = 0f;
+        var currentYaw = 0f;
+        if (effect.Amount > 1)
+        {
+            spreadStep = effect.Spread / (effect.Amount - 1);
+            currentYaw = -effect.Spread / 2;
+        }
+
+        for (int i = 0; i < effect.Amount; i++)
+        {
+            var projectile = Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
+            projectile.SetEffect(effect, castState);
+            var controller = projectile.GetComponent<TargetController>();
+            if (castState.Source == castState.Target)
+            {
+                var worldObjects = Physics2DUtils.GetWorldObjectsInRadius(projectile.transform.position, castState.Source.ActionRange)
+                    .GetValidTargets(projectile);
+                if (worldObjects.Length == 0)
+                {
+                    projectile.gameObject.SetActive(false);
+                    Destroy(projectile.gameObject);
+                }
+                else
+                {
+                    controller.ChooseTarget(worldObjects, effect.TargetType, castState.Source, currentYaw);
+                }
+            }
+            else
+            {
+                controller.SetTarget(castState.Target, currentYaw);
+            }
+            currentYaw += spreadStep;
+        }
     }
 }

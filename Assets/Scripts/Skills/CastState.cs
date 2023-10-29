@@ -14,4 +14,11 @@ public struct CastState
         Source = source;
         Target = target;
     }
+
+    public CastState(WorldObject initialSource)
+    {
+        InitialSource = initialSource;
+        Source = initialSource;
+        Target = initialSource;
+    }
 }

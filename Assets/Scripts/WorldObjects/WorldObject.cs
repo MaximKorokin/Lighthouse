@@ -10,7 +10,7 @@ public abstract class WorldObject : MonoBehaviour
     private Stats _stats;
     protected Stats Stats => _stats;
 
-    public virtual float ActionRange => Stats[StatName.ActionRange];
+    public virtual float ActionRange => Stats[StatName.ActionRange] * Stats[StatName.SizeScale];
 
     protected virtual void Awake()
     {

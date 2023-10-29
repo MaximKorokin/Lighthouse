@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360525c18d7a50b43b77268af05cc243, type: 3}
+  m_Name: PlayerChaseProjectileEffect
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Damage projectile
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: 2e4cb65f9b97d1c48877cf767ae052fc, type: 2}
+  <EndEffects>k__BackingField: []
+  <Projectile>k__BackingField: {fileID: 7123078960929944400, guid: 21fc04a0af5335744b1762e2ed029572, type: 3}
+  <Amount>k__BackingField: 1
+  <PierceAmount>k__BackingField: 1
+  <Spread>k__BackingField: 0
+  <TargetType>k__BackingField: 1

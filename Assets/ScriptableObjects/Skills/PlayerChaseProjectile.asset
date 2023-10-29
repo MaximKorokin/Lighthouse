@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85c8f966a1906c43a8035cba92b8dcb, type: 3}
-  m_Name: Skill
+  m_Name: PlayerChaseProjectile
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: MaxHPIncrease
+  <Name>k__BackingField: Player chase proj
   <Effects>k__BackingField:
-  - {fileID: 11400000, guid: a2bbe10187b73894aa10e1f039ac18db, type: 2}
-  <Cooldown>k__BackingField: 1000000
+  - {fileID: 11400000, guid: c6f81153121653f4a9f418a2c0538995, type: 2}
+  <Cooldown>k__BackingField: 0.05
