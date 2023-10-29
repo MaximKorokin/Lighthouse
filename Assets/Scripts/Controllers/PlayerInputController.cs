@@ -4,15 +4,19 @@ public class PlayerInputController : MonoBehaviour
 {
     private Vector2 direction;
     protected MovableWorldObject WorldObject { get; private set; }
-    void Awake()
+
+    private void Awake()
     {
         WorldObject = GetComponent<MovableWorldObject>();
     }
-    void Update()
+
+    private void Update()
     {
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
         WorldObject.Move(direction);
+
+        WorldObject.Act(WorldObject);
     }
 }

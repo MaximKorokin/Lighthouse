@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class ChaseController : TriggerController
+public class ChaseController : TargetController
 {
     [field: SerializeField]
-    public WorldObject Target { get; set; }
+    public WorldObject Target { get; private set; }
 
-    protected override void Trigger(WorldObject worldObject)
+    protected override void Trigger(WorldObject worldObject, bool entered)
     {
-        if (Target == null)
+        if (entered)
         {
-            Target = worldObject;
+            SetTarget(worldObject, 0);
         }
     }
 
     public override void SetTarget(WorldObject worldObject, float yaw)
     {
-        Target = worldObject;
+        if (Target == null && Validator.IsValidTarget(worldObject))
+        {
+            Target = worldObject;
+        }
     }
 
-    protected override void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw)
+    public override void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw)
     {
         Target = targetType switch
         {
@@ -32,6 +35,7 @@ public class ChaseController : TriggerController
     {
         if (Target == null)
         {
+            WorldObject.Stop();
             return;
         }
         var direction = Target.transform.position - transform.position;

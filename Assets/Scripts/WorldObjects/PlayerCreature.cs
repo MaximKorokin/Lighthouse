@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlayerCreature : Creature
 {
-    [field: SerializeField]
-    public int Level { get; protected set; }
+    public int Level { get; private set; }
 
-    public void AddExperience(int expValue)
+    private float _currentExperience;
+
+    public void AddExperience(float expValue)
     {
-
+        _currentExperience += expValue;
     }
 }

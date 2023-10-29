@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 360525c18d7a50b43b77268af05cc243, type: 3}
-  m_Name: ProjectileEffect
+  m_Name: EnemyProjectileEffect
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Damage projectile
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2e4cb65f9b97d1c48877cf767ae052fc, type: 2}
   <EndEffects>k__BackingField: []
   <Projectile>k__BackingField: {fileID: 7123078960929944400, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
-  <Amount>k__BackingField: 20
+  <Amount>k__BackingField: 5
   <PierceAmount>k__BackingField: 1
-  <Spread>k__BackingField: 120
+  <Spread>k__BackingField: 60
   <TargetType>k__BackingField: 0

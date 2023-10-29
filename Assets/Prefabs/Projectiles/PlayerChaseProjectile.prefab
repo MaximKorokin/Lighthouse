@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2140693746531350728}
   - component: {fileID: 6890217733997509643}
-  - component: {fileID: 6569218727775133429}
+  - component: {fileID: 1731155828679622763}
   - component: {fileID: 1770973192567836993}
-  - component: {fileID: 5712892892717400552}
   - component: {fileID: 7123078960929944400}
-  - component: {fileID: 4627976079832252806}
+  - component: {fileID: 4316505220260097887}
+  - component: {fileID: 2501633083414815799}
   m_Layer: 0
   m_Name: PlayerChaseProjectile
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 01aaeebab01a6884192320be0d2d641c, type: 3}
-  m_Color: {r: 1, g: 0.51320755, b: 0.51320755, a: 1}
+  m_Color: {r: 1, g: 0.5137255, b: 0.950287, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6569218727775133429
-CircleCollider2D:
+--- !u!61 &1731155828679622763
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,8 +122,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!50 &1770973192567836993
 Rigidbody2D:
   serializedVersion: 4
@@ -151,18 +161,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5712892892717400552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254378381488008843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1746b0afea46a14f8aa184ebae7815b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7123078960929944400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,15 +178,31 @@ MonoBehaviour:
   _stats:
     _stats:
     - Name: 1
-      Value: 1
+      Value: 0.3
     - Name: 2
       Value: 1
     - Name: 3
-      Value: 1
+      Value: 5
+    - Name: 5
+      Value: 0.3
   <IsDamagable>k__BackingField: 0
+  <IsAlive>k__BackingField: 1
+  <DestroyEffect>k__BackingField: {fileID: 0}
   <CanRotate>k__BackingField: 1
-  <LifeTime>k__BackingField: 50
---- !u!114 &4627976079832252806
+  <LifeTime>k__BackingField: 100
+--- !u!114 &4316505220260097887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02463177dc43b4a4f9e05aa231757e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2501633083414815799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

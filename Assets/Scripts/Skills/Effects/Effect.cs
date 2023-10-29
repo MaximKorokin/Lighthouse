@@ -9,10 +9,5 @@ public abstract class Effect : ScriptableObject
     [field: SerializeField]
     public string Name { get; private set; }
 
-    public event Action Invoking;
-
-    public virtual void Invoke(CastState castState)
-    {
-        Invoking?.Invoke();
-    }
+    public abstract void Invoke(CastState castState);
 }

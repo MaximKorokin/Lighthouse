@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class StraightMovingController : TriggerController
+public class StraightMovingController : TargetController
 {
     [field: SerializeField]
     public Vector2 Direction { get; set; }
 
-    protected override void Trigger(WorldObject worldObject)
+    protected override void Trigger(WorldObject worldObject, bool entered)
     {
-        if (Validator.IsValidTarget(worldObject))
+        if (Validator.IsValidTarget(worldObject) && entered)
         {
             WorldObject.Act(worldObject);
         }
@@ -15,10 +15,10 @@ public class StraightMovingController : TriggerController
 
     public override void SetTarget(WorldObject worldObject, float yaw)
     {
-        Direction = Quaternion.Euler(0, 0, yaw) * (transform.position - worldObject.transform.position);
+        Direction = Quaternion.Euler(0, 0, yaw) * (worldObject.transform.position - transform.position);
     }
 
-    protected override void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw)
+    public override void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw)
     {
         Vector2 targetDirection = targetType switch
         {

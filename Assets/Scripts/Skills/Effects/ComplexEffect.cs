@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public abstract class ComplexEffect : Effect
+[CreateAssetMenu(fileName = "ComplexEffect", menuName = "ScriptableObjects/Effects/ComplexEffect", order = 1)]
+public class ComplexEffect : Effect
 {
     [field: SerializeField]
     public Effect[] Effects { get; private set; }

@@ -19,7 +19,11 @@ public class Creature : MovableWorldObject
 
     public override void Act(WorldObject worldObject)
     {
-        Skills.Where(CanUseSkill).ForEach(UseSkill);
+        if (!IsAlive)
+        {
+            return;
+        }
+        Skills.Where(CanUseSkill).ForEach(s => UseSkill(s, worldObject));
     }
 
     private bool CanUseSkill(Skill skill)
@@ -27,14 +31,18 @@ public class Creature : MovableWorldObject
         return Time.time - _skillsUsedTime[skill] > skill.Cooldown;
     }
 
-    private void UseSkill(Skill skill)
+    private void UseSkill(Skill skill, WorldObject target)
     {
         _skillsUsedTime[skill] = Time.time;
-        skill.Invoke(this);
+        skill.Invoke(this, target);
     }
 
     public void AddSkill(Skill skill)
     {
+        if (_skills.Contains(skill))
+        {
+            return;
+        }
         _skills.Add(skill);
         _skillsUsedTime.Add(skill, float.NegativeInfinity);
     }
