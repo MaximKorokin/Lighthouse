@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241050426451241158}
   - component: {fileID: 2469403255508845190}
+  - component: {fileID: -6246204054510224227}
   - component: {fileID: 4729459271456577208}
   - component: {fileID: 1067456175170885560}
   - component: {fileID: 322627562551336750}
@@ -88,6 +89,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &-6246204054510224227
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.0001
 --- !u!58 &4729459271456577208
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,12 +212,14 @@ MonoBehaviour:
       Value: 5
     - Name: 5
       Value: 11
+    - Name: 6
+      Value: 2
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
   <DestroyEffect>k__BackingField: {fileID: 0}
   <CanRotate>k__BackingField: 0
   _skills:
-  - {fileID: 11400000, guid: 3e6eb52645fa49446b309f4ad534b899, type: 2}
+  - {fileID: 11400000, guid: 1c97cadf74ba73845974cdcb1e5adc34, type: 2}
 --- !u!114 &4808862166265668767
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,4 +5,5 @@ public enum StatName
     Speed,
     AttackDamage,
     ActionRange,
+    AutoLootRange,
 }

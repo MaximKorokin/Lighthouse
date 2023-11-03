@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ChaseController : TargetController
 {
-    [field: SerializeField]
     public WorldObject Target { get; private set; }
 
     protected override void Trigger(WorldObject worldObject, bool entered)

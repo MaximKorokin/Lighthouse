@@ -2,6 +2,9 @@ using UnityEngine;
 
 public abstract class TriggerController : ControllerBase
 {
+    [SerializeField]
+    private TriggerType _triggerType;
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (ValidateTrigger(collision, out var worldObject))
@@ -22,7 +25,9 @@ public abstract class TriggerController : ControllerBase
 
     private bool ValidateTrigger(Collider2D collision, out WorldObject worldObject)
     {
-        if (collision.isTrigger)
+        if (_triggerType != TriggerType.Triggers && 
+            ((_triggerType == TriggerType.Triggers && !collision.isTrigger) ||
+            (_triggerType == TriggerType.Colliders && collision.isTrigger)))
         {
             worldObject = null;
             return false;
@@ -32,4 +37,11 @@ public abstract class TriggerController : ControllerBase
             (worldObject.PositioningType & WorldObject.TriggeringType) != PositioningType.None &&
             Validator.IsValidTarget(worldObject);
     }
+}
+
+public enum TriggerType
+{
+    Colliders,
+    Triggers,
+    Both
 }
