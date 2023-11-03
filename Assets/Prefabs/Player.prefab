@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1067456175170885560}
   - component: {fileID: 322627562551336750}
   - component: {fileID: 4808862166265668767}
+  - component: {fileID: 7710930481566254948}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 01aaeebab01a6884192320be0d2d641c, type: 3}
+  m_Sprite: {fileID: -2010550049, guid: 8359606ee3cf4c94380e7042db95ead7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -205,7 +206,7 @@ MonoBehaviour:
     - Name: 1
       Value: 1
     - Name: 2
-      Value: 100
+      Value: 11111
     - Name: 3
       Value: 3
     - Name: 4
@@ -218,8 +219,11 @@ MonoBehaviour:
   <IsAlive>k__BackingField: 1
   <DestroyEffect>k__BackingField: {fileID: 0}
   <CanRotate>k__BackingField: 0
+  <CanFlip>k__BackingField: 1
   _skills:
   - {fileID: 11400000, guid: 1c97cadf74ba73845974cdcb1e5adc34, type: 2}
+  _levelsTable:
+    _levelsExperience: 
 --- !u!114 &4808862166265668767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +236,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3902a68b1357c439f45ddaf11c7faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7710930481566254948
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e03fc1bd04066a42a2b12041b977897, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

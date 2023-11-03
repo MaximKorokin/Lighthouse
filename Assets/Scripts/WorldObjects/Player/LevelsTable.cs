@@ -12,7 +12,7 @@ public class LevelsTable
 
     public int GetExpereinceNeeded(int level, int exp)
     {
-        if (level > _levelsExperience.Length)
+        if (level >= _levelsExperience.Length)
         {
             return int.MaxValue;
         }

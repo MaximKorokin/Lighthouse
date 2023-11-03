@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class WorldObject : MonoBehaviour
@@ -6,6 +7,8 @@ public abstract class WorldObject : MonoBehaviour
     public PositioningType PositioningType { get; protected set; }
     [field: SerializeField]
     public PositioningType TriggeringType { get; protected set; }
+    private Animator Animator { get; set; }
+
     [SerializeField]
     private Stats _stats;
     protected Stats Stats => _stats;
@@ -14,6 +17,7 @@ public abstract class WorldObject : MonoBehaviour
 
     protected virtual void Awake()
     {
+        Animator = GetComponent<Animator>();
         Stats.Init();
         OnStatsModified();
     }
@@ -33,6 +37,30 @@ public abstract class WorldObject : MonoBehaviour
         if (sizeScale != transform.localScale.z)
         {
             transform.localScale = Vector3.one * sizeScale;
+        }
+    }
+
+    protected void SetAnimatorValue<T>(string name, T value = default) where T : struct
+    {
+        if (Animator == null)
+        {
+            return;
+        }
+
+        switch (Array.Find(Animator.parameters, x => x.name == name)?.type)
+        {
+            case AnimatorControllerParameterType.Bool:
+                Animator.SetBool(name, Convert.ToBoolean(value));
+                break;
+            case AnimatorControllerParameterType.Trigger:
+                Animator.SetTrigger(name);
+                break;
+            case AnimatorControllerParameterType.Int:
+                Animator.SetInteger(name, Convert.ToInt32(value));
+                break;
+            case AnimatorControllerParameterType.Float:
+                Animator.SetFloat(name, Convert.ToSingle(value));
+                break;
         }
     }
 }

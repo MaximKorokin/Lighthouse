@@ -50,6 +50,8 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             return;
         }
+
+        SetAnimatorValue("WasHurt", true);
         CurrentHealthPoints -= damageValue;
     }
 
@@ -74,12 +76,14 @@ public abstract class DestroyableWorldObject : WorldObject
             return;
         }
 
+        SetAnimatorValue("Died", false);
+
         if (DestroyEffect != null)
         {
             DestroyEffect.Invoke(new CastState(this));
         }
-        IsAlive = false;
 
-        Destroy(gameObject);
+        IsAlive = false;
+        Destroy(gameObject, 3);
     }
 }

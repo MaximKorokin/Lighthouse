@@ -23,7 +23,14 @@ public class Creature : MovableWorldObject
         {
             return;
         }
-        Skills.Where(CanUseSkill).ForEach(s => UseSkill(s, worldObject));
+
+        var availableSkills = Skills.Where(CanUseSkill).ToArray();
+        if (availableSkills.Any())
+        {
+            SetAnimatorValue("Acted", true);
+            availableSkills.ForEach(s => UseSkill(s, worldObject));
+        }
+        
     }
 
     private bool CanUseSkill(Skill skill)
