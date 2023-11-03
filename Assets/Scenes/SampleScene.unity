@@ -1901,9 +1901,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 809945631460520319, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: -2.26
       objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3205,11 +3209,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 241050426451241158, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.84
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 241050426451241158, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.04
+      value: -1.54
       objectReference: {fileID: 0}
     - target: {fileID: 241050426451241158, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3243,6 +3247,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 322627562551336750, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
+      propertyPath: _skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7537639882005055995, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3262,11 +3270,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2383970601079609831, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.43
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2383970601079609831, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.48
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 2383970601079609831, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3435,13 +3443,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6382580791305350808, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
+      propertyPath: _stats._stats.Array.data[0].Value
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.42
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
       propertyPath: m_LocalPosition.z
