@@ -60,7 +60,7 @@ public class ProjectileEffect : ComplexEffect
             if (castState.Source == castState.Target)
             {
                 var worldObjects = Physics2DUtils.GetWorldObjectsInRadius(projectile.transform.position, castState.Source.ActionRange)
-                    .GetValidTargets(projectile);
+                    .GetValidTargets(castState.Source);
                 if (worldObjects.Length == 0)
                 {
                     projectile.gameObject.SetActive(false);
