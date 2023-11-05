@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: CyborgAC
   m_Controller: {fileID: 9100000, guid: 2b178bae42e140b418985dd7886e7ae9, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 2ef727bcf33e260489f8c3ba7679264c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6ee10d12e35ec34419cd641b60c5babe, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: e9ec11d083ee5d340998828cb7988293, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: bad009490bf860e4c8fb404c56257b8c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e02c4ea2f28edb941bfe1b85691b325f, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 405a567ea7fabc44b8824bd078712c00, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 00013b2d4656c1946862f385f1811a75, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 365a4c7fdabdabf47968424c72f72c9a, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: a47ca9e6a4270b548be21e0da74a9038, type: 2}
