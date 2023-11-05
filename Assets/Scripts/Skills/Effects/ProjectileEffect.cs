@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ProjectileEffect", menuName = "ScriptableObjects/Effects/ProjectileEffect", order = 1)]
-public class ProjectileEffect : ComplexEffect
+public class ProjectileEffect : EndingEffect
 {
     [field: SerializeField]
     public Projectile Projectile { get; private set; }
@@ -54,28 +54,28 @@ public class ProjectileEffect : ComplexEffect
 
         for (int i = 0; i < effect.Amount; i++)
         {
-            var projectile = Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
-            projectile.SetEffect(effect, castState);
-            var controller = projectile.GetComponent<TargetController>();
+
             if (castState.Source == castState.Target)
             {
-                var worldObjects = Physics2DUtils.GetWorldObjectsInRadius(projectile.transform.position, castState.Source.ActionRange)
-                    .GetValidTargets(castState.Source);
-                if (worldObjects.Length == 0)
+                var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
+                    .GetValidTargets(castState.InitialSource);
+                if (targets.Length > 0)
                 {
-                    projectile.gameObject.SetActive(false);
-                    Destroy(projectile.gameObject);
-                }
-                else
-                {
-                    controller.ChooseTarget(worldObjects, effect.TargetType, castState.Source, currentYaw);
+                    CreateAndGetController().ChooseTarget(targets, effect.TargetType, castState.Source, currentYaw);
                 }
             }
             else
             {
-                controller.SetTarget(castState.Target, currentYaw);
+                CreateAndGetController().SetTarget(castState.Target, currentYaw);
             }
             currentYaw += spreadStep;
+        }
+
+        TargetController CreateAndGetController()
+        {
+            var projectile = Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
+            projectile.SetEffect(effect, castState);
+            return projectile.GetComponent<TargetController>();
         }
     }
 }

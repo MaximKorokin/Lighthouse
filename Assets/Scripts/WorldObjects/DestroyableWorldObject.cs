@@ -86,6 +86,6 @@ public abstract class DestroyableWorldObject : WorldObject
         }
 
         IsAlive = false;
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 15);
     }
 }

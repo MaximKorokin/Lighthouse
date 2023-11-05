@@ -16,14 +16,6 @@ public class ConditionalEffect : ComplexEffect
         }
     }
 
-    public override void InvokeEnd(CastState castState)
-    {
-        if (CanInvoke(castState))
-        {
-            base.InvokeEnd(castState);
-        }
-    }
-
     private bool CanInvoke(CastState castState)
     {
         if (_conditions == EffectCondition.None)
