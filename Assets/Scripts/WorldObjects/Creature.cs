@@ -10,7 +10,6 @@ public class Creature : MovableWorldObject
 
     private Dictionary<Skill, float> _skillsUsedTime;
 
-
     protected override void Awake()
     {
         base.Awake();
