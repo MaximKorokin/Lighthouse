@@ -26,7 +26,7 @@ public class Projectile : MovableWorldObject
 
     public override void Act(WorldObject worldObject)
     {
-        if (!IsAlive)
+        if (!IsAlive || _pierceLeft <= 0)
         {
             return;
         }

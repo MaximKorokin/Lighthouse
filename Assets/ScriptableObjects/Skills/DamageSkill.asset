@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Damage
   <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 2e4cb65f9b97d1c48877cf767ae052fc, type: 2}
+  - {fileID: 11400000, guid: b83abe8ad03ad0d4ba9b243b69039113, type: 2}
+  - {fileID: 11400000, guid: a50b7e9b96d367b49a52799564ddf70d, type: 2}
   <Cooldown>k__BackingField: 2

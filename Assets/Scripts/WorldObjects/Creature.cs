@@ -10,7 +10,6 @@ public class Creature : MovableWorldObject
 
     private Dictionary<Skill, float> _skillsUsedTime;
 
-
     protected override void Awake()
     {
         base.Awake();
@@ -23,7 +22,13 @@ public class Creature : MovableWorldObject
         {
             return;
         }
-        Skills.Where(CanUseSkill).ForEach(s => UseSkill(s, worldObject));
+
+        var availableSkills = Skills.Where(CanUseSkill).ToArray();
+        if (availableSkills.Any())
+        {
+            availableSkills.ForEach(s => UseSkill(s, worldObject));
+        }
+        
     }
 
     private bool CanUseSkill(Skill skill)

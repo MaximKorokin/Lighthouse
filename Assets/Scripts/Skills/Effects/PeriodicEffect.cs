@@ -3,8 +3,10 @@ using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PeriodicEffect", menuName = "ScriptableObjects/Effects/PeriodicEffect", order = 1)]
-public class PeriodicEffect : ComplexEffect
+public class PeriodicEffect : EndingEffect
 {
+    private const float MinIntervalValue = 0.1f;
+
     [field: SerializeField]
     public float Duration { get; private set; }
     [field: SerializeField]
@@ -24,7 +26,7 @@ public class PeriodicEffect : ComplexEffect
         while (true)
         {
             base.Invoke(castState);
-            yield return new WaitForSeconds(Interval);
+            yield return new WaitForSeconds(Mathf.Max(MinIntervalValue, Interval));
         }
     }
 

@@ -50,7 +50,11 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             return;
         }
+
         CurrentHealthPoints -= damageValue;
+
+        SetAnimatorValue(AnimatorKey.Hurt, true);
+        SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
     }
 
     public virtual void Heal(float healValue)
@@ -74,12 +78,14 @@ public abstract class DestroyableWorldObject : WorldObject
             return;
         }
 
+        SetAnimatorValue(AnimatorKey.Dead, true);
+
         if (DestroyEffect != null)
         {
             DestroyEffect.Invoke(new CastState(this));
         }
-        IsAlive = false;
 
-        Destroy(gameObject);
+        IsAlive = false;
+        Destroy(gameObject, 15);
     }
 }

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1021736238142712522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2645437, y: 0.087990716, z: -0.002477415}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,7 +98,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.1
 --- !u!114 &5409251804486583412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   <IsAlive>k__BackingField: 1
   <DestroyEffect>k__BackingField: {fileID: 0}
   <CanRotate>k__BackingField: 0
+  <CanFlip>k__BackingField: 0
   <Effect>k__BackingField: {fileID: 11400000, guid: 776cea8fe8ccaec46b037bd942905682, type: 2}
 --- !u!212 &8725931171154606055
 SpriteRenderer:
@@ -189,9 +190,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021736238142712522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 187bf7f7c190f57439149c0c630a75df, type: 3}
+  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _validTypes: 2
 --- !u!114 &8795583979133995030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,4 +206,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c9be6b6271cd042903ad6052f644d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Target>k__BackingField: {fileID: 0}
+  _triggerType: 2
