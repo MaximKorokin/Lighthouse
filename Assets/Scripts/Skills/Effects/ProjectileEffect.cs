@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ProjectileEffect", menuName = "ScriptableObjects/Effects/ProjectileEffect", order = 1)]
@@ -58,13 +59,15 @@ public class ProjectileEffect : EndingEffect
             if (castState.Source == castState.Target)
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
-                    .GetValidTargets(castState.InitialSource);
+                    .GetValidTargets(castState.InitialSource)
+                    .GetValidTargets(effect.Projectile)
+                    .ToArray();
                 if (targets.Length > 0)
                 {
                     CreateAndGetController().ChooseTarget(targets, effect.TargetType, castState.Source, currentYaw);
                 }
             }
-            else
+            else if (castState.Target.IsValidTarget(effect.Projectile))
             {
                 CreateAndGetController().SetTarget(castState.Target, currentYaw);
             }

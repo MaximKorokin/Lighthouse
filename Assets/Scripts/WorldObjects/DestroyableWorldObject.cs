@@ -78,14 +78,14 @@ public abstract class DestroyableWorldObject : WorldObject
             return;
         }
 
+        IsAlive = false;
+
         SetAnimatorValue(AnimatorKey.Dead, true);
 
         if (DestroyEffect != null)
         {
             DestroyEffect.Invoke(new CastState(this));
         }
-
-        IsAlive = false;
-        Destroy(gameObject, 15);
+        Destroy(gameObject, 5);
     }
 }

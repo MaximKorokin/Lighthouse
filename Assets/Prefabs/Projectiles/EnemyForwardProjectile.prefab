@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2140693746531350728}
   - component: {fileID: 6890217733997509643}
-  - component: {fileID: 1731155828679622763}
+  - component: {fileID: 1916937086069036047}
   - component: {fileID: 1770973192567836993}
   - component: {fileID: 7123078960929944400}
   - component: {fileID: 7461735635080617453}
   - component: {fileID: 7313172375181996366}
-  - component: {fileID: 1795861463552646023}
   m_Layer: 0
   m_Name: EnemyForwardProjectile
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 01aaeebab01a6884192320be0d2d641c, type: 3}
-  m_Color: {r: 1, g: 0.51320755, b: 0.51320755, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 734b9ee0de60e6546b14e0a89d4a2afe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1731155828679622763
-BoxCollider2D:
+--- !u!58 &1916937086069036047
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,18 +122,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0
+  m_Radius: 0.08
 --- !u!50 &1770973192567836993
 Rigidbody2D:
   serializedVersion: 4
@@ -217,16 +206,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerType: 0
   <Direction>k__BackingField: {x: 0, y: 0}
---- !u!114 &1795861463552646023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254378381488008843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da000c660a55de48843e294c7133e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _validTypes: 0
