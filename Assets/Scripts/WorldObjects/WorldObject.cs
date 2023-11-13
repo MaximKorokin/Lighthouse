@@ -40,26 +40,27 @@ public abstract class WorldObject : MonoBehaviour
         }
     }
 
-    protected void SetAnimatorValue<T>(string name, T value = default) where T : struct
+    public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
     {
         if (Animator == null)
         {
             return;
         }
+        var keyName = key.ToString();
 
-        switch (Array.Find(Animator.parameters, x => x.name == name)?.type)
+        switch (Array.Find(Animator.parameters, x => x.name == keyName)?.type)
         {
             case AnimatorControllerParameterType.Bool:
-                Animator.SetBool(name, Convert.ToBoolean(value));
+                Animator.SetBool(keyName, Convert.ToBoolean(value));
                 break;
             case AnimatorControllerParameterType.Trigger:
-                Animator.SetTrigger(name);
+                Animator.SetTrigger(keyName);
                 break;
             case AnimatorControllerParameterType.Int:
-                Animator.SetInteger(name, Convert.ToInt32(value));
+                Animator.SetInteger(keyName, Convert.ToInt32(value));
                 break;
             case AnimatorControllerParameterType.Float:
-                Animator.SetFloat(name, Convert.ToSingle(value));
+                Animator.SetFloat(keyName, Convert.ToSingle(value));
                 break;
         }
     }
@@ -72,4 +73,13 @@ public enum PositioningType
     Flying = 1,
     Walking = 2,
     Both = Flying | Walking
+}
+
+public enum AnimatorKey
+{
+    Attack = 1,
+    Hurt = 2,
+    Dead = 3,
+    Speed = 4,
+    HPRatio = 5,
 }

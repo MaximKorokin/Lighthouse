@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d8ea35bfbba464499c4add060646ea, type: 3}
-  m_Name: ConditionalProjEffect
+  m_Script: {fileID: 11500000, guid: 7cfed3a5a1573f44e9f3a7d7c6a6c39b, type: 3}
+  m_Name: ExplodeComplex
   m_EditorClassIdentifier: 
   <Name>k__BackingField: 
   <Effects>k__BackingField:
-  - {fileID: 11400000, guid: b56ed92badd7e8142b2e9926a4380cec, type: 2}
-  - {fileID: 11400000, guid: a50b7e9b96d367b49a52799564ddf70d, type: 2}
-  _conditions: 2
+  - {fileID: 11400000, guid: 680bb60677eb4e245a37ecf45097fb9c, type: 2}
+  - {fileID: 11400000, guid: f092e363b2eba12499f70392cfafcdb1, type: 2}
+  - {fileID: 11400000, guid: b8e6fcb639e9e2845bb748f4bff49682, type: 2}

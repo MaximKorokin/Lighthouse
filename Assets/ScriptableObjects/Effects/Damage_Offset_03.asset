@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191d0e56f4343f94e9ae305171358717, type: 3}
   m_Name: Damage_Offset_03
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: damage cond offset 0.3
+  <Name>k__BackingField: damage cond offset 0.8
   <Effects>k__BackingField: []
   <EndEffects>k__BackingField:
   - {fileID: 11400000, guid: b2ee05ebd84462d4899e28bd25324fb9, type: 2}

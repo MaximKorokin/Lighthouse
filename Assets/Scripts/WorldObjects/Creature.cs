@@ -26,7 +26,6 @@ public class Creature : MovableWorldObject
         var availableSkills = Skills.Where(CanUseSkill).ToArray();
         if (availableSkills.Any())
         {
-            SetAnimatorValue("Acted", true);
             availableSkills.ForEach(s => UseSkill(s, worldObject));
         }
         

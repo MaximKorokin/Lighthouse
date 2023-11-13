@@ -53,8 +53,8 @@ public abstract class DestroyableWorldObject : WorldObject
 
         CurrentHealthPoints -= damageValue;
 
-        SetAnimatorValue("Damaged", true);
-        SetAnimatorValue("HPPercent", CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
+        SetAnimatorValue(AnimatorKey.Hurt, true);
+        SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
     }
 
     public virtual void Heal(float healValue)
@@ -78,7 +78,7 @@ public abstract class DestroyableWorldObject : WorldObject
             return;
         }
 
-        SetAnimatorValue("Died", false);
+        SetAnimatorValue(AnimatorKey.Dead, true);
 
         if (DestroyEffect != null)
         {

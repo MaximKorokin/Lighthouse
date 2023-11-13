@@ -4,17 +4,17 @@ using UnityEngine;
 /// <summary>
 /// Used to define if world object could be targeted.
 /// </summary>
-[RequireComponent(typeof(MovableWorldObject))]
+[RequireComponent(typeof(WorldObject))]
 public class ValidatorBase : MonoBehaviour
 {
     [SerializeField]
     private ValidType _validTypes;
 
-    protected MovableWorldObject WorldObject { get; private set; }
+    protected WorldObject WorldObject { get; private set; }
 
     protected virtual void Awake()
     {
-        WorldObject = GetComponent<MovableWorldObject>();
+        WorldObject = GetComponent<WorldObject>();
     }
 
     public virtual bool IsValidTarget(WorldObject worldObject)

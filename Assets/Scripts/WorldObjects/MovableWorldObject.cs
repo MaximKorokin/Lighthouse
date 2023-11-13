@@ -44,14 +44,14 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             _spriteRenderer.flipX = Direction.x < 0;
         }
 
-        SetAnimatorValue("Speed", direction.sqrMagnitude);
+        SetAnimatorValue(AnimatorKey.Speed, direction.sqrMagnitude);
     }
 
     public void Stop()
     {
         Direction = Vector2.zero;
 
-        SetAnimatorValue("Speed", 0);
+        SetAnimatorValue(AnimatorKey.Speed, 0);
     }
 
     public override void DestroyWorldObject()
