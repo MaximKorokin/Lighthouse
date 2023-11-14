@@ -20,4 +20,14 @@ public class GenericAnimatorPool : ObjectPool<Animator, AnimationClip>
         animator.gameObject.SetActive(true);
         animator.SetTrigger("Act");
     }
+
+    protected override void Deinitialize(Animator obj)
+    {
+        var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = false;
+            spriteRenderer.flipY = false;
+        }
+    }
 }

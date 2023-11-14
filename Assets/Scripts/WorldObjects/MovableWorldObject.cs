@@ -8,8 +8,10 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     [field: SerializeField]
     public bool CanFlip { get; protected set; }
 
-    public Vector2 Direction { get; private set; }
+    public Vector2 Direction { get => _direction; set => _direction = value.normalized; }
+    public bool IsMoving { get; private set; }
 
+    private Vector2 _direction;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
@@ -24,6 +26,10 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     protected virtual void Update()
     {
+        if (CanFlip && _spriteRenderer != null && Direction.x != 0)
+        {
+            _spriteRenderer.flipX = Direction.x < 0;
+        }
         if (CanRotate)
         {
             transform.right = Direction;
@@ -32,26 +38,21 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     protected virtual void FixedUpdate()
     {
-        _rigidbody.velocity = Stats[StatName.Speed] * Direction;
+        _rigidbody.velocity = IsMoving ? Stats[StatName.Speed] * Direction : Vector2.zero;
     }
 
-    public void Move(Vector2 direction)
+    public void Move()
     {
-        Direction = direction.normalized;
+        IsMoving = true;
 
-        if (CanFlip && _spriteRenderer != null && Direction.x != 0)
-        {
-            _spriteRenderer.flipX = Direction.x < 0;
-        }
-
-        SetAnimatorValue(AnimatorKey.Speed, direction.sqrMagnitude);
+        SetAnimatorValue(AnimatorKey.IsMoving, true);
     }
 
     public void Stop()
     {
-        Direction = Vector2.zero;
+        IsMoving = false;
 
-        SetAnimatorValue(AnimatorKey.Speed, 0);
+        SetAnimatorValue(AnimatorKey.IsMoving, false);
     }
 
     public override void DestroyWorldObject()

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8725931171154606055}
   - component: {fileID: 3121574280319829085}
   - component: {fileID: 8795583979133995030}
+  - component: {fileID: 2672765818256748374}
   m_Layer: 0
   m_Name: ExperienceOrb
   m_TagString: Untagged
@@ -125,6 +126,7 @@ MonoBehaviour:
       Value: 1
   <IsDamagable>k__BackingField: 0
   <IsAlive>k__BackingField: 1
+  <DamageEffect>k__BackingField: {fileID: 0}
   <DestroyEffect>k__BackingField: {fileID: 0}
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
@@ -170,8 +172,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 06e2fe08318e11249b690dcb7a21ae79, type: 3}
-  m_Color: {r: 0.5029794, g: 0.9433962, b: 0.493058, a: 1}
+  m_Sprite: {fileID: 374747432, guid: a24a154fb46f9e34680cefaa32c150e5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -207,3 +209,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 2
+--- !u!95 &2672765818256748374
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021736238142712522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 2eed56eb12d38e74098b23f28ba2d4d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -227,10 +227,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 809945631460520319, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.73
@@ -800,10 +796,6 @@ PrefabInstance:
     - target: {fileID: 6872794843445091386, guid: 3b15224dd42fe9c4792f8cdb22558f38, type: 3}
       propertyPath: m_Name
       value: Capsule
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872794843445091386, guid: 3b15224dd42fe9c4792f8cdb22558f38, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7486734869121475125, guid: 3b15224dd42fe9c4792f8cdb22558f38, type: 3}
       propertyPath: m_LocalPosition.x

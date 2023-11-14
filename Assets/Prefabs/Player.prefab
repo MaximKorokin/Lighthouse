@@ -218,6 +218,7 @@ MonoBehaviour:
       Value: 2
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
+  <DamageEffect>k__BackingField: {fileID: 11400000, guid: 555f25e13df131d46b4351206a7fdc01, type: 2}
   <DestroyEffect>k__BackingField: {fileID: 0}
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1

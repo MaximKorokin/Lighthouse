@@ -8,6 +8,8 @@ public abstract class DestroyableWorldObject : WorldObject
     [field: SerializeField]
     public bool IsAlive { get; private set; } = true;
     [field: SerializeField]
+    public Effect DamageEffect { get; set; }
+    [field: SerializeField]
     public Effect DestroyEffect { get; set; }
 
     private float _currentHealthPoints;
@@ -52,6 +54,11 @@ public abstract class DestroyableWorldObject : WorldObject
         }
 
         CurrentHealthPoints -= damageValue;
+
+        if (DamageEffect != null)
+        {
+            DamageEffect.Invoke(new CastState(this));
+        }
 
         SetAnimatorValue(AnimatorKey.Hurt, true);
         SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);

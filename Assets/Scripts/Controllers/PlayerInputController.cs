@@ -15,7 +15,15 @@ public class PlayerInputController : MonoBehaviour
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
-        WorldObject.Move(direction);
+        WorldObject.Direction = direction;
+        if (direction == Vector2.zero)
+        {
+            WorldObject.Stop();
+        }
+        else
+        {
+            WorldObject.Move();
+        }
 
         WorldObject.Act(WorldObject);
     }

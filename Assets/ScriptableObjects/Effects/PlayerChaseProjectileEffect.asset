@@ -15,8 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Damage projectile
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2e4cb65f9b97d1c48877cf767ae052fc, type: 2}
-  <EndEffects>k__BackingField:
-  - {fileID: 11400000, guid: b8e6fcb639e9e2845bb748f4bff49682, type: 2}
+  <EndEffects>k__BackingField: []
   <Projectile>k__BackingField: {fileID: 7123078960929944400, guid: 21fc04a0af5335744b1762e2ed029572, type: 3}
   <Amount>k__BackingField: 1
   <PierceAmount>k__BackingField: 1

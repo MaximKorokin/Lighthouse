@@ -6,6 +6,10 @@ public class AnimationEffect : Effect
 {
     [SerializeField]
     private AnimationClip _animation;
+    [SerializeField]
+    private bool _childToTarget;
+    [SerializeField]
+    private bool _flipWithTarget;
 
     public override void Invoke(CastState castState)
     {
@@ -15,7 +19,21 @@ public class AnimationEffect : Effect
     private IEnumerator AnimationCoroutine(CastState castState)
     {
         var animator = GenericAnimatorPool.Instance.Take(_animation);
+        if (_childToTarget)
+        {
+            animator.transform.parent = castState.Target.transform;
+        }
         animator.transform.position = castState.Target.transform.position;
+        if (_flipWithTarget)
+        {
+            var targetSpriteRenderer = castState.Target.GetComponent<SpriteRenderer>();
+            var animSpriteRenderer = animator.GetComponent<SpriteRenderer>();
+            if (targetSpriteRenderer != null && animSpriteRenderer != null)
+            {
+                animSpriteRenderer.flipX = targetSpriteRenderer.flipX;
+                animSpriteRenderer.flipY = targetSpriteRenderer.flipY;
+            }
+        }
         yield return new WaitForSeconds(_animation.length);
         GenericAnimatorPool.Instance.Return(animator);
     }

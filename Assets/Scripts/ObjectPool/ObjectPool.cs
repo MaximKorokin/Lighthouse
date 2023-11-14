@@ -36,8 +36,11 @@ public abstract class ObjectPool<T, P> : MonoBehaviour where T : Component
             return;
         }
         Pool.Push(obj);
+        obj.transform.parent = transform;
+        Deinitialize(obj);
         obj.gameObject.SetActive(false);
     }
 
     protected abstract void Initialize(T obj, P param);
+    protected abstract void Deinitialize(T obj);
 }

@@ -32,6 +32,7 @@ public class StraightMovingController : TargetController
 
     protected override void Control()
     {
-        WorldObject.Move(Direction);
+        WorldObject.Direction = Direction;
+        WorldObject.Move();
     }
 }
