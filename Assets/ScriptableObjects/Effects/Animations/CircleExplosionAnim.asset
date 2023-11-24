@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466ad35bfba43af4aa9aa9344c9b1583, type: 3}
   m_Name: CircleExplosionAnim
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
+  <Name>k__BackingField: Explosion
+  <Description>k__BackingField: 'Plays a nice explosion animation
+
+    No more effect)'
+  <Sprite>k__BackingField: {fileID: -2026439440, guid: e0046bf092c78e54facc5f054b9e1cb6, type: 3}
   _animation: {fileID: 7400000, guid: edf911b2e5d744a46b364de86c58415a, type: 2}
+  _childToTarget: 0
+  _flipWithTarget: 0

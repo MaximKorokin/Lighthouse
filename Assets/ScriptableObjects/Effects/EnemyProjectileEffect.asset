@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e4cb65f9b97d1c48877cf767ae052fc, type: 2}
   <EndEffects>k__BackingField: []
   <Projectile>k__BackingField: {fileID: 7123078960929944400, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
-  <Amount>k__BackingField: 5
+  <Amount>k__BackingField: 1
   <PierceAmount>k__BackingField: 1
   <Spread>k__BackingField: 60
   <TargetType>k__BackingField: 0

@@ -7,7 +7,7 @@ public class ExperienceEffect : SimpleEffect
     {
         if (castState.Target is PlayerCreature playerCreature)
         {
-            playerCreature.AddExperience(Value);
+            playerCreature.LevelingSystem.AddExperience(Value);
         }
     }
 }

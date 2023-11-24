@@ -9,22 +9,28 @@ public class Stats
     [SerializeField]
     private Stat[] _stats;
     private Dictionary<StatName, float> _statsDictionary;
-
-    public void Init()
+    private Dictionary<StatName, float> StatsDictionary
     {
-        _statsDictionary = _stats.ToDictionary(x => x.Name, x => x.Value);
+        get
+        {
+            if (_statsDictionary == null)
+            {
+                _statsDictionary = _stats.ToDictionary(x => x.Name, x => x.Value);
+            }
+            return _statsDictionary;
+        }
     }
 
     public void Modify(Stats other)
     {
-        if (_statsDictionary == null || other._statsDictionary == null)
+        if (StatsDictionary == null || other.StatsDictionary == null)
         {
             return;
         }
 
-        foreach (var statName in _statsDictionary.Keys.Where(x => other._statsDictionary.ContainsKey(x)))
+        foreach (var statName in StatsDictionary.Keys.Where(x => other.StatsDictionary.ContainsKey(x)).ToArray())
         {
-            _statsDictionary[statName] += other._statsDictionary[statName];
+            StatsDictionary[statName] += other.StatsDictionary[statName];
         }
     }
 
@@ -32,12 +38,12 @@ public class Stats
     {
         get
         {
-            _statsDictionary.TryGetValue(name, out var statValue);
+            StatsDictionary.TryGetValue(name, out var statValue);
             return statValue;
         }
         set
         {
-            _statsDictionary[name] = value;
+            StatsDictionary[name] = value;
         }
     }
 }

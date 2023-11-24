@@ -4,30 +4,17 @@ using UnityEngine;
 public class PlayerCreature : Creature
 {
     [SerializeField]
-    private LevelsTable _levelsTable;
-
-    public int Level { get; private set; }
+    private LevelingSystemSettings _levelingSystemSettings;
+    
+    public LevelingSystem LevelingSystem { get; private set; }
 
     public virtual float AutoLootRange => Stats[StatName.AutoLootRange] * Stats[StatName.SizeScale];
 
-    public event Action LevelIncreased;
-
-    private float _currentExperience;
-
-    public void AddExperience(float expValue)
+    protected override void Awake()
     {
-        var expToUp = _levelsTable.GetExpereinceNeeded(Level, (int)_currentExperience);
-        var expDelta = expToUp - expValue;
-        if (expDelta <= 0)
-        {
-            Level++;
-            LevelIncreased?.Invoke();
-            AddExperience(-expDelta);
-        }
-        else
-        {
-            _currentExperience += expValue;
-        }
+        base.Awake();
+        LevelingSystem = new LevelingSystem(_levelingSystemSettings);
+        LevelingSystem.LevelIncreased += OnLevelIncreased;
     }
 
     protected override void OnStatsModified()
@@ -39,5 +26,10 @@ public class PlayerCreature : Creature
         {
             autoLootCollider.radius = AutoLootRange;
         }
+    }
+
+    private void OnLevelIncreased(Effect effect)
+    {
+        effect.Invoke(new CastState(this));
     }
 }

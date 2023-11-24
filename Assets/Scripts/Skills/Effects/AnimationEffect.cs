@@ -18,7 +18,7 @@ public class AnimationEffect : Effect
 
     private IEnumerator AnimationCoroutine(CastState castState)
     {
-        var animator = GenericAnimatorPool.Instance.Take(_animation);
+        var animator = GenericAnimatorPool.Take(_animation);
         if (_childToTarget)
         {
             animator.transform.parent = castState.Target.transform;
@@ -35,6 +35,6 @@ public class AnimationEffect : Effect
             }
         }
         yield return new WaitForSeconds(_animation.length);
-        GenericAnimatorPool.Instance.Return(animator);
+        GenericAnimatorPool.Return(animator);
     }
 }

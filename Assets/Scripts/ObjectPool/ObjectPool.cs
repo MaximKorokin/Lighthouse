@@ -3,11 +3,18 @@ using UnityEngine;
 
 public abstract class ObjectPool<T, P> : MonoBehaviour where T : Component
 {
+    private static ObjectPool<T, P> Instance { get; set; }
+
     [field: SerializeField]
     protected T Object { get; private set; }
 
     protected HashSet<T> AllObjects { get; private set; } = new();
     protected Stack<T> Pool { get; private set; } = new();
+
+    protected virtual void Awake()
+    {
+        Instance = this;
+    }
 
     protected virtual T Create()
     {
@@ -18,26 +25,27 @@ public abstract class ObjectPool<T, P> : MonoBehaviour where T : Component
         return obj;
     }
 
-    public T Take(P param)
+    public static T Take(P param)
     {
-        if (Pool.Count == 0)
+        if (Instance.Pool.Count == 0)
         {
-            Create();
+            Instance.Create();
         }
-        var obj = Pool.Pop();
-        Initialize(obj, param);
+        var obj = Instance.Pool.Pop();
+        Instance.Initialize(obj, param);
         return obj;
     }
 
-    public void Return(T obj)
+    public static void Return(T obj)
     {
-        if (!AllObjects.Contains(obj))
+        if (!Instance.AllObjects.Contains(obj))
         {
             return;
         }
-        Pool.Push(obj);
-        obj.transform.parent = transform;
-        Deinitialize(obj);
+        Instance.Pool.Push(obj);
+        obj.transform.SetParent(Instance.transform, false);
+        obj.transform.localScale = Vector3.one;
+        Instance.Deinitialize(obj);
         obj.gameObject.SetActive(false);
     }
 

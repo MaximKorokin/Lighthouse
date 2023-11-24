@@ -2,19 +2,12 @@ using UnityEngine;
 
 public class GenericAnimatorPool : ObjectPool<Animator, AnimationClip>
 {
-    public static GenericAnimatorPool Instance { get; private set; }
-
     [SerializeField]
-    private RuntimeAnimatorController _controller;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
+    private RuntimeAnimatorController _animatorController;
 
     protected override void Initialize(Animator animator, AnimationClip animation)
     {
-        var overrideController = new AnimatorOverrideController(_controller);
+        var overrideController = new AnimatorOverrideController(_animatorController);
         overrideController["Action"] = animation;
         animator.runtimeAnimatorController = overrideController;
         animator.gameObject.SetActive(true);

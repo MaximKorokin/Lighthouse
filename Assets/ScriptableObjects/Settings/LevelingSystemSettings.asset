@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7ecd7e3b5f9ef4cbb68def1225f438, type: 3}
+  m_Name: LevelingSystemSettings
+  m_EditorClassIdentifier: 
+  <AlternativesAmount>k__BackingField: 4
+  <MaxEffectLevel>k__BackingField: 4
+  <LevelsExperience>k__BackingField: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: a2bbe10187b73894aa10e1f039ac18db, type: 2}
+  - {fileID: 11400000, guid: 10fb6e9b6b361374ca379afd15ccbaf0, type: 2}
+  - {fileID: 11400000, guid: 73167408e902b7c4d8f913354818318a, type: 2}
+  - {fileID: 11400000, guid: b8e6fcb639e9e2845bb748f4bff49682, type: 2}
+  - {fileID: 11400000, guid: 91c8705aa5d288f40a10593d9e54a8f0, type: 2}
