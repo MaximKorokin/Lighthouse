@@ -7,6 +7,8 @@ public class AnimationEffect : Effect
     [SerializeField]
     private AnimationClip _animation;
     [SerializeField]
+    private float _duration;
+    [SerializeField]
     private bool _childToTarget;
     [SerializeField]
     private bool _flipWithTarget;
@@ -34,7 +36,7 @@ public class AnimationEffect : Effect
                 animSpriteRenderer.flipY = targetSpriteRenderer.flipY;
             }
         }
-        yield return new WaitForSeconds(_animation.length);
+        yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
         GenericAnimatorPool.Return(animator);
     }
 }

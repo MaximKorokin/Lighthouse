@@ -18,6 +18,10 @@ public abstract class WorldObject : MonoBehaviour
     protected virtual void Awake()
     {
         Animator = GetComponent<Animator>();
+    }
+
+    protected virtual void Start()
+    {
         OnStatsModified();
     }
 

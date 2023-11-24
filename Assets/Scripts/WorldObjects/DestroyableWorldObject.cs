@@ -11,6 +11,10 @@ public abstract class DestroyableWorldObject : WorldObject
     public Effect DamageEffect { get; set; }
     [field: SerializeField]
     public Effect DestroyEffect { get; set; }
+    [field: SerializeField]
+    private HPBar _hpBar;
+
+    public virtual float MaxHealthPoints => Stats[StatName.MaxHealthPoints];
 
     private float _currentHealthPoints;
     protected float CurrentHealthPoints
@@ -23,18 +27,22 @@ public abstract class DestroyableWorldObject : WorldObject
             {
                 DestroyWorldObject();
             }
+
+            _hpBar.VizualizeHPAmount(_currentHealthPoints, MaxHealthPoints);
+            SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
         }
     }
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         CurrentHealthPoints = Stats[StatName.MaxHealthPoints];
     }
 
     protected override void OnStatsModified()
     {
         base.OnStatsModified();
+
         if (Stats[StatName.MaxHealthPoints] < CurrentHealthPoints)
         {
             CurrentHealthPoints = Stats[StatName.MaxHealthPoints];
@@ -61,7 +69,6 @@ public abstract class DestroyableWorldObject : WorldObject
         }
 
         SetAnimatorValue(AnimatorKey.Hurt, true);
-        SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
     }
 
     public virtual void Heal(float healValue)

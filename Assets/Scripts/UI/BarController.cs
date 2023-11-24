@@ -8,14 +8,17 @@ public class BarController : MonoBehaviour
     private Gradient _gradient;
 
     private Image _image;
-
-    private void Awake()
+    private Image Image
     {
-        _image = GetComponent<Image>();
+        get => _image = _image != null ? _image : GetComponent<Image>();
     }
 
-    public void SetFillRatio(float value)
+    public void SetFillRatio(float value, bool shouldUseGradient = false)
     {
-        _image.fillAmount = value;
+        Image.fillAmount = value;
+        if (shouldUseGradient)
+        {
+            Image.color = _gradient.Evaluate(value);
+        }
     }
 }

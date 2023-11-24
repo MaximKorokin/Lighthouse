@@ -40,12 +40,18 @@ public class LevelingSystemUI : MonoBehaviour
 
     public void VisualizeExperienceAmount(float current, float max)
     {
-        _expBarController.SetFillRatio(current / max);
+        if (_expBarController != null)
+        {
+            _expBarController.SetFillRatio(current / max);
+        }
     }
 
     public void VisualizeLevel(int level)
     {
-        _levelText.text = level.ToString();
+        if (_levelText != null)
+        {
+            _levelText.text = level.ToString();
+        }
     }
 
     private void OnViewClicked(EffectView view, Effect effect)

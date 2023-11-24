@@ -348,11 +348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4795781210623329692, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.65
+      value: 7.55
       objectReference: {fileID: 0}
     - target: {fileID: 4795781210623329692, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.51
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 4795781210623329692, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1299,11 +1299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4795781210623329692, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.01
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 4795781210623329692, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 4795781210623329692, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1921,11 +1921,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 241050426451241158, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.986
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 241050426451241158, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.836
+      value: -2.862
       objectReference: {fileID: 0}
     - target: {fileID: 241050426451241158, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1959,10 +1959,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 322627562551336750, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
-      propertyPath: _levelingSystemSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 10547097463749d4e9f3416e00abf3d6, type: 2}
     - target: {fileID: 7537639882005055995, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_Name
       value: Player

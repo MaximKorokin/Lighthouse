@@ -11,12 +11,13 @@ public class GenericAnimatorPool : ObjectPool<Animator, AnimationClip>
         overrideController["Action"] = animation;
         animator.runtimeAnimatorController = overrideController;
         animator.gameObject.SetActive(true);
-        animator.SetTrigger("Act");
+        animator.SetBool("IsActing", true);
     }
 
-    protected override void Deinitialize(Animator obj)
+    protected override void Deinitialize(Animator animator)
     {
-        var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+        animator.SetBool("IsActing", false);
+        var spriteRenderer = animator.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.flipX = false;

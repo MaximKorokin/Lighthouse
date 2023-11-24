@@ -10,9 +10,9 @@ public class PlayerCreature : Creature
 
     public virtual float AutoLootRange => Stats[StatName.AutoLootRange] * Stats[StatName.SizeScale];
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         LevelingSystem = new LevelingSystem(_levelingSystemSettings);
         LevelingSystem.LevelIncreased += OnLevelIncreased;
     }
