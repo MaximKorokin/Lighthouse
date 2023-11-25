@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AlternativesAmount>k__BackingField: 4
   <MaxEffectLevel>k__BackingField: 4
-  <LevelsExperience>k__BackingField: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
+  <LevelsExperience>k__BackingField: 320000003c00000046000000
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: a2bbe10187b73894aa10e1f039ac18db, type: 2}
   - {fileID: 11400000, guid: 10fb6e9b6b361374ca379afd15ccbaf0, type: 2}

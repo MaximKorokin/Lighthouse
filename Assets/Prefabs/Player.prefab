@@ -132,7 +132,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 90}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1080365655682459460}
   m_Father: {fileID: 1402696697163418345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
+  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -187,39 +188,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 4613242002615185607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0531dcafc60d734cb1ba457360c818b, type: 3}
+  m_Script: {fileID: 11500000, guid: e00b9a7d72bbafc4d995d4356d5ae2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.17358488, b: 0.17358488, a: 1}
-    key1: {r: 1, g: 0.33698228, b: 0, a: 1}
-    key2: {r: 1, g: 0.6292707, b: 0, a: 0}
-    key3: {r: 0.9078952, g: 1, b: 0, a: 0}
-    key4: {r: 0.10850816, g: 0.9528302, b: 0.0125845, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 14842
-    ctime2: 32382
-    ctime3: 50693
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 2
+  _barImage: {fileID: 5380776216556855921}
+  _gradientData:
+    ShouldUseGradient: 1
+    Gradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 0.17358488, b: 0.17358488, a: 1}
+      key1: {r: 1, g: 0.6054473, b: 0, a: 1}
+      key2: {r: 1, g: 0.8866934, b: 0, a: 0}
+      key3: {r: 0.9078952, g: 1, b: 0, a: 0}
+      key4: {r: 0.5674081, g: 1, b: 0.107547104, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 14842
+      ctime2: 32382
+      ctime3: 50693
+      ctime4: 65535
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 5
+      m_NumAlphaKeys: 2
+  _smoothData:
+    SmoothBarImage: {fileID: 9142721728767393997}
+    SmoothSpeed: 0.3
+  _fadeData:
+    TimeToFade: 0
+    AdditionalImagesToFade: []
 --- !u!1 &7537639882005055995
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +247,7 @@ GameObject:
   - component: {fileID: 4808862166265668767}
   - component: {fileID: 7710930481566254948}
   - component: {fileID: 7024971320545400970}
+  - component: {fileID: 4561559417053363611}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -441,10 +452,6 @@ MonoBehaviour:
   <IsAlive>k__BackingField: 1
   <DamageEffect>k__BackingField: {fileID: 11400000, guid: 555f25e13df131d46b4351206a7fdc01, type: 2}
   <DestroyEffect>k__BackingField: {fileID: 0}
-  _hpBar:
-    _barController: {fileID: 1542226010991429103}
-    _barParent: {fileID: 0}
-    _timeToDisappear: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
   _skills:
@@ -496,3 +503,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _validTypes: 1
+--- !u!114 &4561559417053363611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f160e994da254c94a985ffde4186e088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barController: {fileID: 1542226010991429103}
+--- !u!1 &8223619460852185266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080365655682459460}
+  - component: {fileID: 3363962223188087925}
+  - component: {fileID: 5380776216556855921}
+  m_Layer: 5
+  m_Name: InstantBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1080365655682459460
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223619460852185266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3136972292053595687}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3363962223188087925
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223619460852185266}
+  m_CullTransparentMesh: 1
+--- !u!114 &5380776216556855921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223619460852185266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7482667652216324306, guid: 01aaeebab01a6884192320be0d2d641c, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1

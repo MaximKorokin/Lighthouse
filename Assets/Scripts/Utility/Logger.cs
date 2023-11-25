@@ -29,4 +29,9 @@ public static class Logger
             Debug.Log(obj);
         }
     }
+
+    public static void Log(object obj1, params object[] objects)
+    {
+        Log(obj1.YieldWith(objects));
+    }
 }

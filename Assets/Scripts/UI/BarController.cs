@@ -1,24 +1,113 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
 public class BarController : MonoBehaviour
 {
     [SerializeField]
-    private Gradient _gradient;
+    private Image _barImage;
+    [SerializeField]
+    private GradientBarControllerData _gradientData;
+    [SerializeField]
+    private SmoothBarControllerData _smoothData;
+    [SerializeField]
+    private FadeBarControllerData _fadeData;
 
-    private Image _image;
-    private Image Image
-    {
-        get => _image = _image != null ? _image : GetComponent<Image>();
-    }
+    private const float DefaultAlphaValue = 1;
 
-    public void SetFillRatio(float value, bool shouldUseGradient = false)
+    public void SetFillRatio(float value)
     {
-        Image.fillAmount = value;
-        if (shouldUseGradient)
+        if (_barImage == null)
         {
-            Image.color = _gradient.Evaluate(value);
+            return;
+        }
+        if (_fadeData.TimeToFade > 0)
+        {
+            IncrementAlphaValue(DefaultAlphaValue);
+        }
+
+        _barImage.fillAmount = value;
+        if (_gradientData.ShouldUseGradient)
+        {
+            _barImage.color = _gradientData.Gradient.Evaluate(value);
         }
     }
+
+    private void Update()
+    {
+        SetSmoothBar();
+        Fade();
+    }
+
+    private void SetSmoothBar()
+    {
+        if (_barImage == null || _smoothData.SmoothBarImage == null)
+        {
+            return;
+        }
+        var fillDifference = _barImage.fillAmount - _smoothData.SmoothBarImage.fillAmount;
+        if (fillDifference != 0)
+        {
+            var fillStep = (fillDifference > 0 ? 1 : -1) * _smoothData.SmoothSpeed * Time.deltaTime;
+            if (Mathf.Abs(fillDifference) - Mathf.Abs(fillStep) > 0)
+            {
+                _smoothData.SmoothBarImage.fillAmount += fillStep;
+            }
+            else
+            {
+                _smoothData.SmoothBarImage.fillAmount = _barImage.fillAmount;
+            }
+        }
+    }
+
+    private void Fade()
+    {
+        if (_fadeData.TimeToFade <= 0)
+        {
+            return;
+        }
+        var fadeStep = -1 / _fadeData.TimeToFade * Time.deltaTime;
+        IncrementAlphaValue(fadeStep);
+    }
+
+    private void IncrementAlphaValue(float alpha)
+    {
+        var colorStep = new Color(0, 0, 0, alpha);
+        if (_barImage != null)
+        {
+            _barImage.color += colorStep;
+        }
+        if (_smoothData.SmoothBarImage != null)
+        {
+            _smoothData.SmoothBarImage.color += colorStep;
+        }
+        if (_fadeData.AdditionalImagesToFade != null)
+        {
+            foreach (var image in _fadeData.AdditionalImagesToFade)
+            {
+                image.color += colorStep;
+            }
+        }
+    }
+}
+
+[Serializable]
+public struct GradientBarControllerData
+{
+    public bool ShouldUseGradient;
+    public Gradient Gradient;
+}
+
+[Serializable]
+public struct SmoothBarControllerData
+{
+    public Image SmoothBarImage;
+    public float SmoothSpeed;
+}
+
+[Serializable]
+public struct FadeBarControllerData
+{
+    public float TimeToFade;
+    public Image[] AdditionalImagesToFade;
 }

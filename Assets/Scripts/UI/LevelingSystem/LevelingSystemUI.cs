@@ -18,7 +18,7 @@ public class LevelingSystemUI : MonoBehaviour
 
     public event Action<Effect> EffectChosen;
 
-    public void Initialize()
+    public void Awake()
     {
         Instance = this;
     }
