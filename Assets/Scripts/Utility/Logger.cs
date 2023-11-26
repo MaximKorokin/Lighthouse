@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Logger
 {
+    private const string Delimiter = ", ";
+
     public static void Log(object obj)
     {
         if (obj is string)
@@ -16,11 +18,11 @@ public static class Logger
             foreach (var element in enumerable)
             {
                 sb.Append(element.ToString());
-                sb.Append(", ");
+                sb.Append(Delimiter);
             }
             if (sb.Length > 0)
             {
-                sb.Remove(sb.Length - 1, 1);
+                sb.Remove(sb.Length - Delimiter.Length, Delimiter.Length);
             }
             Debug.Log(sb.ToString());
         }

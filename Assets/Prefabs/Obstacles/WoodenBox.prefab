@@ -141,7 +141,7 @@ MonoBehaviour:
     - Name: 1
       Value: 1
     - Name: 2
-      Value: 15
+      Value: 5
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
   <DamageEffect>k__BackingField: {fileID: 0}

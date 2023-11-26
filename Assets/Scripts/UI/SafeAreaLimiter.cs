@@ -1,8 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class SafeAreaLimiter : MonoBehaviour
 {
+    [SerializeField]
+    private CanvasScaler _canvasScaler;
+
     private Rect _safeArea;
     private RectTransform _rectTransform;
 
@@ -22,15 +26,12 @@ public class SafeAreaLimiter : MonoBehaviour
 
     private void LimitSafeArea()
     {
-        var widthOffset = Screen.width - _safeArea.width;
-        var heightOffset = Screen.height - _safeArea.height;
-        var offsetMin = new Vector2(
-            -Screen.width / 2 + _safeArea.x,
-            -Screen.height / 2 + _safeArea.y);
-        var offsetMax = new Vector2(
-            Screen.width / 2 - widthOffset + _safeArea.x,
-            Screen.height / 2 - heightOffset + _safeArea.y);
-        _rectTransform.offsetMin = offsetMin;
-        _rectTransform.offsetMax = offsetMax;
+        var scaleVector = _canvasScaler.referenceResolution / new Vector2(Screen.width, Screen.height);
+        var safePos = _safeArea.position * scaleVector;
+        var safeSize = _safeArea.size * scaleVector;
+
+        _rectTransform.offsetMin = safePos;
+        _rectTransform.offsetMax = safePos - 
+            new Vector2(_canvasScaler.referenceResolution.x - safeSize.x, _canvasScaler.referenceResolution.y - safeSize.y);
     }
 }
