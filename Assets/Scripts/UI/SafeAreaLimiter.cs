@@ -31,7 +31,7 @@ public class SafeAreaLimiter : MonoBehaviour
         var safeSize = _safeArea.size * scaleVector;
 
         _rectTransform.offsetMin = safePos;
-        _rectTransform.offsetMax = safePos - 
+        _rectTransform.offsetMax = safePos -
             new Vector2(_canvasScaler.referenceResolution.x - safeSize.x, _canvasScaler.referenceResolution.y - safeSize.y);
     }
 }

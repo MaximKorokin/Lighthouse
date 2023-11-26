@@ -5,7 +5,7 @@ public class PlayerCreature : Creature
 {
     [SerializeField]
     private LevelingSystemSettings _levelingSystemSettings;
-    
+
     public LevelingSystem LevelingSystem { get; private set; }
 
     public virtual float AutoLootRange => Stats[StatName.AutoLootRange] * Stats[StatName.SizeScale];

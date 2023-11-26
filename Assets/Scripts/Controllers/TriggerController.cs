@@ -25,7 +25,7 @@ public abstract class TriggerController : ControllerBase
 
     private bool ValidateTrigger(Collider2D collision, out WorldObject worldObject)
     {
-        if (_triggerType != TriggerType.Triggers && 
+        if (_triggerType != TriggerType.Triggers &&
             ((_triggerType == TriggerType.Triggers && !collision.isTrigger) ||
             (_triggerType == TriggerType.Colliders && collision.isTrigger)))
         {

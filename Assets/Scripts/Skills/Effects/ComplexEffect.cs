@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ComplexEffect", menuName = "ScriptableObjects/Effects/ComplexEffect", order = 1)]
