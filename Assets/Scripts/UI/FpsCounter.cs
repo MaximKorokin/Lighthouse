@@ -13,7 +13,7 @@ public class FpsCounter : MonoBehaviour
     private int _framesPassedFromLastUpdate;
     private Coroutine _updateCoroutine;
 
-    void Awake()
+    private void Awake()
     {
         _text = GetComponent<TMP_Text>();
         _updateCoroutine = StartCoroutine(UpdateCoroutine());
