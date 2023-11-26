@@ -44,10 +44,11 @@ public abstract class DestroyableWorldObject : WorldObject
     {
         base.OnStatsModified();
 
-        if (Stats[StatName.MaxHealthPoints] < CurrentHealthPoints)
+        if (MaxHealthPoints < CurrentHealthPoints)
         {
-            CurrentHealthPoints = Stats[StatName.MaxHealthPoints];
+            CurrentHealthPoints = MaxHealthPoints;
         }
+        HealthPointsChanged?.Invoke(CurrentHealthPoints, MaxHealthPoints);
     }
 
     public virtual void Damage(float damageValue)

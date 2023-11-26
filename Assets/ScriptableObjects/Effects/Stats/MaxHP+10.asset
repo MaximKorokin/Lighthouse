@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d580fc3bc1d8ad644b8437d52cd443d6, type: 3}
-  m_Name: MaxHPIncrease
+  m_Name: MaxHP+10
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: MaxHPIncrease
-  <Description>k__BackingField: 
+  <Name>k__BackingField: Max HP
+  <Description>k__BackingField: Increaase Max HP by 10 per level
   <Sprite>k__BackingField: {fileID: 21300000, guid: 774ff287ee3121841b6c83e8b8cac9b8, type: 3}
   <StatsDelta>k__BackingField:
     _stats:
     - Name: 2
-      Value: 50
+      Value: 10

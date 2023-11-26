@@ -3,14 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
-    private const float MoveSpeedModifier = 3;
+    private const float MoveSpeedModifier = 2f;
 
     [field: SerializeField]
     public bool CanRotate { get; protected set; }
     [field: SerializeField]
     public bool CanFlip { get; protected set; }
 
-    public Vector2 Direction { get => _direction; set => _direction = value.normalized; }
+    public Vector2 Direction { get => _direction; set => _direction = value.sqrMagnitude > 1f ? value.normalized : value; }
     public bool IsMoving { get; private set; }
 
     private Vector2 _direction;
@@ -47,7 +47,17 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     protected virtual void FixedUpdate()
     {
-        _rigidbody.velocity = IsMoving ? (Stats[StatName.MoveSpeed] * MoveSpeedModifier * Direction) : Vector2.zero;
+        // this helps against "random" velocity sources such as collisions with other colliders
+        if (_rigidbody.velocity != Vector2.zero)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+
+        //_rigidbody.velocity = IsMoving ? (Stats[StatName.MoveSpeed] * MoveSpeedModifier * Direction) : Vector2.zero;
+        if (IsMoving)
+        {
+            _rigidbody.MovePosition((Vector2)transform.position + Stats[StatName.MoveSpeed] * MoveSpeedModifier * Direction * Time.fixedDeltaTime);
+        }
     }
 
     public void Move()

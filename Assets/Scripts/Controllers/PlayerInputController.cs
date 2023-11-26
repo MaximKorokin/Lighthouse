@@ -1,22 +1,31 @@
 using UnityEngine;
 
-public class PlayerInputController : MonoBehaviour
+public class PlayerInputController : ControllerBase
 {
-    private Vector2 direction;
-    protected MovableWorldObject WorldObject { get; private set; }
+    private Vector2 _direction;
 
-    private void Awake()
+    protected override void Awake()
     {
-        WorldObject = GetComponent<MovableWorldObject>();
+        base.Awake();
+        InputManager.MoveVectorChanged += OnMoveVectorChanged;
     }
 
-    private void Update()
+    private void OnMoveVectorChanged(Vector2 vector)
     {
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
+        _direction = vector;
+    }
 
-        WorldObject.Direction = direction;
-        if (direction == Vector2.zero)
+    protected override void Control()
+    {
+        WorldObject.Act(WorldObject);
+
+        if (WorldObject.Direction == _direction)
+        {
+            return;
+        }
+
+        WorldObject.Direction = _direction;
+        if (_direction == Vector2.zero)
         {
             WorldObject.Stop();
         }
@@ -24,7 +33,10 @@ public class PlayerInputController : MonoBehaviour
         {
             WorldObject.Move();
         }
+    }
 
-        WorldObject.Act(WorldObject);
+    private void OnDestroy()
+    {
+        InputManager.MoveVectorChanged -= OnMoveVectorChanged;
     }
 }

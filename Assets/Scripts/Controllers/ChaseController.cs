@@ -38,7 +38,7 @@ public class ChaseController : TargetController
             return;
         }
         var direction = Target.transform.position - transform.position;
-        WorldObject.Direction = direction;
+        WorldObject.Direction = direction.normalized;
         // sqrt is much slower than sqr
         if (direction.sqrMagnitude > WorldObject.ActionRange * WorldObject.ActionRange)
         {

@@ -20,7 +20,7 @@ public class EffectView : MonoBehaviour
     {
         _effect = effect;
         _image.sprite = effect.Sprite;
-        _title.text = effect.name;
+        _title.text = effect.Name;
         _description.text = effect.Description;
     }
 
