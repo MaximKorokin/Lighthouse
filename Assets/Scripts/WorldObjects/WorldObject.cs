@@ -19,6 +19,10 @@ public abstract class WorldObject : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
     }
+    private void OnValidate()
+    {
+        OnStatsModified();
+    }
 
     protected virtual void Start()
     {
@@ -32,7 +36,7 @@ public abstract class WorldObject : MonoBehaviour
     }
 
     /// <summary>
-    /// Called on Awake and each time <see cref="ModifyStats"/> is called
+    /// Called on initialization and each time <see cref="ModifyStats"/> is called
     /// </summary>
     protected virtual void OnStatsModified()
     {
@@ -85,4 +89,6 @@ public enum AnimatorKey
     Dead = 3,
     IsMoving = 4,
     HPRatio = 5,
+    AttackSpeed = 6,
+    MoveSpeed = 7,
 }

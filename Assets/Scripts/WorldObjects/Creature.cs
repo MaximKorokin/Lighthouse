@@ -28,12 +28,19 @@ public class Creature : MovableWorldObject
         {
             availableSkills.ForEach(s => UseSkill(s, worldObject));
         }
-        
+
+    }
+
+    protected override void OnStatsModified()
+    {
+        base.OnStatsModified();
+
+        SetAnimatorValue(AnimatorKey.AttackSpeed, Stats[StatName.AttackSpeed]);
     }
 
     private bool CanUseSkill(Skill skill)
     {
-        return Time.time - _skillsUsedTime[skill] > skill.Cooldown;
+        return Time.time - _skillsUsedTime[skill] > skill.Cooldown / Stats[StatName.AttackSpeed];
     }
 
     private void UseSkill(Skill skill, WorldObject target)

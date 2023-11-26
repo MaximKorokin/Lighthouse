@@ -357,7 +357,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.0001
+  m_Radius: 2
 --- !u!58 &4729459271456577208
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -441,13 +441,15 @@ MonoBehaviour:
     - Name: 2
       Value: 20
     - Name: 3
-      Value: 3
+      Value: 1
     - Name: 4
       Value: 5
     - Name: 5
       Value: 11
     - Name: 6
       Value: 2
+    - Name: 7
+      Value: 1
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
   <DamageEffect>k__BackingField: {fileID: 11400000, guid: 555f25e13df131d46b4351206a7fdc01, type: 2}

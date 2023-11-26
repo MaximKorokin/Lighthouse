@@ -211,11 +211,13 @@ MonoBehaviour:
     - Name: 1
       Value: 1
     - Name: 3
-      Value: 0.85
+      Value: 0.5
     - Name: 4
       Value: 1
     - Name: 5
       Value: 0.8
+    - Name: 7
+      Value: 1
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
   <DamageEffect>k__BackingField: {fileID: 11400000, guid: 2c9186c1615cd8047aa5ce5e17ad88fe, type: 2}
