@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class StraightMovingController : TargetController
 {
-    [field: SerializeField]
     public Vector2 Direction { get; set; }
 
     protected override void Trigger(WorldObject worldObject, bool entered)
     {
-        if (Validator.IsValidTarget(worldObject) && entered)
+        if (entered)
         {
-            WorldObject.Act(worldObject);
+            InvokeActors(worldObject);
         }
     }
 

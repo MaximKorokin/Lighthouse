@@ -4,3 +4,10 @@ public abstract class TargetController : TriggerController
 
     public abstract void SetTarget(WorldObject worldObject, float yaw);
 }
+
+public enum TargetType
+{
+    Nearest,
+    Random,
+    Forward
+}

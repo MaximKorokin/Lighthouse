@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7123078960929944400}
   - component: {fileID: 7461735635080617453}
   - component: {fileID: 7313172375181996366}
+  - component: {fileID: 5597023380158865238}
+  - component: {fileID: -8909341099840797249}
   m_Layer: 0
   m_Name: EnemyForwardProjectile
   m_TagString: Untagged
@@ -175,8 +177,7 @@ MonoBehaviour:
       Value: 4
   <IsDamagable>k__BackingField: 0
   <IsAlive>k__BackingField: 1
-  <DamageEffect>k__BackingField: {fileID: 0}
-  <DestroyEffect>k__BackingField: {fileID: 0}
+  <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
   <LifeTime>k__BackingField: 5
@@ -205,5 +206,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ad852864dcd58449d96ea8c3ad50ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5597023380158865238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _triggerType: 0
-  <Direction>k__BackingField: {x: 0, y: 0}
+--- !u!114 &-8909341099840797249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2735384f929f38243805496d9fdbfcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LifeTime>k__BackingField: 0

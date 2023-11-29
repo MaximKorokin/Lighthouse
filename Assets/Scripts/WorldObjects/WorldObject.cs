@@ -14,6 +14,7 @@ public abstract class WorldObject : MonoBehaviour
     protected Stats Stats => _stats;
 
     public virtual float ActionRange => Stats[StatName.ActionRange] * Stats[StatName.SizeScale];
+    public virtual float AttackSpeed => Stats[StatName.AttackSpeed];
 
     protected virtual void Awake()
     {
@@ -44,6 +45,7 @@ public abstract class WorldObject : MonoBehaviour
         {
             transform.localScale = Vector3.one * sizeScale;
         }
+        SetAnimatorValue(AnimatorKey.AttackSpeed, Stats[StatName.AttackSpeed]);
     }
 
     public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct

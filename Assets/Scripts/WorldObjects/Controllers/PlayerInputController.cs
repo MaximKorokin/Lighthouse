@@ -17,7 +17,7 @@ public class PlayerInputController : ControllerBase
 
     protected override void Control()
     {
-        WorldObject.Act(WorldObject);
+        InvokeActors(WorldObject);
 
         if (WorldObject.Direction == _direction)
         {

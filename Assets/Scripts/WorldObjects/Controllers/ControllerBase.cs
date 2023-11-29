@@ -1,16 +1,16 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MovableWorldObject))]
-[RequireComponent(typeof(ValidatorBase))]
+[RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
     protected MovableWorldObject WorldObject { get; private set; }
-    protected ValidatorBase Validator { get; private set; }
+    protected ActorBase[] Actors { get; private set; }
 
     protected virtual void Awake()
     {
         WorldObject = GetComponent<MovableWorldObject>();
-        Validator = GetComponent<ValidatorBase>();
+        Actors = GetComponents<ActorBase>();
     }
 
     protected virtual void Update()
@@ -20,6 +20,8 @@ public abstract class ControllerBase : MonoBehaviour
             Control();
         }
     }
+
+    protected void InvokeActors(WorldObject worldObject) => Actors.ForEach(x => x.Act(worldObject));
 
     protected abstract void Control();
 }

@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 7515372249633057556}
   - component: {fileID: 3431535608654371817}
   - component: {fileID: 8105381655039463507}
+  - component: {fileID: 1629970672303732006}
+  - component: {fileID: 8347436707394829878}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -251,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c9be6b6271cd042903ad6052f644d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
 --- !u!95 &7515372249633057556
 Animator:
   serializedVersion: 5
@@ -304,6 +305,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c9186c1615cd8047aa5ce5e17ad88fe, type: 2}
   _destroyEffects:
   - {fileID: 11400000, guid: 69eebea014187fb4f942e604d87974b7, type: 2}
+--- !u!114 &1629970672303732006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerType: 0
+--- !u!114 &8347436707394829878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skills:
+  - {fileID: 11400000, guid: 41081e9c1dd4ee547b3cffa3655311cb, type: 2}
 --- !u!1 &5879881947271396576
 GameObject:
   m_ObjectHideFlags: 0

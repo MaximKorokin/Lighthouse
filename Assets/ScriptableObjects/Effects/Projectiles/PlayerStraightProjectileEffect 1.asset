@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: PlayerStraightProjectileEffect 1
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Damage projectile
+  <Description>k__BackingField: 
+  <Sprite>k__BackingField: {fileID: 0}
   <Effects>k__BackingField:
   - {fileID: 11400000, guid: 2e4cb65f9b97d1c48877cf767ae052fc, type: 2}
   <EndEffects>k__BackingField:
   - {fileID: 11400000, guid: 17bd8ba37de5d7b429f775a93add7826, type: 2}
-  <Projectile>k__BackingField: {fileID: 7123078960929944400, guid: d0d42e34b80a4d14b88f327b405cd421, type: 3}
+  <Projectile>k__BackingField: {fileID: -4888402200594630173, guid: d0d42e34b80a4d14b88f327b405cd421, type: 3}
   <Amount>k__BackingField: 1
   <PierceAmount>k__BackingField: 1
   <Spread>k__BackingField: 0

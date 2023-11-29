@@ -8,9 +8,10 @@ public class SkillEffect : Effect
 
     public override void Invoke(CastState castState)
     {
-        if (castState.Target is Creature creature)
+        var actor = castState.Target.GetComponent<SkilledActor>();
+        if (actor != null)
         {
-            creature.AddSkill(Skill);
+            actor.AddSkill(Skill);
         }
     }
 }

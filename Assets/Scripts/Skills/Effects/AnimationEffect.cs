@@ -58,7 +58,7 @@ public class AnimationEffect : Effect
             animator.transform.parent = castState.Target.transform;
             animator.transform.localScale = Vector3.one;
         }
-        animator.transform.localPosition = Vector3.zero;
+        animator.transform.position = castState.Target.transform.position;
 
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
         animatorSpriteRenderer.sortingOrder = _orderInLayer;

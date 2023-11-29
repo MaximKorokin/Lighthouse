@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ConditionalEffect", menuName = "ScriptableObjects/Effects/ConditionalEffect", order = 1)]
@@ -30,9 +29,10 @@ public class ConditionalEffect : ComplexEffect
             return false;
         }
         if ((_conditions & EffectCondition.IsReachable) == EffectCondition.IsReachable &&
-            Physics2D.RaycastAll(castState.InitialSource.transform.position, direction.normalized, castState.InitialSource.ActionRange)
-                .TakeWhile(x => x.transform.gameObject != castState.Target.gameObject)
-                .OrderBy(x => x.distance).Any(x => x.transform.gameObject.GetComponent<Obstacle>() != null))
+            castState.Target.gameObject.IsReachable(
+                castState.InitialSource.transform.position,
+                direction.normalized,
+                castState.InitialSource.ActionRange))
         {
             return false;
         }

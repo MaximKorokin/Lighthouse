@@ -6,47 +6,10 @@ public class Projectile : MovableWorldObject
     [field: SerializeField]
     public float LifeTime { get; protected set; }
 
-    public ProjectileEffect Effect { get; private set; }
-
-    private int _pierceLeft;
-    private CastState _castState;
-
     protected override void Awake()
     {
         base.Awake();
         StartCoroutine(LifeTimeCoroutine());
-    }
-
-    public override void DestroyWorldObject()
-    {
-        _castState.Target = this;
-        Effect.InvokeEnd(_castState);
-        base.DestroyWorldObject();
-    }
-
-    public override void Act(WorldObject worldObject)
-    {
-        if (!IsAlive || _pierceLeft <= 0)
-        {
-            return;
-        }
-
-        _castState.Target = worldObject;
-        Effect.InvokeEffects(_castState);
-
-        if (--_pierceLeft <= 0)
-        {
-            DestroyWorldObject();
-        }
-    }
-
-    public void SetEffect(ProjectileEffect effect, CastState castState)
-    {
-        Effect = effect;
-        _pierceLeft = effect.PierceAmount;
-
-        _castState = castState;
-        _castState.Source = this;
     }
 
     private IEnumerator LifeTimeCoroutine()

@@ -7,3 +7,8 @@
 
 0.1.3_1
 - Add positioning to AnimationEffect
+
+0.1.4
+- Fixed AnimationEffect positioning and color
+- Extracted Act from WorldObject into Actor
+- Extracted trigger detection from TriggerController into TriggerDetector

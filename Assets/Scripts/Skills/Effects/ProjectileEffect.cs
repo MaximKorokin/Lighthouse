@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileEffect : EndingEffect
 {
     [field: SerializeField]
-    public Projectile Projectile { get; private set; }
+    public ProjectileActor Projectile { get; private set; }
     [field: SerializeField]
     public int Amount { get; private set; }
     [field: SerializeField]
@@ -55,19 +55,18 @@ public class ProjectileEffect : EndingEffect
 
         for (int i = 0; i < effect.Amount; i++)
         {
-
             if (castState.Source == castState.Target)
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
                     .GetValidTargets(castState.InitialSource)
-                    .GetValidTargets(effect.Projectile)
+                    .GetValidTargets(effect.Projectile.WorldObject)
                     .ToArray();
                 if (targets.Length > 0)
                 {
                     CreateAndGetController().ChooseTarget(targets, effect.TargetType, castState.Source, currentYaw);
                 }
             }
-            else if (castState.Target.IsValidTarget(effect.Projectile))
+            else if (castState.Target.IsValidTarget(effect.Projectile.WorldObject))
             {
                 CreateAndGetController().SetTarget(castState.Target, currentYaw);
             }

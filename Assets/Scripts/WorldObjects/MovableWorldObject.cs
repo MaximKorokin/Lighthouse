@@ -17,8 +17,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
-    public abstract void Act(WorldObject worldObject);
-
     protected override void Awake()
     {
         base.Awake();

@@ -14,7 +14,7 @@ public class ChaseController : TargetController
 
     public override void SetTarget(WorldObject worldObject, float yaw)
     {
-        if (Target == null && Validator.IsValidTarget(worldObject))
+        if (Target == null)
         {
             Target = worldObject;
         }
@@ -46,7 +46,7 @@ public class ChaseController : TargetController
         }
         else
         {
-            WorldObject.Act(Target);
+            InvokeActors(Target);
             WorldObject.Stop();
         }
     }

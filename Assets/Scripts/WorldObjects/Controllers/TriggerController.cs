@@ -1,47 +1,26 @@
 using UnityEngine;
 
+[RequireComponent(typeof(WorldObjectTriggerDetector))]
 public abstract class TriggerController : ControllerBase
 {
-    [SerializeField]
-    private TriggerType _triggerType;
-
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    protected override void Awake()
     {
-        if (ValidateTrigger(collision, out var worldObject))
-        {
-            Trigger(worldObject, true);
-        }
+        base.Awake();
+
+        var triggerDetector = GetComponent<WorldObjectTriggerDetector>();
+        triggerDetector.TriggerEntered += OnTriggerEntered;
+        triggerDetector.TriggerExited += OnTriggerExited;
     }
 
-    protected virtual void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEntered(WorldObject worldObject)
     {
-        if (ValidateTrigger(collision, out var worldObject))
-        {
-            Trigger(worldObject, false);
-        }
+        Trigger(worldObject, true);
+    }
+
+    private void OnTriggerExited(WorldObject worldObject)
+    {
+        Trigger(worldObject, false);
     }
 
     protected abstract void Trigger(WorldObject worldObject, bool entered);
-
-    private bool ValidateTrigger(Collider2D collision, out WorldObject worldObject)
-    {
-        if (_triggerType != TriggerType.Triggers &&
-            ((_triggerType == TriggerType.Triggers && !collision.isTrigger) ||
-            (_triggerType == TriggerType.Colliders && collision.isTrigger)))
-        {
-            worldObject = null;
-            return false;
-        }
-        worldObject = collision.GetComponent<WorldObject>();
-        return worldObject != null &&
-            (worldObject.PositioningType & WorldObject.TriggeringType) != PositioningType.None &&
-            Validator.IsValidTarget(worldObject);
-    }
-}
-
-public enum TriggerType
-{
-    Colliders,
-    Triggers,
-    Both
 }

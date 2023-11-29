@@ -10,7 +10,7 @@ public class ManualInputController : TriggerController
     {
         if (_targets.Any() && Input.GetKeyDown(KeyCode.E))
         {
-            WorldObject.Act(_targets.First());
+            InvokeActors(_targets.First());
         }
     }
 
@@ -18,10 +18,7 @@ public class ManualInputController : TriggerController
     {
         if (entered)
         {
-            if (Validator.IsValidTarget(worldObject))
-            {
-                _targets.Add(worldObject);
-            }
+            _targets.Add(worldObject);
         }
         else
         {
