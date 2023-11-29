@@ -2,15 +2,11 @@
 {
     private BarController _barController;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        DestroyableWorldObject.Dying += () => HPBarsDock.Return(_barController);
-    }
-
     private void Start()
     {
         _barController = HPBarsDock.Take(DestroyableWorldObject);
+        DestroyableWorldObject.Destroying += () => HPBarsDock.Return(_barController);
+        VisualizeHPAmount(DestroyableWorldObject.CurrentHealthPoints, DestroyableWorldObject.MaxHealthPoints);
     }
 
     public override void VisualizeHPAmount(float value, float max)

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4641833351409709706}
   - component: {fileID: 8421078738149760678}
   - component: {fileID: 3454752445968733899}
+  - component: {fileID: 2338888315662349175}
   m_Layer: 0
   m_Name: HealingOrb
   m_TagString: Untagged
@@ -126,8 +127,7 @@ MonoBehaviour:
       Value: 1
   <IsDamagable>k__BackingField: 0
   <IsAlive>k__BackingField: 1
-  <DamageEffect>k__BackingField: {fileID: 0}
-  <DestroyEffect>k__BackingField: {fileID: 0}
+  <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
   <Effect>k__BackingField: {fileID: 11400000, guid: 987b3d98fd3cef94cb91568befdb81e4, type: 2}
@@ -230,3 +230,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2338888315662349175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734253315142589745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a2f39b2b5f6544294b9d326b586d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEffects:
+  - {fileID: 11400000, guid: 7275a951f2764c845a9821a893b011f4, type: 2}

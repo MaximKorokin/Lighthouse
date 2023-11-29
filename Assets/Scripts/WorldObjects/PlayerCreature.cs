@@ -30,6 +30,6 @@ public class PlayerCreature : Creature
 
     private void OnLevelIncreased(Effect effect)
     {
-        effect.Invoke(new CastState(this));
+        effect.Invoke(this);
     }
 }

@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 7024971320545400970}
   - component: {fileID: 4561559417053363611}
   - component: {fileID: 4140782551836971032}
+  - component: {fileID: 8190725275004147874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -453,8 +454,7 @@ MonoBehaviour:
       Value: 1
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
-  <DamageEffect>k__BackingField: {fileID: 11400000, guid: 555f25e13df131d46b4351206a7fdc01, type: 2}
-  <DestroyEffect>k__BackingField: {fileID: 0}
+  <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
   _skills:
@@ -526,13 +526,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7537639882005055995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b9a3021dadfbc04d8cf37922fbc14ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
   _outrunningValue: 1
+--- !u!114 &8190725275004147874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEffects:
+  - {fileID: 11400000, guid: 892ff4e8e5fe376419d8a3cf2396cd87, type: 2}
+  _damageEffects:
+  - {fileID: 11400000, guid: 555f25e13df131d46b4351206a7fdc01, type: 2}
+  _destroyEffects: []
 --- !u!1 &8223619460852185266
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4439412699593374245}
   - component: {fileID: 5521384973091167272}
   - component: {fileID: 558756004280993318}
+  - component: {fileID: 8610639369254492348}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -220,8 +221,7 @@ MonoBehaviour:
       Value: 1
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
-  <DamageEffect>k__BackingField: {fileID: 11400000, guid: 2c9186c1615cd8047aa5ce5e17ad88fe, type: 2}
-  <DestroyEffect>k__BackingField: {fileID: 11400000, guid: 69eebea014187fb4f942e604d87974b7, type: 2}
+  <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
   _skills:
@@ -286,6 +286,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barController: {fileID: 6742654476537181303}
+--- !u!114 &8610639369254492348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEffects:
+  - {fileID: 11400000, guid: 892ff4e8e5fe376419d8a3cf2396cd87, type: 2}
+  _damageEffects:
+  - {fileID: 11400000, guid: 2c9186c1615cd8047aa5ce5e17ad88fe, type: 2}
+  _destroyEffects:
+  - {fileID: 11400000, guid: 69eebea014187fb4f942e604d87974b7, type: 2}
 --- !u!1 &1619220829688206649
 GameObject:
   m_ObjectHideFlags: 0

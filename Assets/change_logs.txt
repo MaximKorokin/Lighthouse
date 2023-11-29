@@ -1,0 +1,5 @@
+0.1.3
+- Extended AnimationEffect to support infinite animations
+- Created Effector with StartEffects for WorldObject
+- Added shadows for creatures and items
+- Transfered DestroyableWorldObject effects to EffectorDestroyable

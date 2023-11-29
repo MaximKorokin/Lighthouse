@@ -14,4 +14,6 @@ public abstract class Effect : ScriptableObject
     public Sprite Sprite { get; private set; }
 
     public abstract void Invoke(CastState castState);
+
+    public void Invoke(WorldObject source) => Invoke(new CastState(source));
 }

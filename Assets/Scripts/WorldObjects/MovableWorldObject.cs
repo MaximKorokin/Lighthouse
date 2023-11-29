@@ -53,10 +53,9 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             _rigidbody.velocity = Vector2.zero;
         }
 
-        //_rigidbody.velocity = IsMoving ? (Stats[StatName.MoveSpeed] * MoveSpeedModifier * Direction) : Vector2.zero;
         if (IsMoving)
         {
-            _rigidbody.MovePosition((Vector2)transform.position + Stats[StatName.MoveSpeed] * MoveSpeedModifier * Direction * Time.fixedDeltaTime);
+            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * Stats[StatName.MoveSpeed] * Time.fixedDeltaTime * Direction);
         }
     }
 

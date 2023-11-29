@@ -4,13 +4,11 @@ using UnityEngine;
 public abstract class DestroyableWorldObject : WorldObject
 {
     [field: SerializeField]
-    public bool IsDamagable { get; set; } = true;
+    public bool IsDamagable { get; private set; } = true;
     [field: SerializeField]
     public bool IsAlive { get; private set; } = true;
     [field: SerializeField]
-    public Effect DamageEffect { get; set; }
-    [field: SerializeField]
-    public Effect DestroyEffect { get; set; }
+    public float DestroyTime { get; private set; }
 
     public virtual float MaxHealthPoints => Stats[StatName.MaxHealthPoints];
 
@@ -32,7 +30,8 @@ public abstract class DestroyableWorldObject : WorldObject
     }
 
     public event Action<float, float> HealthPointsChanged;
-    public event Action Dying;
+    public event Action Damaged;
+    public event Action Destroying;
 
     protected override void Start()
     {
@@ -65,10 +64,7 @@ public abstract class DestroyableWorldObject : WorldObject
 
         CurrentHealthPoints -= damageValue;
 
-        if (DamageEffect != null)
-        {
-            DamageEffect.Invoke(new CastState(this));
-        }
+        Damaged?.Invoke();
 
         SetAnimatorValue(AnimatorKey.Hurt, true);
     }
@@ -94,16 +90,12 @@ public abstract class DestroyableWorldObject : WorldObject
             return;
         }
 
-        Dying?.Invoke();
+        Destroying?.Invoke();
 
         IsAlive = false;
 
         SetAnimatorValue(AnimatorKey.Dead, true);
 
-        if (DestroyEffect != null)
-        {
-            DestroyEffect.Invoke(new CastState(this));
-        }
-        Destroy(gameObject, 5);
+        Destroy(gameObject, DestroyTime);
     }
 }

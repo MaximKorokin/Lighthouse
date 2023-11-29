@@ -18,16 +18,15 @@ public abstract class WorldObject : MonoBehaviour
     protected virtual void Awake()
     {
         Animator = GetComponent<Animator>();
+        OnStatsModified();
     }
+
     private void OnValidate()
     {
         OnStatsModified();
     }
 
-    protected virtual void Start()
-    {
-        OnStatsModified();
-    }
+    protected virtual void Start() { }
 
     public void ModifyStats(Stats otherStats)
     {

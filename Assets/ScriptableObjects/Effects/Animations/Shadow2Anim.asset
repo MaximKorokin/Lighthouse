@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 466ad35bfba43af4aa9aa9344c9b1583, type: 3}
-  m_Name: EllipseExplosionAnim
+  m_Name: Shadow2Anim
   m_EditorClassIdentifier: 
   <Name>k__BackingField: 
   <Description>k__BackingField: 
   <Sprite>k__BackingField: {fileID: 0}
-  _animation: {fileID: 7400000, guid: 8255ecb6465822e479d359a88461ba3c, type: 2}
-  _hasDuration: 1
+  _animation: {fileID: 7400000, guid: 4cd39f8fa48da0a48ab5df8f2dd663e5, type: 2}
+  _hasDuration: 0
   _duration: 0
-  _childToTarget: 0
+  _childToTarget: 1
   _flipWithTarget: 0
-  _orderInLayer: 10
+  _orderInLayer: -10
