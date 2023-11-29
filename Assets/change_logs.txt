@@ -3,3 +3,7 @@
 - Created Effector with StartEffects for WorldObject
 - Added shadows for creatures and items
 - Transfered DestroyableWorldObject effects to EffectorDestroyable
+- Add configurable death time for WorldObjects
+
+0.1.3_1
+- Add positioning to AnimationEffect

@@ -21,3 +21,4 @@ MonoBehaviour:
   _childToTarget: 1
   _flipWithTarget: 0
   _orderInLayer: -10
+  _positioning: 1

@@ -16,6 +16,8 @@ public class AnimationEffect : Effect
     private bool _flipWithTarget;
     [SerializeField]
     private int _orderInLayer;
+    [SerializeField]
+    private AnimationEffectPositioning _positioning;
 
     public override void Invoke(CastState castState)
     {
@@ -53,24 +55,32 @@ public class AnimationEffect : Effect
     {
         if (_childToTarget)
         {
-            //animator.transform.SetParent(castState.Target.transform, false);
             animator.transform.parent = castState.Target.transform;
+            animator.transform.localScale = Vector3.one;
         }
         animator.transform.localPosition = Vector3.zero;
+
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
-        if (animatorSpriteRenderer == null)
-        {
-            return;
-        }
         animatorSpriteRenderer.sortingOrder = _orderInLayer;
-        if (_flipWithTarget)
+
+        var targetSpriteRenderer = castState.Target.GetComponent<SpriteRenderer>();
+        if (targetSpriteRenderer != null)
         {
-            var targetSpriteRenderer = castState.Target.GetComponent<SpriteRenderer>();
-            if (targetSpriteRenderer != null)
+            if (_flipWithTarget)
             {
                 animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
                 animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
             }
+            if (_positioning == AnimationEffectPositioning.SpriteBottom)
+            {
+                animator.transform.localPosition = new Vector2(0, -targetSpriteRenderer.localBounds.extents.y);
+            }
         }
     }
+}
+
+public enum AnimationEffectPositioning
+{
+    Center = 0,
+    SpriteBottom = 1,
 }
