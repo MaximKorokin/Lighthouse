@@ -3,13 +3,11 @@
 public class HPBarVisualizer : HPVisualizer
 {
     [SerializeField]
-    private BarController _barController;
+    private Transform _barParent;
 
-    public override void VisualizeHPAmount(float value, float max)
+    protected override void Start()
     {
-        if (_barController != null)
-        {
-            _barController.SetFillRatio(value / max);
-        }
+        base.Start();
+        BarController.transform.SetParent(_barParent, false);
     }
 }

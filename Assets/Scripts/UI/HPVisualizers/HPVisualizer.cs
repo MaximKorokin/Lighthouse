@@ -3,13 +3,29 @@ using UnityEngine;
 [RequireComponent(typeof(DestroyableWorldObject))]
 public abstract class HPVisualizer : MonoBehaviour
 {
-    protected DestroyableWorldObject DestroyableWorldObject { get; private set; }
+    [SerializeField]
+    private BarController _barControllerPrefab;
+
+    protected DestroyableWorldObject WorldObject { get; private set; }
+    protected BarController BarController { get; private set; }
 
     protected virtual void Awake()
     {
-        DestroyableWorldObject = GetComponent<DestroyableWorldObject>();
-        DestroyableWorldObject.HealthPointsChanged += VisualizeHPAmount;
+        WorldObject = GetComponent<DestroyableWorldObject>();
+        WorldObject.HealthPointsChanged += VisualizeHPAmount;
     }
 
-    public abstract void VisualizeHPAmount(float value, float max);
+    protected virtual void Start()
+    {
+        BarController = BarsPool.Take(_barControllerPrefab);
+        WorldObject.Destroying += () => BarsPool.Return(BarController);
+    }
+
+    public virtual void VisualizeHPAmount(float value, float max)
+    {
+        if (BarController != null)
+        {
+            BarController.SetFillRatio(value / max);
+        }
+    }
 }

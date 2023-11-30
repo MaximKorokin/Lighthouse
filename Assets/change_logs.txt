@@ -5,10 +5,14 @@
 - Transfered DestroyableWorldObject effects to EffectorDestroyable
 - Add configurable death time for WorldObjects
 
-0.1.3_1
+0.1.3.1
 - Add positioning to AnimationEffect
 
 0.1.4
 - Fixed AnimationEffect positioning and color
 - Extracted Act from WorldObject into Actor
 - Extracted trigger detection from TriggerController into TriggerDetector
+
+0.1.4.1
+- Added BarsPool
+- Added ICopyable interface

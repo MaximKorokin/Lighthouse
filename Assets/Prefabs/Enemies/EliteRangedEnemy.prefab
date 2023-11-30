@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdcc8b7c5107a94cba82e9506ed50a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _barControllerPrefab: {fileID: 6297715463519980086, guid: 5169738f66dbc734ba5c5af5425058f0, type: 3}
 --- !u!114 &8130319755436434985
 MonoBehaviour:
   m_ObjectHideFlags: 0

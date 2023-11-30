@@ -1,35 +1,46 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BarController : MonoBehaviour
+public class BarController : MonoBehaviour, ICopyable<BarController>
 {
-    [SerializeField]
-    private Image _barImage;
-    [SerializeField]
-    private GradientBarControllerData _gradientData;
-    [SerializeField]
-    private SmoothBarControllerData _smoothData;
-    [SerializeField]
-    private FadeBarControllerData _fadeData;
+    [field: SerializeField]
+    public Image BackgroundImage { get; set; }
+    [field: SerializeField]
+    public Image BarImage { get; set; }
+    [field: Header("Smooth")]
+    [field: SerializeField]
+    public Image SmoothBarImage { get; set; }
+    [field: SerializeField]
+    public float SmoothSpeed { get; set; }
+    [field: Header("Gradient")]
+    [field: SerializeField]
+    public bool ShouldUseGradient { get; set; }
+    [field: SerializeField]
+    public Gradient Gradient { get; set; }
+    [field: Header("Fade")]
+    [field: SerializeField]
+    public float TimeToFade { get; set; }
 
     private const float DefaultAlphaValue = 1;
 
+    private float _currentRatio;
+
     public void SetFillRatio(float value)
     {
-        if (_barImage == null)
+        if (BarImage == null || value < 0 || value > 1)
         {
             return;
         }
-        if (_fadeData.TimeToFade > 0)
+        if (TimeToFade > 0)
         {
             IncrementAlphaValue(DefaultAlphaValue);
         }
 
-        _barImage.fillAmount = value;
-        if (_gradientData.ShouldUseGradient)
+        _currentRatio = value;
+        BarImage.fillAmount = _currentRatio;
+        if (ShouldUseGradient)
         {
-            _barImage.color = _gradientData.Gradient.Evaluate(value);
+            BarImage.color = Gradient.Evaluate(_currentRatio);
         }
     }
 
@@ -41,73 +52,85 @@ public class BarController : MonoBehaviour
 
     private void SetSmoothBar()
     {
-        if (_barImage == null || _smoothData.SmoothBarImage == null)
+        if (SmoothBarImage == null)
         {
             return;
         }
-        var fillDifference = _barImage.fillAmount - _smoothData.SmoothBarImage.fillAmount;
+        var fillDifference = _currentRatio - SmoothBarImage.fillAmount;
         if (fillDifference != 0)
         {
-            var fillStep = (fillDifference > 0 ? 1 : -1) * _smoothData.SmoothSpeed * Time.deltaTime;
+            var fillStep = (fillDifference > 0 ? 1 : -1) * SmoothSpeed * Time.deltaTime;
             if (Mathf.Abs(fillDifference) - Mathf.Abs(fillStep) > 0)
             {
-                _smoothData.SmoothBarImage.fillAmount += fillStep;
+                SmoothBarImage.fillAmount += fillStep;
             }
             else
             {
-                _smoothData.SmoothBarImage.fillAmount = _barImage.fillAmount;
+                SmoothBarImage.fillAmount = _currentRatio;
             }
         }
     }
 
     private void Fade()
     {
-        if (_fadeData.TimeToFade <= 0)
+        if (TimeToFade <= 0)
         {
             return;
         }
-        var fadeStep = -1 / _fadeData.TimeToFade * Time.deltaTime;
+        var fadeStep = -1 / TimeToFade * Time.deltaTime;
         IncrementAlphaValue(fadeStep);
     }
 
     private void IncrementAlphaValue(float alpha)
     {
         var colorStep = new Color(0, 0, 0, alpha);
-        if (_barImage != null)
+        if (BackgroundImage != null)
         {
-            _barImage.color += colorStep;
+            BackgroundImage.color += colorStep;
         }
-        if (_smoothData.SmoothBarImage != null)
+        if (BarImage != null)
         {
-            _smoothData.SmoothBarImage.color += colorStep;
+            BarImage.color += colorStep;
         }
-        if (_fadeData.AdditionalImagesToFade != null)
+        if (SmoothBarImage != null)
         {
-            foreach (var image in _fadeData.AdditionalImagesToFade)
-            {
-                image.color += colorStep;
-            }
+            SmoothBarImage.color += colorStep;
         }
     }
-}
 
-[Serializable]
-public struct GradientBarControllerData
-{
-    public bool ShouldUseGradient;
-    public Gradient Gradient;
-}
+    public void CopyTo(BarController obj)
+    {
+        if (obj == null)
+        {
+            return;
+        }
+        GetComponent<RectTransform>().CopyTo(obj.GetComponent<RectTransform>());
 
-[Serializable]
-public struct SmoothBarControllerData
-{
-    public Image SmoothBarImage;
-    public float SmoothSpeed;
-}
+        CopyImage(BackgroundImage, obj.BackgroundImage);
+        CopyImage(BarImage, obj.BarImage);
+        CopyImage(SmoothBarImage, obj.SmoothBarImage);
 
-[Serializable]
-public struct FadeBarControllerData
-{
-    public float TimeToFade;
-    public Image[] AdditionalImagesToFade;
+        obj.SmoothSpeed = SmoothSpeed;
+        obj.ShouldUseGradient = ShouldUseGradient;
+        obj.Gradient = Gradient;
+        obj.TimeToFade = TimeToFade;
+
+        obj._currentRatio = _currentRatio;
+    }
+
+    private void CopyImage(Image source, Image target)
+    {
+        if (target == null)
+        {
+            return;
+        }
+        if (source == null)
+        {
+            target.enabled = false;
+            return;
+        }
+        target.enabled = true;
+        source.CopyTo(target);
+        source.GetComponent<RectTransform>().CopyTo(target.GetComponent<RectTransform>());
+    }
 }

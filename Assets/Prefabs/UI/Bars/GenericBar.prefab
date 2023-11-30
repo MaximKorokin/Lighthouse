@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3092536013295364232}
   - component: {fileID: 565534462109712943}
   m_Layer: 5
-  m_Name: DockedHPBar
+  m_Name: GenericBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   <BackgroundImage>k__BackingField: {fileID: 565534462109712943}
   <BarImage>k__BackingField: {fileID: 3705531397424822328}
   <SmoothBarImage>k__BackingField: {fileID: 325214710358560613}
-  <SmoothSpeed>k__BackingField: 0.3
+  <SmoothSpeed>k__BackingField: 0
   <ShouldUseGradient>k__BackingField: 0
   <Gradient>k__BackingField:
     serializedVersion: 2
