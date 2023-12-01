@@ -19,11 +19,14 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
     public Gradient Gradient { get; set; }
     [field: Header("Fade")]
     [field: SerializeField]
+    public float TimeToStartFade { get; set; }
+    [field: SerializeField]
     public float TimeToFade { get; set; }
 
     private const float DefaultAlphaValue = 1;
 
     private float _currentRatio;
+    private float _currentStartFadeTime;
 
     public void SetFillRatio(float value)
     {
@@ -33,6 +36,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         }
         if (TimeToFade > 0)
         {
+            _currentStartFadeTime = Time.time + TimeToStartFade;
             IncrementAlphaValue(DefaultAlphaValue);
         }
 
@@ -73,7 +77,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
 
     private void Fade()
     {
-        if (TimeToFade <= 0)
+        if (TimeToFade <= 0 || Time.time < _currentStartFadeTime)
         {
             return;
         }
@@ -114,6 +118,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         obj.ShouldUseGradient = ShouldUseGradient;
         obj.Gradient = Gradient;
         obj.TimeToFade = TimeToFade;
+        obj.TimeToStartFade = TimeToStartFade;
 
         obj._currentRatio = _currentRatio;
     }

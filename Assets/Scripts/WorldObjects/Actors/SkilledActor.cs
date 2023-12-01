@@ -11,8 +11,9 @@ public class SkilledActor : ActorBase
 
     private Dictionary<Skill, float> _skillsUsedTime;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _skillsUsedTime = Skills.ToDictionary(s => s, s => float.NegativeInfinity);
     }
 

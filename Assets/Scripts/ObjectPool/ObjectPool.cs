@@ -1,20 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjectPool<T, P> : MonoBehaviour where T : Component
+public abstract class ObjectPool<T, P> : Singleton<ObjectPool<T, P>> where T : Component
 {
-    private static ObjectPool<T, P> Instance { get; set; }
-
     [field: SerializeField]
     protected T Object { get; private set; }
 
     protected HashSet<T> AllObjects { get; private set; } = new();
     protected Stack<T> Pool { get; private set; } = new();
-
-    protected virtual void Awake()
-    {
-        Instance = this;
-    }
 
     protected virtual T Create()
     {
@@ -38,10 +31,11 @@ public abstract class ObjectPool<T, P> : MonoBehaviour where T : Component
 
     public static void Return(T obj)
     {
-        if (!Instance.AllObjects.Contains(obj))
+        if (Instance == null || !Instance.AllObjects.Contains(obj))
         {
             return;
         }
+
         Instance.Pool.Push(obj);
         obj.transform.SetParent(Instance.transform, false);
         obj.transform.localScale = Vector3.one;

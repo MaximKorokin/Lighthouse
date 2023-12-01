@@ -8,8 +8,9 @@ public class ProjectileActor : ActorBase
     private int _pierceLeft;
     private CastState _castState;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         (WorldObject as DestroyableWorldObject).Destroying += OnDestroying;
     }
 

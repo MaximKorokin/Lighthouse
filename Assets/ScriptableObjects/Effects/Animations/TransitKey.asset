@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1803a1a40c880a4468af5139b4cf80f8, type: 3}
-  m_Name: HealOrbEffect
+  m_Script: {fileID: 11500000, guid: a002fb6d9a0cd6a4b88b7496601bc9ce, type: 3}
+  m_Name: TransitKey
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Healing Orb
-  <Item>k__BackingField: {fileID: 6741397075715308881, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
-  <DropRatio>k__BackingField: 0.1
+  <Name>k__BackingField: 
+  <Description>k__BackingField: 
+  <Sprite>k__BackingField: {fileID: 0}
+  <Value>k__BackingField: 0
+  _key: 8

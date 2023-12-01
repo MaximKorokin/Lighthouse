@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelingSystemUI : MonoBehaviour
+public class LevelingSystemUI : Singleton<LevelingSystemUI>
 {
-    public static LevelingSystemUI Instance { get; private set; }
-
     [SerializeField]
     private Transform _effectsParent;
     [SerializeField]
@@ -17,11 +15,6 @@ public class LevelingSystemUI : MonoBehaviour
     private readonly List<EffectView> _currentViews = new();
 
     public event Action<Effect> EffectChosen;
-
-    public void Awake()
-    {
-        Instance = this;
-    }
 
     public void DisplayEffects(Effect[] effects)
     {

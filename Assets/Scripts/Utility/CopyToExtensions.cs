@@ -27,5 +27,7 @@ public static class CopyToExtensions
         target.fillAmount = source.fillAmount;
         target.fillOrigin = source.fillOrigin;
         target.fillMethod = source.fillMethod;
+        target.fillClockwise = source.fillClockwise;
+        target.fillCenter = source.fillCenter;
     }
 }

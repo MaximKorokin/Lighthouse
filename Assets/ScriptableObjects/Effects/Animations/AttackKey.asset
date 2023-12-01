@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1803a1a40c880a4468af5139b4cf80f8, type: 3}
-  m_Name: SkillItemEffect
+  m_Script: {fileID: 11500000, guid: a002fb6d9a0cd6a4b88b7496601bc9ce, type: 3}
+  m_Name: AttackKey
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Skill item
-  <Item>k__BackingField: {fileID: 7824123132364153769, guid: 96f4711ebf2dc6a4a9208ba28513218b, type: 3}
-  <DropRatio>k__BackingField: 1
+  <Name>k__BackingField: 
+  <Value>k__BackingField: 0
+  _key: 1

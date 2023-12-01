@@ -4,12 +4,12 @@
 [RequireComponent(typeof(ValidatorBase))]
 public class WorldObjectTriggerDetector : TriggerDetectorBase<WorldObject>
 {
-    protected MovableWorldObject WorldObject { get; private set; }
+    protected WorldObject WorldObject { get; private set; }
     protected ValidatorBase Validator { get; private set; }
 
     protected virtual void Start()
     {
-        WorldObject = GetComponent<MovableWorldObject>();
+        WorldObject = GetComponent<WorldObject>();
         Validator = GetComponent<ValidatorBase>();
     }
 

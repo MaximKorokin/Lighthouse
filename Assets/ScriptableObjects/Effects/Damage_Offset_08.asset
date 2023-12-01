@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 191d0e56f4343f94e9ae305171358717, type: 3}
-  m_Name: Damage_Offset_03
+  m_Name: Damage_Offset_08
   m_EditorClassIdentifier: 
   <Name>k__BackingField: damage cond offset 0.8
   <Effects>k__BackingField: []

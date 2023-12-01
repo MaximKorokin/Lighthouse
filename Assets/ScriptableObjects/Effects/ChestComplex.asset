@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfed3a5a1573f44e9f3a7d7c6a6c39b, type: 3}
+  m_Name: ChestComplex
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: 
+  <Description>k__BackingField: 
+  <Sprite>k__BackingField: {fileID: 0}
+  <Effects>k__BackingField:
+  - {fileID: 11400000, guid: c56efe187a6edf942a3019850d92b798, type: 2}
+  - {fileID: 11400000, guid: a36d157cd50dc224eb308c9e36669a51, type: 2}

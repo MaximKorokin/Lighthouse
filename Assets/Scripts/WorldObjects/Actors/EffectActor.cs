@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public abstract class EffectActor : ActorBase
 {
     [field: SerializeField]

@@ -78,9 +78,9 @@ public abstract class WorldObject : MonoBehaviour
 public enum PositioningType
 {
     None = 0,
-    Flying = 1,
-    Walking = 2,
-    Both = Flying | Walking
+    Air = 1,
+    Ground = 2,
+    Both = Air | Ground
 }
 
 public enum AnimatorKey
@@ -92,4 +92,5 @@ public enum AnimatorKey
     HPRatio = 5,
     AttackSpeed = 6,
     MoveSpeed = 7,
+    Transit = 8,
 }

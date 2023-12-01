@@ -16,3 +16,9 @@
 0.1.4.1
 - Added BarsPool
 - Added ICopyable interface
+
+0.1.4.2
+- Added Singleton base class
+- Added DeferredTriggerAction
+- Added chest example
+- Added InitialForce and InactiveTime for ItemEffect

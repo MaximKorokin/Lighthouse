@@ -57,14 +57,14 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         }
     }
 
-    public void Move()
+    public virtual void Move()
     {
         IsMoving = true;
 
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }
 
-    public void Stop()
+    public virtual void Stop()
     {
         IsMoving = false;
 

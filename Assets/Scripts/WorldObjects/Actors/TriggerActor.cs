@@ -1,17 +1,15 @@
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObjectTriggerDetector))]
-public class TriggerActor : EffectActor
+public abstract class TriggerActor : EffectActor
 {
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         var triggerDetector = GetComponent<WorldObjectTriggerDetector>();
         triggerDetector.TriggerEntered += Act;
-        triggerDetector.TriggerExited += Interrupt;
+        triggerDetector.TriggerExited += Cancel;
     }
 
-    private void Interrupt(WorldObject worldObject)
-    {
-
-    }
+    public abstract void Cancel(WorldObject worldObject);
 }

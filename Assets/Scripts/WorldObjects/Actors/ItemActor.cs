@@ -1,17 +1,24 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
+[RequireComponent(typeof(Item))]
 public class ItemActor : EffectActor
 {
+    private Item _item;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _item = WorldObject as Item;
+    }
+
     public override void Act(WorldObject worldObject)
     {
-        var destroyable = WorldObject as DestroyableWorldObject;
-        if (!destroyable.IsAlive)
+        if (!_item.IsActive || !_item.IsAlive)
         {
             return;
         }
 
         base.Act(worldObject);
-        destroyable.DestroyWorldObject();
+        _item.DestroyWorldObject();
     }
 }

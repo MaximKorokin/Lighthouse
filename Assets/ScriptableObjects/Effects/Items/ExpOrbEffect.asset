@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: ExpOrbEffect
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Experience Orb
+  <Description>k__BackingField: 
+  <Sprite>k__BackingField: {fileID: 0}
   <Item>k__BackingField: {fileID: 5409251804486583412, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
   <DropRatio>k__BackingField: 1
+  <InitialForce>k__BackingField: 0.5
+  <InactiveTime>k__BackingField: 0.3

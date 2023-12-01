@@ -16,7 +16,8 @@ public static class Physics2DUtils
     public static bool IsReachable(this GameObject obj, Vector2 origin, Vector2 direction, float distance)
     {
         return Physics2D.RaycastAll(origin, direction, distance)
-                .TakeWhile(x => x.transform.gameObject != obj)
-                .OrderBy(x => x.distance).Any(x => x.transform.gameObject.GetComponent<Obstacle>() != null);
+            .Where(x => !x.collider.isTrigger)
+            .TakeWhile(x => x.transform.gameObject != obj)
+            .OrderBy(x => x.distance).Any(x => x.transform.gameObject.GetComponent<Obstacle>() != null);
     }
 }
