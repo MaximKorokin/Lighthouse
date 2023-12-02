@@ -22,3 +22,11 @@
 - Added DeferredTriggerAction
 - Added chest example
 - Added InitialForce and InactiveTime for ItemEffect
+
+0.1.4.3
+- Added Reload button
+- Fixed CameraFollow initial position
+- Fixed Image copying
+- Fixed BarController fading
+- Fixed ItemEffect DropRate
+- Added ItemTriggerDetector

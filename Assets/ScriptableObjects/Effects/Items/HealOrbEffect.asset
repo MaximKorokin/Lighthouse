@@ -16,5 +16,6 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <Sprite>k__BackingField: {fileID: 0}
   <Item>k__BackingField: {fileID: 6741397075715308881, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
-  <DropRatio>k__BackingField: 0.1
-  <InitialForce>k__BackingField: 0
+  <DropRatio>k__BackingField: 0.5
+  <InitialForce>k__BackingField: 0.3
+  <InactiveTime>k__BackingField: 1

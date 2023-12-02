@@ -85,21 +85,30 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         IncrementAlphaValue(fadeStep);
     }
 
-    private void IncrementAlphaValue(float alpha)
+    private void IncrementAlphaValue(float alphaStep)
     {
-        var colorStep = new Color(0, 0, 0, alpha);
+        var newAlpha = Mathf.Clamp01(BackgroundImage.color.a + alphaStep);
         if (BackgroundImage != null)
         {
-            BackgroundImage.color += colorStep;
+            SetAlpha(BackgroundImage, newAlpha);
         }
         if (BarImage != null)
         {
-            BarImage.color += colorStep;
+            SetAlpha(BarImage, newAlpha);
         }
         if (SmoothBarImage != null)
         {
-            SmoothBarImage.color += colorStep;
+            SetAlpha(SmoothBarImage, newAlpha);
         }
+    }
+
+    private void SetAlpha(Image image, float alpha)
+    {
+        image.color = new Color(
+            image.color.r,
+            image.color.g,
+            image.color.b,
+            alpha);
     }
 
     public void CopyTo(BarController obj)

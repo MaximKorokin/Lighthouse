@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3872147654771340376}
   - component: {fileID: 192268706611023497}
   - component: {fileID: 7357609661035409582}
-  - component: {fileID: 1410642823026146252}
+  - component: {fileID: 6008105121945839018}
   - component: {fileID: 4652085042618445044}
   m_Layer: 0
   m_Name: HealthPotion
@@ -126,7 +126,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
-  <Effect>k__BackingField: {fileID: 11400000, guid: 987b3d98fd3cef94cb91568befdb81e4, type: 2}
+  <InactiveTime>k__BackingField: 0
 --- !u!114 &3872147654771340376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ebfbb4f557557409350a205d7c2a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1410642823026146252
+--- !u!114 &6008105121945839018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,10 +213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8271690654633932057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bfd0f523e942c14db51a56f102515d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _triggerType: 1
 --- !u!114 &4652085042618445044
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class ItemEffect : Effect
 
     public override void Invoke(CastState castState)
     {
-        if (Random.Range(0, DropRatio) <= DropRatio)
+        if (Random.Range(0f, 1f) <= DropRatio)
         {
             CreateItem(this, castState);
         }

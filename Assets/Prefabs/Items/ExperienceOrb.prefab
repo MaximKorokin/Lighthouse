@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7508185068982668652}
   - component: {fileID: 2672765818256748374}
   - component: {fileID: 670664442182928598}
-  - component: {fileID: 3165795997600538630}
+  - component: {fileID: 8298410038236258243}
   - component: {fileID: 8769435079726342275}
   m_Layer: 0
   m_Name: ExperienceOrb
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffects:
   - {fileID: 11400000, guid: 7275a951f2764c845a9821a893b011f4, type: 2}
---- !u!114 &3165795997600538630
+--- !u!114 &8298410038236258243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021736238142712522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bfd0f523e942c14db51a56f102515d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 1

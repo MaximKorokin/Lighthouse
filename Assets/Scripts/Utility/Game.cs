@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class Game
 {
@@ -10,5 +11,10 @@ public static class Game
     public static void Resume()
     {
         Time.timeScale = 1;
+    }
+
+    public static void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

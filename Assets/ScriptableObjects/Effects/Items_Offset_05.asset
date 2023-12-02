@@ -17,7 +17,7 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: 0}
   <Effects>k__BackingField: []
   <EndEffects>k__BackingField:
-  - {fileID: 11400000, guid: bf7ce3d877291a547a42fca4145b2ffa, type: 2}
+  - {fileID: 11400000, guid: b07cb6d89436c6b49b75b856437a570b, type: 2}
   - {fileID: 11400000, guid: 69eebea014187fb4f942e604d87974b7, type: 2}
   - {fileID: 11400000, guid: 69eebea014187fb4f942e604d87974b7, type: 2}
   - {fileID: 11400000, guid: 69eebea014187fb4f942e604d87974b7, type: 2}

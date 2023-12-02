@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlueChestAC
+  m_Controller: {fileID: 9100000, guid: 75375b1f72be38243b6964788674e9fe, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1f8f84959b173fb4ea0e98d30375cd7b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bddcad2b02b11454988cefeedfa0fd98, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3de15a280e10c0a4f9a4356bf2424bd0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2d2f3a905a9679c42840f4616f50017d, type: 2}
