@@ -10,6 +10,11 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
     {
         var _worldObject = GetComponent<WorldObject>();
         _animators = GetComponentsInChildren<SingleAnimator>();
+        var animator = GetComponent<SingleAnimator>();
+        if (animator != null)
+        {
+            _animators = _animators.Concat(animator.Yield()).ToArray();
+        }
 
         _worldObject.AnimatorValueSet += SetAnimatorValue;
         if (_worldObject is MovableWorldObject movable)

@@ -19,7 +19,7 @@ public abstract class WorldObject : MonoBehaviour
 
     protected virtual void Awake()
     {
-        OnStatsModified();
+
     }
 
     private void OnValidate()
@@ -27,7 +27,10 @@ public abstract class WorldObject : MonoBehaviour
         OnStatsModified();
     }
 
-    protected virtual void Start() { }
+    protected virtual void Start()
+    {
+        OnStatsModified();
+    }
 
     public void ModifyStats(Stats otherStats)
     {

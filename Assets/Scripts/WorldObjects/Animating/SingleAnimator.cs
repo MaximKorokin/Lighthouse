@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class SingleAnimator : MonoBehaviour, IAnimator
 {
     [SerializeField]
