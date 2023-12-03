@@ -1,6 +1,9 @@
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Must be used in conjunction with instances of <see cref="SingleAnimator"/> class
+/// </summary>
 [RequireComponent(typeof(WorldObject))]
 public class ComplexAnimator : MonoBehaviour, IAnimator
 {

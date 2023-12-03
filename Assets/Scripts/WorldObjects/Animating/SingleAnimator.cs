@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Must be used in conjunction with <see cref="ComplexAnimator"/> which finds instances of this class
+/// </summary>
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class SingleAnimator : MonoBehaviour, IAnimator

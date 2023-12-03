@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// It is <see cref="SingleAnimator"/> and <see cref="ComplexAnimator"/> classes in one
+/// </summary>
 [RequireComponent(typeof(WorldObject))]
 public class SimpleAnimator : SingleAnimator
 {
