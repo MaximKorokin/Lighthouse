@@ -123,85 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cyborg_idle_0
+      name: idle_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 19
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 780b33285cc55f74c8ba810fdd72ac1a
-      internalID: -2010550049
+      spriteID: 8d3ed277ddd06eb47a3cadade89ad8aa
+      internalID: -715500416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_idle_1
+      name: idle_1
       rect:
         serializedVersion: 2
-        x: 51
+        x: 48
         y: 0
-        width: 19
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fdbca8d8ff122f40b00b0587192eb88
-      internalID: -1890607429
+      spriteID: 48aad83b48accdf4ea536d05e1f57f04
+      internalID: -53421992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_idle_2
+      name: idle_2
       rect:
         serializedVersion: 2
-        x: 98
+        x: 96
         y: 0
-        width: 20
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c0e97afcedd0b045a04e354dfdf06f3
-      internalID: 509994018
+      spriteID: 43332efe7478316479061acfa41e89e6
+      internalID: -983359974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_idle_3
+      name: idle_3
       rect:
         serializedVersion: 2
-        x: 146
+        x: 144
         y: 0
-        width: 20
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0ece17831e6a8d498c64160fb9e6dbe
-      internalID: -1177438562
+      spriteID: 1ae2b1e4105c0814b89be450514d5d30
+      internalID: 1741738590
       vertices: []
       indices: 
       edges: []
@@ -217,11 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cyborg_idle_0: -2010550049
-      Cyborg_idle_1: -1890607429
-      Cyborg_idle_2: 509994018
-      Cyborg_idle_3: -1177438562
-      Cyborg_idle_4: 577755052
+      idle_0: -715500416
+      idle_1: -53421992
+      idle_2: -983359974
+      idle_3: 1741738590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

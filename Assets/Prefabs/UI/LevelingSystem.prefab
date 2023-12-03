@@ -93,6 +93,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  <TimeToStartFade>k__BackingField: 0
   <TimeToFade>k__BackingField: 0
 --- !u!1 &2724803048288814944
 GameObject:

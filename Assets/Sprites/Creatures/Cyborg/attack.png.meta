@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df6d2e36c06bc974db73591573f06b38
+guid: 6b338a5cef4faf4438f148d4885e9e5d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,28 +123,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: move_0
+      name: attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e9222f92b6b826439f15fa4d9a0ad7d
-      internalID: -981789645
+      spriteID: b0b65b3c56c009a4d98256d75764bfef
+      internalID: -1265986298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_1
+      name: attack_1
       rect:
         serializedVersion: 2
         x: 48
@@ -152,20 +152,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bad9b0246ee3414db8bb202490ab27d
-      internalID: -102076718
+      spriteID: c1575b16351ea7f4d9786688be951f3f
+      internalID: -1237567043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_2
+      name: attack_2
       rect:
         serializedVersion: 2
         x: 96
@@ -173,20 +173,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f1a3032b19c25240a1516f6d6ae38eb
-      internalID: 1350289571
+      spriteID: a573880a40c8367428c04c7c52f55f8a
+      internalID: -1902086583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_3
+      name: attack_3
       rect:
         serializedVersion: 2
         x: 144
@@ -194,20 +194,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb4d9f67af437845a5a6df37ca3b51c
-      internalID: 1237120692
+      spriteID: a294808190a06a84b9d43a28fc0d051e
+      internalID: -1045534869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_4
+      name: attack_4
       rect:
         serializedVersion: 2
         x: 192
@@ -215,20 +215,20 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 154638e57f86b374b8de6a9da1d7d0a1
-      internalID: 1137393743
+      spriteID: c1d24c624d3770344b1e2c6384c1891b
+      internalID: 209235636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_5
+      name: attack_5
       rect:
         serializedVersion: 2
         x: 240
@@ -236,14 +236,14 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17ef6029ef40d194b964f0244cd1abd9
-      internalID: -2125532664
+      spriteID: 4467d8461e6bcb344bb937eec2020317
+      internalID: -1591627059
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      move_0: -981789645
-      move_1: -102076718
-      move_2: 1350289571
-      move_3: 1237120692
-      move_4: 1137393743
-      move_5: -2125532664
+      attack_0: -1265986298
+      attack_1: -1237567043
+      attack_2: -1902086583
+      attack_3: -1045534869
+      attack_4: 209235636
+      attack_5: -1591627059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

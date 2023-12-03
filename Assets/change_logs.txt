@@ -30,3 +30,6 @@
 - Fixed BarController fading
 - Fixed ItemEffect DropRate
 - Added ItemTriggerDetector
+
+0.1.5
+- Character with catana...

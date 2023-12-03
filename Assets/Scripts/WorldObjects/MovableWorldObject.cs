@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,16 +13,18 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public Vector2 Direction { get => _direction; set => _direction = value.sqrMagnitude > 1f ? value.normalized : value; }
     public bool IsMoving { get; private set; }
+    public bool IsFlipped { get; private set; }
 
     private Vector2 _direction;
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
+    private bool _previousFlipX;
+
+    public event Action<bool> Flipped;
 
     protected override void Awake()
     {
         base.Awake();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void OnStatsModified()
@@ -33,9 +36,14 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     protected virtual void Update()
     {
-        if (CanFlip && _spriteRenderer != null && Direction.x != 0)
+        if (CanFlip && Direction.x != 0)
         {
-            _spriteRenderer.flipX = Direction.x < 0;
+            IsFlipped = Direction.x < 0;
+            if (_previousFlipX != IsFlipped)
+            {
+                Flipped?.Invoke(IsFlipped);
+            }
+            _previousFlipX = IsFlipped;
         }
         if (CanRotate)
         {

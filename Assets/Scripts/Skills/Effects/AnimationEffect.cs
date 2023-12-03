@@ -51,6 +51,7 @@ public class AnimationEffect : Effect
         GenericAnimatorPool.Return(animator);
     }
 
+    // todo: this is gavno
     private void SetupAnimator(CastState castState, Animator animator)
     {
         if (_childToTarget)
@@ -63,15 +64,27 @@ public class AnimationEffect : Effect
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
         animatorSpriteRenderer.sortingOrder = _orderInLayer;
 
+        var targetComplexAnimator = castState.Target.GetComponent<ComplexAnimator>();
         var targetSpriteRenderer = castState.Target.GetComponent<SpriteRenderer>();
-        if (targetSpriteRenderer != null)
+        if (targetComplexAnimator != null)
+        {
+            if (_flipWithTarget && castState.Target is MovableWorldObject movable)
+            {
+                animatorSpriteRenderer.flipX = movable.IsFlipped;
+            }
+            if (_positioning == AnimationEffectPositioning.BoundsBottom)
+            {
+                animator.transform.localPosition = new Vector2(0, -targetComplexAnimator.GetExtents().y);
+            }
+        }
+        else if (targetSpriteRenderer != null)
         {
             if (_flipWithTarget)
             {
                 animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
                 animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
             }
-            if (_positioning == AnimationEffectPositioning.SpriteBottom)
+            if (_positioning == AnimationEffectPositioning.BoundsBottom)
             {
                 animator.transform.localPosition = new Vector2(0, -targetSpriteRenderer.localBounds.extents.y);
             }
@@ -82,5 +95,5 @@ public class AnimationEffect : Effect
 public enum AnimationEffectPositioning
 {
     Center = 0,
-    SpriteBottom = 1,
+    BoundsBottom = 1,
 }
