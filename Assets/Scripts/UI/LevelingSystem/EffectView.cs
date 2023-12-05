@@ -19,9 +19,9 @@ public class EffectView : MonoBehaviour
     public void Initialize(Effect effect)
     {
         _effect = effect;
-        _image.sprite = effect.Sprite;
-        _title.text = effect.Name;
-        _description.text = effect.Description;
+        //_image.sprite = effect.Sprite;
+        //_title.text = effect.Name;
+        //_description.text = effect.Description;
     }
 
     public void InvokeClicked()

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AreaEffect", menuName = "ScriptableObjects/Effects/AreaEffect", order = 1)]
 public class AreaEffect : PeriodicEffect
 {
     [field: SerializeField]

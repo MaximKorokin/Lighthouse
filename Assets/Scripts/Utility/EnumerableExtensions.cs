@@ -145,4 +145,9 @@ public static class EnumerableExtensions
             list.Remove(val);
         }
     }
+
+    public static Effect[] GetEffects(this IEnumerable<EffectSettings> settings)
+    {
+        return settings.SelectMany(x => x.GetEffects()).ToArray();
+    }
 }

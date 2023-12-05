@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AnimationEffect", menuName = "ScriptableObjects/Effects/AnimationEffect", order = 1)]
 public class AnimationEffect : Effect
 {
     [SerializeField]

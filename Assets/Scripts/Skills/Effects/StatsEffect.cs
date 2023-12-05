@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatEffect", menuName = "ScriptableObjects/Effects/StatEffect", order = 1)]
 public class StatsEffect : Effect
 {
     [field: SerializeField]

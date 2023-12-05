@@ -1,22 +1,32 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "ScriptableObjects/Skill", order = 1)]
-public class Skill : ScriptableObject
+public class Skill
 {
-    [field: SerializeField]
-    public string Name { get; private set; }
-    [field: SerializeField]
-    public Effect[] Effects { get; private set; }
-    [field: SerializeField]
-    public float Cooldown { get; private set; }
+    private readonly Effect[] _effects;
+    private readonly float _cooldown;
+    private float _lastUsedTime;
+
+    public Skill(EffectSettings settings)
+    {
+        _effects = settings.GetEffects();
+        _cooldown = settings.Cooldown;
+        _lastUsedTime = Time.time;
+    }
 
     public void Invoke(WorldObject source) => Invoke(source, source);
 
     public void Invoke(WorldObject source, WorldObject target)
     {
-        foreach (var effect in Effects)
+        _lastUsedTime = Time.time;
+        foreach (var effect in _effects)
         {
             effect.Invoke(new CastState(source, source, target));
         }
     }
+
+    public bool CanUse(float divider)
+    {
+        return Time.time - _lastUsedTime > _cooldown / divider;
+    }
+
 }

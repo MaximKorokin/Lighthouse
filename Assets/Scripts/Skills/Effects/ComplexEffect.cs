@@ -1,9 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ComplexEffect", menuName = "ScriptableObjects/Effects/ComplexEffect", order = 1)]
 public class ComplexEffect : Effect
 {
-    [field: SerializeField]
+    [field: SerializeReference]
     public Effect[] Effects { get; private set; }
 
     public override void Invoke(CastState castState)

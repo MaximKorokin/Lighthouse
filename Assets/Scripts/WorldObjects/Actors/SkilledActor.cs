@@ -6,15 +6,14 @@ using UnityEngine;
 public class SkilledActor : ActorBase
 {
     [SerializeField]
-    private List<Skill> _skills;
-    public IEnumerable<Skill> Skills => _skills;
+    private List<EffectSettings> _effectsSettings;
 
-    private Dictionary<Skill, float> _skillsUsedTime;
+    private List<Skill> _skills;
 
     protected override void Awake()
     {
         base.Awake();
-        _skillsUsedTime = Skills.ToDictionary(s => s, s => float.NegativeInfinity);
+        _skills = _effectsSettings.Select(x => new Skill(x)).ToList();
     }
 
     public override void Act(WorldObject worldObject)
@@ -24,32 +23,19 @@ public class SkilledActor : ActorBase
             return;
         }
 
-        var availableSkills = Skills.Where(CanUseSkill).ToArray();
+        var availableSkills = _skills.Where(x => x.CanUse(WorldObject.AttackSpeed)).ToArray();
         if (availableSkills.Any())
         {
-            availableSkills.ForEach(s => UseSkill(s, worldObject));
+            availableSkills.ForEach(x => x.Invoke(WorldObject, worldObject));
         }
-
     }
 
-    private bool CanUseSkill(Skill skill)
+    public void AddSkill(EffectSettings settings)
     {
-        return Time.time - _skillsUsedTime[skill] > skill.Cooldown / WorldObject.AttackSpeed;
-    }
-
-    private void UseSkill(Skill skill, WorldObject target)
-    {
-        _skillsUsedTime[skill] = Time.time;
-        skill.Invoke(WorldObject, target);
-    }
-
-    public void AddSkill(Skill skill)
-    {
-        if (_skills.Contains(skill))
+        if (_effectsSettings.Contains(settings))
         {
             return;
         }
-        _skills.Add(skill);
-        _skillsUsedTime.Add(skill, float.NegativeInfinity);
+        _skills.Add(new Skill(settings));
     }
 }

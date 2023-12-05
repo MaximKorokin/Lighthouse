@@ -4,15 +4,20 @@ using UnityEngine;
 public class EffectorDestroyable : Effector
 {
     [SerializeField]
-    private Effect[] _damageEffects;
+    private EffectSettings[] _damageEffectsSettings;
     [SerializeField]
-    private Effect[] _destroyEffects;
+    private EffectSettings[] _destroyEffectsSettings;
 
     private DestroyableWorldObject _worldObject;
+    private Effect[] _damageEffects;
+    private Effect[] _destroyEffects;
 
     protected override void Start()
     {
         base.Start();
+
+        _damageEffects = _damageEffectsSettings.GetEffects();
+        _destroyEffects = _destroyEffectsSettings.GetEffects();
 
         _worldObject = GetComponent<DestroyableWorldObject>();
         _worldObject.Damaged += OnDamaged;

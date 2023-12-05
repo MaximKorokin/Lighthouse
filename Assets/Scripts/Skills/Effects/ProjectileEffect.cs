@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ProjectileEffect", menuName = "ScriptableObjects/Effects/ProjectileEffect", order = 1)]
 public class ProjectileEffect : EndingEffect
 {
     [field: SerializeField]
@@ -45,39 +44,39 @@ public class ProjectileEffect : EndingEffect
     /// <param name="effect"></param>
     private static void CreateProjectiles(ProjectileEffect effect, CastState castState)
     {
-        var spreadStep = 0f;
-        var currentYaw = 0f;
-        if (effect.Amount > 1)
-        {
-            spreadStep = effect.Spread / (effect.Amount - 1);
-            currentYaw = -effect.Spread / 2;
-        }
+        //var spreadStep = 0f;
+        //var currentYaw = 0f;
+        //if (effect.Amount > 1)
+        //{
+        //    spreadStep = effect.Spread / (effect.Amount - 1);
+        //    currentYaw = -effect.Spread / 2;
+        //}
 
-        for (int i = 0; i < effect.Amount; i++)
-        {
-            if (castState.Source == castState.Target)
-            {
-                var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
-                    .GetValidTargets(castState.InitialSource)
-                    .GetValidTargets(effect.Projectile.WorldObject)
-                    .ToArray();
-                if (targets.Length > 0)
-                {
-                    CreateAndGetController().ChooseTarget(targets, effect.TargetType, castState.Source, currentYaw);
-                }
-            }
-            else if (castState.Target.IsValidTarget(effect.Projectile.WorldObject))
-            {
-                CreateAndGetController().SetTarget(castState.Target, currentYaw);
-            }
-            currentYaw += spreadStep;
-        }
+        //for (int i = 0; i < effect.Amount; i++)
+        //{
+        //    if (castState.Source == castState.Target)
+        //    {
+        //        var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
+        //            .GetValidTargets(castState.InitialSource)
+        //            .GetValidTargets(effect.Projectile.WorldObject)
+        //            .ToArray();
+        //        if (targets.Length > 0)
+        //        {
+        //            CreateAndGetController().ChooseTarget(targets, effect.TargetType, castState.Source, currentYaw);
+        //        }
+        //    }
+        //    else if (castState.Target.IsValidTarget(effect.Projectile.WorldObject))
+        //    {
+        //        CreateAndGetController().SetTarget(castState.Target, currentYaw);
+        //    }
+        //    currentYaw += spreadStep;
+        //}
 
-        TargetController CreateAndGetController()
-        {
-            var projectile = Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
-            projectile.SetEffect(effect, castState);
-            return projectile.GetComponent<TargetController>();
-        }
+        //TargetController CreateAndGetController()
+        //{
+        //    var projectile = Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
+        //    projectile.SetEffect(effect, castState);
+        //    return projectile.GetComponent<TargetController>();
+        //}
     }
 }

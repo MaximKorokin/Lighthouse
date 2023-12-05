@@ -2,7 +2,6 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PeriodicEffect", menuName = "ScriptableObjects/Effects/PeriodicEffect", order = 1)]
 public class PeriodicEffect : EndingEffect
 {
     private const float MinIntervalValue = 0.1f;
@@ -14,9 +13,20 @@ public class PeriodicEffect : EndingEffect
 
     protected virtual IEnumerator DurationCoroutine(CastState castState)
     {
-        var periodicInvokationCoroutine = castState.Target.StartCoroutine(PeriodicInvokationCoroutine(castState));
+        Coroutine periodicInvokationCoroutine = null;
+        if (Interval >= MinIntervalValue)
+        {
+            periodicInvokationCoroutine = castState.Target.StartCoroutine(PeriodicInvokationCoroutine(castState));
+        }
+        else
+        {
+            base.Invoke(castState);
+        }
         yield return new WaitForSeconds(Duration);
-        castState.Target.StopCoroutine(periodicInvokationCoroutine);
+        if (periodicInvokationCoroutine != null)
+        {
+            castState.Target.StopCoroutine(periodicInvokationCoroutine);
+        }
         InvokeEnd(castState);
     }
 
@@ -26,7 +36,7 @@ public class PeriodicEffect : EndingEffect
         while (true)
         {
             base.Invoke(castState);
-            yield return new WaitForSeconds(Mathf.Max(MinIntervalValue, Interval));
+            yield return new WaitForSeconds(Mathf.Max(Interval));
         }
     }
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemEffect", menuName = "ScriptableObjects/Effects/ItemEffect", order = 1)]
 public class ItemEffect : Effect
 {
     [field: SerializeField]
@@ -25,16 +24,16 @@ public class ItemEffect : Effect
 
     private void CreateItem(ItemEffect effect, CastState castState)
     {
-        effect.Item.gameObject.SetActive(false);
-        var item = Instantiate(effect.Item, castState.Source.transform.position, Quaternion.identity);
-        effect.Item.gameObject.SetActive(true);
+        //effect.Item.gameObject.SetActive(false);
+        //var item = Instantiate(effect.Item, castState.Source.transform.position, Quaternion.identity);
+        //effect.Item.gameObject.SetActive(true);
 
-        item.InactiveTime = InactiveTime;
-        if (InitialForce != 0)
-        {
-            item.Direction = Random.insideUnitCircle.normalized * InitialForce;
-        }
+        //item.InactiveTime = InactiveTime;
+        //if (InitialForce != 0)
+        //{
+        //    item.Direction = Random.insideUnitCircle.normalized * InitialForce;
+        //}
 
-        item.gameObject.SetActive(true);
+        //item.gameObject.SetActive(true);
     }
 }
