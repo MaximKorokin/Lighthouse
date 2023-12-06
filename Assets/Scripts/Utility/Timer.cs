@@ -12,6 +12,8 @@ class Timer
     public event Action<float, float> Ticked;
     public event Action Finished;
 
+    public bool Started { get; private set; }
+
     public Timer(MonoBehaviour behaviour)
     {
         _behaviour = behaviour;
@@ -19,6 +21,7 @@ class Timer
 
     public void Start(float startTime)
     {
+        Started = true;
         _startTime = startTime;
         _currentTime = startTime;
         _coroutine = _behaviour.StartCoroutine(TimerCoroutine());
@@ -26,6 +29,7 @@ class Timer
 
     public void Stop()
     {
+        Started = false;
         if (_coroutine != null)
         {
             _behaviour.StopCoroutine(_coroutine);
@@ -40,6 +44,7 @@ class Timer
             _currentTime -= Time.deltaTime;
             Ticked?.Invoke(_currentTime, _startTime);
         }
+        Started = false;
         Finished?.Invoke();
     }
 }

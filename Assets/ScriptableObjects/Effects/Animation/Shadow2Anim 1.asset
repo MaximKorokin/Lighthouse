@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: DamageEffect
+  m_Name: Shadow2Anim 1
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
@@ -18,11 +18,17 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 0
   _effects:
-  - rid: 1867399666109251586
+  - rid: 1867399666109251596
   references:
     version: 2
     RefIds:
-    - rid: 1867399666109251586
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1867399666109251596
+      type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 1
+        _animation: {fileID: 7400000, guid: 4cd39f8fa48da0a48ab5df8f2dd663e5, type: 2}
+        _hasDuration: 0
+        _duration: 0
+        _childToTarget: 1
+        _flipWithTarget: 0
+        _orderInLayer: -10
+        _positioning: 1

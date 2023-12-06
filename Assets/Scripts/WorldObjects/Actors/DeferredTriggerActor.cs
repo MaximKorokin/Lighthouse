@@ -36,7 +36,7 @@ class DeferredTriggerActor : TriggerActor
             return;
         }
         worldObjects.Add(worldObject);
-        if (worldObjects.Count > 0)
+        if (worldObjects.Count > 0 && !_timer.Started)
         {
             _timer.Start(_timeToAct);
         }

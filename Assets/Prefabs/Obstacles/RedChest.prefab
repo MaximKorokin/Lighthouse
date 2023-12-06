@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a640be50bf0264f4880091aa4e5ad118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Effect>k__BackingField: {fileID: 11400000, guid: a443912ec4b370a46bc7a27a8f9d5aee, type: 2}
+  _effectSettings: {fileID: 11400000, guid: 8e8d881f9edff9745a9eb8c6352943ea, type: 2}
   _timeToAct: 3
   _actsAmount: 1
 --- !u!95 &3078007347813226423
@@ -273,8 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a2f39b2b5f6544294b9d326b586d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffects:
-  - {fileID: 11400000, guid: 7275a951f2764c845a9821a893b011f4, type: 2}
+  _startEffectsSettings: []
 --- !u!114 &2227768210704919478
 MonoBehaviour:
   m_ObjectHideFlags: 0

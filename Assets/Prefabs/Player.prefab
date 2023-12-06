@@ -584,11 +584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffects:
-  - {fileID: 11400000, guid: 892ff4e8e5fe376419d8a3cf2396cd87, type: 2}
-  _damageEffects:
-  - {fileID: 11400000, guid: 555f25e13df131d46b4351206a7fdc01, type: 2}
-  _destroyEffects: []
+  _startEffectsSettings:
+  - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
+  _damageEffectsSettings:
+  - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
+  _destroyEffectsSettings: []
 --- !u!114 &4804984492352695879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,8 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skills:
-  - {fileID: 11400000, guid: 1c97cadf74ba73845974cdcb1e5adc34, type: 2}
+  _effectsSettings:
+  - {fileID: 11400000, guid: bef0638fcf270b44cb439b2d3e7aa691, type: 2}
 --- !u!114 &3676242523460579892
 MonoBehaviour:
   m_ObjectHideFlags: 0

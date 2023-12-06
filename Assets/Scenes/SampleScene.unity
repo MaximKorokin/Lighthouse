@@ -9628,14 +9628,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 4613729088056806375, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
-      propertyPath: _effectsSettings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4613729088056806375, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
-      propertyPath: _effectsSettings.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a199c07deaab9b4db859b7494cecd8a, type: 2}
     - target: {fileID: 6949926551165608891, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.78

@@ -15,9 +15,5 @@ MonoBehaviour:
   <AlternativesAmount>k__BackingField: 4
   <MaxEffectLevel>k__BackingField: 4
   <LevelsExperience>k__BackingField: 320000003c00000046000000
-  <Effects>k__BackingField:
-  - {fileID: 11400000, guid: 0c58cbfcaa842e04f968ebe027e3d405, type: 2}
-  - {fileID: 11400000, guid: 10fb6e9b6b361374ca379afd15ccbaf0, type: 2}
-  - {fileID: 11400000, guid: 73167408e902b7c4d8f913354818318a, type: 2}
-  - {fileID: 11400000, guid: b8e6fcb639e9e2845bb748f4bff49682, type: 2}
-  - {fileID: 11400000, guid: 91c8705aa5d288f40a10593d9e54a8f0, type: 2}
+  <EffectsSettings>k__BackingField:
+  - {fileID: 11400000, guid: c42584a1771b9644d91a62233918fe4a, type: 2}

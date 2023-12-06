@@ -13,5 +13,5 @@ public class LevelingSystemSettings : ScriptableObject
     [field: SerializeField]
     public int[] LevelsExperience { get; set; }
     [field: SerializeField]
-    public Effect[] Effects { get; set; }
+    public EffectSettings[] EffectsSettings { get; set; }
 }

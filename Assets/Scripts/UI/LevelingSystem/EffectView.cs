@@ -12,20 +12,20 @@ public class EffectView : MonoBehaviour
     [SerializeField]
     private TMP_Text _description;
 
-    private Effect _effect;
+    private EffectPreview _effectPreview;
 
-    public event Action<EffectView, Effect> Clicked;
+    public event Action<EffectView, EffectPreview> Clicked;
 
-    public void Initialize(Effect effect)
+    public void Initialize(EffectPreview effect)
     {
-        _effect = effect;
-        //_image.sprite = effect.Sprite;
-        //_title.text = effect.Name;
-        //_description.text = effect.Description;
+        _effectPreview = effect;
+        _image.sprite = effect.Sprite;
+        _title.text = effect.Name;
+        _description.text = effect.Description;
     }
 
     public void InvokeClicked()
     {
-        Clicked?.Invoke(this, _effect);
+        Clicked?.Invoke(this, _effectPreview);
     }
 }
