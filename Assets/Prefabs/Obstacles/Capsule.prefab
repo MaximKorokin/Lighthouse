@@ -147,7 +147,7 @@ MonoBehaviour:
       Value: 5
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
-  <DestroyTime>k__BackingField: 0.5
+  <DestroyTime>k__BackingField: 1
 --- !u!95 &2190903019382194184
 Animator:
   serializedVersion: 5

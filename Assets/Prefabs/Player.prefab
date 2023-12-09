@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effectsSettings:
-  - {fileID: 11400000, guid: bef0638fcf270b44cb439b2d3e7aa691, type: 2}
+  - {fileID: 11400000, guid: 0c8f1c1812c870f469f40323b8ce9264, type: 2}
 --- !u!114 &3676242523460579892
 MonoBehaviour:
   m_ObjectHideFlags: 0

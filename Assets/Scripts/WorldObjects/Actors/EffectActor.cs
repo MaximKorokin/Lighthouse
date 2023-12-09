@@ -1,10 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class EffectActor : ActorBase
 {
     [field: SerializeField]
-    protected EffectSettings EffectSettings;
+    private EffectSettings EffectSettings;
+
     private Effect[] _effects;
+    protected IEnumerable<Effect> Effects => _effects;
+    protected CastState CastState;
+    protected float Cooldown;
 
     protected override void Awake()
     {
@@ -12,14 +17,24 @@ public abstract class EffectActor : ActorBase
         if (EffectSettings != null)
         {
             _effects = EffectSettings.GetEffects();
+            Cooldown = EffectSettings.Cooldown;
         }
+        CastState = new CastState(WorldObject);
     }
 
     public override void Act(WorldObject worldObject)
     {
         if (_effects != null && _effects.Length > 0)
         {
-            _effects.Invoke(new CastState(WorldObject, WorldObject, worldObject));
+            CastState.Target = worldObject;
+            Effects.Invoke(CastState);
         }
+    }
+
+    public virtual void SetEffects(Effect[] effects, CastState castState)
+    {
+        CastState = castState;
+        CastState.Source = WorldObject;
+        _effects = effects;
     }
 }

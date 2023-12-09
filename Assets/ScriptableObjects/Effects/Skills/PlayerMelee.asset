@@ -10,39 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: AreaExplosion
+  m_Name: PlayerMelee
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 0
+  <Cooldown>k__BackingField: 2
   _effects:
-  - rid: 1867399761533861888
-  - rid: 1867399761533861889
+  - rid: 1867399761533861891
   references:
     version: 2
     RefIds:
-    - rid: 1867399761533861888
-      type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1867399761533861891
+      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399761533861890
+        - rid: 1867399761533861892
         <EndEffects>k__BackingField: []
-        <Duration>k__BackingField: 0
+        <Duration>k__BackingField: 0.5
         <Interval>k__BackingField: 0
-        <Radius>k__BackingField: 0
-    - rid: 1867399761533861889
-      type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1867399761533861892
+      type: {class: ZoneEffect, ns: , asm: Assembly-CSharp}
       data:
-        _animation: {fileID: 7400000, guid: 8255ecb6465822e479d359a88461ba3c, type: 2}
-        _hasDuration: 1
-        _duration: 0
-        _childToTarget: 0
-        _flipWithTarget: 0
-        _orderInLayer: 0
-        _positioning: 0
-    - rid: 1867399761533861890
+        <Effects>k__BackingField:
+        - rid: 1867399761533861893
+        <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 0215c199ed4f50b4689cbb14fc6e3b2f, type: 3}
+    - rid: 1867399761533861893
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 5
+        <Value>k__BackingField: 3

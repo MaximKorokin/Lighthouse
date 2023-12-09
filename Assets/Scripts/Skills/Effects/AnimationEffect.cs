@@ -18,36 +18,42 @@ public class AnimationEffect : Effect
     [SerializeField]
     private AnimationEffectPositioning _positioning;
 
+    private Coroutine _coroutine;
+    private Animator _animator;
+
     public override void Invoke(CastState castState)
     {
-        Coroutine coroutine = null;
-        var animator = GenericAnimatorPool.Take(_animation);
+        Cancel(castState.Target);
+        _animator = GenericAnimatorPool.Take(_animation);
+        SetupAnimator(castState, _animator);
         if (_hasDuration)
         {
-            coroutine = castState.Target.StartCoroutine(AnimationCoroutine(castState, animator));
+            _coroutine = castState.Target.StartCoroutine(AnimationCoroutine(castState.Target));
         }
-        else
+        if (_childToTarget)
         {
-            SetupAnimator(castState, animator);
-        }
-        if (castState.Target is DestroyableWorldObject destroyable)
-        {
-            destroyable.Destroying += () =>
-            {
-                GenericAnimatorPool.Return(animator);
-                if (coroutine != null)
-                {
-                    castState.Target.StopCoroutine(coroutine);
-                }
-            };
+            castState.Target.Destroyed += Cancel;
         }
     }
 
-    private IEnumerator AnimationCoroutine(CastState castState, Animator animator)
+    private void Cancel(WorldObject worldObject)
     {
-        SetupAnimator(castState, animator);
+        worldObject.Destroyed -= Cancel;
+        if (_animator != null)
+        {
+            GenericAnimatorPool.Return(_animator);
+            _animator = null;
+        }
+        if (_coroutine != null)
+        {
+            worldObject.StopCoroutine(_coroutine);
+        }
+    }
+
+    private IEnumerator AnimationCoroutine(WorldObject worldObject)
+    {
         yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
-        GenericAnimatorPool.Return(animator);
+        Cancel(worldObject);
     }
 
     // todo: this is gavno

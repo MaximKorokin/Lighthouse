@@ -9,6 +9,7 @@ public class PeriodicEffect : EndingEffect
     [field: SerializeField]
     public float Duration { get; private set; }
     [field: SerializeField]
+    [field: Tooltip("Must be above 0.1 to call intervals")]
     public float Interval { get; private set; }
 
     protected virtual IEnumerator DurationCoroutine(CastState castState)
@@ -22,7 +23,10 @@ public class PeriodicEffect : EndingEffect
         {
             base.Invoke(castState);
         }
-        yield return new WaitForSeconds(Duration);
+        if (Duration > 0)
+        {
+            yield return new WaitForSeconds(Duration);
+        }
         if (periodicInvokationCoroutine != null)
         {
             castState.Target.StopCoroutine(periodicInvokationCoroutine);
@@ -30,13 +34,13 @@ public class PeriodicEffect : EndingEffect
         InvokeEnd(castState);
     }
 
-    [SuppressMessage("Blocker Bug", "S2190:Loops and recursions should not be infinite", Justification = "<Pending>")]
+    [SuppressMessage("Blocker Bug", "S2190:Loops and recursions should not be infinite", Justification = "Coroutine")]
     protected virtual IEnumerator PeriodicInvokationCoroutine(CastState castState)
     {
         while (true)
         {
             base.Invoke(castState);
-            yield return new WaitForSeconds(Mathf.Max(Interval));
+            yield return new WaitForSeconds(Interval);
         }
     }
 

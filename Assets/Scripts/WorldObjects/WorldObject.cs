@@ -16,6 +16,7 @@ public abstract class WorldObject : MonoBehaviour
     public virtual float AttackSpeed => Stats[StatName.AttackSpeed];
 
     public event Action<AnimatorKey, float> AnimatorValueSet;
+    public event Action<WorldObject> Destroyed;
 
     protected virtual void Awake()
     {
@@ -30,6 +31,11 @@ public abstract class WorldObject : MonoBehaviour
     protected virtual void Start()
     {
         OnStatsModified();
+    }
+
+    protected virtual void OnDestroy()
+    {
+        Destroyed?.Invoke(this);
     }
 
     public void ModifyStats(Stats otherStats)

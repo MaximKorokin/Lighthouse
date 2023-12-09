@@ -1,25 +1,23 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(DestroyableWorldObject))]
-public class ProjectileActor : ActorBase
+public class ProjectileActor : EffectActor
 {
-    public ProjectileEffect Effect { get; private set; }
-
+    private Effect[] _endEffects;
     private int _pierceLeft;
-    private CastState _castState;
     private DestroyableWorldObject _destroyable;
 
     protected override void Awake()
     {
         base.Awake();
-        _destroyable = (WorldObject as DestroyableWorldObject);
+        _destroyable = WorldObject as DestroyableWorldObject;
         _destroyable.Destroying += OnDestroying;
     }
 
     private void OnDestroying()
     {
-        _castState.Target = WorldObject;
-        Effect.InvokeEnd(_castState);
+        CastState.Target = WorldObject;
+        _endEffects.Invoke(CastState);
     }
 
     public override void Act(WorldObject worldObject)
@@ -29,8 +27,7 @@ public class ProjectileActor : ActorBase
             return;
         }
 
-        _castState.Target = worldObject;
-        Effect.InvokeEffects(_castState);
+        base.Act(worldObject);
 
         if (--_pierceLeft <= 0)
         {
@@ -43,12 +40,10 @@ public class ProjectileActor : ActorBase
         _destroyable.DestroyWorldObject();
     }
 
-    public void SetEffect(ProjectileEffect effect, CastState castState)
+    public void SetProjectileEffect(ProjectileEffect effect, CastState castState)
     {
-        Effect = effect;
+        _endEffects = effect.EndEffects;
         _pierceLeft = effect.PierceAmount;
-
-        _castState = castState;
-        _castState.Source = WorldObject;
+        SetEffects(effect.Effects, castState);
     }
 }
