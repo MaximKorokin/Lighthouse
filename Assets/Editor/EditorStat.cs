@@ -13,20 +13,13 @@ public class EditorStat : PropertyDrawer
     {
         var root = new BindableElement();
         root.Bind(property.serializedObject);
-        root.style.flexDirection = FlexDirection.Row;
 
-        var nameLabel = new Label
-        {
-            bindingPath = NameFieldName
-        };
-        nameLabel.style.width = Length.Percent(40);
-        var valueField = new FloatField
+        var valueField = new FloatField(GetStatName(property))
         {
             bindingPath = ValueFieldName
         };
-        valueField.style.width = Length.Percent(50);
+        valueField.style.width = Length.Percent(100);
 
-        root.Add(nameLabel);
         root.Add(valueField);
         return root;
     }

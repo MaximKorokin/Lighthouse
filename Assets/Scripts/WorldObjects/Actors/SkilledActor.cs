@@ -23,11 +23,12 @@ public class SkilledActor : ActorBase
             return;
         }
 
-        var availableSkills = _skills.Where(x => x.CanUse(WorldObject.AttackSpeed)).ToArray();
-        if (availableSkills.Any())
-        {
-            availableSkills.ForEach(x => x.Invoke(WorldObject, worldObject));
-        }
+        _skills.Where(x => x.CanUse(WorldObject.AttackSpeed)).ForEach(x => x.Invoke(WorldObject, worldObject));
+    }
+
+    public override void Idle(WorldObject worldObject)
+    {
+
     }
 
     public void AddSkill(EffectSettings settings)

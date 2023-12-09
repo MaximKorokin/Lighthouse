@@ -3,23 +3,23 @@
 public abstract class EffectActor : ActorBase
 {
     [field: SerializeField]
-    private EffectSettings _effectSettings;
-    protected Effect[] Effects { get; private set; }
+    protected EffectSettings EffectSettings;
+    private Effect[] _effects;
 
     protected override void Awake()
     {
         base.Awake();
-        if (_effectSettings != null)
+        if (EffectSettings != null)
         {
-            Effects = _effectSettings.GetEffects();
+            _effects = EffectSettings.GetEffects();
         }
     }
 
     public override void Act(WorldObject worldObject)
     {
-        if (Effects != null && Effects.Length > 0)
+        if (_effects != null && _effects.Length > 0)
         {
-            Effects.Invoke(new CastState(WorldObject, WorldObject, worldObject));
+            _effects.Invoke(new CastState(WorldObject, WorldObject, worldObject));
         }
     }
 }

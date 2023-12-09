@@ -39,6 +39,10 @@ public abstract class ValidatorBase : MonoBehaviour
         {
             return true;
         }
+        if ((_validTypes & ValidType.TemporaryWorldObject) == ValidType.TemporaryWorldObject && worldObject is TemporaryWorldObject)
+        {
+            return true;
+        }
         return false;
     }
 }
@@ -51,4 +55,5 @@ public enum ValidType
     Player = 2,
     Obstacle = 4,
     DestroyableObstacle = 8,
+    TemporaryWorldObject = 16,
 }

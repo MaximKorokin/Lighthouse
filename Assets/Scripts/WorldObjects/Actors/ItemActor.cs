@@ -21,4 +21,9 @@ public class ItemActor : EffectActor
         base.Act(worldObject);
         _item.DestroyWorldObject();
     }
+
+    public override void Idle(WorldObject worldObject)
+    {
+        _item.DestroyWorldObject();
+    }
 }

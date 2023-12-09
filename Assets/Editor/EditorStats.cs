@@ -6,27 +6,17 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Stats))]
-public class EditorStats : PropertyDrawer
+public class EditorStats : PropertyDrawerBase
 {
     private const string StatsFieldName = "_stats";
-    private VisualElement _rootContainer;
-    private SerializedProperty _statsProperty;
 
-    public override VisualElement CreatePropertyGUI(SerializedProperty property)
+    protected override void RedrawRootContainer()
     {
-        _statsProperty = property;
-        _rootContainer = new VisualElement();
-        return CreateStatsElement();
-    }
+        RootContainer.Clear();
+        var foldout = new Foldout { text = "Stats" };
+        RootContainer.Add(foldout);
 
-    private VisualElement CreateStatsElement()
-    {
-        _rootContainer.Clear();
-        var foldout = new Foldout();
-        foldout.text = "Stats";
-        _rootContainer.Add(foldout);
-
-        var statsProperty = _statsProperty.FindPropertyRelative(StatsFieldName);
+        var statsProperty = Property.FindPropertyRelative(StatsFieldName);
         var statProperties = Enumerable.Range(0, statsProperty.arraySize).Select(i => statsProperty.GetArrayElementAtIndex(i)).ToArray();
         statProperties.ForEach((x, i) => foldout.Add(CreateStatPropertyContainer(statsProperty, x, i)));
 
@@ -36,9 +26,8 @@ public class EditorStats : PropertyDrawer
         {
             var statsCreationElement = CreateStatsCreationElement(statsProperty, unusedStats);
             foldout.RegisterValueChangedCallback(x => statsCreationElement.style.display = x.newValue ? DisplayStyle.Flex: DisplayStyle.None);
-            _rootContainer.Add(statsCreationElement);
+            RootContainer.Add(statsCreationElement);
         }
-        return _rootContainer;
     }
 
     private VisualElement CreateStatPropertyContainer(SerializedProperty stats, SerializedProperty stat, int index)
@@ -50,7 +39,7 @@ public class EditorStats : PropertyDrawer
         {
             stats.DeleteArrayElementAtIndex(index);
             stats.serializedObject.ApplyModifiedProperties();
-            CreateStatsElement();
+            RedrawRootContainer();
         });
         statDeleteButton.text = "-";
         statDeleteButton.style.width = 25;
@@ -76,7 +65,7 @@ public class EditorStats : PropertyDrawer
             var stat = stats.GetArrayElementAtIndex(stats.arraySize - 1);
             EditorStat.SetStatName(stat, statsPopup.value);
             stats.serializedObject.ApplyModifiedProperties();
-            CreateStatsElement();
+            RedrawRootContainer();
         });
         statCreateButton.text = "+";
         statCreateButton.style.width = 25;

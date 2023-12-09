@@ -1,27 +1,25 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MovableWorldObject))]
+[RequireComponent(typeof(WorldObject))]
 [RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
-    protected MovableWorldObject WorldObject { get; private set; }
+    protected WorldObject WorldObject { get; private set; }
     protected ActorBase[] Actors { get; private set; }
 
     protected virtual void Awake()
     {
-        WorldObject = GetComponent<MovableWorldObject>();
+        WorldObject = GetComponent<WorldObject>();
         Actors = GetComponents<ActorBase>();
     }
 
     protected virtual void Update()
     {
-        if (WorldObject.IsAlive)
-        {
-            Control();
-        }
+        Control();
     }
 
     protected void InvokeActors(WorldObject worldObject) => Actors.ForEach(x => x.Act(worldObject));
+    protected void IdleActors(WorldObject worldObject) => Actors.ForEach(x => x.Idle(worldObject));
 
     protected abstract void Control();
 }

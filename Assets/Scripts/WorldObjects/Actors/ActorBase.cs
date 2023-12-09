@@ -12,4 +12,5 @@ public abstract class ActorBase : MonoBehaviour
     }
 
     public abstract void Act(WorldObject worldObject);
+    public abstract void Idle(WorldObject worldObject);
 }

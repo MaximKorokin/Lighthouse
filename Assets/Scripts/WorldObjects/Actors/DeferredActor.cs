@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(TimerVisualizer))]
-class DeferredTriggerActor : TriggerActor
+class DeferredActor : EffectActor
 {
     [SerializeField]
     private float _timeToAct;
@@ -11,7 +11,7 @@ class DeferredTriggerActor : TriggerActor
 
     private Timer _timer;
     private int _actedAmount;
-    private readonly HashSet<WorldObject> worldObjects = new();
+    private readonly HashSet<WorldObject> _worldObjects = new();
 
     protected override void Awake()
     {
@@ -26,7 +26,7 @@ class DeferredTriggerActor : TriggerActor
     private void OnTimerFinished()
     {
         _actedAmount++;
-        worldObjects.ForEach(x => base.Act(x));
+        base.Act(WorldObject);
     }
 
     public override void Act(WorldObject worldObject)
@@ -35,24 +35,21 @@ class DeferredTriggerActor : TriggerActor
         {
             return;
         }
-        worldObjects.Add(worldObject);
-        if (worldObjects.Count > 0 && !_timer.Started)
+        _worldObjects.Add(worldObject);
+        if (!_timer.Started)
         {
             _timer.Start(_timeToAct);
         }
     }
 
-    public override void Cancel(WorldObject worldObject)
+    public override void Idle(WorldObject worldObject)
     {
         if (_actedAmount >= _actsAmount)
         {
             return;
         }
-        if (worldObjects.Contains(worldObject))
-        {
-            worldObjects.Remove(worldObject);
-        }
-        if (worldObjects.Count == 0)
+        _worldObjects.Remove(worldObject);
+        if (_worldObjects.Count == 0)
         {
             _timer.Stop();
         }

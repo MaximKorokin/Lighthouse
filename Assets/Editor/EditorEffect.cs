@@ -6,43 +6,36 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Effect), true)]
-public class EditorEffect : PropertyDrawer
+public class EditorEffect : PropertyDrawerBase
 {
-    public override VisualElement CreatePropertyGUI(SerializedProperty property)
+    protected override void RedrawRootContainer()
     {
-        var container = new VisualElement();
-        RedrawRootContainer(container, property);
-        return container;
-    }
-
-    private void RedrawRootContainer(VisualElement container, SerializedProperty property)
-    {
-        container.Clear();
-        if (property.managedReferenceValue == null)
+        RootContainer.Clear();
+        if (Property.managedReferenceValue == null)
         {
-            container.Add(CreateTypePopup(container, property));
+            RootContainer.Add(CreateTypePopup());
         }
         else
         {
-            container.Add(CreateTypeElement(container, property));
+            RootContainer.Add(CreateTypeElement());
         }
     }
 
-    private VisualElement CreateTypePopup(VisualElement container, SerializedProperty property)
+    private VisualElement CreateTypePopup()
     {
         var popup = new PopupField<Type>(typeof(Effect).Yield().Concat(ReflectionUtils.GetSubclasses<Effect>()).ToList(), 0);
         popup.RegisterValueChangedCallback(x =>
         {
-            property.managedReferenceValue = ReflectionUtils.CreateInstance<Effect>(x.newValue);
-            property.serializedObject.ApplyModifiedProperties();
-            RedrawRootContainer(container, property);
+            Property.managedReferenceValue = ReflectionUtils.CreateInstance<Effect>(x.newValue);
+            Property.serializedObject.ApplyModifiedProperties();
+            RedrawRootContainer();
         });
         return popup;
     }
 
-    private VisualElement CreateTypeElement(VisualElement container, SerializedProperty property)
+    private VisualElement CreateTypeElement()
     {
-        var propertyType = property.managedReferenceValue.GetType();
+        var propertyType = Property.managedReferenceValue.GetType();
         var foldout = new Foldout
         {
             text = propertyType.Name,
@@ -51,7 +44,7 @@ public class EditorEffect : PropertyDrawer
         foreach (var p in ReflectionUtils.GetFieldsWithAttributes(propertyType, true, typeof(SerializeField), typeof(SerializeReference)))
         {
             var propertyField = new PropertyField();
-            propertyField.BindProperty(property.FindPropertyRelative(p.Name));
+            propertyField.BindProperty(Property.FindPropertyRelative(p.Name));
             foldout.Add(propertyField);
         }
         return foldout;

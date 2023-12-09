@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Projectile : MovableWorldObject
+public class TemporaryWorldObject : MovableWorldObject
 {
     [field: SerializeField]
     public float LifeTime { get; protected set; }

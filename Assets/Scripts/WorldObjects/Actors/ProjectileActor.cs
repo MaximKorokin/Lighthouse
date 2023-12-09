@@ -7,11 +7,13 @@ public class ProjectileActor : ActorBase
 
     private int _pierceLeft;
     private CastState _castState;
+    private DestroyableWorldObject _destroyable;
 
     protected override void Awake()
     {
         base.Awake();
-        (WorldObject as DestroyableWorldObject).Destroying += OnDestroying;
+        _destroyable = (WorldObject as DestroyableWorldObject);
+        _destroyable.Destroying += OnDestroying;
     }
 
     private void OnDestroying()
@@ -22,7 +24,7 @@ public class ProjectileActor : ActorBase
 
     public override void Act(WorldObject worldObject)
     {
-        if (!(WorldObject as DestroyableWorldObject).IsAlive || _pierceLeft <= 0)
+        if (!_destroyable.IsAlive || _pierceLeft <= 0)
         {
             return;
         }
@@ -32,8 +34,13 @@ public class ProjectileActor : ActorBase
 
         if (--_pierceLeft <= 0)
         {
-            (WorldObject as DestroyableWorldObject).DestroyWorldObject();
+            _destroyable.DestroyWorldObject();
         }
+    }
+
+    public override void Idle(WorldObject worldObject)
+    {
+        _destroyable.DestroyWorldObject();
     }
 
     public void SetEffect(ProjectileEffect effect, CastState castState)
