@@ -6,7 +6,7 @@ public class PeriodicActor : EffectActor
 
     public override void Act(WorldObject worldObject)
     {
-        _cooldowns.TryAdd(worldObject, new CooldownCounter(Cooldown));
+        _cooldowns.TryAdd(worldObject, new CooldownCounter(CastState.Cooldown));
         if (_cooldowns[worldObject].TryReset(WorldObject.AttackSpeed))
         {
             base.Act(worldObject);

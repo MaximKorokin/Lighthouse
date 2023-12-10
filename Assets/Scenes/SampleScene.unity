@@ -9782,17 +9782,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: AcidZone
       objectReference: {fileID: 0}
-    - target: {fileID: 3153314722134067989, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5947959734311386065, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.105
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 5947959734311386065, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.661
+      value: -4.38
       objectReference: {fileID: 0}
     - target: {fileID: 5947959734311386065, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
       propertyPath: m_LocalPosition.z

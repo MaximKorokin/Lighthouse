@@ -9,17 +9,18 @@ public abstract class EffectActor : ActorBase
     private Effect[] _effects;
     protected IEnumerable<Effect> Effects => _effects;
     protected CastState CastState;
-    protected float Cooldown;
 
     protected override void Awake()
     {
         base.Awake();
         if (EffectSettings != null)
         {
-            _effects = EffectSettings.GetEffects();
-            Cooldown = EffectSettings.Cooldown;
+            SetEffects(EffectSettings.GetEffects(), new CastState(WorldObject, EffectSettings.Cooldown));
         }
-        CastState = new CastState(WorldObject);
+        else
+        {
+            SetEffects(new Effect[0], new CastState(WorldObject, 0));
+        }
     }
 
     public override void Act(WorldObject worldObject)

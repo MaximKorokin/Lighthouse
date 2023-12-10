@@ -2,13 +2,13 @@
 
 public class CooldownCounter
 {
-    private readonly float _cooldown;
+    public readonly float Cooldown;
     private float _lastUsedTime;
 
     public CooldownCounter(float cooldown)
     {
-        _cooldown = cooldown;
-        _lastUsedTime = Time.time - _cooldown;
+        Cooldown = cooldown;
+        _lastUsedTime = Time.time - Cooldown;
     }
 
     public bool TryReset(float divider = 1)
@@ -17,7 +17,7 @@ public class CooldownCounter
         {
             return false;
         }
-        var isOver = Time.time - _lastUsedTime > _cooldown / divider;
+        var isOver = Time.time - _lastUsedTime > Cooldown / divider;
         if (isOver)
         {
             _lastUsedTime = Time.time;
