@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: Damage_1
+  m_Name: AcidZone
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
@@ -18,11 +18,19 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 1
   _effects:
-  - rid: 1867399699504824323
+  - rid: 1867399761533861897
   references:
     version: 2
     RefIds:
-    - rid: 1867399699504824323
+    - rid: 1867399761533861897
+      type: {class: ZoneEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 1867399761533861899
+        <Zone>k__BackingField: {fileID: 8977653379589506027, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
+        <ChildToTarget>k__BackingField: 0
+        <DistanceFromSource>k__BackingField: 0
+    - rid: 1867399761533861899
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 1

@@ -28,6 +28,10 @@ public class ZoneEffect : ComplexEffect
             movable.DirectionSet += MovableDirectionSet;
             zone.WorldObject.Destroyed += _ => movable.DirectionSet -= MovableDirectionSet;
         }
+        else
+        {
+            zone.transform.position = castState.Target.transform.position;
+        }
 
         void MovableDirectionSet(Vector2 _)
         {

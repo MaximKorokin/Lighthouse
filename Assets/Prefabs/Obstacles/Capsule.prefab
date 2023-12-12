@@ -198,6 +198,7 @@ MonoBehaviour:
   _damageEffectsSettings: []
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: efcd3d145e77b514d8fb4ecc4803bf72, type: 2}
+  - {fileID: 11400000, guid: 651b8aff2e0e31f4f85aee0a2d401cfb, type: 2}
 --- !u!114 &3455118433002023401
 MonoBehaviour:
   m_ObjectHideFlags: 0

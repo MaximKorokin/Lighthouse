@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObject))]
@@ -9,10 +9,12 @@ public class Effector : MonoBehaviour
 
     protected virtual void Start()
     {
-        var _startEffects = _startEffectsSettings.SelectMany(x => x.GetEffects()).ToArray();
-        var obj = GetComponent<WorldObject>();
-        InvokeEffects(_startEffects, obj);
+        var worldObject = GetComponent<WorldObject>();
+        foreach (var settings in _startEffectsSettings)
+        {
+            InvokeEffects(settings.GetEffects(), new CastState(worldObject, settings.Cooldown));
+        }
     }
 
-    protected static void InvokeEffects(Effect[] effects, WorldObject obj) => effects.ForEach(x => x.Invoke(obj));
+    protected static void InvokeEffects(IEnumerable<Effect> effects, CastState castState) => effects.ForEach(x => x.Invoke(castState));
 }

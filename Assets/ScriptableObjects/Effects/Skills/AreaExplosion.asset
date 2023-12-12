@@ -31,7 +31,7 @@ MonoBehaviour:
         <EndEffects>k__BackingField: []
         <Duration>k__BackingField: 0
         <Interval>k__BackingField: 0
-        <Radius>k__BackingField: 0
+        <Radius>k__BackingField: 1
     - rid: 1867399761533861889
       type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -45,4 +45,4 @@ MonoBehaviour:
     - rid: 1867399761533861890
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 5
+        <Value>k__BackingField: 10
