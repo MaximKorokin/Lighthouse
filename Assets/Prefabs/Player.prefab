@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4561559417053363611}
   - component: {fileID: 4140782551836971032}
   - component: {fileID: 8190725275004147874}
-  - component: {fileID: 4804984492352695879}
+  - component: {fileID: 677912016663868352}
   - component: {fileID: 3676242523460579892}
   m_Layer: 0
   m_Name: Player
@@ -589,7 +589,7 @@ MonoBehaviour:
   _damageEffectsSettings:
   - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
   _destroyEffectsSettings: []
---- !u!114 &4804984492352695879
+--- !u!114 &677912016663868352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -598,11 +598,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7537639882005055995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
+  m_Script: {fileID: 11500000, guid: 47c874f4f7959a84cb8153f219a81df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _effectsSettings:
   - {fileID: 11400000, guid: 0c8f1c1812c870f469f40323b8ce9264, type: 2}
+  _activeEffectSettings: {fileID: 11400000, guid: 651b8aff2e0e31f4f85aee0a2d401cfb, type: 2}
 --- !u!114 &3676242523460579892
 MonoBehaviour:
   m_ObjectHideFlags: 0

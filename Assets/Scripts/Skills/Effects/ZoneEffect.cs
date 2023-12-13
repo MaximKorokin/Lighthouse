@@ -7,7 +7,9 @@ public class ZoneEffect : ComplexEffect
     [field: SerializeField]
     public bool ChildToTarget { get; private set; }
     [field: SerializeField]
-    public float DistanceFromSource { get; private set; }
+    public float DistanceFromParent { get; private set; }
+    [field: SerializeField]
+    public float InvokationCooldown { get; private set; }
 
     public override void Invoke(CastState castState)
     {
@@ -17,20 +19,18 @@ public class ZoneEffect : ComplexEffect
     private void CreateZone(CastState castState)
     {
         var zone = Object.Instantiate(Zone);
+        castState.Cooldown = InvokationCooldown;
         zone.SetEffects(Effects, castState);
+        zone.transform.position = castState.Target.transform.position;
         if (ChildToTarget)
         {
             zone.transform.parent = castState.Target.transform;
         }
-        if (castState.Target is MovableWorldObject movable)
+        if (ChildToTarget && castState.Target is MovableWorldObject movable)
         {
             MovableDirectionSet(movable.Direction);
             movable.DirectionSet += MovableDirectionSet;
             zone.WorldObject.Destroyed += _ => movable.DirectionSet -= MovableDirectionSet;
-        }
-        else
-        {
-            zone.transform.position = castState.Target.transform.position;
         }
 
         void MovableDirectionSet(Vector2 _)
@@ -40,7 +40,7 @@ public class ZoneEffect : ComplexEffect
             {
                 zoneMovable.Direction = turnDirection;
             }
-            zone.transform.localPosition = turnDirection * DistanceFromSource;
+            zone.transform.localPosition = turnDirection * DistanceFromParent;
         }
     }
 }

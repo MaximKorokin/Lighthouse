@@ -20,7 +20,7 @@ public class Skill
         }
     }
 
-    public bool CanUse(float divider)
+    public bool CanUse(float divider = 1)
     {
         return _cooldownCounter.TryReset(divider);
     }

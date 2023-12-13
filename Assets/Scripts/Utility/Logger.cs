@@ -36,4 +36,9 @@ public static class Logger
     {
         Log(obj1.YieldWith(objects));
     }
+
+    public static void Warn(object obj1)
+    {
+        Debug.LogWarning(obj1);
+    }
 }

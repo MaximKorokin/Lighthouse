@@ -16,7 +16,7 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 1
+  <Cooldown>k__BackingField: 3
   _effects:
   - rid: 1867399761533861897
   references:
@@ -29,7 +29,8 @@ MonoBehaviour:
         - rid: 1867399761533861899
         <Zone>k__BackingField: {fileID: 8977653379589506027, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
         <ChildToTarget>k__BackingField: 0
-        <DistanceFromSource>k__BackingField: 0
+        <DistanceFromParent>k__BackingField: 0
+        <InvokationCooldown>k__BackingField: 0.5
     - rid: 1867399761533861899
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

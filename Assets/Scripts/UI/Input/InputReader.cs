@@ -5,6 +5,7 @@ public abstract class InputReader : MonoBehaviour
     private Vector2 _moveVectorInput;
 
     protected abstract Vector2 GetMoveVectorInput();
+    protected abstract bool IsActiveAbilityUsed();
 
     protected virtual void Update()
     {
@@ -13,6 +14,11 @@ public abstract class InputReader : MonoBehaviour
         {
             _moveVectorInput = newMoveVectorinput;
             InputManager.ChangeMoveVector(_moveVectorInput);
+        }
+
+        if (IsActiveAbilityUsed())
+        {
+            InputManager.UseActiveAbility();
         }
     }
 }
