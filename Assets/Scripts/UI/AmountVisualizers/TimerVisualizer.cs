@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-class TimerVisualizer : AmountVisualizer
+class TimerVisualizer : BarAmountVisualizer
 {
     [SerializeField]
     private Transform _barParent;

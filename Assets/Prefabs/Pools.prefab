@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2600583563089937353}
   - component: {fileID: 1647597116874161411}
   - component: {fileID: 1468600060618494540}
+  - component: {fileID: 1576417372000684615}
   m_Layer: 0
   m_Name: Pools
   m_TagString: Untagged
@@ -74,3 +75,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Object>k__BackingField: {fileID: 6297715463519980086, guid: b6f9c5b50d4293c41bd0c69665bd2d43, type: 3}
+--- !u!114 &1576417372000684615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085181546571833547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14deb5dd3d607b441bb27a801179c441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Object>k__BackingField: {fileID: 8858464750335085228, guid: 474bb7fdf08b52b45b050a4f13d5cab3, type: 3}

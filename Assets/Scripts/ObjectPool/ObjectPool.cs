@@ -39,6 +39,7 @@ public abstract class ObjectPool<T, P> : Singleton<ObjectPool<T, P>> where T : C
         Instance.Pool.Push(obj);
         obj.transform.SetParent(Instance.transform, false);
         obj.transform.localScale = Vector3.one;
+        obj.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         Instance.Deinitialize(obj);
         obj.gameObject.SetActive(false);
     }

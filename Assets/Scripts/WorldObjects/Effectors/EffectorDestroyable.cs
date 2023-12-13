@@ -22,7 +22,7 @@ public class EffectorDestroyable : Effector
         _damageEffects = _damageEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject, x.Cooldown));
         _destroyEffects = _destroyEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject, x.Cooldown));
 
-        worldObject.Damaged += OnDamaged;
+        worldObject.HealthPointsChanged += (prev, cur, max) => { if (cur < prev) OnDamaged(); };
         worldObject.Destroying += OnDestroying;
     }
 

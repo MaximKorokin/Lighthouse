@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AmountVisualizer : MonoBehaviour
+public abstract class BarAmountVisualizer : MonoBehaviour
 {
     [SerializeField]
     private BarController _barControllerPrefab;

@@ -18,19 +18,25 @@ public abstract class DestroyableWorldObject : WorldObject
         get => _currentHealthPoints;
         private set
         {
+            var previousValue = _currentHealthPoints;
             _currentHealthPoints = Math.Min(value, Stats[StatName.MaxHealthPoints]);
             if (_currentHealthPoints <= 0)
             {
                 DestroyWorldObject();
             }
 
-            HealthPointsChanged?.Invoke(_currentHealthPoints, MaxHealthPoints);
+            HealthPointsChanged?.Invoke(previousValue, _currentHealthPoints, MaxHealthPoints);
             SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
         }
     }
 
-    public event Action<float, float> HealthPointsChanged;
-    public event Action Damaged;
+    /// <summary>
+    /// Action<PreviousHP, CurrentHP, MaxHP>
+    /// <typeparam name="PreviousHP"></typeparam>
+    /// <typeparam name="CurrentHP"></typeparam>
+    /// <typeparam name="MaxHP"></typeparam>
+    /// </summary>
+    public event Action<float, float, float> HealthPointsChanged;
     public event Action Destroying;
 
     protected override void Start()
@@ -43,11 +49,12 @@ public abstract class DestroyableWorldObject : WorldObject
     {
         base.OnStatsModified();
 
+        var previousHP = CurrentHealthPoints;
         if (MaxHealthPoints < CurrentHealthPoints)
         {
             CurrentHealthPoints = MaxHealthPoints;
         }
-        HealthPointsChanged?.Invoke(CurrentHealthPoints, MaxHealthPoints);
+        HealthPointsChanged?.Invoke(previousHP, CurrentHealthPoints, MaxHealthPoints);
     }
 
     public virtual void Damage(float damageValue)
@@ -63,8 +70,6 @@ public abstract class DestroyableWorldObject : WorldObject
         }
 
         CurrentHealthPoints -= damageValue;
-
-        Damaged?.Invoke();
 
         SetAnimatorValue(AnimatorKey.Hurt, true);
     }
