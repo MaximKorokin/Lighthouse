@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class DestroyableWorldObject : WorldObject
 {
     [field: SerializeField]
-    public bool IsDamagable { get; private set; } = true;
+    public bool IsDamagable { get; set; } = true;
     [field: SerializeField]
     public bool IsAlive { get; private set; } = true;
     [field: SerializeField]
@@ -22,6 +22,7 @@ public abstract class DestroyableWorldObject : WorldObject
             _currentHealthPoints = Math.Min(value, Stats[StatName.MaxHealthPoints]);
             if (_currentHealthPoints <= 0)
             {
+                _currentHealthPoints = 0;
                 DestroyWorldObject();
             }
 

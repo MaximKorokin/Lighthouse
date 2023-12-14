@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: PlayerDash
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 2
+  _effects:
+  - rid: 1867399862666133504
+  - rid: 1867399862666133506
+  - rid: 1867399871704072194
+  references:
+    version: 2
+    RefIds:
+    - rid: 1867399862666133504
+      type: {class: DashEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _speed: 3
+        _time: 0.5
+        _disableActor: 0
+    - rid: 1867399862666133506
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 9
+    - rid: 1867399871704072194
+      type: {class: ZoneEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 1867399871704072195
+        - rid: 1867399871704072196
+        <Zone>k__BackingField: {fileID: 4775625874383946485, guid: 1c21b3ff23453f84aa214e1e576b3acd, type: 3}
+        <ChildToTarget>k__BackingField: 1
+        <DistanceFromParent>k__BackingField: 0
+        <InvokationCooldown>k__BackingField: 1
+    - rid: 1867399871704072195
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _speed: 1
+        _time: 0.3
+        _disableActor: 0
+    - rid: 1867399871704072196
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 2

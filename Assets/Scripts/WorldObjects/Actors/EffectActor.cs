@@ -23,7 +23,7 @@ public abstract class EffectActor : ActorBase
         }
     }
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
         if (_effects != null && _effects.Length > 0)
         {

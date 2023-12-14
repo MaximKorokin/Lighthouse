@@ -26,10 +26,10 @@ class DeferredActor : EffectActor
     private void OnTimerFinished()
     {
         _actedAmount++;
-        base.Act(WorldObject);
+        base.ActInternal(WorldObject);
     }
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
         if (_actedAmount >= _actsAmount)
         {

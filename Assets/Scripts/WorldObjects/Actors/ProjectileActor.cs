@@ -20,14 +20,14 @@ public class ProjectileActor : EffectActor
         _endEffects.Invoke(CastState);
     }
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
         if (!_destroyable.IsAlive || _pierceLeft <= 0)
         {
             return;
         }
 
-        base.Act(worldObject);
+        base.ActInternal(worldObject);
 
         if (--_pierceLeft <= 0)
         {

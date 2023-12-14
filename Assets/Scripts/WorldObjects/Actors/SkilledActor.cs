@@ -16,7 +16,7 @@ public class SkilledActor : ActorBase
         _skills = _effectsSettings.Select(x => new Skill(x)).ToList();
     }
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
         if (!(WorldObject as DestroyableWorldObject).IsAlive)
         {

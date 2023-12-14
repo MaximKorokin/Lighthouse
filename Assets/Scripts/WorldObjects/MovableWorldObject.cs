@@ -4,12 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
-    private const float MoveSpeedModifier = 2f;
+    public const float MoveSpeedModifier = 2f;
 
     [field: SerializeField]
     public bool CanRotate { get; protected set; }
     [field: SerializeField]
     public bool CanFlip { get; protected set; }
+    [field: SerializeField]
+    public bool CanMove { get; set; } = true;
 
     public Vector2 Direction
     {
@@ -26,6 +28,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     private Vector2 _direction;
     private Rigidbody2D _rigidbody;
+    private LayerMask _rigidbodyExcludeLayerMask;
     private bool _previousFlipX;
 
     public event Action<bool> Flipped;
@@ -35,6 +38,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     {
         base.Awake();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbodyExcludeLayerMask = _rigidbody.excludeLayers;
         DirectionSet += OnDirectionSet;
     }
 
@@ -53,16 +57,30 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             _rigidbody.velocity = Vector2.zero;
         }
 
-        if (IsMoving)
+        if (CanMove && IsMoving)
         {
-            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * Stats[StatName.MoveSpeed] * Time.fixedDeltaTime * Direction);
+            MoveRigidbody(Stats[StatName.MoveSpeed]);
         }
+    }
+
+    public void MoveRigidbody(float speed)
+    {
+        _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * speed * Time.fixedDeltaTime * Direction);
+    }
+
+    public void SetRigidbodyCollisions(bool enable)
+    {
+        _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : -1;
     }
 
     public virtual void Move()
     {
-        IsMoving = true;
+        if (!CanMove)
+        {
+            return;
+        }
 
+        IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }
 

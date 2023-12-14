@@ -182,6 +182,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
+  <CanMove>k__BackingField: 1
   <LifeTime>k__BackingField: 100
 --- !u!114 &4316505220260097887
 MonoBehaviour:
@@ -233,3 +234,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2735384f929f38243805496d9fdbfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EffectSettings: {fileID: 0}

@@ -11,14 +11,14 @@ public class ItemActor : EffectActor
         _item = WorldObject as Item;
     }
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
         if (!_item.IsActive || !_item.IsAlive)
         {
             return;
         }
 
-        base.Act(worldObject);
+        base.ActInternal(worldObject);
         _item.DestroyWorldObject();
     }
 

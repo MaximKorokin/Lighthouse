@@ -4,12 +4,12 @@ public class PeriodicActor : EffectActor
 {
     private readonly Dictionary<WorldObject, CooldownCounter> _cooldowns = new();
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
         _cooldowns.TryAdd(worldObject, new CooldownCounter(CastState.Cooldown));
         if (_cooldowns[worldObject].TryReset(WorldObject.AttackSpeed))
         {
-            base.Act(worldObject);
+            base.ActInternal(worldObject);
         }
     }
 

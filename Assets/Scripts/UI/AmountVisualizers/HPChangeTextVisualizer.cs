@@ -17,6 +17,10 @@ class HPChangeTextVisualizer : TextVisualizer
 
     private void VisualizeHPChange(float prevHP, float curHP, float maxHP)
     {
+        if (prevHP == 0)
+        {
+            return;
+        }
         var hpDelta = prevHP - curHP;
         if (hpDelta < 0)
         {

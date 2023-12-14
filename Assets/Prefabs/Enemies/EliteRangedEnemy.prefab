@@ -295,6 +295,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
+  <CanMove>k__BackingField: 1
 --- !u!114 &3447483860829897823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanAct>k__BackingField: 1
   _effectsSettings:
   - {fileID: 11400000, guid: a5d113fb375fdb54fa867d543a850823, type: 2}
 --- !u!114 &5255762296922553113
@@ -405,7 +407,7 @@ MonoBehaviour:
   _useSingle: 0
   _showTime: 0.3
   _horizontalRandomMovementRange: {x: 0.1, y: 0.5}
-  _verticalRandomMovementRange: {x: 1, y: 2}
+  _verticalRandomMovementRange: {x: 0.5, y: 1}
   _textParent: {fileID: 7777634912302322228}
 --- !u!1 &7175603728334546691
 GameObject:
@@ -542,5 +544,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 10, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}

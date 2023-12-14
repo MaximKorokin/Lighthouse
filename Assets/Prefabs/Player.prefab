@@ -255,7 +255,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 10, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4912764769393047653
 GameObject:
@@ -470,7 +470,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -555,6 +555,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
+  <CanMove>k__BackingField: 1
   _levelingSystemSettings: {fileID: 11400000, guid: 10547097463749d4e9f3416e00abf3d6, type: 2}
 --- !u!114 &4808862166265668767
 MonoBehaviour:
@@ -638,9 +639,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c874f4f7959a84cb8153f219a81df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanAct>k__BackingField: 1
   _effectsSettings:
   - {fileID: 11400000, guid: 0c8f1c1812c870f469f40323b8ce9264, type: 2}
-  _activeEffectSettings: {fileID: 11400000, guid: 651b8aff2e0e31f4f85aee0a2d401cfb, type: 2}
+  _activeEffectSettings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
 --- !u!114 &3676242523460579892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,5 +670,5 @@ MonoBehaviour:
   _useSingle: 0
   _showTime: 0.3
   _horizontalRandomMovementRange: {x: 0.1, y: 0.5}
-  _verticalRandomMovementRange: {x: 1, y: 2}
+  _verticalRandomMovementRange: {x: 0.5, y: 1}
   _textParent: {fileID: 3235714758773651724}

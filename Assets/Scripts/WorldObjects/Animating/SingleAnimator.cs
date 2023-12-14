@@ -71,4 +71,5 @@ public enum AnimatorKey
     AttackSpeed = 6,
     MoveSpeed = 7,
     Transit = 8,
+    Dash = 9,
 }

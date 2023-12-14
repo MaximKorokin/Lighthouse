@@ -18,9 +18,9 @@ public class PlayerInputActor : SkilledActor
         InputManager.ActiveAbilityUsed += OnActiveAbilityUsed;
     }
 
-    public override void Act(WorldObject worldObject)
+    protected override void ActInternal(WorldObject worldObject)
     {
-        base.Act(worldObject);
+        base.ActInternal(worldObject);
         if (!(WorldObject as DestroyableWorldObject).IsAlive)
         {
             return;
