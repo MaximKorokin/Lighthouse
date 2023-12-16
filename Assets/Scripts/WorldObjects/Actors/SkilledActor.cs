@@ -23,7 +23,7 @@ public class SkilledActor : ActorBase
             return;
         }
 
-        _skills.Where(x => x.CanUse(WorldObject.AttackSpeed)).ForEach(x => x.Invoke(WorldObject, worldObject));
+        _skills.ForEach(x => x.Invoke(WorldObject, worldObject, WorldObject.AttackSpeed));
     }
 
     public override void Idle(WorldObject worldObject)

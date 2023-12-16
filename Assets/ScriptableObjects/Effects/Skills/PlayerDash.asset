@@ -29,7 +29,7 @@ MonoBehaviour:
       data:
         _speed: 3
         _time: 0.5
-        _disableActor: 0
+        _disableActor: 1
     - rid: 1867399862666133506
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:

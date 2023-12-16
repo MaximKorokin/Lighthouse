@@ -5,6 +5,8 @@ public class CooldownCounter
     public readonly float Cooldown;
     private float _lastUsedTime;
 
+    public float TimeSinceReset => Time.time - _lastUsedTime;
+
     public CooldownCounter(float cooldown)
     {
         Cooldown = cooldown;
@@ -17,7 +19,7 @@ public class CooldownCounter
         {
             return false;
         }
-        var isOver = Time.time - _lastUsedTime > Cooldown / divider;
+        var isOver = TimeSinceReset > Cooldown / divider;
         if (isOver)
         {
             _lastUsedTime = Time.time;

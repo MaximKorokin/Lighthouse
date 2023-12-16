@@ -5,7 +5,7 @@ public class PlayerInputActor : SkilledActor
     [SerializeField]
     private EffectSettings _activeEffectSettings;
 
-    private Skill _activeSkill;
+    public Skill ActiveSkill { get; private set; }
     private bool _canUseActiveSkill;
 
     protected override void Awake()
@@ -13,7 +13,7 @@ public class PlayerInputActor : SkilledActor
         base.Awake();
         if (_activeEffectSettings != null)
         {
-            _activeSkill = new Skill(_activeEffectSettings);
+            ActiveSkill = new Skill(_activeEffectSettings);
         }
         InputManager.ActiveAbilityUsed += OnActiveAbilityUsed;
     }
@@ -28,10 +28,8 @@ public class PlayerInputActor : SkilledActor
         if (_canUseActiveSkill)
         {
             _canUseActiveSkill = false;
-            if (_activeSkill.CanUse())
-            {
-                _activeSkill.Invoke(WorldObject);
-            }
+
+            ActiveSkill.Invoke(WorldObject);
         }
     }
 

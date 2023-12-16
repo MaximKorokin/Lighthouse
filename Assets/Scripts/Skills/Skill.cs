@@ -1,27 +1,26 @@
 public class Skill
 {
     private readonly Effect[] _effects;
-    private readonly CooldownCounter _cooldownCounter;
+    public readonly CooldownCounter CooldownCounter;
 
     public Skill(EffectSettings settings)
     {
         _effects = settings.GetEffects();
-        _cooldownCounter = new CooldownCounter(settings.Cooldown);
-        _cooldownCounter.TryReset();
+        CooldownCounter = new CooldownCounter(settings.Cooldown);
+        CooldownCounter.TryReset();
     }
 
-    public void Invoke(WorldObject source) => Invoke(source, source);
+    public void Invoke(WorldObject source, float divider = 1) => Invoke(source, source, divider);
 
-    public void Invoke(WorldObject source, WorldObject target)
+    public void Invoke(WorldObject source, WorldObject target, float divider = 1)
     {
+        if (!CooldownCounter.TryReset(divider))
+        {
+            return;
+        }
         foreach (var effect in _effects)
         {
-            effect.Invoke(new CastState(source, source, target, _cooldownCounter.Cooldown));
+            effect.Invoke(new CastState(source, source, target, CooldownCounter.Cooldown));
         }
-    }
-
-    public bool CanUse(float divider = 1)
-    {
-        return _cooldownCounter.TryReset(divider);
     }
 }

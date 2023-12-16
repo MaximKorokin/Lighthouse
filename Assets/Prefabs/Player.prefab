@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 677912016663868352}
   - component: {fileID: 3676242523460579892}
   - component: {fileID: 7450678416333758852}
+  - component: {fileID: 8324557593489910904}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -672,3 +673,17 @@ MonoBehaviour:
   _horizontalRandomMovementRange: {x: 0.1, y: 0.5}
   _verticalRandomMovementRange: {x: 0.5, y: 1}
   _textParent: {fileID: 3235714758773651724}
+--- !u!114 &8324557593489910904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab951168e25fd34587ddf87bb04903f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
+  _barParent: {fileID: 1402696697163418345}

@@ -14,6 +14,7 @@ public abstract class BarAmountVisualizer : MonoBehaviour
     protected virtual void Start()
     {
         BarController = BarsPool.Take(_barControllerPrefab);
+        VisualizeAmount(1, 1);
     }
 
     protected virtual void OnDestroy()
