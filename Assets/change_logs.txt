@@ -32,4 +32,8 @@
 - Added ItemTriggerDetector
 
 0.1.5
-- Character with katana...
+- Added katana cyborg with dash ability
+- Reworked effects edition system
+- Added zones and corresponding effects
+- Added dash and knockback effects
+- Added floating heal/damage amount text
