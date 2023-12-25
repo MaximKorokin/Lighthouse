@@ -1,22 +1,26 @@
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "Skill", menuName = "ScriptableObjects/Skill", order = 1)]
-public class Skill : ScriptableObject
+public class Skill
 {
-    [field: SerializeField]
-    public string Name { get; private set; }
-    [field: SerializeField]
-    public Effect[] Effects { get; private set; }
-    [field: SerializeField]
-    public float Cooldown { get; private set; }
+    private readonly Effect[] _effects;
+    public readonly CooldownCounter CooldownCounter;
 
-    public void Invoke(WorldObject source) => Invoke(source, source);
-
-    public void Invoke(WorldObject source, WorldObject target)
+    public Skill(EffectSettings settings)
     {
-        foreach (var effect in Effects)
+        _effects = settings.GetEffects();
+        CooldownCounter = new CooldownCounter(settings.Cooldown);
+        CooldownCounter.TryReset();
+    }
+
+    public void Invoke(WorldObject source, float divider = 1) => Invoke(source, source, divider);
+
+    public void Invoke(WorldObject source, WorldObject target, float divider = 1)
+    {
+        if (!CooldownCounter.TryReset(divider))
         {
-            effect.Invoke(new CastState(source, source, target));
+            return;
+        }
+        foreach (var effect in _effects)
+        {
+            effect.Invoke(new CastState(source, source, target, CooldownCounter.Cooldown));
         }
     }
 }

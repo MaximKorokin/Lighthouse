@@ -123,127 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cyborg_death_0
+      name: death_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 19
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8c49b4777af234fa913526917f7748
-      internalID: 1370537657
+      spriteID: 6ab72b7867f50bc41a8fb89cb2f7f2a5
+      internalID: 18567790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_death_1
+      name: death_1
       rect:
         serializedVersion: 2
-        x: 51
+        x: 48
         y: 0
-        width: 20
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c17129a9b1a202b4c8e16fef8abf2e02
-      internalID: -2126633101
+      spriteID: 584d051ce0ce1fb42a65282fd6053dd1
+      internalID: -2061754048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_death_2
+      name: death_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 96
         y: 0
-        width: 21
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9d3a9f29abf6a2469def597b5a5950c
-      internalID: 1979036016
+      spriteID: 485eb07c0a091a34994dac9e89697737
+      internalID: 45660641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_death_3
+      name: death_3
       rect:
         serializedVersion: 2
-        x: 148
+        x: 144
         y: 0
-        width: 23
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c690009f98f3244fb41f33f5d524a65
-      internalID: -983253199
+      spriteID: 98b076efb9c80bb409204efd720e8752
+      internalID: -1483043351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_death_4
+      name: death_4
       rect:
         serializedVersion: 2
-        x: 197
+        x: 192
         y: 0
-        width: 22
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f923998437b4bc34ea8cc590fd71435c
-      internalID: 974368425
+      spriteID: bd6b3b1181cd0264fa801ea732f5c073
+      internalID: -285582521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_death_5
+      name: death_5
       rect:
         serializedVersion: 2
-        x: 245
+        x: 240
         y: 0
-        width: 22
-        height: 35
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd590c67dff39bb45a3ad13a0f9b1989
-      internalID: 964611623
+      spriteID: 172bbdd3cabebef42b1de943624cef5e
+      internalID: -126054651
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cyborg_death_0: 1370537657
-      Cyborg_death_1: -2126633101
-      Cyborg_death_2: 1979036016
-      Cyborg_death_3: -983253199
-      Cyborg_death_4: 974368425
-      Cyborg_death_5: 964611623
+      death_0: 18567790
+      death_1: -2061754048
+      death_2: 45660641
+      death_3: -1483043351
+      death_4: -285582521
+      death_5: -126054651
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

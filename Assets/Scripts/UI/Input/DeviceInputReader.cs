@@ -6,4 +6,9 @@ public class DeviceInputReader : InputReader
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
+
+    protected override bool IsActiveAbilityUsed()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
 }

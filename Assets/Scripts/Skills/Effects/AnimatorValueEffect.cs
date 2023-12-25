@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AnimatorValueEffect", menuName = "ScriptableObjects/Effects/AnimatorValueEffect", order = 1)]
 public class AnimatorValueEffect : SimpleEffect
 {
     [SerializeField]

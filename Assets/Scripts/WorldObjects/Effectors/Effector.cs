@@ -1,16 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObject))]
 public class Effector : MonoBehaviour
 {
     [SerializeField]
-    private Effect[] _startEffects;
+    private EffectSettings[] _startEffectsSettings;
 
     protected virtual void Start()
     {
-        var obj = GetComponent<WorldObject>();
-        _startEffects.ForEach(x => x.Invoke(obj));
+        var worldObject = GetComponent<WorldObject>();
+        foreach (var settings in _startEffectsSettings)
+        {
+            InvokeEffects(settings.GetEffects(), new CastState(worldObject, settings.Cooldown));
+        }
     }
 
-    protected static void InvokeEffects(Effect[] effects, WorldObject obj) => effects.ForEach(x => x.Invoke(obj));
+    protected static void InvokeEffects(IEnumerable<Effect> effects, CastState castState) => effects.ForEach(x => x.Invoke(castState));
 }

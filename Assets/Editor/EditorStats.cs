@@ -2,92 +2,77 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEngine;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Stats))]
-public class EditorStats : PropertyDrawer
+public class EditorStats : PropertyDrawerBase
 {
     private const string StatsFieldName = "_stats";
 
-    private int _selectedPopupStat;
-
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    protected override void RedrawRootContainer()
     {
-        SerializedProperty statsPropertyProvider() => property.FindPropertyRelative(StatsFieldName);
+        RootContainer.Clear();
+        var foldout = new Foldout { text = "Stats" };
+        RootContainer.Add(foldout);
 
-        EditorGUI.BeginProperty(position, label, property);
+        var statsProperty = Property.FindPropertyRelative(StatsFieldName);
+        var statProperties = Enumerable.Range(0, statsProperty.arraySize).Select(i => statsProperty.GetArrayElementAtIndex(i)).ToArray();
+        statProperties.ForEach((x, i) => foldout.Add(CreateStatPropertyContainer(statsProperty, x, i)));
 
-        var foldoutRect = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
-        if (property.isExpanded = EditorGUI.Foldout(foldoutRect, property.isExpanded, label, true))
+        var unusedStats = Enum.GetNames(typeof(StatName)).Except(statProperties.Select(x => EditorStat.GetStatName(x))).ToList();
+
+        if (foldout.value && unusedStats.Count > 0)
         {
-            var allStats = Enum.GetNames(typeof(StatName));
-            var possibleStats = allStats.ToList();
-
-            var statsProperty = statsPropertyProvider();
-            EditorGUI.indentLevel++;
-            var statRect = new Rect(
-                position.x + 40,
-                position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing,
-                0,
-                EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing);
-            for (int i = 0; i < statsProperty.arraySize; i++)
-            {
-                var statProperty = statsProperty.GetArrayElementAtIndex(i);
-                possibleStats.Remove(EditorStat.GetStatName(statProperty));
-                EditorGUI.PropertyField(statRect, statProperty, GUIContent.none);
-                if (GUI.Button(new Rect(position.x + 15, statRect.y, 20, statRect.height), "-"))
-                {
-                    statsProperty.DeleteArrayElementAtIndex(i);
-                    i = Math.Max(0, i - 1);
-                }
-                else
-                {
-                    statRect.y += EditorGUI.GetPropertyHeight(statProperty) + EditorGUIUtility.standardVerticalSpacing;
-                }
-            }
-            
-            if (possibleStats.Count > 0)
-            {
-                var buttonRect = new Rect(position.x + 15, statRect.y + EditorGUIUtility.standardVerticalSpacing, 20, EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing);
-                var popupRect = new Rect(buttonRect.position + Vector2.right * 25, new Vector2(150, EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing));
-                _selectedPopupStat = EditorGUI.Popup(popupRect, _selectedPopupStat, possibleStats.ToArray());
-                if (GUI.Button(buttonRect, "+"))
-                {
-                    statsProperty.InsertArrayElementAtIndex(statsProperty.arraySize);
-                    EditorStat.SetStatName(statsProperty.GetArrayElementAtIndex(statsProperty.arraySize - 1), possibleStats[_selectedPopupStat]);
-                    _selectedPopupStat = 0;
-                }
-            }
-
-            EditorGUI.indentLevel--;
+            var statsCreationElement = CreateStatsCreationElement(statsProperty, unusedStats);
+            foldout.RegisterValueChangedCallback(x => statsCreationElement.style.display = x.newValue ? DisplayStyle.Flex: DisplayStyle.None);
+            RootContainer.Add(statsCreationElement);
         }
-
-        EditorGUI.EndProperty();
     }
 
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    private VisualElement CreateStatPropertyContainer(SerializedProperty stats, SerializedProperty stat, int index)
     {
-        SerializedProperty statsPropertyProvider() => property.FindPropertyRelative(StatsFieldName);
+        var container = new VisualElement();
+        container.style.flexDirection = FlexDirection.Row;
 
-        var totalHeight = base.GetPropertyHeight(property, label);
-        if (property.isExpanded)
+        var statDeleteButton = new Button(() =>
         {
-            totalHeight += IterateChildren(statsPropertyProvider)
-                .Sum(x => EditorGUI.GetPropertyHeight(x) + EditorGUIUtility.standardVerticalSpacing);
-            totalHeight += EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing;
-        }
+            stats.DeleteArrayElementAtIndex(index);
+            stats.serializedObject.ApplyModifiedProperties();
+            RedrawRootContainer();
+        });
+        statDeleteButton.text = "-";
+        statDeleteButton.style.width = 25;
 
-        return totalHeight;
+        container.Add(statDeleteButton);
+        var propertField = new PropertyField();
+        propertField.BindProperty(stat);
+        propertField.style.width = Length.Percent(100);
+        container.Add(propertField);
+        return container;
     }
 
-    private IEnumerable<SerializedProperty> IterateChildren(Func<SerializedProperty> propertyProvider)
+    private VisualElement CreateStatsCreationElement(SerializedProperty stats, List<string> statsNames)
     {
-        var property = propertyProvider();
-        property.NextVisible(true);
-        var depth = property.depth;
-        while (property.NextVisible(false) && property.depth == depth)
+        var statCreateElement = new VisualElement();
+        statCreateElement.style.flexDirection = FlexDirection.Row;
+        statCreateElement.style.marginLeft = new Length() { value = 15 };
+
+        var statsPopup = new PopupField<string>(statsNames, 0);
+        var statCreateButton = new Button(() =>
         {
-            yield return property;
-        }
+            stats.InsertArrayElementAtIndex(stats.arraySize);
+            var stat = stats.GetArrayElementAtIndex(stats.arraySize - 1);
+            EditorStat.SetStatName(stat, statsPopup.value);
+            stats.serializedObject.ApplyModifiedProperties();
+            RedrawRootContainer();
+        });
+        statCreateButton.text = "+";
+        statCreateButton.style.width = 25;
+
+        statCreateElement.Add(statCreateButton);
+        statCreateElement.Add(statsPopup);
+
+        return statCreateElement;
     }
 }

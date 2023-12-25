@@ -14,16 +14,16 @@ public class LevelingSystemUI : Singleton<LevelingSystemUI>
 
     private readonly List<EffectView> _currentViews = new();
 
-    public event Action<Effect> EffectChosen;
+    public event Action<EffectPreview> EffectChosen;
 
-    public void DisplayEffects(Effect[] effects)
+    public void DisplayEffects(IEnumerable<EffectPreview> effectPreviews)
     {
         Game.Pause();
 
         _effectsParent.gameObject.SetActive(true);
-        foreach (var effect in effects)
+        foreach (var effectPreview in effectPreviews)
         {
-            var view = EffectViewPool.Take(effect);
+            var view = EffectViewPool.Take(effectPreview);
             _currentViews.Add(view);
             view.transform.SetParent(_effectsParent, false);
             view.Clicked -= OnViewClicked;
@@ -47,13 +47,13 @@ public class LevelingSystemUI : Singleton<LevelingSystemUI>
         }
     }
 
-    private void OnViewClicked(EffectView view, Effect effect)
+    private void OnViewClicked(EffectView view, EffectPreview effectPreview)
     {
         Game.Resume();
 
         _effectsParent.gameObject.SetActive(false);
         _currentViews.ForEach(EffectViewPool.Return);
         _currentViews.Clear();
-        EffectChosen?.Invoke(effect);
+        EffectChosen?.Invoke(effectPreview);
     }
 }

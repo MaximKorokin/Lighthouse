@@ -1,6 +1,6 @@
-﻿class EffectViewPool : ObjectPool<EffectView, Effect>
+﻿class EffectViewPool : ObjectPool<EffectView, EffectPreview>
 {
-    protected override void Initialize(EffectView view, Effect param)
+    protected override void Initialize(EffectView view, EffectPreview param)
     {
         view.Initialize(param);
         view.gameObject.SetActive(true);

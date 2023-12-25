@@ -30,7 +30,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
 
     public void SetFillRatio(float value)
     {
-        if (BarImage == null || value < 0 || value > 1)
+        if (BarImage == null || value < 0 || value > 1 || value is float.NaN)
         {
             return;
         }

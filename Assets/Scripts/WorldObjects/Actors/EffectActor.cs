@@ -1,15 +1,41 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class EffectActor : ActorBase
 {
     [field: SerializeField]
-    protected Effect Effect { get; private set; }
+    private EffectSettings EffectSettings;
 
-    public override void Act(WorldObject worldObject)
+    private Effect[] _effects;
+    protected IEnumerable<Effect> Effects => _effects;
+    protected CastState CastState;
+
+    protected override void Awake()
     {
-        if (Effect != null)
+        base.Awake();
+        if (EffectSettings != null)
         {
-            Effect.Invoke(new CastState(WorldObject, WorldObject, worldObject));
+            SetEffects(EffectSettings.GetEffects(), new CastState(WorldObject, EffectSettings.Cooldown));
         }
+        else
+        {
+            SetEffects(new Effect[0], new CastState(WorldObject, 0));
+        }
+    }
+
+    protected override void ActInternal(WorldObject worldObject)
+    {
+        if (_effects != null && _effects.Length > 0)
+        {
+            CastState.Target = worldObject;
+            Effects.Invoke(CastState);
+        }
+    }
+
+    public virtual void SetEffects(Effect[] effects, CastState castState)
+    {
+        CastState = castState;
+        CastState.Source = WorldObject;
+        _effects = effects;
     }
 }

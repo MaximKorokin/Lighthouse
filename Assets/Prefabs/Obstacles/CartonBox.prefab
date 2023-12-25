@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6678305225708000804}
   - component: {fileID: 3205102812550467014}
   - component: {fileID: 4742657077724459762}
+  - component: {fileID: 3292321424933142019}
   m_Layer: 0
   m_Name: CartonBox
   m_TagString: Untagged
@@ -198,3 +199,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffects:
   - {fileID: 11400000, guid: 7275a951f2764c845a9821a893b011f4, type: 2}
+--- !u!114 &3292321424933142019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521127911754497452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3f5eaf52fe1c49a56291d72570a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 0}

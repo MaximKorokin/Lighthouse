@@ -1,27 +1,45 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
-    private const float MoveSpeedModifier = 2f;
+    public const float MoveSpeedModifier = 2f;
 
     [field: SerializeField]
     public bool CanRotate { get; protected set; }
     [field: SerializeField]
     public bool CanFlip { get; protected set; }
+    [field: SerializeField]
+    public bool CanMove { get; set; } = true;
 
-    public Vector2 Direction { get => _direction; set => _direction = value.sqrMagnitude > 1f ? value.normalized : value; }
+    public Vector2 Direction
+    {
+        get => _direction;
+        set
+        {
+            _direction = value.sqrMagnitude > 1f ? value.normalized : value;
+            DirectionSet?.Invoke(_direction);
+        }
+    }
+    public Vector2 TurnDirection { get; private set; } = Vector2.right;
     public bool IsMoving { get; private set; }
+    public bool IsFlipped { get; private set; }
 
     private Vector2 _direction;
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
+    private LayerMask _rigidbodyExcludeLayerMask;
+    private bool _previousFlipX;
+
+    public event Action<bool> Flipped;
+    public event Action<Vector2> DirectionSet;
 
     protected override void Awake()
     {
         base.Awake();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbodyExcludeLayerMask = _rigidbody.excludeLayers;
+        DirectionSet += OnDirectionSet;
     }
 
     protected override void OnStatsModified()
@@ -29,18 +47,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         base.OnStatsModified();
 
         SetAnimatorValue(AnimatorKey.MoveSpeed, Stats[StatName.MoveSpeed]);
-    }
-
-    protected virtual void Update()
-    {
-        if (CanFlip && _spriteRenderer != null && Direction.x != 0)
-        {
-            _spriteRenderer.flipX = Direction.x < 0;
-        }
-        if (CanRotate)
-        {
-            transform.right = Direction;
-        }
     }
 
     protected virtual void FixedUpdate()
@@ -51,16 +57,30 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             _rigidbody.velocity = Vector2.zero;
         }
 
-        if (IsMoving)
+        if (CanMove && IsMoving)
         {
-            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * Stats[StatName.MoveSpeed] * Time.fixedDeltaTime * Direction);
+            MoveRigidbody(Stats[StatName.MoveSpeed]);
         }
+    }
+
+    public void MoveRigidbody(float speed)
+    {
+        _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * speed * Time.fixedDeltaTime * Direction);
+    }
+
+    public void SetRigidbodyCollisions(bool enable)
+    {
+        _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : -1;
     }
 
     public virtual void Move()
     {
-        IsMoving = true;
+        if (!CanMove)
+        {
+            return;
+        }
 
+        IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }
 
@@ -76,5 +96,26 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         base.DestroyWorldObject();
         _rigidbody.simulated = false;
         Stop();
+    }
+
+    private void OnDirectionSet(Vector2 direction)
+    {
+        if (direction != Vector2.zero)
+        {
+            TurnDirection = direction;
+        }
+        if (CanFlip && direction.x != 0)
+        {
+            IsFlipped = direction.x < 0;
+            if (_previousFlipX != IsFlipped)
+            {
+                Flipped?.Invoke(IsFlipped);
+            }
+            _previousFlipX = IsFlipped;
+        }
+        if (CanRotate)
+        {
+            transform.right = direction;
+        }
     }
 }

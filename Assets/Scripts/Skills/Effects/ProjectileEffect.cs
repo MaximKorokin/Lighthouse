@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ProjectileEffect", menuName = "ScriptableObjects/Effects/ProjectileEffect", order = 1)]
 public class ProjectileEffect : EndingEffect
 {
     [field: SerializeField]
@@ -75,8 +74,8 @@ public class ProjectileEffect : EndingEffect
 
         TargetController CreateAndGetController()
         {
-            var projectile = Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
-            projectile.SetEffect(effect, castState);
+            var projectile = Object.Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
+            projectile.SetProjectileEffect(effect, castState);
             return projectile.GetComponent<TargetController>();
         }
     }

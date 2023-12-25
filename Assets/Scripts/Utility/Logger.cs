@@ -32,8 +32,12 @@ public static class Logger
         }
     }
 
-    public static void Log(object obj1, params object[] objects)
+    public static void Log() => Log("");
+
+    public static void Log(object obj1, params object[] objects) => Log(obj1.YieldWith(objects)); 
+
+    public static void Warn(object obj1)
     {
-        Log(obj1.YieldWith(objects));
+        Debug.LogWarning(obj1);
     }
 }

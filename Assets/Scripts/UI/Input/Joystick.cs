@@ -16,16 +16,16 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
     public void OnDrag(PointerEventData eventData)
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            _joystickBackground.rectTransform,
-            eventData.position,
-            eventData.pressEventCamera,
-            out Vector2 joystickPosition))
+                _joystickBackground.rectTransform,
+                eventData.position,
+                eventData.pressEventCamera,
+                out Vector2 joystickPosition))
         {
             joystickPosition.x = joystickPosition.x * 2 / _joystickBackground.rectTransform.sizeDelta.x;
             joystickPosition.y = joystickPosition.y * 2 / _joystickBackground.rectTransform.sizeDelta.y;
 
             InputVector = new Vector2(joystickPosition.x, joystickPosition.y);
-            InputVector = (InputVector.magnitude > 1f) ? InputVector.normalized : InputVector;
+            InputVector = (InputVector.sqrMagnitude > 1) ? InputVector.normalized : InputVector;
 
             _joystick.rectTransform.anchoredPosition = new Vector2(
                 InputVector.x * (_joystickBackground.rectTransform.sizeDelta.x / 2),
@@ -35,11 +35,12 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            _joystickArea.rectTransform,
-            eventData.position,
-            eventData.pressEventCamera,
-            out Vector2 joystickBackgroundPosition))
+        if (!_joystickBackground.gameObject.activeSelf &&
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                _joystickArea.rectTransform,
+                eventData.position,
+                eventData.pressEventCamera,
+                out Vector2 joystickBackgroundPosition))
         {
             _joystickBackground.gameObject.SetActive(true);
             _joystickBackground.rectTransform.anchoredPosition = new Vector2(
@@ -50,6 +51,10 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (Input.touchCount > 1)
+        {
+            return;
+        }
         _joystickBackground.gameObject.SetActive(false);
         InputVector = Vector2.zero;
         _joystick.rectTransform.anchoredPosition = Vector2.zero;

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemEffect", menuName = "ScriptableObjects/Effects/ItemEffect", order = 1)]
 public class ItemEffect : Effect
 {
     [field: SerializeField]
@@ -19,15 +18,15 @@ public class ItemEffect : Effect
     {
         if (Random.Range(0f, 1f) <= DropRatio)
         {
-            CreateItem(this, castState);
+            CreateItem(castState);
         }
     }
 
-    private void CreateItem(ItemEffect effect, CastState castState)
+    private void CreateItem(CastState castState)
     {
-        effect.Item.gameObject.SetActive(false);
-        var item = Instantiate(effect.Item, castState.Source.transform.position, Quaternion.identity);
-        effect.Item.gameObject.SetActive(true);
+        Item.gameObject.SetActive(false);
+        var item = Object.Instantiate(Item, castState.Source.transform.position, Quaternion.identity);
+        Item.gameObject.SetActive(true);
 
         item.InactiveTime = InactiveTime;
         if (InitialForce != 0)

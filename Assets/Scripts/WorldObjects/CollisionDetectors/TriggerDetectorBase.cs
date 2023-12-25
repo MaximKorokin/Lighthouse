@@ -28,6 +28,11 @@ public abstract class TriggerDetectorBase<T> : MonoBehaviour
     protected virtual bool ValidateTarget(Collider2D collision, out T result)
     {
         result = default;
+        if (collision == null)
+        {
+            Logger.Warn("collision is null");
+            return false;
+        }
         return (_triggerType == TriggerType.Triggers && collision.isTrigger) ||
             (_triggerType == TriggerType.Colliders && !collision.isTrigger);
     }

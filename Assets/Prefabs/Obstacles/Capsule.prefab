@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2190903019382194184}
   - component: {fileID: 6634903919882286125}
   - component: {fileID: 4354589762432459233}
-  - component: {fileID: 4910597889490324524}
+  - component: {fileID: 3455118433002023401}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -147,7 +147,7 @@ MonoBehaviour:
       Value: 5
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
-  <DestroyTime>k__BackingField: 3
+  <DestroyTime>k__BackingField: 1
 --- !u!95 &2190903019382194184
 Animator:
   serializedVersion: 5
@@ -194,11 +194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffects: []
-  _damageEffects: []
-  _destroyEffects:
-  - {fileID: 11400000, guid: 9156e806176bae14a83813542f78f5fe, type: 2}
---- !u!114 &4910597889490324524
+  _startEffectsSettings: []
+  _damageEffectsSettings: []
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: efcd3d145e77b514d8fb4ecc4803bf72, type: 2}
+  - {fileID: 11400000, guid: 651b8aff2e0e31f4f85aee0a2d401cfb, type: 2}
+--- !u!114 &3455118433002023401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,8 +208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6872794843445091386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a2f39b2b5f6544294b9d326b586d1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 98c3f5eaf52fe1c49a56291d72570a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffects:
-  - {fileID: 11400000, guid: 892ff4e8e5fe376419d8a3cf2396cd87, type: 2}
+  _offset: {x: 0, y: 0}

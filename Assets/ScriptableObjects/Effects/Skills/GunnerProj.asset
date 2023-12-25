@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: GunnerProj
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 2
+  _effects:
+  - rid: 1867399668047544336
+  references:
+    version: 2
+    RefIds:
+    - rid: 1867399668047544336
+      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 1867399668047544339
+        <EndEffects>k__BackingField:
+        - rid: 1867399668047544337
+        <Duration>k__BackingField: 0.2
+        <Interval>k__BackingField: 0
+    - rid: 1867399668047544337
+      type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 1867399668047544338
+        <EndEffects>k__BackingField: []
+        <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
+        <Amount>k__BackingField: 1
+        <PierceAmount>k__BackingField: 1
+        <Spread>k__BackingField: 0
+        <TargetType>k__BackingField: 0
+    - rid: 1867399668047544338
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 1
+    - rid: 1867399668047544339
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 1

@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ConditionalEffect", menuName = "ScriptableObjects/Effects/ConditionalEffect", order = 1)]
 public class ConditionalEffect : ComplexEffect
 {
     [SerializeField]

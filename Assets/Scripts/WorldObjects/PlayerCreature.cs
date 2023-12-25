@@ -28,8 +28,8 @@ public class PlayerCreature : Creature
         }
     }
 
-    private void OnLevelIncreased(Effect effect)
+    private void OnLevelIncreased(Effect[] effects)
     {
-        effect.Invoke(this);
+        effects.Invoke(this);
     }
 }

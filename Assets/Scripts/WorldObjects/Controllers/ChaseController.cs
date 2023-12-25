@@ -34,20 +34,20 @@ public class ChaseController : TargetController
     {
         if (Target == null)
         {
-            WorldObject.Stop();
+            MovableWorldObject.Stop();
             return;
         }
         var direction = Target.transform.position - transform.position;
-        WorldObject.Direction = direction.normalized;
+        MovableWorldObject.Direction = direction.normalized;
         // sqrt is much slower than sqr
         if (direction.sqrMagnitude > WorldObject.ActionRange * WorldObject.ActionRange)
         {
-            WorldObject.Move();
+            MovableWorldObject.Move();
         }
         else
         {
             InvokeActors(Target);
-            WorldObject.Stop();
+            MovableWorldObject.Stop();
         }
     }
 }

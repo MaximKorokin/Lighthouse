@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: PlayerMelee
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 2
+  _effects:
+  - rid: 1867399761533861891
+  - rid: 1867399761533861894
+  references:
+    version: 2
+    RefIds:
+    - rid: 1867399761533861891
+      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField: []
+        <EndEffects>k__BackingField:
+        - rid: 1867399761533861895
+        <Duration>k__BackingField: 0.5
+        <Interval>k__BackingField: 0
+    - rid: 1867399761533861894
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 1
+    - rid: 1867399761533861895
+      type: {class: ZoneEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 1867399761533861896
+        <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 0215c199ed4f50b4689cbb14fc6e3b2f, type: 3}
+        <ChildToTarget>k__BackingField: 1
+        <DistanceFromParent>k__BackingField: 0.6
+        <InvokationCooldown>k__BackingField: 1
+    - rid: 1867399761533861896
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 5

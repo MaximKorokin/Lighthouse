@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AnimationEffect", menuName = "ScriptableObjects/Effects/AnimationEffect", order = 1)]
 public class AnimationEffect : Effect
 {
     [SerializeField]
@@ -19,38 +18,45 @@ public class AnimationEffect : Effect
     [SerializeField]
     private AnimationEffectPositioning _positioning;
 
+    private Coroutine _coroutine;
+    private Animator _animator;
+
     public override void Invoke(CastState castState)
     {
-        Coroutine coroutine = null;
-        var animator = GenericAnimatorPool.Take(_animation);
+        Cancel(castState.Target);
+        _animator = GenericAnimatorPool.Take(_animation);
+        SetupAnimator(castState, _animator);
         if (_hasDuration)
         {
-            coroutine = castState.Target.StartCoroutine(AnimationCoroutine(castState, animator));
+            _coroutine = castState.Target.StartCoroutine(AnimationCoroutine(castState.Target));
         }
-        else
+        if (_childToTarget)
         {
-            SetupAnimator(castState, animator);
-        }
-        if (castState.Target is DestroyableWorldObject destroyable)
-        {
-            destroyable.Destroying += () =>
-            {
-                GenericAnimatorPool.Return(animator);
-                if (coroutine != null)
-                {
-                    castState.Target.StopCoroutine(coroutine);
-                }
-            };
+            castState.Target.Destroyed += Cancel;
         }
     }
 
-    private IEnumerator AnimationCoroutine(CastState castState, Animator animator)
+    private void Cancel(WorldObject worldObject)
     {
-        SetupAnimator(castState, animator);
-        yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
-        GenericAnimatorPool.Return(animator);
+        worldObject.Destroyed -= Cancel;
+        if (_animator != null)
+        {
+            GenericAnimatorPool.Return(_animator);
+            _animator = null;
+        }
+        if (_coroutine != null)
+        {
+            worldObject.StopCoroutine(_coroutine);
+        }
     }
 
+    private IEnumerator AnimationCoroutine(WorldObject worldObject)
+    {
+        yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
+        Cancel(worldObject);
+    }
+
+    // todo: this is gavno
     private void SetupAnimator(CastState castState, Animator animator)
     {
         if (_childToTarget)
@@ -63,15 +69,27 @@ public class AnimationEffect : Effect
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
         animatorSpriteRenderer.sortingOrder = _orderInLayer;
 
+        var targetComplexAnimator = castState.Target.GetComponent<ComplexAnimator>();
         var targetSpriteRenderer = castState.Target.GetComponent<SpriteRenderer>();
-        if (targetSpriteRenderer != null)
+        if (targetComplexAnimator != null)
+        {
+            if (_flipWithTarget && castState.Target is MovableWorldObject movable)
+            {
+                animatorSpriteRenderer.flipX = movable.IsFlipped;
+            }
+            if (_positioning == AnimationEffectPositioning.BoundsBottom)
+            {
+                animator.transform.localPosition = new Vector2(0, -targetComplexAnimator.GetExtents().y);
+            }
+        }
+        else if (targetSpriteRenderer != null)
         {
             if (_flipWithTarget)
             {
                 animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
                 animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
             }
-            if (_positioning == AnimationEffectPositioning.SpriteBottom)
+            if (_positioning == AnimationEffectPositioning.BoundsBottom)
             {
                 animator.transform.localPosition = new Vector2(0, -targetSpriteRenderer.localBounds.extents.y);
             }
@@ -82,5 +100,5 @@ public class AnimationEffect : Effect
 public enum AnimationEffectPositioning
 {
     Center = 0,
-    SpriteBottom = 1,
+    BoundsBottom = 1,
 }
