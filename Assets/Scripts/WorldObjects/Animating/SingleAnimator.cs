@@ -9,6 +9,8 @@ using UnityEngine;
 public class SingleAnimator : MonoBehaviour, IAnimator
 {
     [SerializeField]
+    private bool _hasExtents = true;
+    [SerializeField]
     private Vector2 _offset;
     private Vector3 _initialLocalPosition;
 
@@ -57,7 +59,7 @@ public class SingleAnimator : MonoBehaviour, IAnimator
 
     public Vector2 GetExtents()
     {
-        return ((Vector2)SpriteRenderer.localBounds.extents) - _offset;
+        return _hasExtents ? ((Vector2)SpriteRenderer.localBounds.extents) - _offset : Vector2.zero;
     }
 }
 

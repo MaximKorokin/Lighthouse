@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cee6aa9b0e3ea4085ef9a9db540131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasExtents: 1
   _offset: {x: 0, y: 0}
 --- !u!1 &809945631460520319
 GameObject:
@@ -234,7 +235,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.2
 --- !u!50 &2673697132878341897
 Rigidbody2D:
   serializedVersion: 4
@@ -287,7 +288,7 @@ MonoBehaviour:
     - Name: 4
       Value: 1
     - Name: 5
-      Value: 3
+      Value: 1.5
     - Name: 7
       Value: 1
   <IsDamagable>k__BackingField: 1

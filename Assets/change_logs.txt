@@ -37,3 +37,10 @@
 - Added zones and corresponding effects
 - Added dash and knockback effects
 - Added floating heal/damage amount text
+
+0.1.6
+done:
+- Reduce sprites sizes
+todo:
+- Use stats in SimpleEffect
+- Add boss...

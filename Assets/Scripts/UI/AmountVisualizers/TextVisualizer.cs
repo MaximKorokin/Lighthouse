@@ -16,7 +16,7 @@ public abstract class TextVisualizer : MonoBehaviour
 
     private TMP_Text _singleText;
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         if (_useSingle)
         {
@@ -40,6 +40,10 @@ public abstract class TextVisualizer : MonoBehaviour
             StartCoroutine(TextLifetimeCoroutine(text));
         }
 
+        if (double.TryParse(visualizeString, out var result))
+        {
+            visualizeString = string.Format("{0:0.#}", result);
+        }
         text.text = visualizeString;
         return text;
     }
