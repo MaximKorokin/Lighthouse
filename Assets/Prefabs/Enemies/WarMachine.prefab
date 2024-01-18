@@ -44,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 29683670176464215}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 1c23cf40cb5bd10409b8af6a24a768d3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -130,11 +130,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1310806430721733769}
+  - component: {fileID: 7144969878946933321}
   - component: {fileID: 5327492760404989081}
   - component: {fileID: 8077614553133272438}
   - component: {fileID: 2965000820131452520}
   - component: {fileID: 6454421279967523020}
   - component: {fileID: 8057892309787658375}
+  - component: {fileID: 1955366328074347186}
+  - component: {fileID: 2155865953872654463}
+  - component: {fileID: 2775772125359899738}
+  - component: {fileID: 5893237358921338281}
   m_Layer: 0
   m_Name: WarMachine
   m_TagString: Untagged
@@ -159,6 +164,41 @@ Transform:
   - {fileID: 342442332224905376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7144969878946933321
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
 --- !u!58 &5327492760404989081
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -242,7 +282,7 @@ MonoBehaviour:
     - Name: 2
       Value: 1
     - Name: 3
-      Value: 1
+      Value: 0.5
     - Name: 4
       Value: 1
     - Name: 7
@@ -283,6 +323,58 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d97b0bf0bd754a42ae4d98793414b6d, type: 2}
   _damageEffectsSettings: []
   _destroyEffectsSettings: []
+--- !u!114 &1955366328074347186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _validTypes: 2
+--- !u!114 &2155865953872654463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CanAct>k__BackingField: 1
+  _effectsSettings: []
+--- !u!114 &2775772125359899738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerType: 0
+--- !u!114 &5893237358921338281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c9be6b6271cd042903ad6052f644d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4866136565801370716
 GameObject:
   m_ObjectHideFlags: 0
