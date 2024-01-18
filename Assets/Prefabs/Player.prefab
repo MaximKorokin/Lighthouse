@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 0
-  _offset: {x: 0.2, y: 0.15}
+  _offset: {x: 0.15, y: 0.1}
 --- !u!1 &3617395468708075793
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0.2, y: 0.15}
+  _offset: {x: 0.15, y: 0.1}
 --- !u!1 &7537639882005055995
 GameObject:
   m_ObjectHideFlags: 0
