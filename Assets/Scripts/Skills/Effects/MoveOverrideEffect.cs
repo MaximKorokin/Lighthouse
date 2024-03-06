@@ -11,7 +11,7 @@ public abstract class MoveOverrideEffect : Effect
     [SerializeField]
     private bool _disableActor;
 
-    private readonly Dictionary<WorldObject, (Coroutine Coroutine, bool CanAct, bool CanMove)> ActiveOverrides = new();
+    private readonly Dictionary<WorldObject, (Coroutine Coroutine, bool CanControl)> ActiveOverrides = new();
 
     public override void Invoke(CastState castState)
     {
@@ -37,19 +37,13 @@ public abstract class MoveOverrideEffect : Effect
             return;
         }
 
-        var initalCanMove = movable.CanMove;
-        movable.CanMove = false;
+        var controller = movable.GetComponent<ControllerBase>();
+        var initalCanControl = controller.CanControl;
+        controller.CanControl = false;
         movable.Stop();
 
-        var actor = movable.GetComponent<ActorBase>();
-        var initalCanAct = actor.CanAct;
-        if (_disableActor)
-        {
-            actor.CanAct = false;
-        }
-
         var coroutine = moveTarget.StartCoroutine(MoveOverrideCoroutine(castState));
-        ActiveOverrides[moveTarget] = (coroutine, initalCanMove, initalCanAct);
+        ActiveOverrides[moveTarget] = (coroutine, initalCanControl);
     }
 
     protected virtual void StopOverride(WorldObject worldObject)
@@ -59,8 +53,7 @@ public abstract class MoveOverrideEffect : Effect
         {
             worldObject.StopCoroutine(activeCoroutine.Coroutine);
         }
-        (worldObject as MovableWorldObject).CanMove = activeCoroutine.CanMove;
-        worldObject.GetComponent<ActorBase>().CanAct = activeCoroutine.CanAct;
+        worldObject.GetComponent<ControllerBase>().CanControl = activeCoroutine.CanControl;
         ActiveOverrides.Remove(worldObject);
     }
 

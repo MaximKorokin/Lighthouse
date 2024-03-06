@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ManualInputController : TriggerController
+public class ManualInteractionController : TriggerController
 {
     private readonly HashSet<WorldObject> _targets = new();
 

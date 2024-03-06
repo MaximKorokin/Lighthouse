@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
+    public bool CanControl { get; set; } = true;
+
     protected WorldObject WorldObject { get; private set; }
     protected ActorBase[] Actors { get; private set; }
 
@@ -15,7 +17,10 @@ public abstract class ControllerBase : MonoBehaviour
 
     protected virtual void Update()
     {
-        Control();
+        if (CanControl)
+        {
+            Control();
+        }
     }
 
     protected void InvokeActors(WorldObject worldObject) => Actors.ForEach(x => x.Act(worldObject));

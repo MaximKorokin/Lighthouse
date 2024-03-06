@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0, y: 0.2}
+  _offset: {x: 0, y: 0}
 --- !u!1 &1382743352609133667
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1310806430721733769}
-  - component: {fileID: 5860657751449476311}
   - component: {fileID: 7144969878946933321}
   - component: {fileID: 5327492760404989081}
   - component: {fileID: 8077614553133272438}
@@ -145,6 +144,8 @@ GameObject:
   - component: {fileID: 8766864823537118557}
   - component: {fileID: 5546869870578181482}
   - component: {fileID: 1435295764834963457}
+  - component: {fileID: 1887583048410395116}
+  - component: {fileID: 8794408943787818381}
   m_Layer: 0
   m_Name: WarMachine
   m_TagString: Untagged
@@ -169,41 +170,6 @@ Transform:
   - {fileID: 342442332224905376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5860657751449476311
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382743352609133667}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5
 --- !u!58 &7144969878946933321
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -271,9 +237,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!50 &8077614553133272438
 Rigidbody2D:
   serializedVersion: 4
@@ -320,7 +286,7 @@ MonoBehaviour:
     - Name: 1
       Value: 1
     - Name: 2
-      Value: 1
+      Value: 100
     - Name: 3
       Value: 0.5
     - Name: 4
@@ -328,13 +294,12 @@ MonoBehaviour:
     - Name: 7
       Value: 1
     - Name: 5
-      Value: 1
+      Value: 2.5
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
-  <CanMove>k__BackingField: 1
 --- !u!114 &6454421279967523020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  _effectsSettings: []
+  _effectsSettings:
+  - {fileID: 11400000, guid: cc741e8f20656294f9b388cb45036f41, type: 2}
 --- !u!114 &5546869870578181482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +433,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c9be6b6271cd042903ad6052f644d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1887583048410395116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3e6b6738e3e9842b07063c5c830fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _useSingle: 0
+  _showTime: 0.3
+  _horizontalRandomMovementRange: {x: 0.1, y: 0.5}
+  _verticalRandomMovementRange: {x: 0.5, y: 1}
+  _textParent: {fileID: 147310455445574096}
+--- !u!114 &8794408943787818381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdcc8b7c5107a94cba82e9506ed50a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barControllerPrefab: {fileID: 6297715463519980086, guid: 5169738f66dbc734ba5c5af5425058f0, type: 3}
 --- !u!1 &4866136565801370716
 GameObject:
   m_ObjectHideFlags: 0

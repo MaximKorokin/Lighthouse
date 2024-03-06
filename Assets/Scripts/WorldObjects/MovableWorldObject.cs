@@ -10,8 +10,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     public bool CanRotate { get; protected set; }
     [field: SerializeField]
     public bool CanFlip { get; protected set; }
-    [field: SerializeField]
-    public bool CanMove { get; set; } = true;
 
     public Vector2 Direction
     {
@@ -57,15 +55,15 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             _rigidbody.velocity = Vector2.zero;
         }
 
-        if (CanMove && IsMoving)
+        if (IsMoving)
         {
             MoveRigidbody(Stats[StatName.MoveSpeed]);
         }
     }
 
-    public void MoveRigidbody(float speed)
+    public void MoveRigidbody(float speedModifier)
     {
-        _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * speed * Time.fixedDeltaTime * Direction);
+        _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * speedModifier * Time.fixedDeltaTime * Direction);
     }
 
     public void SetRigidbodyCollisions(bool enable)
@@ -75,11 +73,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public virtual void Move()
     {
-        if (!CanMove)
-        {
-            return;
-        }
-
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }

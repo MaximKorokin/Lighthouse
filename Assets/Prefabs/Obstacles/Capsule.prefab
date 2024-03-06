@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffectsSettings: []
+  _startEffectsSettings:
+  - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
   _damageEffectsSettings: []
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: efcd3d145e77b514d8fb4ecc4803bf72, type: 2}
