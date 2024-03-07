@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MoveOverrideEffect : Effect
+public abstract class ControllerOverrideEffect : Effect
 {
     [SerializeField]
     private float _speed;
     [SerializeField]
     private float _time;
-    [SerializeField]
-    private bool _disableActor;
 
     private readonly Dictionary<WorldObject, (Coroutine Coroutine, bool CanControl)> ActiveOverrides = new();
 
@@ -23,11 +21,11 @@ public abstract class MoveOverrideEffect : Effect
     }
 
     protected abstract Vector2 GetDirection(CastState castState);
-    protected abstract WorldObject GetMoveTarget(CastState castState);
+    protected abstract WorldObject GetTarget(CastState castState);
 
     protected virtual void StartOverride(CastState castState)
     {
-        var moveTarget = GetMoveTarget(castState);
+        var moveTarget = GetTarget(castState);
         if (ActiveOverrides.ContainsKey(moveTarget))
         {
             StopOverride(moveTarget);
@@ -59,7 +57,7 @@ public abstract class MoveOverrideEffect : Effect
 
     private IEnumerator MoveOverrideCoroutine(CastState castState)
     {
-        var moveTarget = GetMoveTarget(castState);
+        var moveTarget = GetTarget(castState);
         if (moveTarget is not MovableWorldObject movable)
         {
             yield break;
@@ -70,7 +68,7 @@ public abstract class MoveOverrideEffect : Effect
         while (Time.time < endTime)
         {
             movable.Direction = direction;
-            movable.MoveRigidbody(_speed);
+            movable.Move(_speed);
             yield return new WaitForFixedUpdate();
         }
         StopOverride(moveTarget);

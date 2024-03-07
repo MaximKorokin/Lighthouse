@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class KnockbackEffect : MoveOverrideEffect
+public class KnockbackEffect : ControllerOverrideEffect
 {
     protected override Vector2 GetDirection(CastState castState)
     {
         return castState.Target.transform.position - castState.Source.transform.position;
     }
 
-    protected override WorldObject GetMoveTarget(CastState castState)
+    protected override WorldObject GetTarget(CastState castState)
     {
         return castState.Target;
     }

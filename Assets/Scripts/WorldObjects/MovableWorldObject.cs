@@ -28,6 +28,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     private Rigidbody2D _rigidbody;
     private LayerMask _rigidbodyExcludeLayerMask;
     private bool _previousFlipX;
+    private float _speed;
 
     public event Action<bool> Flipped;
     public event Action<Vector2> DirectionSet;
@@ -57,13 +58,8 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
         if (IsMoving)
         {
-            MoveRigidbody(Stats[StatName.MoveSpeed]);
+            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
         }
-    }
-
-    public void MoveRigidbody(float speedModifier)
-    {
-        _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * speedModifier * Time.fixedDeltaTime * Direction);
     }
 
     public void SetRigidbodyCollisions(bool enable)
@@ -71,8 +67,9 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : -1;
     }
 
-    public virtual void Move()
+    public virtual void Move(float speedOverride = -1)
     {
+        _speed = speedOverride < 0 ? Stats[StatName.MoveSpeed] : speedOverride;
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }

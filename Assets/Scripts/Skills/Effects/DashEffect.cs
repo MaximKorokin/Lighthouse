@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DashEffect : MoveOverrideEffect
+public class DashEffect : ControllerOverrideEffect
 {
     protected override Vector2 GetDirection(CastState castState)
     {
@@ -16,7 +16,7 @@ public class DashEffect : MoveOverrideEffect
         return direction;
     }
 
-    protected override WorldObject GetMoveTarget(CastState castState)
+    protected override WorldObject GetTarget(CastState castState)
     {
         return castState.Source;
     }
@@ -24,7 +24,7 @@ public class DashEffect : MoveOverrideEffect
     protected override void StartOverride(CastState castState)
     {
         base.StartOverride(castState);
-        if (GetMoveTarget(castState) is MovableWorldObject movable)
+        if (GetTarget(castState) is MovableWorldObject movable)
         {
             movable.SetRigidbodyCollisions(false);
         } 
