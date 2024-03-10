@@ -163,7 +163,7 @@ public static class EnumerableExtensions
     {
         foreach (var e in effects)
         {
-            e.Invoke(new CastState(worldObject, 0));
+            e.Invoke(new CastState(worldObject));
         }
     }
 }

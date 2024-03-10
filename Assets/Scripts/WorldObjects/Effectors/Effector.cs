@@ -12,7 +12,7 @@ public class Effector : MonoBehaviour
         var worldObject = GetComponent<WorldObject>();
         foreach (var settings in _startEffectsSettings)
         {
-            InvokeEffects(settings.GetEffects(), new CastState(worldObject, settings.Cooldown));
+            InvokeEffects(settings.GetEffects(), new CastState(worldObject));
         }
     }
 

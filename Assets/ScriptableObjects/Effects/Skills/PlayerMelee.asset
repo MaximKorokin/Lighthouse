@@ -28,7 +28,7 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField: []
         <EndEffects>k__BackingField:
-        - rid: 1867399761533861895
+        - rid: 4259499470171930626
         <Duration>k__BackingField: 0.5
         <Interval>k__BackingField: 0
     - rid: 1867399761533861894
@@ -36,16 +36,15 @@ MonoBehaviour:
       data:
         <Value>k__BackingField: 0
         _key: 1
-    - rid: 1867399761533861895
-      type: {class: ZoneEffect, ns: , asm: Assembly-CSharp}
+    - rid: 4259499470171930626
+      type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399761533861896
+        - rid: 4259499470171930627
         <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 0215c199ed4f50b4689cbb14fc6e3b2f, type: 3}
-        <ChildToTarget>k__BackingField: 1
         <DistanceFromParent>k__BackingField: 0.4
         <InvokationCooldown>k__BackingField: 1
-    - rid: 1867399761533861896
+    - rid: 4259499470171930627
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 5
