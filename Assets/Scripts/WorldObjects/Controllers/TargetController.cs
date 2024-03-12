@@ -19,12 +19,12 @@ public abstract class TargetController : TriggerController
         }
     }
 
-    public abstract void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw);
+    public abstract void ChooseTarget(WorldObject[] targets, TargetSearchingType targetType, WorldObject source, float yaw);
 
     public abstract void SetTarget(WorldObject worldObject, float yaw);
 }
 
-public enum TargetType
+public enum TargetSearchingType
 {
     Nearest,
     Random,

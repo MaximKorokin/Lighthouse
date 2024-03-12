@@ -95,13 +95,11 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             return;
         }
-
-        Destroying?.Invoke();
-
         IsAlive = false;
 
         SetAnimatorValue(AnimatorKey.Dead, true);
 
+        Destroying?.Invoke();
         Destroy(gameObject, DestroyTime);
     }
 }

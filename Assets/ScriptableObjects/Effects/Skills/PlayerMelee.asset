@@ -29,7 +29,7 @@ MonoBehaviour:
         <Effects>k__BackingField: []
         <EndEffects>k__BackingField:
         - rid: 4259499470171930626
-        <Duration>k__BackingField: 0.5
+        <Duration>k__BackingField: 0.3
         <Interval>k__BackingField: 0
     - rid: 1867399761533861894
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}

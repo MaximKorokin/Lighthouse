@@ -35,6 +35,7 @@ public abstract class WorldObject : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
+        StopAllCoroutines();
         Destroyed?.Invoke(this);
     }
 

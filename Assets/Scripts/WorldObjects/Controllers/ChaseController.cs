@@ -20,12 +20,12 @@ public class ChaseController : TargetController
         }
     }
 
-    public override void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw)
+    public override void ChooseTarget(WorldObject[] targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
         Target = targetType switch
         {
-            TargetType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude),
-            TargetType.Random => targets[Random.Range(0, targets.Length)],
+            TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude),
+            TargetSearchingType.Random => targets[Random.Range(0, targets.Length)],
             _ => targets[0]
         };
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class EndingEffect : ComplexEffect
 {
     [field: SerializeReference]
-    public Effect[] EndEffects { get; private set; }
+    private Effect[] EndEffects { get; set; }
 
     public event Action Ending;
 

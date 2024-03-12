@@ -20,6 +20,7 @@ MonoBehaviour:
   _effects:
   - rid: 1867399761533861888
   - rid: 1867399761533861889
+  - rid: 4259499495497400323
   references:
     version: 2
     RefIds:
@@ -46,3 +47,43 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 10
+    - rid: 4259499495497400323
+      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499495497400324
+        <EndEffects>k__BackingField: []
+        <Duration>k__BackingField: 2
+        <Interval>k__BackingField: 0.2
+    - rid: 4259499495497400324
+      type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499495497400327
+        - rid: 4259499495497400325
+        _baseOnTarget: 0
+        _pointsNumber: 1
+        _maxRandomDistance: 3
+    - rid: 4259499495497400325
+      type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499495497400326
+        <EndEffects>k__BackingField: []
+        <Duration>k__BackingField: 0
+        <Interval>k__BackingField: 0
+        <Radius>k__BackingField: 1
+    - rid: 4259499495497400326
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 3
+    - rid: 4259499495497400327
+      type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _animation: {fileID: 7400000, guid: edf911b2e5d744a46b364de86c58415a, type: 2}
+        _hasDuration: 1
+        _duration: 0
+        _childToTarget: 0
+        _flipWithTarget: 0
+        _orderInLayer: 0
+        _positioning: 0
