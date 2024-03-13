@@ -17,6 +17,6 @@ public class PeriodicActor : EffectActor
 
     public override void Idle(WorldObject worldObject)
     {
-        _cooldowns.Remove(worldObject);
+
     }
 }

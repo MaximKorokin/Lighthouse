@@ -28,7 +28,6 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 1867399761533861899
         <Zone>k__BackingField: {fileID: 8977653379589506027, guid: 50f72fc8a1f93bf498371b9cae84a9f4, type: 3}
-        <ChildToTarget>k__BackingField: 0
         <DistanceFromParent>k__BackingField: 0
         <InvokationCooldown>k__BackingField: 0.5
     - rid: 1867399761533861899

@@ -28,8 +28,8 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 7523118421162328065
         <EndEffects>k__BackingField: []
-        <Duration>k__BackingField: 10000
         <Interval>k__BackingField: 2
+        <Intervals>k__BackingField: 1000
     - rid: 7523118421162328065
       type: {class: HealEffect, ns: , asm: Assembly-CSharp}
       data:

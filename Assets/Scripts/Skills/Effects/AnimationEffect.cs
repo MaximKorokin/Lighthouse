@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -29,32 +28,27 @@ public class AnimationEffect : Effect
             animator.transform.parent = target.transform;
             animator.transform.localScale = Vector3.one;
 
-            target.Destroyed += OnWorldObjectDestroyed;
+            if (!_hasDuration)
+            {
+                target.OnDestroyed(() => Cancel(animator));
+            }
         }
 
         if (_hasDuration)
         {
-            target.StartCoroutine(AnimationCoroutine(animator, target, OnWorldObjectDestroyed));
+            target.StartCoroutineSafe(AnimationCoroutine(), () => Cancel(animator));
         }
 
         SetupAnimator(animator, target, castState.GetTargetPosition());
-
-        void OnWorldObjectDestroyed(WorldObject worldObject)
-        {
-            Cancel(animator, worldObject, OnWorldObjectDestroyed);
-            worldObject.Destroyed -= OnWorldObjectDestroyed;
-        }
     }
 
-    private IEnumerator AnimationCoroutine(Animator animator, WorldObject worldObject, Action<WorldObject> onDestroyedAction)
+    private IEnumerator AnimationCoroutine()
     {
         yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
-        Cancel(animator, worldObject, onDestroyedAction);
     }
 
-    private void Cancel(Animator animator, WorldObject worldObject, Action<WorldObject> onDestroyedAction)
+    private void Cancel(Animator animator)
     {
-        worldObject.Destroyed -= onDestroyedAction;
         if (animator != null)
         {
             GenericAnimatorPool.Return(animator);

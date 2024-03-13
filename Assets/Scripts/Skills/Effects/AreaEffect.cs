@@ -7,16 +7,8 @@ public class AreaEffect : PeriodicEffect
 
     public override void Invoke(CastState castState)
     {
-        var position = castState.GetTargetPosition();
-        var radius = Radius;
-
-        if (castState.Payload is PointCastStatePayload payload && payload.Radius > 0)
-        {
-            radius = payload.Radius;
-        }
-
         foreach (var worldObject in Physics2DUtils
-            .GetWorldObjectsInRadius(position, radius)
+            .GetWorldObjectsInRadius(castState.GetTargetPosition(), Radius)
             .GetValidTargets(castState.Source))
         {
             castState.Target = worldObject;

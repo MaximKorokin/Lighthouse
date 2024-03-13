@@ -16,15 +16,10 @@ public class DashEffect : ControllerOverrideEffect
         return direction;
     }
 
-    protected override WorldObject GetTarget(CastState castState)
-    {
-        return castState.Source;
-    }
-
     protected override void StartOverride(CastState castState)
     {
         base.StartOverride(castState);
-        if (GetTarget(castState) is MovableWorldObject movable)
+        if (castState.GetTarget() is MovableWorldObject movable)
         {
             movable.SetRigidbodyCollisions(false);
         } 

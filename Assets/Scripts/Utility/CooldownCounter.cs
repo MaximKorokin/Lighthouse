@@ -10,7 +10,7 @@ public class CooldownCounter
     public CooldownCounter(float cooldown)
     {
         Cooldown = cooldown;
-        _lastUsedTime = Time.time - Cooldown;
+        _lastUsedTime = float.MinValue;
     }
 
     public bool TryReset(float divider = 1)

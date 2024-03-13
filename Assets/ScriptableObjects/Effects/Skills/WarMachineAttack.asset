@@ -29,8 +29,8 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 7523118470901530626
         <EndEffects>k__BackingField: []
-        <Duration>k__BackingField: 1
         <Interval>k__BackingField: 0.3
+        <Intervals>k__BackingField: 3
     - rid: 7523118470901530626
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
       data:

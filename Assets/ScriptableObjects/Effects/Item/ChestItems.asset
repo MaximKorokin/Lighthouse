@@ -18,44 +18,43 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 0
   _effects:
-  - rid: 1867399668047544321
+  - rid: 4259499536714563599
   references:
     version: 2
     RefIds:
-    - rid: 1867399668047544321
-      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
+    - rid: 4259499536714563599
+      type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399668047544327
+        - rid: 4259499536714563601
         <EndEffects>k__BackingField:
-        - rid: 1867399668047544324
+        - rid: 4259499536714563602
         <Duration>k__BackingField: 0.5
-        <Interval>k__BackingField: 0
-    - rid: 1867399668047544324
+    - rid: 4259499536714563601
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 8
+    - rid: 4259499536714563602
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399668047544325
-        - rid: 1867399668047544326
+        - rid: 4259499536714563603
+        - rid: 4259499536714563604
         <EndEffects>k__BackingField: []
-        <Duration>k__BackingField: 2
         <Interval>k__BackingField: 0.2
-    - rid: 1867399668047544325
+        <Intervals>k__BackingField: 10
+    - rid: 4259499536714563603
       type: {class: ItemEffect, ns: , asm: Assembly-CSharp}
       data:
         <Item>k__BackingField: {fileID: 5409251804486583412, guid: 4075f45c5685bc2408ab3930951d1543, type: 3}
         <DropRatio>k__BackingField: 1
         <InitialForce>k__BackingField: 0.5
         <InactiveTime>k__BackingField: 0.3
-    - rid: 1867399668047544326
+    - rid: 4259499536714563604
       type: {class: ItemEffect, ns: , asm: Assembly-CSharp}
       data:
         <Item>k__BackingField: {fileID: 6741397075715308881, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
         <DropRatio>k__BackingField: 0.1
         <InitialForce>k__BackingField: 0.5
         <InactiveTime>k__BackingField: 0.5
-    - rid: 1867399668047544327
-      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Value>k__BackingField: 0
-        _key: 8

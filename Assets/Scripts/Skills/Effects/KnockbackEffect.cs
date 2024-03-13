@@ -6,9 +6,4 @@ public class KnockbackEffect : ControllerOverrideEffect
     {
         return castState.Target.transform.position - castState.Source.transform.position;
     }
-
-    protected override WorldObject GetTarget(CastState castState)
-    {
-        return castState.Target;
-    }
 }

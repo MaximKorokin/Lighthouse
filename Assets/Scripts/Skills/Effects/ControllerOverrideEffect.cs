@@ -9,7 +9,7 @@ public abstract class ControllerOverrideEffect : Effect
     [SerializeField]
     private float _time;
 
-    private readonly Dictionary<WorldObject, (Coroutine Coroutine, bool CanControl)> ActiveOverrides = new();
+    protected readonly Dictionary<WorldObject, (Coroutine Coroutine, bool CanControl)> ActiveOverrides = new();
 
     public override void Invoke(CastState castState)
     {
@@ -21,18 +21,17 @@ public abstract class ControllerOverrideEffect : Effect
     }
 
     protected abstract Vector2 GetDirection(CastState castState);
-    protected abstract WorldObject GetTarget(CastState castState);
 
     protected virtual void StartOverride(CastState castState)
     {
-        var moveTarget = GetTarget(castState);
-        if (ActiveOverrides.ContainsKey(moveTarget))
-        {
-            StopOverride(moveTarget);
-        }
+        var moveTarget = castState.GetTarget();
         if (moveTarget is not MovableWorldObject movable)
         {
             return;
+        }
+        if (ActiveOverrides.ContainsKey(moveTarget))
+        {
+            StopOverride(moveTarget);
         }
 
         var controller = movable.GetComponent<ControllerBase>();
@@ -57,7 +56,7 @@ public abstract class ControllerOverrideEffect : Effect
 
     private IEnumerator MoveOverrideCoroutine(CastState castState)
     {
-        var moveTarget = GetTarget(castState);
+        var moveTarget = castState.GetTarget();
         if (moveTarget is not MovableWorldObject movable)
         {
             yield break;
