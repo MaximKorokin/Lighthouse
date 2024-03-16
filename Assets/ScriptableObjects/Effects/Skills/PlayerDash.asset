@@ -27,8 +27,8 @@ MonoBehaviour:
     - rid: 1867399862666133504
       type: {class: DashEffect, ns: , asm: Assembly-CSharp}
       data:
+        OverrideTime: 0.8
         _speed: 1.8
-        _time: 0.8
     - rid: 1867399862666133506
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -46,8 +46,8 @@ MonoBehaviour:
     - rid: 4259499470171930628
       type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
       data:
+        OverrideTime: 0.3
         _speed: 1.5
-        _time: 0.3
     - rid: 4259499470171930629
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

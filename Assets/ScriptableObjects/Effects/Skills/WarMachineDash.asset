@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: WarMachineDash
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 10
+  _effects:
+  - rid: 4259499607476142080
+  references:
+    version: 2
+    RefIds:
+    - rid: 4259499607476142080
+      type: {class: TraceWarningEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499607476142086
+        <EndEffects>k__BackingField:
+        - rid: 4259499607476142083
+        <Duration>k__BackingField: 2
+        _startWidth: 0.1
+        _endWidth: 0.5
+    - rid: 4259499607476142083
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499607476142084
+        - rid: 4259499607476142088
+        - rid: 4259499607476142090
+        _redirectTo: 2
+    - rid: 4259499607476142084
+      type: {class: DashEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 1
+        _speed: 1.5
+    - rid: 4259499607476142086
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499607476142087
+        _redirectTo: 2
+    - rid: 4259499607476142087
+      type: {class: DisableEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 1.9
+    - rid: 4259499607476142088
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 9
+    - rid: 4259499607476142090
+      type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 4259499607476142091
+        <Zone>k__BackingField: {fileID: 4775625874383946485, guid: 7a22c4805bb8a5147b5609295d5f6967, type: 3}
+        <DistanceFromParent>k__BackingField: 0
+        <InvokationCooldown>k__BackingField: 1
+    - rid: 4259499607476142091
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 5

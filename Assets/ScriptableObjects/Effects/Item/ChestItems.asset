@@ -42,8 +42,8 @@ MonoBehaviour:
         - rid: 4259499536714563603
         - rid: 4259499536714563604
         <EndEffects>k__BackingField: []
-        <Interval>k__BackingField: 0.2
-        <Intervals>k__BackingField: 10
+        <PeriodTime>k__BackingField: 0.1
+        <Periods>k__BackingField: 10
     - rid: 4259499536714563603
       type: {class: ItemEffect, ns: , asm: Assembly-CSharp}
       data:

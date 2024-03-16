@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DashEffect : ControllerOverrideEffect
+public class DashEffect : MoveOverrideEffect
 {
     protected override Vector2 GetDirection(CastState castState)
     {

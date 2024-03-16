@@ -39,8 +39,7 @@
 - Added floating heal/damage amount text
 
 0.1.6
-done:
-- Reduce sprites sizes
-todo:
-- Use stats in SimpleEffect
-- Add boss...
+- Reduced sprites sizes
+- Added War Machine boss with barrage and dash skills
+- Added targeting for effects (really simple but powerful)
+- Added warning areas

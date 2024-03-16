@@ -5,15 +5,16 @@ public class ChildZoneEffect : ZoneEffect
     protected override PeriodicActor CreateZone(CastState castState)
     {
         var zone = base.CreateZone(castState);
-        ChildZoneToTarget(zone, castState);
+        ChildZone(zone, castState);
         return zone;
     }
 
-    private void ChildZoneToTarget(PeriodicActor zone, CastState castState)
+    private void ChildZone(PeriodicActor zone, CastState castState)
     {
-        zone.transform.parent = castState.Target.transform;
+        var target = castState.GetTarget();
+        zone.transform.parent = target.transform;
 
-        if (castState.Target is MovableWorldObject movable)
+        if (target is MovableWorldObject movable)
         {
             MovableDirectionSet(movable.Direction);
             movable.DirectionSet += MovableDirectionSet;

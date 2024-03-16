@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AreaEffect : PeriodicEffect
+public class AreaEffect : ComplexEffect
 {
     [field: SerializeField]
     public float Radius { get; private set; }

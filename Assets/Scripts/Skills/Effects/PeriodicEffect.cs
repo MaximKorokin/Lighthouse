@@ -4,20 +4,20 @@ using UnityEngine;
 public class PeriodicEffect : EndingEffect
 {
     [field: SerializeField]
-    private float Interval { get; set; }
+    private float PeriodTime { get; set; }
     [field: SerializeField]
-    private int Intervals { get; set; }
+    private int Periods { get; set; }
 
     public override void Invoke(CastState castState)
     {
-        castState.GetTarget().StartCoroutine(PeriodicInvokationCoroutine(castState));
+        castState.GetTarget().StartCoroutineSafe(PeriodicInvokationCoroutine(castState));
     }
 
     private IEnumerator PeriodicInvokationCoroutine(CastState castState)
     {
-        for (int i = 0; i < Intervals; i++)
+        for (int i = 0; i < Periods; i++)
         {
-            yield return new WaitForSeconds(Interval);
+            yield return new WaitForSeconds(PeriodTime);
             base.Invoke(castState);
         }
         InvokeEnd(castState);

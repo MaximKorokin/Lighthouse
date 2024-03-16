@@ -6,7 +6,7 @@ public abstract class IteratingEffect<T> : EndingEffect where T : class
     [field: SerializeField]
     protected float Duration { get; set; }
 
-    protected abstract float Interval { get; set; }
+    protected abstract float IterationTime { get; set; }
 
     public override void Invoke(CastState castState)
     {
@@ -16,17 +16,17 @@ public abstract class IteratingEffect<T> : EndingEffect where T : class
 
     protected virtual void StartIterating(CastState castState, T parameter)
     {
-        castState.GetTarget().StartCoroutine(IteratingCoroutine(castState, parameter));
+        castState.GetTarget().StartCoroutineSafe(IteratingCoroutine(castState, parameter), () => StopIterating(castState, parameter));
     }
 
-    protected virtual void StopIterating(CastState castState, T parameter) { }
+    protected abstract void StopIterating(CastState castState, T parameter);
 
     private IEnumerator IteratingCoroutine(CastState castState, T parameter)
     {
         var startTime = Time.time;
         while (true)
         {
-            yield return Interval > 0 ? new WaitForSeconds(Interval) : new WaitForEndOfFrame();
+            yield return IterationTime > 0 ? new WaitForSeconds(IterationTime) : new WaitForEndOfFrame();
             if (startTime + Duration < Time.time)
             {
                 break;
@@ -34,7 +34,6 @@ public abstract class IteratingEffect<T> : EndingEffect where T : class
             Iterate(castState, parameter);
         }
         InvokeEnd(castState);
-        StopIterating(castState, parameter);
     }
 
     protected abstract void Iterate(CastState castState, T parameter);

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AreaWarningEffect : IteratingEffect<LineRenderer>
@@ -7,7 +8,7 @@ public class AreaWarningEffect : IteratingEffect<LineRenderer>
     [SerializeField]
     private float _endRadius;
 
-    protected override float Interval { get => Time.deltaTime; set => throw new System.NotImplementedException(); }
+    protected override float IterationTime { get => Time.deltaTime; set => throw new InvalidOperationException(); }
 
     protected override void StartIterating(CastState castState, LineRenderer parameter)
     {
@@ -23,15 +24,15 @@ public class AreaWarningEffect : IteratingEffect<LineRenderer>
         base.StartIterating(castState, renderer);
     }
 
+    protected override void Iterate(CastState castState, LineRenderer renderer)
+    {
+        var radiusStep = (_endRadius - _startRadius) / Duration * IterationTime;
+        renderer.startWidth += radiusStep;
+        renderer.endWidth += radiusStep;
+    }
+
     protected override void StopIterating(CastState castState, LineRenderer renderer)
     {
         LineRenderersPool.Return(renderer);
-    }
-
-    protected override void Iterate(CastState castState, LineRenderer renderer)
-    {
-        var radiusStep = (_endRadius - _startRadius) / Duration * Interval;
-        renderer.startWidth += radiusStep;
-        renderer.endWidth += radiusStep;
     }
 }

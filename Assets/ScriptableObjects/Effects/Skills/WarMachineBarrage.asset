@@ -16,7 +16,7 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 20
+  <Cooldown>k__BackingField: 7
   _effects:
   - rid: 4259499536714563584
   - rid: 4259499536714563610
@@ -30,8 +30,8 @@ MonoBehaviour:
         - rid: 4259499536714563586
         - rid: 4259499536714563614
         <EndEffects>k__BackingField: []
-        <Interval>k__BackingField: 1
-        <Intervals>k__BackingField: 5
+        <PeriodTime>k__BackingField: 0.5
+        <Periods>k__BackingField: 5
     - rid: 4259499536714563586
       type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -47,7 +47,7 @@ MonoBehaviour:
         <EndEffects>k__BackingField:
         - rid: 4259499536714563606
         - rid: 4259499536714563608
-        <Duration>k__BackingField: 2
+        <Duration>k__BackingField: 1
         _startRadius: 0.3
         _endRadius: 0.5
     - rid: 4259499536714563606
@@ -55,9 +55,6 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563607
-        <EndEffects>k__BackingField: []
-        <Interval>k__BackingField: 0
-        <Intervals>k__BackingField: 1
         <Radius>k__BackingField: 0.5
     - rid: 4259499536714563607
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
@@ -77,15 +74,14 @@ MonoBehaviour:
       type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 4259499536714563611
+        - rid: 4259499606198190080
         _redirectTo: 2
-    - rid: 4259499536714563611
-      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _speed: 0
-        _time: 5
     - rid: 4259499536714563614
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
+    - rid: 4259499606198190080
+      type: {class: DisableEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 5

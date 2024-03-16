@@ -11,7 +11,7 @@ public class ContinuousEffect : EndingEffect
         base.Invoke(castState);
         if (Duration > 0)
         {
-            castState.GetTarget().StartCoroutine(DurationCoroutine(castState));
+            castState.GetTarget().StartCoroutineSafe(DurationCoroutine(castState));
         }
         else
         {

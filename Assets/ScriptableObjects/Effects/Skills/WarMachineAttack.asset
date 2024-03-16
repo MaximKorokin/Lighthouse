@@ -16,7 +16,7 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 4
+  <Cooldown>k__BackingField: 3
   _effects:
   - rid: 7523118470901530625
   - rid: 7523118470901530627
@@ -29,8 +29,8 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 7523118470901530626
         <EndEffects>k__BackingField: []
-        <Interval>k__BackingField: 0.3
-        <Intervals>k__BackingField: 3
+        <PeriodTime>k__BackingField: 0.3
+        <Periods>k__BackingField: 3
     - rid: 7523118470901530626
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
       data:

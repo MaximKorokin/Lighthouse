@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class KnockbackEffect : ControllerOverrideEffect
+public class KnockbackEffect : MoveOverrideEffect
 {
     protected override Vector2 GetDirection(CastState castState)
     {
