@@ -95,11 +95,19 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             return;
         }
-        IsAlive = false;
 
         SetAnimatorValue(AnimatorKey.Dead, true);
 
+        IsAlive = false;
         Destroying?.Invoke();
         Destroy(gameObject, DestroyTime);
+    }
+
+    public override void SetAnimatorValue<T>(AnimatorKey key, T value = default)
+    {
+        if (IsAlive)
+        {
+            base.SetAnimatorValue(key, value);
+        }
     }
 }

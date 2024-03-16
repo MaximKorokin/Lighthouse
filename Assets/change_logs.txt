@@ -45,3 +45,4 @@
 - Added warning areas
 
 0.1.7
+- Fixed generic animations first frame being from previous animation

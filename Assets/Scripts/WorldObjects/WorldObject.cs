@@ -58,7 +58,7 @@ public abstract class WorldObject : MonoBehaviour
         SetAnimatorValue(AnimatorKey.AttackSpeed, Stats[StatName.AttackSpeed]);
     }
 
-    public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
+    public virtual void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
     {
         AnimatorValueSet?.Invoke(key, Convert.ToSingle(value));
     }
