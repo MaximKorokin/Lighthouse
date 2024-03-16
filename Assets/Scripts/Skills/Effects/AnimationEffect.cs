@@ -18,62 +18,56 @@ public class AnimationEffect : Effect
     [SerializeField]
     private AnimationEffectPositioning _positioning;
 
-    private Coroutine _coroutine;
-    private Animator _animator;
-
     public override void Invoke(CastState castState)
     {
-        Cancel(castState.Target);
-        _animator = GenericAnimatorPool.Take(_animation);
-        SetupAnimator(castState, _animator);
+        var animator = GenericAnimatorPool.Take(_animation);
+        var target = castState.GetTarget();
+
+        if (_childToTarget)
+        {
+            animator.transform.parent = target.transform;
+            animator.transform.localScale = Vector3.one;
+
+            if (!_hasDuration)
+            {
+                target.OnDestroyed(() => Cancel(animator));
+            }
+        }
+
         if (_hasDuration)
         {
-            _coroutine = castState.Target.StartCoroutine(AnimationCoroutine(castState.Target));
+            target.StartCoroutineSafe(AnimationCoroutine(), () => Cancel(animator));
         }
-        if (_childToTarget)
-        {
-            castState.Target.Destroyed += Cancel;
-        }
+
+        SetupAnimator(animator, target, castState.GetTargetPosition());
     }
 
-    private void Cancel(WorldObject worldObject)
-    {
-        worldObject.Destroyed -= Cancel;
-        if (_animator != null)
-        {
-            GenericAnimatorPool.Return(_animator);
-            _animator = null;
-        }
-        if (_coroutine != null)
-        {
-            worldObject.StopCoroutine(_coroutine);
-        }
-    }
-
-    private IEnumerator AnimationCoroutine(WorldObject worldObject)
+    private IEnumerator AnimationCoroutine()
     {
         yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
-        Cancel(worldObject);
     }
 
-    // todo: this is gavno
-    private void SetupAnimator(CastState castState, Animator animator)
+    private void Cancel(Animator animator)
     {
-        if (_childToTarget)
+        if (animator != null)
         {
-            animator.transform.parent = castState.Target.transform;
-            animator.transform.localScale = Vector3.one;
+            GenericAnimatorPool.Return(animator);
         }
-        animator.transform.position = castState.Target.transform.position;
+    }
+
+    // this is gavno
+    private void SetupAnimator(Animator animator, WorldObject target, Vector2 position)
+    {
+        animator.transform.position = position;
 
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
         animatorSpriteRenderer.sortingOrder = _orderInLayer;
 
-        var targetComplexAnimator = castState.Target.GetComponent<ComplexAnimator>();
-        var targetSpriteRenderer = castState.Target.GetComponent<SpriteRenderer>();
+        var targetComplexAnimator = target.GetComponent<ComplexAnimator>();
+        var targetSpriteRenderer = target.GetComponent<SpriteRenderer>();
         if (targetComplexAnimator != null)
         {
-            if (_flipWithTarget && castState.Target is MovableWorldObject movable)
+            if (_flipWithTarget && target is MovableWorldObject movable)
             {
                 animatorSpriteRenderer.flipX = movable.IsFlipped;
             }

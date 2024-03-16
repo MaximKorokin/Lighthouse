@@ -181,10 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffects: []
-  _damageEffects: []
-  _destroyEffects:
-  - {fileID: 11400000, guid: bf7ce3d877291a547a42fca4145b2ffa, type: 2}
+  _startEffectsSettings: []
+  _damageEffectsSettings: []
+  _destroyEffectsSettings: []
 --- !u!114 &4742657077724459762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a2f39b2b5f6544294b9d326b586d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffects:
-  - {fileID: 11400000, guid: 7275a951f2764c845a9821a893b011f4, type: 2}
+  _startEffectsSettings:
+  - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
 --- !u!114 &3292321424933142019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,4 +210,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c3f5eaf52fe1c49a56291d72570a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasExtents: 1
   _offset: {x: 0, y: 0}

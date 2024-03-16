@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: Shadow12Anim
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 0
+  _effects:
+  - rid: 1867399666109251596
+  references:
+    version: 2
+    RefIds:
+    - rid: 1867399666109251596
+      type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _animation: {fileID: 7400000, guid: 1cc834d49543a794cb3f651cfa7480ca, type: 2}
+        _hasDuration: 0
+        _duration: 0
+        _childToTarget: 1
+        _flipWithTarget: 0
+        _orderInLayer: -10
+        _positioning: 1

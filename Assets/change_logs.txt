@@ -37,3 +37,9 @@
 - Added zones and corresponding effects
 - Added dash and knockback effects
 - Added floating heal/damage amount text
+
+0.1.6
+- Reduced sprites sizes
+- Added War Machine boss with barrage and dash skills
+- Added targeting for effects (really simple but powerful)
+- Added warning areas

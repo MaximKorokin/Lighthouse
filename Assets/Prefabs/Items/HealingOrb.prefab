@@ -132,7 +132,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
-  <CanMove>k__BackingField: 1
   <InactiveTime>k__BackingField: 0
 --- !u!212 &4095242153396451076
 SpriteRenderer:

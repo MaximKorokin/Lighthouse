@@ -10,8 +10,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     public bool CanRotate { get; protected set; }
     [field: SerializeField]
     public bool CanFlip { get; protected set; }
-    [field: SerializeField]
-    public bool CanMove { get; set; } = true;
 
     public Vector2 Direction
     {
@@ -30,6 +28,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     private Rigidbody2D _rigidbody;
     private LayerMask _rigidbodyExcludeLayerMask;
     private bool _previousFlipX;
+    private float _speed;
 
     public event Action<bool> Flipped;
     public event Action<Vector2> DirectionSet;
@@ -57,15 +56,10 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             _rigidbody.velocity = Vector2.zero;
         }
 
-        if (CanMove && IsMoving)
+        if (IsMoving)
         {
-            MoveRigidbody(Stats[StatName.MoveSpeed]);
+            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
         }
-    }
-
-    public void MoveRigidbody(float speed)
-    {
-        _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * speed * Time.fixedDeltaTime * Direction);
     }
 
     public void SetRigidbodyCollisions(bool enable)
@@ -73,13 +67,9 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : -1;
     }
 
-    public virtual void Move()
+    public virtual void Move(float speedOverride = -1)
     {
-        if (!CanMove)
-        {
-            return;
-        }
-
+        _speed = speedOverride < 0 ? Stats[StatName.MoveSpeed] : speedOverride;
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }

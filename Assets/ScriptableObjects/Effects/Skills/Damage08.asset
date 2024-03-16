@@ -18,31 +18,30 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 2
   _effects:
-  - rid: 1867399666109251587
+  - rid: 4259499536714563593
   references:
     version: 2
     RefIds:
-    - rid: 1867399666109251587
-      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
+    - rid: 4259499536714563593
+      type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399666109251590
+        - rid: 4259499536714563594
         <EndEffects>k__BackingField:
-        - rid: 1867399666109251591
+        - rid: 4259499536714563595
         <Duration>k__BackingField: 0.8
-        <Interval>k__BackingField: 0
-    - rid: 1867399666109251590
+    - rid: 4259499536714563594
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
-    - rid: 1867399666109251591
+    - rid: 4259499536714563595
       type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399666109251592
+        - rid: 4259499536714563596
         _conditions: 1
-    - rid: 1867399666109251592
+    - rid: 4259499536714563596
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 2

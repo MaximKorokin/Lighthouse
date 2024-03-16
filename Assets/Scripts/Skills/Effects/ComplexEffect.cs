@@ -9,7 +9,7 @@ public class ComplexEffect : Effect
     {
         foreach (var effect in Effects)
         {
-            effect.Invoke(castState);
+            effect?.Invoke(castState);
         }
     }
 }

@@ -1,13 +1,14 @@
 using UnityEngine;
 
-public class AreaEffect : PeriodicEffect
+public class AreaEffect : ComplexEffect
 {
     [field: SerializeField]
     public float Radius { get; private set; }
 
     public override void Invoke(CastState castState)
     {
-        foreach (var worldObject in Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, Radius)
+        foreach (var worldObject in Physics2DUtils
+            .GetWorldObjectsInRadius(castState.GetTargetPosition(), Radius)
             .GetValidTargets(castState.Source))
         {
             castState.Target = worldObject;

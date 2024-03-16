@@ -20,7 +20,7 @@ public class Skill
         }
         foreach (var effect in _effects)
         {
-            effect.Invoke(new CastState(source, source, target, CooldownCounter.Cooldown));
+            effect.Invoke(new CastState(source, source, target));
         }
     }
 }

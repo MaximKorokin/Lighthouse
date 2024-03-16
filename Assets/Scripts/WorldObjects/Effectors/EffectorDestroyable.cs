@@ -19,8 +19,8 @@ public class EffectorDestroyable : Effector
 
         var worldObject = GetComponent<DestroyableWorldObject>();
 
-        _damageEffects = _damageEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject, x.Cooldown));
-        _destroyEffects = _destroyEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject, x.Cooldown));
+        _damageEffects = _damageEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject));
+        _destroyEffects = _destroyEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject));
 
         worldObject.HealthPointsChanged += (prev, cur, max) => { if (cur < prev) OnDamaged(); };
         worldObject.Destroying += OnDestroying;

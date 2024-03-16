@@ -18,34 +18,32 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 2
   _effects:
-  - rid: 1867399761533861891
   - rid: 1867399761533861894
+  - rid: 4259499536714563591
   references:
     version: 2
     RefIds:
-    - rid: 1867399761533861891
-      type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Effects>k__BackingField: []
-        <EndEffects>k__BackingField:
-        - rid: 1867399761533861895
-        <Duration>k__BackingField: 0.5
-        <Interval>k__BackingField: 0
     - rid: 1867399761533861894
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
-    - rid: 1867399761533861895
-      type: {class: ZoneEffect, ns: , asm: Assembly-CSharp}
+    - rid: 4259499536714563591
+      type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField: []
+        <EndEffects>k__BackingField:
+        - rid: 4259499536714563592
+        <Duration>k__BackingField: 0.4
+    - rid: 4259499536714563592
+      type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 1867399761533861896
+        - rid: 4259499536714563598
         <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 0215c199ed4f50b4689cbb14fc6e3b2f, type: 3}
-        <ChildToTarget>k__BackingField: 1
-        <DistanceFromParent>k__BackingField: 0.6
+        <DistanceFromParent>k__BackingField: 0.4
         <InvokationCooldown>k__BackingField: 1
-    - rid: 1867399761533861896
+    - rid: 4259499536714563598
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 5
+        <Value>k__BackingField: 10

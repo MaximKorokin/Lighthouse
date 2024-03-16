@@ -15,11 +15,11 @@ public abstract class EffectActor : ActorBase
         base.Awake();
         if (EffectSettings != null)
         {
-            SetEffects(EffectSettings.GetEffects(), new CastState(WorldObject, EffectSettings.Cooldown));
+            SetEffects(EffectSettings.GetEffects(), new CastState(WorldObject));
         }
         else
         {
-            SetEffects(new Effect[0], new CastState(WorldObject, 0));
+            SetEffects(new Effect[0], new CastState(WorldObject));
         }
     }
 

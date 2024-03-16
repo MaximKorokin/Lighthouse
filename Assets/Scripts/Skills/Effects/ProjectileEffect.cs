@@ -12,7 +12,7 @@ public class ProjectileEffect : EndingEffect
     [field: SerializeField]
     public float Spread { get; private set; }
     [field: SerializeField]
-    public TargetType TargetType { get; private set; }
+    public TargetSearchingType TargetType { get; private set; }
 
     /// <summary>
     /// Instanciates projectiles from prefab and inits them.
@@ -21,7 +21,7 @@ public class ProjectileEffect : EndingEffect
     /// <param name="target"></param>
     public override void Invoke(CastState castState)
     {
-        CreateProjectiles(this, castState);
+        CreateProjectiles(castState);
     }
 
     /// <summary>
@@ -38,34 +38,30 @@ public class ProjectileEffect : EndingEffect
     /// If <paramref name="source"/> == <paramref name="target"/> it will try to find a new target.
     /// If no target found, it will not do anything.
     /// </summary>
-    /// <param name="source"></param>
-    /// <param name="target"></param>
-    /// <param name="yaw"></param>
-    /// <param name="effect"></param>
-    private static void CreateProjectiles(ProjectileEffect effect, CastState castState)
+    private void CreateProjectiles(CastState castState)
     {
         var spreadStep = 0f;
         var currentYaw = 0f;
-        if (effect.Amount > 1)
+        if (Amount > 1)
         {
-            spreadStep = effect.Spread / (effect.Amount - 1);
-            currentYaw = -effect.Spread / 2;
+            spreadStep = Spread / (Amount - 1);
+            currentYaw = -Spread / 2;
         }
 
-        for (int i = 0; i < effect.Amount; i++)
+        for (int i = 0; i < Amount; i++)
         {
             if (castState.Source == castState.Target)
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
                     .GetValidTargets(castState.InitialSource)
-                    .GetValidTargets(effect.Projectile.WorldObject)
+                    .GetValidTargets(Projectile.WorldObject)
                     .ToArray();
                 if (targets.Length > 0)
                 {
-                    CreateAndGetController().ChooseTarget(targets, effect.TargetType, castState.Source, currentYaw);
+                    CreateAndGetController().ChooseTarget(targets, TargetType, castState.Source, currentYaw);
                 }
             }
-            else if (castState.Target.IsValidTarget(effect.Projectile.WorldObject))
+            else if (castState.Target.IsValidTarget(Projectile.WorldObject))
             {
                 CreateAndGetController().SetTarget(castState.Target, currentYaw);
             }
@@ -74,8 +70,8 @@ public class ProjectileEffect : EndingEffect
 
         TargetController CreateAndGetController()
         {
-            var projectile = Object.Instantiate(effect.Projectile, castState.Source.transform.position, Quaternion.identity);
-            projectile.SetProjectileEffect(effect, castState);
+            var projectile = Object.Instantiate(Projectile, castState.Source.transform.position, Quaternion.identity);
+            projectile.SetProjectileEffect(this, castState);
             return projectile.GetComponent<TargetController>();
         }
     }

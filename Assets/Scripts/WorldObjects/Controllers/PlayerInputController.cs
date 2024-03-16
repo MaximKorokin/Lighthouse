@@ -20,13 +20,6 @@ public class PlayerInputController : ControllerBase
 
     protected override void Control()
     {
-        InvokeActors(WorldObject);
-
-        if (_movable.Direction == _direction)
-        {
-            return;
-        }
-
         _movable.Direction = _direction;
         if (_direction == Vector2.zero)
         {
@@ -36,6 +29,8 @@ public class PlayerInputController : ControllerBase
         {
             _movable.Move();
         }
+
+        InvokeActors(WorldObject);
     }
 
     private void OnDestroy()

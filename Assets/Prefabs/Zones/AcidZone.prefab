@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  EffectSettings: {fileID: 11400000, guid: 527e49cf0305b404395e2b4fae6901ac, type: 2}
+  EffectSettings: {fileID: 0}
 --- !u!114 &5899376340007028653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,5 +232,4 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
-  <CanMove>k__BackingField: 1
   <LifeTime>k__BackingField: 5

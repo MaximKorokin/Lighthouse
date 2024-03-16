@@ -3,7 +3,7 @@
 [RequireComponent(typeof(DestroyableWorldObject))]
 public class ProjectileActor : EffectActor
 {
-    private Effect[] _endEffects;
+    private ProjectileEffect _projectileEffect;
     private int _pierceLeft;
     private DestroyableWorldObject _destroyable;
 
@@ -17,7 +17,7 @@ public class ProjectileActor : EffectActor
     private void OnDestroying()
     {
         CastState.Target = WorldObject;
-        _endEffects.Invoke(CastState);
+        _projectileEffect.InvokeEnd(CastState);
     }
 
     protected override void ActInternal(WorldObject worldObject)
@@ -42,7 +42,7 @@ public class ProjectileActor : EffectActor
 
     public void SetProjectileEffect(ProjectileEffect effect, CastState castState)
     {
-        _endEffects = effect.EndEffects;
+        _projectileEffect = effect;
         _pierceLeft = effect.PierceAmount;
         SetEffects(effect.Effects, castState);
     }

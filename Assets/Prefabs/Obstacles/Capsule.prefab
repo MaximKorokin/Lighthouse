@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.2
 --- !u!114 &7212335419746101593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,10 +144,10 @@ MonoBehaviour:
     - Name: 1
       Value: 1
     - Name: 2
-      Value: 5
+      Value: 15
   <IsDamagable>k__BackingField: 1
   <IsAlive>k__BackingField: 1
-  <DestroyTime>k__BackingField: 1
+  <DestroyTime>k__BackingField: 5
 --- !u!95 &2190903019382194184
 Animator:
   serializedVersion: 5
@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffectsSettings: []
+  _startEffectsSettings:
+  - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
   _damageEffectsSettings: []
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: efcd3d145e77b514d8fb4ecc4803bf72, type: 2}
@@ -211,4 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c3f5eaf52fe1c49a56291d72570a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasExtents: 1
   _offset: {x: 0, y: 0}

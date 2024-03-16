@@ -17,13 +17,13 @@ public class StraightMovingController : TargetController
         Direction = Quaternion.Euler(0, 0, yaw) * (worldObject.transform.position - transform.position);
     }
 
-    public override void ChooseTarget(WorldObject[] targets, TargetType targetType, WorldObject source, float yaw)
+    public override void ChooseTarget(WorldObject[] targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
         Vector2 targetDirection = targetType switch
         {
-            TargetType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude).transform.position - transform.position,
-            TargetType.Random => Random.insideUnitCircle,
-            TargetType.Forward => source is MovableWorldObject movableSource ? movableSource.Direction : Direction,
+            TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude).transform.position - transform.position,
+            TargetSearchingType.Random => Random.insideUnitCircle,
+            TargetSearchingType.Forward => source is MovableWorldObject movableSource ? movableSource.Direction : Direction,
             _ => Direction
         };
         Direction = Quaternion.Euler(0, 0, yaw) * targetDirection;

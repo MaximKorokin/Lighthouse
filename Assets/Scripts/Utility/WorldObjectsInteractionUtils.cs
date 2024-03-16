@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public static class WorldObjectsInteractionUtils
 {
@@ -26,6 +29,76 @@ public static class WorldObjectsInteractionUtils
         else
         {
             return validator.IsValidTarget(worldObject);
+        }
+    }
+
+    public static WorldObject GetTarget(this CastState castState)
+    {
+        return castState.TargetingType switch
+        {
+            TargetingType.Source => castState.Source,
+            TargetingType.Target => castState.Target,
+            _ => castState.InitialSource,
+        };
+    }
+
+    public static Vector2 GetTargetPosition(this CastState castState)
+    {
+        return castState.TargetingType switch
+        {
+            TargetingType.Source => castState.Source.transform.position,
+            TargetingType.Target => castState.Target.transform.position,
+            TargetingType.Point => castState.Payload is PointCastStatePayload payload ? payload.Position : castState.InitialSource.transform.position,
+            _ => castState.InitialSource.transform.position,
+        };
+    }
+
+    public static Coroutine StartCoroutineSafe(this WorldObject worldObject, IEnumerator enumerator, Action finalAction = null)
+    {
+        Coroutine coroutine = null;
+        var finalActionCalled = false;
+        coroutine = worldObject.StartCoroutine(SafeCoroutine());
+        worldObject.Destroyed += OnWorldObjectDestroyed;
+        return coroutine;
+
+        IEnumerator SafeCoroutine()
+        {
+            while (enumerator.MoveNext())
+            {
+                yield return enumerator.Current;
+            }
+            Cancel();
+        }
+
+        void OnWorldObjectDestroyed(WorldObject _)
+        {
+            if (coroutine != null)
+            {
+                worldObject.StopCoroutine(coroutine);
+            }
+            Cancel();
+        }
+
+        void Cancel()
+        {
+            worldObject.Destroyed -= OnWorldObjectDestroyed;
+            if (!finalActionCalled)
+            {
+                finalAction?.Invoke();
+            }
+            finalActionCalled = true;
+        }
+    }
+
+    public static Action<WorldObject> OnDestroyed(this WorldObject worldObject, Action finalAction)
+    {
+        worldObject.Destroyed += OnWorldObjectDestroyed;
+        return OnWorldObjectDestroyed;
+
+        void OnWorldObjectDestroyed(WorldObject _)
+        {
+            finalAction?.Invoke();
+            worldObject.Destroyed -= OnWorldObjectDestroyed;
         }
     }
 }

@@ -253,4 +253,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fe66643e1bd5b45a5a8aa32fbeaf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EffectSettings: {fileID: 0}
+  <CanAct>k__BackingField: 1
+  EffectSettings: {fileID: 11400000, guid: 0c8f1c1812c870f469f40323b8ce9264, type: 2}

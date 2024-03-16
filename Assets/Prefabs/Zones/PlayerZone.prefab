@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 160712140205557075}
   - component: {fileID: 4775625874383946485}
   - component: {fileID: 3955326340313482173}
-  - component: {fileID: 7328505148413859918}
   - component: {fileID: -4205010632983814517}
   m_Layer: 0
   m_Name: PlayerZone
@@ -153,28 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24a5b7999b4c334987053506ced0754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7328505148413859918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5409970523839823098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7693b277800604b8d0bf1c9e7e3f9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <PositioningType>k__BackingField: -1
-  <TriggeringType>k__BackingField: -1
-  _stats:
-    _stats:
-    - Name: 1
-      Value: 1
-    - Name: 2
-      Value: 1
-    - Name: 7
-      Value: 1
 --- !u!114 &-4205010632983814517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,5 +179,4 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
-  <CanMove>k__BackingField: 0
   <LifeTime>k__BackingField: 0.5

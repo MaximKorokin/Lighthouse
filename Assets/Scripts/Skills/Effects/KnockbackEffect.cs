@@ -6,9 +6,4 @@ public class KnockbackEffect : MoveOverrideEffect
     {
         return castState.Target.transform.position - castState.Source.transform.position;
     }
-
-    protected override WorldObject GetMoveTarget(CastState castState)
-    {
-        return castState.Target;
-    }
 }
