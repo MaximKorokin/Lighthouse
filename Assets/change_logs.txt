@@ -43,3 +43,5 @@
 - Added War Machine boss with barrage and dash skills
 - Added targeting for effects (really simple but powerful)
 - Added warning areas
+
+0.1.7

@@ -27,6 +27,7 @@ public class GenericAnimatorPool : ObjectPool<Animator, AnimationClip>
             spriteRenderer.flipX = false;
             spriteRenderer.flipY = false;
             spriteRenderer.color = Color.white;
+            spriteRenderer.sprite = null;
         }
     }
 }
