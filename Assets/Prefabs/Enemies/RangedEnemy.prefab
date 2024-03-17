@@ -235,7 +235,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.15
 --- !u!50 &2673697132878341897
 Rigidbody2D:
   serializedVersion: 4
@@ -296,7 +296,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
-  <CanMove>k__BackingField: 1
 --- !u!114 &3447483860829897823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222eebc6ff85a544902751695bf7c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shift: 1
 --- !u!114 &8933689640996523510
 MonoBehaviour:
   m_ObjectHideFlags: 0
