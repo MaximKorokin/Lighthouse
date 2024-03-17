@@ -396,9 +396,9 @@ GameObject:
   - component: {fileID: 7024971320545400970}
   - component: {fileID: 4561559417053363611}
   - component: {fileID: 4140782551836971032}
-  - component: {fileID: 8190725275004147874}
   - component: {fileID: 677912016663868352}
   - component: {fileID: 3676242523460579892}
+  - component: {fileID: 8190725275004147874}
   - component: {fileID: 7450678416333758852}
   - component: {fileID: 8324557593489910904}
   m_Layer: 0
@@ -495,7 +495,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.1
 --- !u!50 &1067456175170885560
 Rigidbody2D:
   serializedVersion: 4
@@ -558,7 +558,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
-  <CanMove>k__BackingField: 1
   _levelingSystemSettings: {fileID: 11400000, guid: 10547097463749d4e9f3416e00abf3d6, type: 2}
 --- !u!114 &4808862166265668767
 MonoBehaviour:
@@ -613,24 +612,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _outrunningValue: 1
---- !u!114 &8190725275004147874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537639882005055995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startEffectsSettings:
-  - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
-  - {fileID: 11400000, guid: 3244ee6188b3eb24b9f7808845054dae, type: 2}
-  _damageEffectsSettings:
-  - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
-  _destroyEffectsSettings: []
 --- !u!114 &677912016663868352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +640,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222eebc6ff85a544902751695bf7c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shift: 1
+--- !u!114 &8190725275004147874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEffectsSettings:
+  - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
+  - {fileID: 11400000, guid: 3244ee6188b3eb24b9f7808845054dae, type: 2}
+  _damageEffectsSettings:
+  - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
+  _destroyEffectsSettings: []
 --- !u!114 &7450678416333758852
 MonoBehaviour:
   m_ObjectHideFlags: 0

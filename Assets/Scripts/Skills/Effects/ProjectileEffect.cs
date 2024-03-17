@@ -70,7 +70,7 @@ public class ProjectileEffect : EndingEffect
 
         TargetController CreateAndGetController()
         {
-            var projectile = Object.Instantiate(Projectile, castState.Source.transform.position, Quaternion.identity);
+            var projectile = Object.Instantiate(Projectile, castState.Source.transform.position + (Vector3)castState.Source.VisualPositionOffset, Quaternion.identity);
             projectile.SetProjectileEffect(this, castState);
             return projectile.GetComponent<TargetController>();
         }

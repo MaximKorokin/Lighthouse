@@ -14,11 +14,11 @@ public class ChildZoneEffect : ZoneEffect
         var target = castState.GetTarget();
         zone.transform.parent = target.transform;
 
-        if (target is MovableWorldObject movable)
+        if (target is MovableWorldObject movable && DistanceFromParent != 0)
         {
             MovableDirectionSet(movable.Direction);
             movable.DirectionSet += MovableDirectionSet;
-            zone.WorldObject.Destroyed += _ => movable.DirectionSet -= MovableDirectionSet;
+            zone.WorldObject.OnDestroyed(() => movable.DirectionSet -= MovableDirectionSet);
         }
 
         void MovableDirectionSet(Vector2 _)
@@ -28,7 +28,7 @@ public class ChildZoneEffect : ZoneEffect
             {
                 zoneMovable.Direction = turnDirection;
             }
-            zone.transform.localPosition = turnDirection * DistanceFromParent;
+            zone.transform.localPosition = turnDirection * DistanceFromParent + movable.VisualPositionOffset;
         }
     }
 }

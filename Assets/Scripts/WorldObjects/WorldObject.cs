@@ -8,6 +8,8 @@ public abstract class WorldObject : MonoBehaviour
     [field: SerializeField]
     public PositioningType TriggeringType { get; protected set; }
 
+    public Vector2 VisualPositionOffset { get; set; }
+
     [SerializeField]
     private Stats _stats;
     protected Stats Stats => _stats;
