@@ -20,14 +20,15 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             var previousValue = _currentHealthPoints;
             _currentHealthPoints = Math.Min(value, Stats[StatName.MaxHealthPoints]);
+
+            HealthPointsChanged?.Invoke(previousValue, _currentHealthPoints, MaxHealthPoints);
+            SetAnimatorValue(AnimatorKey.HPRatio, _currentHealthPoints / Stats[StatName.MaxHealthPoints]);
+
             if (_currentHealthPoints <= 0)
             {
                 _currentHealthPoints = 0;
                 DestroyWorldObject();
             }
-
-            HealthPointsChanged?.Invoke(previousValue, _currentHealthPoints, MaxHealthPoints);
-            SetAnimatorValue(AnimatorKey.HPRatio, CurrentHealthPoints / Stats[StatName.MaxHealthPoints]);
         }
     }
 

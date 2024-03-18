@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2338888315662349175}
   - component: {fileID: 3363170444335394930}
   - component: {fileID: -4401986470944856457}
+  - component: {fileID: 5717824719486847908}
   m_Layer: 0
   m_Name: HealingOrb
   m_TagString: Untagged
@@ -273,3 +274,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
   EffectSettings: {fileID: 11400000, guid: 3be42e631b808ad4eaee33d5adaacd42, type: 2}
+--- !u!114 &5717824719486847908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734253315142589745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

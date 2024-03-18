@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5597023380158865238}
   - component: {fileID: -8909341099840797249}
   - component: {fileID: 3770413621153106002}
-  - component: {fileID: 3677536727363877090}
+  - component: {fileID: 2476698497534978375}
   m_Layer: 0
   m_Name: WarMachineProjectile
   m_TagString: Untagged
@@ -182,7 +182,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
-  <CanMove>k__BackingField: 1
   <LifeTime>k__BackingField: 5
 --- !u!114 &7461735635080617453
 MonoBehaviour:
@@ -257,7 +256,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3677536727363877090
+--- !u!114 &2476698497534978375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,8 +265,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7254378381488008843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c3f5eaf52fe1c49a56291d72570a67, type: 3}
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hasExtents: 1
-  _offset: {x: 0, y: 0}

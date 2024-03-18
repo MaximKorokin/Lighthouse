@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2227768210704919478}
   - component: {fileID: 5156025027915981016}
   - component: {fileID: 8727188674890356502}
+  - component: {fileID: 2687335214740104327}
   m_Layer: 0
   m_Name: RedChest
   m_TagString: Untagged
@@ -76,7 +77,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
   m_Radius: 0.15
 --- !u!58 &866405262962848989
@@ -303,6 +304,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
+--- !u!114 &2687335214740104327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674818706961984734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2666607087473952409
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
         {
             _animators = _animators.Concat(animator.Yield()).ToArray();
         }
+        _animators.ForEach(x => x.Initialize());
 
         _worldObject.AnimatorValueSet += SetAnimatorValue;
         if (_worldObject is MovableWorldObject movable)

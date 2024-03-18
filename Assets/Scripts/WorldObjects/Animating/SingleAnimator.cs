@@ -18,7 +18,7 @@ public class SingleAnimator : MonoBehaviour, IAnimator
     public Animator Animator { get; private set; }
     public SpriteRenderer SpriteRenderer { get; private set; }
 
-    protected virtual void Awake()
+    public virtual void Initialize()
     {
         Animator = GetComponent<Animator>();
         SpriteRenderer = GetComponent<SpriteRenderer>();

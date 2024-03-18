@@ -58,7 +58,8 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
         if (IsMoving)
         {
-            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
+            //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
+            _rigidbody.velocity = _speed * MoveSpeedModifier * Direction;
         }
     }
 
