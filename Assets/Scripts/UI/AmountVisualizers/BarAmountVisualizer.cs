@@ -34,7 +34,7 @@ public abstract class BarAmountVisualizer : MonoBehaviour, IInitializable<BarAmo
 
     public virtual void VisualizeAmount(float value, float max)
     {
-        if (BarController == null)
+        if (BarController != null)
         {
             BarController.SetFillRatio(max > 0 ? (value / max) : 0);
         }
