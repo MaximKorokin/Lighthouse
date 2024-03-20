@@ -48,3 +48,4 @@
 - Fixed generic animations first frame being from previous animation
 - Creatures' positions is now at their feet
 - Add z-index
+- Add Shield

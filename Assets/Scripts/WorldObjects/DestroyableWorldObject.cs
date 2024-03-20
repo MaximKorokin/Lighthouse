@@ -23,14 +23,10 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             var previousValue = _currentHealthPoints;
             _currentHealthPoints = Math.Max(0, Math.Min(value, MaxHealthPoints));
-
             HealthPointsChanged?.Invoke(previousValue, _currentHealthPoints, MaxHealthPoints);
             SetAnimatorValue(AnimatorKey.HPRatio, _currentHealthPoints / MaxHealthPoints);
 
-            if (_currentHealthPoints == 0)
-            {
-                DestroyWorldObject();
-            }
+            if (_currentHealthPoints == 0) DestroyWorldObject();
         }
     }
 
@@ -44,7 +40,7 @@ public abstract class DestroyableWorldObject : WorldObject
             var previousValue = _currentShieldValue;
             _currentShieldValue = Math.Max(0, Math.Min(value, MaxShieldValue));
             ShieldValueChanged?.Invoke(previousValue, _currentShieldValue, MaxShieldValue);
-            SetAnimatorValue(AnimatorKey.ShieldRatio, _currentShieldValue / MaxShieldValue);
+            SetAnimatorValue(AnimatorKey.ShieldRatio, MaxShieldValue > 0 ? (_currentShieldValue / MaxShieldValue) : 0);
         }
     }
 
