@@ -291,6 +291,7 @@ MonoBehaviour:
   _horizontalRandomMovementRange: {x: 0.1, y: 0.5}
   _verticalRandomMovementRange: {x: 0.5, y: 1}
   _textParent: {fileID: 4374148416667239959}
+  _lowerThreshold: 1
 --- !u!114 &881060608149087163
 MonoBehaviour:
   m_ObjectHideFlags: 0

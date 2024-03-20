@@ -1,4 +1,4 @@
-﻿class DockedHPBarVisualizer : HPVisualizer
+﻿class DockedHPBarVisualizer : HPBarVisualizer
 {
     protected override void Start()
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(DestroyableWorldObject))]
-public abstract class HPVisualizer : BarAmountVisualizer
+public abstract class ShieldBarVisualizer : BarAmountVisualizer
 {
     protected DestroyableWorldObject WorldObject { get; private set; }
 
@@ -9,6 +9,6 @@ public abstract class HPVisualizer : BarAmountVisualizer
     {
         base.Awake();
         WorldObject = GetComponent<DestroyableWorldObject>();
-        WorldObject.HealthPointsChanged += (prev, cur, max) => VisualizeAmount(cur, max);
+        WorldObject.ShieldValueChanged += (prev, cur, max) => VisualizeAmount(cur, max);
     }
 }

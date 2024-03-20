@@ -12,7 +12,7 @@ public class WorldObjectZIndex : MonoBehaviour
         _worldObject = GetComponent<WorldObject>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         var position = _transform.position;
         _transform.position = new Vector3(position.x, position.y, position.y + _worldObject.VisualPositionOffset.y);

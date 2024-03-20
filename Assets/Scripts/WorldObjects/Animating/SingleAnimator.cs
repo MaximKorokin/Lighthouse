@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class SingleAnimator : MonoBehaviour, IAnimator
+public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAnimator>
 {
     [SerializeField]
     private bool _hasExtents = true;
@@ -14,6 +14,8 @@ public class SingleAnimator : MonoBehaviour, IAnimator
     private Vector2 _offset;
     private Vector2 _shift;
     private Vector3 _initialLocalPosition;
+
+    public event Action<SingleAnimator> Initialized;
 
     public Animator Animator { get; private set; }
     public SpriteRenderer SpriteRenderer { get; private set; }
@@ -24,6 +26,7 @@ public class SingleAnimator : MonoBehaviour, IAnimator
         SpriteRenderer = GetComponent<SpriteRenderer>();
         _initialLocalPosition = transform.localPosition;
         SetFlip(false);
+        Initialized?.Invoke(this);
     }
 
     public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
@@ -86,4 +89,5 @@ public enum AnimatorKey
     MoveSpeed = 7,
     Transit = 8,
     Dash = 9,
+    ShieldRatio = 10,
 }

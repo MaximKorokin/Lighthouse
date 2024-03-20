@@ -58,7 +58,7 @@ public class AnimationEffect : Effect
     // this is gavno
     private void SetupAnimator(Animator animator, WorldObject target, Vector2 position)
     {
-        animator.transform.position = position;
+        animator.transform.position = _childToTarget ? position + target.VisualPositionOffset : position;
 
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
         animatorSpriteRenderer.sortingOrder = _orderInLayer;

@@ -6,6 +6,9 @@ class HPChangeTextVisualizer : TextVisualizer
 {
     [SerializeField]
     private Transform _textParent;
+    [SerializeField]
+    private float _lowerThreshold;
+
     protected DestroyableWorldObject WorldObject { get; private set; }
 
     protected override void Start()
@@ -22,7 +25,7 @@ class HPChangeTextVisualizer : TextVisualizer
             return;
         }
         var hpDelta = prevHP - curHP;
-        if (hpDelta < 0)
+        if (hpDelta < 0 && -hpDelta > _lowerThreshold)
         {
             var text = VisualizeText((-hpDelta).ToString());
             text.color = Color.green;

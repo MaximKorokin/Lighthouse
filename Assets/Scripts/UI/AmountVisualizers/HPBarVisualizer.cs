@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class HPBarVisualizer : HPVisualizer
+[RequireComponent(typeof(DestroyableWorldObject))]
+public abstract class HPBarVisualizer : BarAmountVisualizer
 {
-    [SerializeField]
-    private Transform _barParent;
+    protected DestroyableWorldObject WorldObject { get; private set; }
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
-        BarController.transform.SetParent(_barParent, false);
+        base.Awake();
+        WorldObject = GetComponent<DestroyableWorldObject>();
+        WorldObject.HealthPointsChanged += (prev, cur, max) => VisualizeAmount(cur, max);
     }
 }
