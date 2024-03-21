@@ -6,11 +6,13 @@ public class ProjectileEffect : EndingEffect
     [field: SerializeField]
     public ProjectileActor Projectile { get; private set; }
     [field: SerializeField]
-    public int Amount { get; private set; }
-    [field: SerializeField]
     public int PierceAmount { get; private set; }
     [field: SerializeField]
-    public float Spread { get; private set; }
+    public int Amount { get; private set; }
+    [field: SerializeField]
+    public float AmountSpread { get; private set; }
+    [field: SerializeField]
+    public float RandomSpread { get; private set; }
     [field: SerializeField]
     public TargetSearchingType TargetType { get; private set; }
 
@@ -44,12 +46,13 @@ public class ProjectileEffect : EndingEffect
         var currentYaw = 0f;
         if (Amount > 1)
         {
-            spreadStep = Spread / (Amount - 1);
-            currentYaw = -Spread / 2;
+            spreadStep = AmountSpread / (Amount - 1);
+            currentYaw = -AmountSpread / 2;
         }
 
         for (int i = 0; i < Amount; i++)
         {
+            var resultingYaw = currentYaw + Random.Range(-RandomSpread, RandomSpread);
             if (castState.Source == castState.Target)
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
@@ -58,12 +61,12 @@ public class ProjectileEffect : EndingEffect
                     .ToArray();
                 if (targets.Length > 0)
                 {
-                    CreateAndGetController().ChooseTarget(targets, TargetType, castState.Source, currentYaw);
+                    CreateAndGetController().ChooseTarget(targets, TargetType, castState.Source, resultingYaw);
                 }
             }
             else if (castState.Target.IsValidTarget(Projectile.WorldObject))
             {
-                CreateAndGetController().SetTarget(castState.Target, currentYaw);
+                CreateAndGetController().SetTarget(castState.Target, resultingYaw);
             }
             currentYaw += spreadStep;
         }

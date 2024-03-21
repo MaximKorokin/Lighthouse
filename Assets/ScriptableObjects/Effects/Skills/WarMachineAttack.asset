@@ -38,9 +38,10 @@ MonoBehaviour:
         - rid: 7523118470901530628
         <EndEffects>k__BackingField: []
         <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: c2c78e04acd416b4b9c9c943153947ef, type: 3}
-        <Amount>k__BackingField: 1
         <PierceAmount>k__BackingField: 1
-        <Spread>k__BackingField: 0
+        <Amount>k__BackingField: 3
+        <AmountSpread>k__BackingField: 20
+        <RandomSpread>k__BackingField: 5
         <TargetType>k__BackingField: 0
     - rid: 7523118470901530627
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}

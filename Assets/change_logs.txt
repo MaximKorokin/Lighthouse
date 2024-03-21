@@ -49,3 +49,6 @@
 - Creatures' positions is now at their feet
 - Add z-index
 - Add Shield
+- Add some pretty graphics
+- Add projectiles random spread
+- Parties...

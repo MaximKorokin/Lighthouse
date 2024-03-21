@@ -42,9 +42,10 @@ MonoBehaviour:
         - rid: 4259499536714563597
         <EndEffects>k__BackingField: []
         <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
-        <Amount>k__BackingField: 1
         <PierceAmount>k__BackingField: 1
-        <Spread>k__BackingField: 0
+        <Amount>k__BackingField: 1
+        <AmountSpread>k__BackingField: 0
+        <RandomSpread>k__BackingField: 1
         <TargetType>k__BackingField: 0
     - rid: 4259499536714563597
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
