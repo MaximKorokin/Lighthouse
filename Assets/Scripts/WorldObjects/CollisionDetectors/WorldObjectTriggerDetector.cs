@@ -4,6 +4,9 @@
 [RequireComponent(typeof(ValidatorBase))]
 public class WorldObjectTriggerDetector : TriggerDetectorBase<WorldObject>
 {
+    [SerializeField]
+    private FactionsRelation _triggerOn;
+
     protected WorldObject WorldObject { get; private set; }
     protected ValidatorBase Validator { get; private set; }
 
@@ -22,6 +25,6 @@ public class WorldObjectTriggerDetector : TriggerDetectorBase<WorldObject>
         worldObject = collision.GetComponent<WorldObject>();
         return worldObject != null &&
             (worldObject.PositioningType & WorldObject.TriggeringType) != PositioningType.None &&
-            Validator.IsValidTarget(worldObject);
+            Validator.IsValidTarget(worldObject, _triggerOn);
     }
 }

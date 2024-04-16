@@ -661,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: 2
+  <Faction>k__BackingField: 2
   _stats:
     _stats:
     - Name: 1
@@ -672,7 +673,7 @@ MonoBehaviour:
     - Name: 4
       Value: 5
     - Name: 5
-      Value: 11
+      Value: 0
     - Name: 6
       Value: 2
     - Name: 7
@@ -715,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTypes: 1
+  _validTargets: -1
 --- !u!114 &4561559417053363611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,7 +801,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
-  - {fileID: 11400000, guid: 3244ee6188b3eb24b9f7808845054dae, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
   _destroyEffectsSettings: []

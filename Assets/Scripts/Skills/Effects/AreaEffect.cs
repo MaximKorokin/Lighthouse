@@ -9,7 +9,7 @@ public class AreaEffect : ComplexEffect
     {
         foreach (var worldObject in Physics2DUtils
             .GetWorldObjectsInRadius(castState.GetTargetPosition(), Radius)
-            .GetValidTargets(castState.Source))
+            .GetValidTargets(castState.Source, FactionsRelation.Enemy))
         {
             castState.Target = worldObject;
             base.Invoke(castState);

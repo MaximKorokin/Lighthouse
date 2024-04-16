@@ -7,6 +7,8 @@ public abstract class WorldObject : MonoBehaviour
     public PositioningType PositioningType { get; protected set; }
     [field: SerializeField]
     public PositioningType TriggeringType { get; protected set; }
+    [field: SerializeField]
+    public Faction Faction { get; protected set; }
 
     public Vector2 VisualPositionOffset { get; set; }
 
@@ -18,7 +20,7 @@ public abstract class WorldObject : MonoBehaviour
     public virtual float AttackSpeed => Stats[StatName.AttackSpeed];
 
     public event Action<AnimatorKey, float> AnimatorValueSet;
-    public event Action<WorldObject> Destroyed;
+    public event Action Destroyed;
 
     protected virtual void Awake()
     {
@@ -38,7 +40,7 @@ public abstract class WorldObject : MonoBehaviour
     protected virtual void OnDestroy()
     {
         StopAllCoroutines();
-        Destroyed?.Invoke(this);
+        Destroyed?.Invoke();
     }
 
     public void ModifyStats(Stats otherStats)

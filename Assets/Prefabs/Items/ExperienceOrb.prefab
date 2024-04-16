@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: -1
   <TriggeringType>k__BackingField: -1
+  <Faction>k__BackingField: 2
   _stats:
     _stats:
     - Name: 1
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTypes: 2
+  _validTargets: 1
 --- !u!114 &7508185068982668652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 1
+  _triggerOn: 1
 --- !u!114 &8769435079726342275
 MonoBehaviour:
   m_ObjectHideFlags: 0

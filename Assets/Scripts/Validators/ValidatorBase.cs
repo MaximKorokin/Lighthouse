@@ -8,52 +8,41 @@ using UnityEngine;
 public abstract class ValidatorBase : MonoBehaviour
 {
     [SerializeField]
-    private ValidType _validTypes;
+    private ValidTarget _validTargets;
 
-    protected WorldObject WorldObject { get; private set; }
-
-    protected virtual void Awake()
+    private WorldObject _worldObject;
+    protected WorldObject WorldObject
     {
-        WorldObject = GetComponent<WorldObject>();
+        get
+        {
+            if (_worldObject == null) _worldObject = GetComponent<WorldObject>();
+            return _worldObject;
+        }
     }
 
-    public virtual bool IsValidTarget(WorldObject worldObject)
+    public virtual bool IsValidTarget(WorldObject worldObject, FactionsRelation relation)
     {
-        if (_validTypes == ValidType.None)
+        var isRelationValid = relation switch
         {
-            return false;
-        }
-        if ((_validTypes & ValidType.Enemy) == ValidType.Enemy && worldObject is EnemyCreature)
+            FactionsRelation.Ally => WorldObject.Faction.IsAllyTo(worldObject.Faction),
+            FactionsRelation.Neutral => WorldObject.Faction.IsNeutralTo(worldObject.Faction),
+            FactionsRelation.Enemy => WorldObject.Faction.IsEnemyTo(worldObject.Faction),
+            _ => false
+        };
+
+        return isRelationValid && worldObject switch
         {
-            return true;
-        }
-        if ((_validTypes & ValidType.Player) == ValidType.Player && worldObject is PlayerCreature)
-        {
-            return true;
-        }
-        if ((_validTypes & ValidType.Obstacle) == ValidType.Obstacle && worldObject is Obstacle)
-        {
-            return true;
-        }
-        if ((_validTypes & ValidType.DestroyableObstacle) == ValidType.DestroyableObstacle && worldObject is DestroyableObstacle)
-        {
-            return true;
-        }
-        if ((_validTypes & ValidType.TemporaryWorldObject) == ValidType.TemporaryWorldObject && worldObject is TemporaryWorldObject)
-        {
-            return true;
-        }
-        return false;
+            NPC or PlayerCreature => (_validTargets & ValidTarget.Creature) == ValidTarget.Creature,
+            DestroyableWorldObject => (_validTargets & ValidTarget.DestroyableObstacle) == ValidTarget.DestroyableObstacle,
+            _ => false
+        };
     }
 }
 
 [Flags]
-public enum ValidType
+public enum ValidTarget
 {
     None = 0,
-    Enemy = 1,
-    Player = 2,
-    Obstacle = 4,
-    DestroyableObstacle = 8,
-    TemporaryWorldObject = 16,
+    Creature = 1,
+    DestroyableObstacle = 2,
 }

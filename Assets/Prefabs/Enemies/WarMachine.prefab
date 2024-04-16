@@ -278,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: -1
   <TriggeringType>k__BackingField: 2
+  <Faction>k__BackingField: 8
   _stats:
     _stats:
     - Name: 1
@@ -324,7 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: 6d97b0bf0bd754a42ae4d98793414b6d, type: 2}
-  _damageEffectsSettings: []
+  _damageEffectsSettings:
+  - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
   _destroyEffectsSettings: []
 --- !u!114 &1955366328074347186
 MonoBehaviour:
@@ -338,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTypes: 2
+  _validTargets: 1
 --- !u!114 &2775772125359899738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 0
+  _triggerOn: 3
 --- !u!114 &5893237358921338281
 MonoBehaviour:
   m_ObjectHideFlags: 0

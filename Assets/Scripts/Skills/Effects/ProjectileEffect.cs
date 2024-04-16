@@ -56,15 +56,15 @@ public class ProjectileEffect : EndingEffect
             if (castState.Source == castState.Target)
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
-                    .GetValidTargets(castState.InitialSource)
-                    .GetValidTargets(Projectile.WorldObject)
+                    .GetValidTargets(castState.InitialSource, FactionsRelation.Enemy)
+                    .GetValidTargets(Projectile.WorldObject, FactionsRelation.Enemy)
                     .ToArray();
                 if (targets.Length > 0)
                 {
                     CreateAndGetController().ChooseTarget(targets, TargetType, castState.Source, resultingYaw);
                 }
             }
-            else if (castState.Target.IsValidTarget(Projectile.WorldObject))
+            else if (castState.Target.IsValidTarget(Projectile.WorldObject, FactionsRelation.Enemy))
             {
                 CreateAndGetController().SetTarget(castState.Target, resultingYaw);
             }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovableWorldObject))]
@@ -19,7 +20,7 @@ public abstract class TargetController : TriggerController
         }
     }
 
-    public abstract void ChooseTarget(WorldObject[] targets, TargetSearchingType targetType, WorldObject source, float yaw);
+    public abstract void ChooseTarget(IList<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw);
 
     public abstract void SetTarget(WorldObject worldObject, float yaw);
 }

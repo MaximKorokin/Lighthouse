@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class WorldObjectsInteractionUtils
 {
-    public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source)
+    public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source, FactionsRelation relation)
     {
         var validator = source.GetComponent<ValidatorBase>();
         if (validator == null)
@@ -15,11 +15,11 @@ public static class WorldObjectsInteractionUtils
         }
         else
         {
-            return worldObjects.Where(x => validator.IsValidTarget(x));
+            return worldObjects.Where(x => validator.IsValidTarget(x, relation));
         }
     }
 
-    public static bool IsValidTarget(this WorldObject worldObject, WorldObject source)
+    public static bool IsValidTarget(this WorldObject worldObject, WorldObject source, FactionsRelation relation)
     {
         var validator = source.GetComponent<ValidatorBase>();
         if (validator == null)
@@ -28,7 +28,7 @@ public static class WorldObjectsInteractionUtils
         }
         else
         {
-            return validator.IsValidTarget(worldObject);
+            return validator.IsValidTarget(worldObject, relation);
         }
     }
 
@@ -70,7 +70,7 @@ public static class WorldObjectsInteractionUtils
             Cancel();
         }
 
-        void OnWorldObjectDestroyed(WorldObject _)
+        void OnWorldObjectDestroyed()
         {
             if (coroutine != null)
             {
@@ -90,15 +90,25 @@ public static class WorldObjectsInteractionUtils
         }
     }
 
-    public static Action<WorldObject> OnDestroyed(this WorldObject worldObject, Action finalAction)
+    public static void OnDestroyed(this WorldObject worldObject, Action finalAction)
     {
         worldObject.Destroyed += OnWorldObjectDestroyed;
-        return OnWorldObjectDestroyed;
 
-        void OnWorldObjectDestroyed(WorldObject _)
+        void OnWorldObjectDestroyed()
         {
-            finalAction?.Invoke();
+            finalAction.Invoke();
             worldObject.Destroyed -= OnWorldObjectDestroyed;
+        }
+    }
+
+    public static void OnDestroying(this DestroyableWorldObject worldObject, Action finalAction)
+    {
+        worldObject.Destroying += OnWorldObjectDestroying;
+
+        void OnWorldObjectDestroying()
+        {
+            finalAction.Invoke();
+            worldObject.Destroyed -= OnWorldObjectDestroying;
         }
     }
 }
