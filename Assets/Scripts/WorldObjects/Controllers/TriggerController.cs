@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObjectTriggerDetector))]
 public abstract class TriggerController : ControllerBase
 {
+    protected readonly HashSet<WorldObject> TriggeredWorldObjects = new();
+
     protected override void Awake()
     {
         base.Awake();
@@ -14,11 +17,17 @@ public abstract class TriggerController : ControllerBase
 
     private void OnTriggerEntered(WorldObject worldObject)
     {
+        if (worldObject is DestroyableWorldObject destroyable)
+        {
+            destroyable.OnDestroying(() => TriggeredWorldObjects.Remove(worldObject));
+        }
+        TriggeredWorldObjects.Add(worldObject);
         Trigger(worldObject, true);
     }
 
     private void OnTriggerExited(WorldObject worldObject)
     {
+        TriggeredWorldObjects.Remove(worldObject);
         Trigger(worldObject, false);
     }
 

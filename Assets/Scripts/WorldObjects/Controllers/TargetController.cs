@@ -20,7 +20,7 @@ public abstract class TargetController : TriggerController
         }
     }
 
-    public abstract void ChooseTarget(IList<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw);
+    public abstract void ChooseTarget(ICollection<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw);
 
     public abstract void SetTarget(WorldObject worldObject, float yaw);
 }

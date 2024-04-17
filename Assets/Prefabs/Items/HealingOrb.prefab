@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 3363170444335394930}
   - component: {fileID: -4401986470944856457}
   - component: {fileID: 5717824719486847908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealingOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

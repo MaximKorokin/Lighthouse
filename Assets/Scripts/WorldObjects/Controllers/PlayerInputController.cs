@@ -1,7 +1,8 @@
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(MovableWorldObject))]
-public class PlayerInputController : ControllerBase
+public class PlayerInputController : TriggerController
 {
     private Vector2 _direction;
     private MovableWorldObject _movable;
@@ -12,6 +13,8 @@ public class PlayerInputController : ControllerBase
         _movable = GetComponent<MovableWorldObject>();
         InputManager.MoveVectorChanged += OnMoveVectorChanged;
     }
+
+    protected override void Trigger(WorldObject worldObject, bool entered) { }
 
     private void OnMoveVectorChanged(Vector2 vector)
     {
@@ -30,7 +33,10 @@ public class PlayerInputController : ControllerBase
             _movable.Move();
         }
 
-        InvokeActors(WorldObject);
+        if (TriggeredWorldObjects.Any())
+        {
+            InvokeActors(WorldObject);
+        }
     }
 
     private void OnDestroy()
