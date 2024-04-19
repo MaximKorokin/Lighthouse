@@ -34,10 +34,15 @@ public static class Logger
 
     public static void Log() => Log("");
 
-    public static void Log(object obj1, params object[] objects) => Log(obj1.YieldWith(objects)); 
+    public static void Log(object obj, params object[] objects) => Log(obj.YieldWith(objects)); 
 
-    public static void Warn(object obj1)
+    public static void Warn(object obj)
     {
-        Debug.LogWarning(obj1);
+        Debug.LogWarning(obj);
+    }
+
+    public static void Error(object obj)
+    {
+        Debug.LogError(obj);
     }
 }

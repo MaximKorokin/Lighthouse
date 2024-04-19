@@ -6,11 +6,13 @@ public class ProjectileEffect : EndingEffect
     [field: SerializeField]
     public ProjectileActor Projectile { get; private set; }
     [field: SerializeField]
-    public int Amount { get; private set; }
-    [field: SerializeField]
     public int PierceAmount { get; private set; }
     [field: SerializeField]
-    public float Spread { get; private set; }
+    public int Amount { get; private set; }
+    [field: SerializeField]
+    public float AmountSpread { get; private set; }
+    [field: SerializeField]
+    public float RandomSpread { get; private set; }
     [field: SerializeField]
     public TargetSearchingType TargetType { get; private set; }
 
@@ -44,33 +46,34 @@ public class ProjectileEffect : EndingEffect
         var currentYaw = 0f;
         if (Amount > 1)
         {
-            spreadStep = Spread / (Amount - 1);
-            currentYaw = -Spread / 2;
+            spreadStep = AmountSpread / (Amount - 1);
+            currentYaw = -AmountSpread / 2;
         }
 
         for (int i = 0; i < Amount; i++)
         {
+            var resultingYaw = currentYaw + Random.Range(-RandomSpread, RandomSpread);
             if (castState.Source == castState.Target)
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
-                    .GetValidTargets(castState.InitialSource)
-                    .GetValidTargets(Projectile.WorldObject)
+                    .GetValidTargets(castState.InitialSource, FactionsRelation.Enemy)
+                    .GetValidTargets(Projectile.WorldObject, FactionsRelation.Enemy)
                     .ToArray();
                 if (targets.Length > 0)
                 {
-                    CreateAndGetController().ChooseTarget(targets, TargetType, castState.Source, currentYaw);
+                    CreateAndGetController().ChooseTarget(targets, TargetType, castState.Source, resultingYaw);
                 }
             }
-            else if (castState.Target.IsValidTarget(Projectile.WorldObject))
+            else if (castState.Target.IsValidTarget(Projectile.WorldObject, FactionsRelation.Enemy))
             {
-                CreateAndGetController().SetTarget(castState.Target, currentYaw);
+                CreateAndGetController().SetTarget(castState.Target, resultingYaw);
             }
             currentYaw += spreadStep;
         }
 
         TargetController CreateAndGetController()
         {
-            var projectile = Object.Instantiate(Projectile, castState.Source.transform.position, Quaternion.identity);
+            var projectile = Object.Instantiate(Projectile, castState.Source.transform.position + (Vector3)castState.Source.VisualPositionOffset, Quaternion.identity);
             projectile.SetProjectileEffect(this, castState);
             return projectile.GetComponent<TargetController>();
         }

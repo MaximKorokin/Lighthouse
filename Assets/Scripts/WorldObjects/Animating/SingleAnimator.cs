@@ -6,23 +6,27 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class SingleAnimator : MonoBehaviour, IAnimator
+public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAnimator>
 {
     [SerializeField]
     private bool _hasExtents = true;
     [SerializeField]
     private Vector2 _offset;
+    private Vector2 _shift;
     private Vector3 _initialLocalPosition;
+
+    public event Action<SingleAnimator> Initialized;
 
     public Animator Animator { get; private set; }
     public SpriteRenderer SpriteRenderer { get; private set; }
 
-    protected virtual void Awake()
+    public virtual void Initialize()
     {
         Animator = GetComponent<Animator>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
         _initialLocalPosition = transform.localPosition;
         SetFlip(false);
+        Initialized?.Invoke(this);
     }
 
     public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
@@ -53,13 +57,24 @@ public class SingleAnimator : MonoBehaviour, IAnimator
     public void SetFlip(bool shouldFlip)
     {
         SpriteRenderer.flipX = shouldFlip;
+        Reposition();
+    }
+
+    private void Reposition()
+    {
         transform.localPosition = _initialLocalPosition;
-        transform.localPosition += new Vector3((shouldFlip ? -1 : 1) * _offset.x, _offset.y);
+        transform.localPosition += new Vector3((SpriteRenderer.flipX ? -1 : 1) * _offset.x, _offset.y) + (Vector3)_shift;
     }
 
     public Vector2 GetExtents()
     {
-        return _hasExtents ? ((Vector2)SpriteRenderer.localBounds.extents) - _offset : Vector2.zero;
+        return _hasExtents ? ((Vector2)SpriteRenderer.localBounds.extents) - _offset - _shift : Vector2.zero;
+    }
+
+    public void SetShift(Vector2 shift)
+    {
+        _shift = shift;
+        Reposition();
     }
 }
 
@@ -74,4 +89,5 @@ public enum AnimatorKey
     MoveSpeed = 7,
     Transit = 8,
     Dash = 9,
+    ShieldRatio = 10,
 }

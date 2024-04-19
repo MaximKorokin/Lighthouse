@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 532703644928023312}
   - component: {fileID: 6678305225708000804}
   - component: {fileID: 3205102812550467014}
-  - component: {fileID: 4742657077724459762}
   - component: {fileID: 3292321424933142019}
+  - component: {fileID: 5853469160753767001}
   m_Layer: 0
   m_Name: CartonBox
   m_TagString: Untagged
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.1
 --- !u!114 &532703644928023312
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: -1
+  <Faction>k__BackingField: 32
   _stats:
     _stats:
     - Name: 1
@@ -181,23 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startEffectsSettings: []
-  _damageEffectsSettings: []
-  _destroyEffectsSettings: []
---- !u!114 &4742657077724459762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7521127911754497452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a2f39b2b5f6544294b9d326b586d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
+  _damageEffectsSettings: []
+  _destroyEffectsSettings: []
 --- !u!114 &3292321424933142019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,3 +200,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+--- !u!114 &5853469160753767001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521127911754497452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

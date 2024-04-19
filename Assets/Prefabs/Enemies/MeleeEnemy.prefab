@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6949926551165608891}
   - component: {fileID: 5179061430041321045}
-  - component: {fileID: 4247226826785936614}
+  - component: {fileID: 6695786381773470441}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
   - component: {fileID: 400794251466932638}
@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4613729088056806375}
   - component: {fileID: 2868373690515548622}
   - component: {fileID: 8817053128519033484}
+  - component: {fileID: 881060608149087163}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -80,8 +81,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
---- !u!58 &4247226826785936614
-CircleCollider2D:
+--- !u!70 &6695786381773470441
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,9 +113,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
+  m_Offset: {x: 0, y: 0.15}
+  m_Size: {x: 0.2, y: 0.4}
+  m_Direction: 0
 --- !u!50 &2673697132878341897
 Rigidbody2D:
   serializedVersion: 4
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: 2
+  <Faction>k__BackingField: 16
   _stats:
     _stats:
     - Name: 2
@@ -175,7 +177,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
-  <CanMove>k__BackingField: 1
 --- !u!114 &400794251466932638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTypes: 2
+  _validTargets: 1
 --- !u!114 &4439412699593374245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 0
+  _triggerOn: 3
 --- !u!114 &4613729088056806375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222eebc6ff85a544902751695bf7c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shift: 1
 --- !u!114 &8817053128519033484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +293,19 @@ MonoBehaviour:
   _horizontalRandomMovementRange: {x: 0.1, y: 0.5}
   _verticalRandomMovementRange: {x: 0.5, y: 1}
   _textParent: {fileID: 4374148416667239959}
+  _lowerThreshold: 1
+--- !u!114 &881060608149087163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1619220829688206649
 GameObject:
   m_ObjectHideFlags: 0

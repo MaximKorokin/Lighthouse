@@ -43,3 +43,30 @@
 - Added War Machine boss with barrage and dash skills
 - Added targeting for effects (really simple but powerful)
 - Added warning areas
+
+#current
+0.1.7
+- Fixed generic animations first frame being from previous animation
+- Creatures' positions is now at their feet
+- Add z-index
+- Add Shield
+- Add projectiles random spread
+- Add factions and relations
+- Minor UI and graphics improvements
+- Player only acts in action range
+
+#plans
+0.1.8
+- Dialogues
+- Configs
+- Scenario
+- Active task indicator
+
+0.1.9
+- Map
+- Enemies
+- Skills
+
+0.2.0
+- UI and graphics
+- Prologue

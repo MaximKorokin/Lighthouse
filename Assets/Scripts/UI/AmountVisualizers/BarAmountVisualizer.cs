@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public abstract class BarAmountVisualizer : MonoBehaviour
+public abstract class BarAmountVisualizer : MonoBehaviour, IInitializable<BarAmountVisualizer>
 {
     [SerializeField]
     private BarController _barControllerPrefab;
-    protected BarController BarController { get; private set; }
+
+    public event Action<BarAmountVisualizer> Initialized;
+
+    public BarController BarController { get; private set; }
 
     protected virtual void Awake()
     {
@@ -13,8 +17,14 @@ public abstract class BarAmountVisualizer : MonoBehaviour
 
     protected virtual void Start()
     {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
         BarController = BarsPool.Take(_barControllerPrefab);
         VisualizeAmount(1, 1);
+        Initialized?.Invoke(this);
     }
 
     protected virtual void OnDestroy()
@@ -26,7 +36,7 @@ public abstract class BarAmountVisualizer : MonoBehaviour
     {
         if (BarController != null)
         {
-            BarController.SetFillRatio(value / max);
+            BarController.SetFillRatio(max > 0 ? (value / max) : 0);
         }
     }
 

@@ -7,7 +7,7 @@ public class Skill
     {
         _effects = settings.GetEffects();
         CooldownCounter = new CooldownCounter(settings.Cooldown);
-        CooldownCounter.TryReset();
+        CooldownCounter.Reset();
     }
 
     public void Invoke(WorldObject source, float divider = 1) => Invoke(source, source, divider);

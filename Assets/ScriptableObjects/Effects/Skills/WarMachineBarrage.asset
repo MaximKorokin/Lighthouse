@@ -63,7 +63,7 @@ MonoBehaviour:
     - rid: 4259499536714563608
       type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
       data:
-        _animation: {fileID: 7400000, guid: 8255ecb6465822e479d359a88461ba3c, type: 2}
+        _animation: {fileID: 7400000, guid: 30ad6b837a3868641b45764764776e54, type: 2}
         _hasDuration: 1
         _duration: 0
         _childToTarget: 0

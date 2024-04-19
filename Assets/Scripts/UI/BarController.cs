@@ -6,6 +6,8 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
     [field: SerializeField]
     public Image BackgroundImage { get; set; }
     [field: SerializeField]
+    public Image ForegroundImage { get; set; }
+    [field: SerializeField]
     public Image BarImage { get; set; }
     [field: Header("Smooth")]
     [field: SerializeField]
@@ -92,6 +94,10 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         {
             SetAlpha(BackgroundImage, newAlpha);
         }
+        if (ForegroundImage != null)
+        {
+            SetAlpha(ForegroundImage, newAlpha);
+        }
         if (BarImage != null)
         {
             SetAlpha(BarImage, newAlpha);
@@ -120,6 +126,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         GetComponent<RectTransform>().CopyTo(obj.GetComponent<RectTransform>());
 
         CopyImage(BackgroundImage, obj.BackgroundImage);
+        CopyImage(ForegroundImage, obj.ForegroundImage);
         CopyImage(BarImage, obj.BarImage);
         CopyImage(SmoothBarImage, obj.SmoothBarImage);
 

@@ -7,7 +7,6 @@ public class PlayerCreature : Creature
     private LevelingSystemSettings _levelingSystemSettings;
 
     public LevelingSystem LevelingSystem { get; private set; }
-
     public virtual float AutoLootRange => Stats[StatName.AutoLootRange] * Stats[StatName.SizeScale];
 
     protected override void Start()
@@ -21,10 +20,17 @@ public class PlayerCreature : Creature
     {
         base.OnStatsModified();
 
-        var autoLootCollider = Array.Find(GetComponents<CircleCollider2D>(), x => x.isTrigger);
+        var colliders = GetComponents<CircleCollider2D>();
+        var autoLootCollider = Array.Find(colliders, x => x.isTrigger && (x.includeLayers & LayerMask.GetMask(Constants.PlayerLootingLayerName)) != 0);
         if (autoLootCollider != null)
         {
             autoLootCollider.radius = AutoLootRange;
+        }
+
+        var actionRangeCollider = Array.Find(colliders, x => x.isTrigger && x != autoLootCollider);
+        if (actionRangeCollider != null)
+        {
+            actionRangeCollider.radius = ActionRange;
         }
     }
 

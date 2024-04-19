@@ -7,22 +7,31 @@ using UnityEngine;
 [RequireComponent(typeof(WorldObject))]
 public class ComplexAnimator : MonoBehaviour, IAnimator
 {
+    [SerializeField]
+    private InitialPositionShift _shift;
+
     private SingleAnimator[] _animators;
+    private WorldObject _worldObject;
 
     private void Awake()
     {
-        var _worldObject = GetComponent<WorldObject>();
+        _worldObject = GetComponent<WorldObject>();
         _animators = GetComponentsInChildren<SingleAnimator>();
-        var animator = GetComponent<SingleAnimator>();
-        if (animator != null)
+        if (TryGetComponent<SingleAnimator>(out var animator))
         {
             _animators = _animators.Concat(animator.Yield()).ToArray();
         }
+        _animators.ForEach(x => x.Initialize());
 
         _worldObject.AnimatorValueSet += SetAnimatorValue;
         if (_worldObject is MovableWorldObject movable)
         {
             movable.Flipped += SetFlip;
+        }
+
+        if (_shift == InitialPositionShift.HalfUp)
+        {
+            SetShift(new Vector2(0, GetExtents().y));
         }
     }
 
@@ -55,4 +64,16 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
         var maxY = allExtents.Max(x => x.y);
         return new Vector2(maxX, maxY);
     }
+
+    public void SetShift(Vector2 shift)
+    {
+        _animators.ForEach(x => x.SetShift(shift));
+        _worldObject.VisualPositionOffset = shift;
+    }
+}
+
+public enum InitialPositionShift
+{
+    None = 0,
+    HalfUp = 1,
 }

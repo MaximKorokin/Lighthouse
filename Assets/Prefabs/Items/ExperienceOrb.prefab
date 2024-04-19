@@ -19,7 +19,8 @@ GameObject:
   - component: {fileID: 670664442182928598}
   - component: {fileID: 8298410038236258243}
   - component: {fileID: 8769435079726342275}
-  m_Layer: 0
+  - component: {fileID: 3867142928487500961}
+  m_Layer: 6
   m_Name: ExperienceOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: -1
   <TriggeringType>k__BackingField: -1
+  <Faction>k__BackingField: 2
   _stats:
     _stats:
     - Name: 1
@@ -197,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTypes: 2
+  _validTargets: 1
 --- !u!114 &7508185068982668652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 1
+  _triggerOn: 1
 --- !u!114 &8769435079726342275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,3 +276,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
   EffectSettings: {fileID: 11400000, guid: 8a8967266c315d84db41ae9ac97ad34c, type: 2}
+--- !u!114 &3867142928487500961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021736238142712522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2599912653961386135}
   - component: {fileID: 5597023380158865238}
   - component: {fileID: -4888402200594630173}
+  - component: {fileID: -5832053135177737166}
   m_Layer: 0
   m_Name: PlayerStraightProjectile
   m_TagString: Untagged
@@ -182,7 +183,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
-  <CanMove>k__BackingField: 1
   <LifeTime>k__BackingField: 3
 --- !u!114 &4316505220260097887
 MonoBehaviour:
@@ -236,3 +236,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
   EffectSettings: {fileID: 0}
+--- !u!114 &-5832053135177737166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

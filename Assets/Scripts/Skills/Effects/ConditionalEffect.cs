@@ -21,7 +21,7 @@ public class ConditionalEffect : ComplexEffect
             return false;
         }
 
-        var direction = castState.InitialSource.transform.position - castState.Target.transform.position;
+        var direction = (Vector2)castState.InitialSource.transform.position - (Vector2)castState.Target.transform.position;
         if ((_conditions & EffectCondition.InActionRange) == EffectCondition.InActionRange &&
             castState.InitialSource.ActionRange * castState.InitialSource.ActionRange < direction.sqrMagnitude)
         {

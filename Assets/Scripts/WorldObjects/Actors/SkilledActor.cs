@@ -18,11 +18,6 @@ public class SkilledActor : ActorBase
 
     protected override void ActInternal(WorldObject worldObject)
     {
-        if (!(WorldObject as DestroyableWorldObject).IsAlive)
-        {
-            return;
-        }
-
         _skills.ForEach(x => x.Invoke(WorldObject, worldObject, WorldObject.AttackSpeed));
     }
 

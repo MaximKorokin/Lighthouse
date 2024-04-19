@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StraightMovingController : TargetController
@@ -17,7 +18,7 @@ public class StraightMovingController : TargetController
         Direction = Quaternion.Euler(0, 0, yaw) * (worldObject.transform.position - transform.position);
     }
 
-    public override void ChooseTarget(WorldObject[] targets, TargetSearchingType targetType, WorldObject source, float yaw)
+    public override void ChooseTarget(ICollection<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
         Vector2 targetDirection = targetType switch
         {

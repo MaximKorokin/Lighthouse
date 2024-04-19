@@ -7,4 +7,8 @@ public enum StatName
     ActionRange = 5,
     AutoLootRange = 6,
     AttackSpeed = 7,
+    MaxShield = 8,
+    HPRegen = 9,
+    ShieldRegen = 10,
+    ShieldDelay = 11,
 }

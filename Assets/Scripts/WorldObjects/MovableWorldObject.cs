@@ -58,13 +58,14 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
         if (IsMoving)
         {
-            _rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
+            //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
+            _rigidbody.velocity = _speed * MoveSpeedModifier * Direction;
         }
     }
 
     public void SetRigidbodyCollisions(bool enable)
     {
-        _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : -1;
+        _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : (-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName));
     }
 
     public virtual void Move(float speedOverride = -1)
