@@ -18,18 +18,13 @@ public class PlayerInputActor : SkilledActor
         InputManager.ActiveAbilityUsed += OnActiveAbilityUsed;
     }
 
-    protected override void ActInternal(WorldObject worldObject)
+    public void UseActiveSkill(WorldObject worldObject)
     {
-        base.ActInternal(worldObject);
-        if (!(WorldObject as DestroyableWorldObject).IsAlive)
-        {
-            return;
-        }
         if (_canUseActiveSkill)
         {
             _canUseActiveSkill = false;
 
-            ActiveSkill.Invoke(WorldObject);
+            ActiveSkill.Invoke(worldObject);
         }
     }
 

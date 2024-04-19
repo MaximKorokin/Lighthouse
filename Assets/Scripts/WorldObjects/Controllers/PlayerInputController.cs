@@ -6,11 +6,14 @@ public class PlayerInputController : TriggerController
 {
     private Vector2 _direction;
     private MovableWorldObject _movable;
+    private PlayerInputActor _playerInputActor;
 
     protected override void Awake()
     {
         base.Awake();
         _movable = GetComponent<MovableWorldObject>();
+        _playerInputActor = GetComponent<PlayerInputActor>();
+
         InputManager.MoveVectorChanged += OnMoveVectorChanged;
     }
 
@@ -23,6 +26,11 @@ public class PlayerInputController : TriggerController
 
     protected override void Control()
     {
+        if (!_movable.IsAlive)
+        {
+            return;
+        }
+
         _movable.Direction = _direction;
         if (_direction == Vector2.zero)
         {
@@ -36,6 +44,11 @@ public class PlayerInputController : TriggerController
         if (TriggeredWorldObjects.Any())
         {
             InvokeActors(WorldObject);
+        }
+
+        if (_playerInputActor != null)
+        {
+            _playerInputActor.UseActiveSkill(WorldObject);
         }
     }
 

@@ -54,13 +54,13 @@
 - Add factions and relations
 - Minor UI and graphics improvements
 - Player only acts in action range
-- Unmovable rigidbodies
 
 #plans
 0.1.8
 - Dialogues
 - Configs
 - Scenario
+- Active task indicator
 
 0.1.9
 - Map

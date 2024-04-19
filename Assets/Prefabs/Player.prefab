@@ -621,7 +621,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1
 --- !u!70 &6558767313700139859
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
     - Name: 4
       Value: 5
     - Name: 5
-      Value: 2.5
+      Value: 1
     - Name: 6
       Value: 1
     - Name: 7
