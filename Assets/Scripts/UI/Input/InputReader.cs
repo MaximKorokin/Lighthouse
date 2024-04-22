@@ -9,6 +9,11 @@ public abstract class InputReader : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (Game.IsPaused)
+        {
+            return;
+        }
+
         var newMoveVectorinput = GetMoveVectorInput();
         if (newMoveVectorinput != _moveVectorInput)
         {

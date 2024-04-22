@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Effect), true)]
@@ -17,7 +15,8 @@ public class EditorEffect : PropertyDrawerBase
         }
         else
         {
-            RootContainer.Add(CreateTypeElement());
+            var propertyType = Property.managedReferenceValue.GetType();
+            RootContainer.Add(propertyType.CreateTypeFoldout(Property));
         }
     }
 
@@ -31,22 +30,5 @@ public class EditorEffect : PropertyDrawerBase
             RedrawRootContainer();
         });
         return popup;
-    }
-
-    private VisualElement CreateTypeElement()
-    {
-        var propertyType = Property.managedReferenceValue.GetType();
-        var foldout = new Foldout
-        {
-            text = propertyType.Name,
-            value = false,
-        };
-        foreach (var p in ReflectionUtils.GetFieldsWithAttributes(propertyType, true, typeof(SerializeField), typeof(SerializeReference)))
-        {
-            var propertyField = new PropertyField();
-            propertyField.BindProperty(Property.FindPropertyRelative(p.Name));
-            foldout.Add(propertyField);
-        }
-        return foldout;
     }
 }

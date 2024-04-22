@@ -35,4 +35,14 @@ public static class ReflectionUtils
         }
         return GetAllFields(type, recursive).Where(x => Array.Exists(attributes, y => x.IsDefined(y, false)));
     }
+
+    public static bool HasAttribute(this FieldInfo field, Type attribute)
+    {
+        return field.IsDefined(attribute, false);
+    }
+
+    public static FieldInfo GetBackingField(Type type, string propertyName)
+    {
+        return type.GetField(string.Format("<{0}>k__BackingField", propertyName), BindingFlags.Instance | BindingFlags.NonPublic);
+    }
 }

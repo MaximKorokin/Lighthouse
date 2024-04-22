@@ -1,3 +1,3 @@
-﻿public class HPBarsDock : Singleton<HPBarsDock>
+﻿public class HPBarsDock : MonoBehaviorSingleton<HPBarsDock>
 {
 }

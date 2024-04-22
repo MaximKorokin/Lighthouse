@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelingSystemUI : Singleton<LevelingSystemUI>
+public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
 {
     [SerializeField]
     private Transform _effectsParent;

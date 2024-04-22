@@ -44,7 +44,6 @@
 - Added targeting for effects (really simple but powerful)
 - Added warning areas
 
-#current
 0.1.7
 - Fixed generic animations first frame being from previous animation
 - Creatures' positions is now at their feet
@@ -55,13 +54,14 @@
 - Minor UI and graphics improvements
 - Player only acts in action range
 
-#plans
+#current
 0.1.8
 - Dialogues
 - Configs
 - Scenario
 - Active task indicator
 
+#plans
 0.1.9
 - Map
 - Enemies
