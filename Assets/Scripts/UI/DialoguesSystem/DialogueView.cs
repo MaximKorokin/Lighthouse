@@ -41,6 +41,10 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
 
     public void SetDialogue(Dialogue dialogue)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
         if (dialogue == null)
         {
             Logger.Error("Dialogue is null");
@@ -54,13 +58,19 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
     private void FillCurrentView()
     {
         var currentSpeech = _currentDialogue.Speeches[_currentSpeechIndex];
-        _speechText.SetText(currentSpeech.Text, currentSpeech.TypingSpeed.ToFloatValue());
+        LocalizationManager.SetLanguageChangeListener(
+            _speechText,
+            currentSpeech.Text,
+            text => _speechText.SetText(text, currentSpeech.TypingSpeed.ToFloatValue()));
 
         var characterPreview = CharactersPreviewsDataBase.FindById(currentSpeech.CharacterPreviewId);
         if (characterPreview != null)
         {
             _characterIcon.sprite = characterPreview.Icon;
-            _characterNameText.text = $"<color=#{characterPreview.Color.ToHexString()}>{characterPreview.Name}</color>";
+            LocalizationManager.SetLanguageChangeListener(
+                _characterNameText,
+                $"<color=#{characterPreview.Color.ToHexString()}>{characterPreview.Name}</color>",
+                text => _characterNameText.text = text);
         }
     }
 }

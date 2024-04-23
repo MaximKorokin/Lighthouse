@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 public abstract class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObjectSingleton<T>
 {
@@ -13,6 +14,7 @@ public abstract class ScriptableObjectSingleton<T> : ScriptableObject where T : 
                 if (resources.Length == 0)
                 {
                     Logger.Error($"No resources of type {typeof(T)} found for {nameof(ScriptableObjectSingleton<T>)}");
+                    throw new FileNotFoundException();
                 }
                 else if (resources.Length > 1)
                 {

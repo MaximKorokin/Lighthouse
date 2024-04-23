@@ -24,12 +24,11 @@ public class FpsCounter : MonoBehaviour
         _framesPassedFromLastUpdate++;
     }
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Bug", "S2190:Loops and recursions should not be infinite", Justification = "Coroutine")]
     private IEnumerator UpdateCoroutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(_updateInterval);
+            yield return new WaitForSecondsRealtime(_updateInterval);
             _text.text = ((int)(_framesPassedFromLastUpdate / _updateInterval)).ToString();
             _framesPassedFromLastUpdate = 0;
         }

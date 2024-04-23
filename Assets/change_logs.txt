@@ -57,7 +57,8 @@
 #current
 0.1.8
 - Dialogues
-- Configs
+- Localization
+- Pause menu + settings
 - Scenario
 - Active task indicator
 
@@ -70,3 +71,4 @@
 0.2.0
 - UI and graphics
 - Prologue
+- Music and sounds

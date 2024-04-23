@@ -7,8 +7,9 @@ public class TypewriterText : MonoBehaviour
 {
     private TMP_Text _text;
     private string _currentTextString;
+    private Coroutine _coroutine;
 
-    public bool IsTyping { get; private set; }
+    public bool IsTyping => _coroutine != null;
 
     private void Awake()
     {
@@ -17,15 +18,26 @@ public class TypewriterText : MonoBehaviour
 
     public void SetText(string textString, float charTime)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
         _currentTextString = textString;
         _text.text = "";
-        IsTyping = true;
-        StartCoroutine(Typewrite(charTime));
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+        _coroutine = StartCoroutine(Typewrite(charTime));
     }
 
     public void ForceCurrentText()
     {
-        IsTyping = false;
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
         _text.text = _currentTextString;
     }
 
@@ -33,13 +45,9 @@ public class TypewriterText : MonoBehaviour
     {
         foreach (var c in _currentTextString)
         {
-            if (!IsTyping)
-            {
-                yield break;
-            }
             _text.text += c;
             yield return new WaitForSecondsRealtime(charTime);
         }
-        IsTyping = false;
+        _coroutine = null;
     }
 }

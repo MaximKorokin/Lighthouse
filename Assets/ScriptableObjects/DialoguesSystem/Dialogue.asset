@@ -14,18 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speeches>k__BackingField:
   - <CharacterPreviewId>k__BackingField: 232805af-6692-42ed-9652-e05ebe52625c
-    <Text>k__BackingField: asdasddas
+    <Text>k__BackingField: '!(test1)'
     <TypingSpeed>k__BackingField: 0
   - <CharacterPreviewId>k__BackingField: c7b77fd0-878d-4800-b4e8-0af51db19a1c
-    <Text>k__BackingField: 2
+    <Text>k__BackingField: '!(test2)'
     <TypingSpeed>k__BackingField: 0
   - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
-    <Text>k__BackingField: "\u0418\u0434\u0438 \u0440\u0430\u0431\u043E\u0442\u0430\u0439,
-      \u0441\u0443\u043A\u0430"
-    <TypingSpeed>k__BackingField: 0
+    <Text>k__BackingField: '!(test3)'
+    <TypingSpeed>k__BackingField: 1
   - <CharacterPreviewId>k__BackingField: 1186ec1a-a22d-42b2-b977-b4539cedfcd9
-    <Text>k__BackingField: 4
+    <Text>k__BackingField: a2.!(test3).!(test1)p
     <TypingSpeed>k__BackingField: 0
   - <CharacterPreviewId>k__BackingField: 232805af-6692-42ed-9652-e05ebe52625c
-    <Text>k__BackingField: 5
+    <Text>k__BackingField: '!(test2)!(test3)!(test6)'
     <TypingSpeed>k__BackingField: 0
