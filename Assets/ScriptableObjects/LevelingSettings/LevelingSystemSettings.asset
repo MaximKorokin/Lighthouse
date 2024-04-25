@@ -17,3 +17,6 @@ MonoBehaviour:
   <LevelsExperience>k__BackingField: 0a000000140000001e00000028000000320000003c00000046000000500000005a00000064000000
   <EffectsSettings>k__BackingField:
   - {fileID: 11400000, guid: c42584a1771b9644d91a62233918fe4a, type: 2}
+  - {fileID: 11400000, guid: 52d972be8b369d54ab43931074f5b174, type: 2}
+  - {fileID: 11400000, guid: 2f803404662ddfa4b8d2b9ce5fa7e817, type: 2}
+  - {fileID: 11400000, guid: a7ab42a359ededd44bec6d94289d7251, type: 2}

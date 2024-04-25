@@ -28,4 +28,10 @@ public class EffectView : MonoBehaviour
     {
         Clicked?.Invoke(this, _effectPreview);
     }
+
+    private void OnDestroy()
+    {
+        LocalizationManager.RemoveLanguageChangeListener(_title);
+        LocalizationManager.RemoveLanguageChangeListener(_description);
+    }
 }

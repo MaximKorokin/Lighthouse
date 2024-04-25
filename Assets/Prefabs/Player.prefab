@@ -869,8 +869,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useSingle: 0
   _showTime: 0.3
-  _horizontalRandomMovementRange: {x: -0.3, y: 0.3}
-  _verticalRandomMovementRange: {x: 0.5, y: 1}
+  _horizontalRandomMovementRange: {x: -2, y: 2}
+  _verticalRandomMovementRange: {x: 3, y: 5}
   _textParent: {fileID: 3235714758773651724}
   _lowerThreshold: 1
 --- !u!114 &8324557593489910904

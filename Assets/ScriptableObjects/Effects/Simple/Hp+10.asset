@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: Speed+01
+  m_Name: Hp+10
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
-    <Name>k__BackingField: '!(WindWalkName)'
-    <Description>k__BackingField: '!(WindWalkDescription)'
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 482dc39ec0d50f948a43e59ccae5c76e, type: 3}
+    <Name>k__BackingField: HP
+    <Description>k__BackingField: HP +10 per level
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 774ff287ee3121841b6c83e8b8cac9b8, type: 3}
   <Cooldown>k__BackingField: 0
   _effects:
   - rid: 1867399666109251598
@@ -27,5 +27,5 @@ MonoBehaviour:
       data:
         <StatsDelta>k__BackingField:
           _stats:
-          - Name: 1
-            Value: 0.1
+          - Name: 2
+            Value: 10

@@ -21,8 +21,18 @@ public static class LocalizationManager
         Localize(listenerObject);
     }
 
+    public static void RemoveLanguageChangeListener(object listenerObject)
+    {
+        _languageChangeListeners.Remove(listenerObject);
+    }
+
     private static void Localize(object listenerObject)
     {
+        if (listenerObject == null)
+        {
+            Logger.Error($"Trying to localize text for null object");
+            return;
+        }
         var (text, localizeAction) = _languageChangeListeners[listenerObject];
         var keys = ParsingUtils.ParseLocalizationKeys(text).ToArray();
         foreach (var key in keys)

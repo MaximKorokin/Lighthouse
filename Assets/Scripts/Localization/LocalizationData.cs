@@ -37,12 +37,14 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
         _localizationDictionary = data.Skip(1)
             .Select(x => ParsingUtils.ParseCsvLine(x).ToArray())
             .ToDictionary(
+                // key (case invariant)
                 x => x[0].ToLower(),
                 x => languages.ToDictionary(y => y, y => x[languages.IndexOf(y) + 1]));
     }
 
     public static string GetLocalizedValue(SystemLanguage language, string key)
     {
+        // key (case invariant)
         var actualKey = key[2..(key.Length - 1)].ToLower();
         if (Instance._localizationDictionary.ContainsKey(actualKey) && Instance._localizationDictionary[actualKey].ContainsKey(language))
         {

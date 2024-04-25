@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -72,5 +71,11 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
                 $"<color=#{characterPreview.Color.ToHexString()}>{characterPreview.Name}</color>",
                 text => _characterNameText.text = text);
         }
+    }
+
+    private void OnDestroy()
+    {
+        LocalizationManager.RemoveLanguageChangeListener(_speechText);
+        LocalizationManager.RemoveLanguageChangeListener(_characterNameText);
     }
 }

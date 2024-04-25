@@ -12,7 +12,10 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     {
         base.Awake();
         _dialogueView.DialogueEnded += OnDialogueEnded;
+    }
 
+    private void Start()
+    {
         InitDialogue(test_dialogue);
     }
 
