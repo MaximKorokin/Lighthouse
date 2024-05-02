@@ -56,13 +56,13 @@ public abstract class TextVisualizer : MonoBehaviour
         }
 
         var returnTime = Time.time + _showTime;
-        var movementDelta = Time.deltaTime * new Vector3(
+        var movementDelta = new Vector3(
             Random.Range(_horizontalRandomMovementRange.x, _horizontalRandomMovementRange.y),
             Random.Range(_verticalRandomMovementRange.x, _verticalRandomMovementRange.y));
         while (Time.time < returnTime)
         {
             yield return new WaitForEndOfFrame();
-            text.transform.localPosition += movementDelta;
+            text.transform.localPosition += movementDelta * Time.deltaTime;
         }
         TextPool.Return(text);
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public static class EnumerableExtensions
 {
@@ -165,5 +166,10 @@ public static class EnumerableExtensions
         {
             e.Invoke(new CastState(worldObject));
         }
+    }
+
+    public static void ToggleActive(this GameObject gameObject)
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 }
