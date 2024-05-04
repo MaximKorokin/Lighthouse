@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(WorldObject))]
 [RequireComponent(typeof(ValidatorBase))]
-public class WorldObjectTriggerDetector : TriggerDetectorBase<WorldObject>
+public class ValidatorTriggerDetector : TriggerDetectorBase<WorldObject>
 {
     [SerializeField]
     private FactionsRelation _triggerOn;

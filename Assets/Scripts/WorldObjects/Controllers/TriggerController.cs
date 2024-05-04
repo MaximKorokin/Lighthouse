@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObjectTriggerDetector))]
+[RequireComponent(typeof(ValidatorTriggerDetector))]
 public abstract class TriggerController : ControllerBase
 {
     protected readonly HashSet<WorldObject> TriggeredWorldObjects = new();
@@ -10,7 +10,7 @@ public abstract class TriggerController : ControllerBase
     {
         base.Awake();
 
-        var triggerDetector = GetComponent<WorldObjectTriggerDetector>();
+        var triggerDetector = GetComponent<ValidatorTriggerDetector>();
         triggerDetector.TriggerEntered += OnTriggerEntered;
         triggerDetector.TriggerExited += OnTriggerExited;
     }
