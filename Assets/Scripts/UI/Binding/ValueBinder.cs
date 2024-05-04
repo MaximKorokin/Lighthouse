@@ -7,11 +7,6 @@ public abstract class ValueBinder : MonoBehaviour
 
     public event Action<object> ValueChanged;
 
-    protected virtual void Start()
-    {
-        PreviousValue = GetCurrentValue();
-    }
-
     protected virtual void Update()
     {
         var currentValue = GetCurrentValue();
