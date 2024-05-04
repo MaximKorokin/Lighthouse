@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class ImageSwitch : MonoBehaviour
+public class ImageSwitchBindable : Bindable
 {
     [SerializeField]
     private Sprite _sprite1;
@@ -11,18 +12,19 @@ public class ImageSwitch : MonoBehaviour
 
     private Image _image;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _image = GetComponent<Image>();
         _image.sprite = _sprite1;
     }
 
-    public void Switch()
+    protected override void OnValueChanged(object value)
     {
-        _image.sprite = _image.sprite == _sprite1 ? _sprite2 : _sprite1;
+        SetValue(Convert.ToBoolean(value));
     }
 
-    public void SetValue(bool val)
+    private void SetValue(bool val)
     {
         _image.sprite = val ? _sprite2 : _sprite1;
     }

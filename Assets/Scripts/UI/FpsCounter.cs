@@ -16,6 +16,14 @@ public class FpsCounter : MonoBehaviour
     private void Awake()
     {
         _text = GetComponent<TMP_Text>();
+    }
+
+    private void OnEnable()
+    {
+        if (_updateCoroutine != null)
+        {
+            StopCoroutine(_updateCoroutine);
+        }
         _updateCoroutine = StartCoroutine(UpdateCoroutine());
     }
 
@@ -31,14 +39,6 @@ public class FpsCounter : MonoBehaviour
             yield return new WaitForSecondsRealtime(_updateInterval);
             _text.text = ((int)(_framesPassedFromLastUpdate / _updateInterval)).ToString();
             _framesPassedFromLastUpdate = 0;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (_updateCoroutine != null)
-        {
-            StopCoroutine(_updateCoroutine);
         }
     }
 }

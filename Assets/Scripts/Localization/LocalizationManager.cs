@@ -9,6 +9,16 @@ public static class LocalizationManager
 
     private static readonly Dictionary<object, (string Text, Action<string> LocalizeAction)> _languageChangeListeners = new();
 
+    static LocalizationManager()
+    {
+        var settingLanguage = LocalizationData.FindLanguage("LanguageName", SettingsManager.GetValue(Setting.Language));
+        if (settingLanguage != SystemLanguage.Unknown)
+        {
+            ChangeLanguage(settingLanguage);
+        }
+        SettingsManager.SetSettingChangeListener(Setting.Language, x => ChangeLanguage(LocalizationData.FindLanguage("LanguageName", x.ToString())));
+    }
+
     public static void ChangeLanguage(SystemLanguage language)
     {
         Language = language;

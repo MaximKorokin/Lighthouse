@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 [RequireComponent(typeof(TMP_Text))]
 public class TextLocalizer : MonoBehaviour
 {

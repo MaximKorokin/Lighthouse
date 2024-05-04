@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviorSingleton<PauseMenu>
 {
     [SerializeField]
     private GameObject _pausePanel;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Application.targetFrameRate = 60;
     }
 

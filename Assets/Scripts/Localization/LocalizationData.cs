@@ -37,8 +37,7 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
         _localizationDictionary = data.Skip(1)
             .Select(x => ParsingUtils.ParseCsvLine(x).ToArray())
             .ToDictionary(
-                // key (case invariant)
-                x => x[0].ToLower(),
+                x => GetProcessedKey(x[0]),
                 x => languages.ToDictionary(y => y, y => x[languages.IndexOf(y) + 1]));
     }
 
@@ -49,12 +48,28 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
             Instance.UpdateData();
         }
 
-        // key (case invariant)
-        var actualKey = key[2..(key.Length - 1)].ToLower();
+        var actualKey = GetProcessedKey(key[2..(key.Length - 1)]);
         if (Instance._localizationDictionary.ContainsKey(actualKey) && Instance._localizationDictionary[actualKey].ContainsKey(language))
         {
             return Instance._localizationDictionary[actualKey][language];
         }
         return key;
     }
+
+    public static SystemLanguage FindLanguage(string key, string value)
+    {
+        key = GetProcessedKey(key);
+        if (Instance._localizationDictionary.ContainsKey(key))
+        {
+            var result = Instance._localizationDictionary[key].Where(x => x.Value == value).ToArray();
+            if (result.Length > 0)
+            {
+                return result[0].Key;
+            }
+        }
+        return SystemLanguage.Unknown;
+    }
+
+    // case invariant
+    private static string GetProcessedKey(string key) => key.ToLower();
 }

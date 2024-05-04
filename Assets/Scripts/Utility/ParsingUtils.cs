@@ -42,6 +42,10 @@ public static class ParsingUtils
 
     public static IEnumerable<string> ParseLocalizationKeys(string line)
     {
+        if (line == null)
+        {
+            return Enumerable.Empty<string>();
+        }
         return new Regex(@"!\([^\)]+\)").Matches(line).Select(x => x.Value);
     }
 }
