@@ -5,7 +5,7 @@ using UnityEngine;
 /// Used to define if world object could be targeted.
 /// </summary>
 [RequireComponent(typeof(WorldObject))]
-public abstract class ValidatorBase : MonoBehaviour
+public abstract class WorldObjectValidator : MonoBehaviour
 {
     [SerializeField]
     private ValidTarget _validTargets;

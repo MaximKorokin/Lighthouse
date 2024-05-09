@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Item))]
-public class ItemTriggerDetector : ValidatorTriggerDetector
+public class ItemTriggerDetector : ValidatingTriggerDetector
 {
     private Item _item;
     private readonly HashSet<Collider2D> _collidersInactive = new();

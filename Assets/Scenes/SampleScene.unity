@@ -7949,7 +7949,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1478394866}
-  - component: {fileID: 1478394865}
+  - component: {fileID: 1478394870}
+  - component: {fileID: 1478394869}
+  - component: {fileID: 1478394868}
   - component: {fileID: 1478394867}
   m_Layer: 0
   m_Name: DialogueTrigger
@@ -7958,19 +7960,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1478394865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478394864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35d66336e69a974ab08d61fbebb0caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
 --- !u!4 &1478394866
 Transform:
   m_ObjectHideFlags: 0
@@ -8015,7 +8004,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -8031,6 +8020,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1478394868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478394864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerType: 0
+--- !u!114 &1478394869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478394864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogue: {fileID: 11400000, guid: 9fe1c5c78c5a68346bf05bda70060d32, type: 2}
+--- !u!114 &1478394870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478394864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdee9e2dde3498349bc5cc4775be9bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerTarget: 0
 --- !u!1001 &1484318133
 PrefabInstance:
   m_ObjectHideFlags: 0

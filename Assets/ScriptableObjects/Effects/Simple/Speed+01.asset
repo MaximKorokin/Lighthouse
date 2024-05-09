@@ -27,5 +27,5 @@ MonoBehaviour:
       data:
         <StatsDelta>k__BackingField:
           _stats:
-          - Name: 1
+          - Name: 3
             Value: 0.1

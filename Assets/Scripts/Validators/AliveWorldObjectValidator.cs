@@ -1,4 +1,4 @@
-public class AliveValidator : ValidatorBase
+public class AliveWorldObjectValidator : WorldObjectValidator
 {
     public override bool IsValidTarget(WorldObject worldObject, FactionsRelation relation)
     {

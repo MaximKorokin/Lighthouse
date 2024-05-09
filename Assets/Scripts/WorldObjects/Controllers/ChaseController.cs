@@ -18,12 +18,12 @@ public class ChaseController : TargetController
         }
     }
 
-    public override void ChooseTarget(ICollection<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
+    public override void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
         Target = targetType switch
         {
             TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude),
-            TargetSearchingType.Random => targets.Skip(Random.Range(0, targets.Count - 1)).First(),
+            TargetSearchingType.Random => targets.Skip(Random.Range(0, targets.Count() - 1)).First(),
             _ => targets.First(),
         };
     }
@@ -52,7 +52,7 @@ public class ChaseController : TargetController
 
     private void SeekNearestTarget()
     {
-        if (TriggeredWorldObjects.Count > 0 && (_targetSwitchAttemptCooldown.TryReset() || !TriggeredWorldObjects.Contains(Target)))
+        if (TriggeredWorldObjects.Any() && (_targetSwitchAttemptCooldown.TryReset() || !TriggeredWorldObjects.Contains(Target)))
         {
             ChooseTarget(TriggeredWorldObjects, TargetSearchingType.Nearest, WorldObject, 0);
         }

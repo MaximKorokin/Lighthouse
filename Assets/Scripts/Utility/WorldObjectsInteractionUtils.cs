@@ -8,7 +8,7 @@ public static class WorldObjectsInteractionUtils
 {
     public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source, FactionsRelation relation)
     {
-        var validator = source.GetComponent<ValidatorBase>();
+        var validator = source.GetComponent<WorldObjectValidator>();
         if (validator == null)
         {
             return worldObjects;
@@ -21,7 +21,7 @@ public static class WorldObjectsInteractionUtils
 
     public static bool IsValidTarget(this WorldObject worldObject, WorldObject source, FactionsRelation relation)
     {
-        var validator = source.GetComponent<ValidatorBase>();
+        var validator = source.GetComponent<WorldObjectValidator>();
         if (validator == null)
         {
             return true;
