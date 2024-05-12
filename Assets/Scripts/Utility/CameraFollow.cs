@@ -7,28 +7,36 @@ public class CameraFollow : MonoBehaviour
     private float _speed;
     [SerializeField]
     private float _outrunningValue;
+    [SerializeField]
+    private CameraMovementPriority _priority;
 
-    private Camera _mainCamera;
+    private MainCameraController _mainCamera;
     private MovableWorldObject _movableWorldObject;
-    private float _zDifference;
 
-    private void Awake()
+    private void Start()
     {
-        _mainCamera = Camera.main;
         _movableWorldObject = GetComponent<MovableWorldObject>();
-        _zDifference = _mainCamera.transform.position.z - _movableWorldObject.transform.position.z;
-        _mainCamera.transform.position = new Vector3(
-            _movableWorldObject.transform.position.x,
-            _movableWorldObject.transform.position.y,
-            _zDifference);
+        _movableWorldObject.DirectionSet += OnDirectionSet;
+
+        _mainCamera = MainCameraController.Instance;
     }
 
-    private void FixedUpdate()
+    private void OnDirectionSet(Vector2 obj)
     {
-        var newPos = Vector2.Lerp(
-            _mainCamera.transform.position,
-            (Vector2)transform.position + _movableWorldObject.Direction * _outrunningValue,
-            _speed * Time.fixedDeltaTime);
-        _mainCamera.transform.position = new Vector3(newPos.x, newPos.y, _movableWorldObject.transform.position.z + _zDifference);
+        SetMovement();
+    }
+
+    private void Update()
+    {
+        if (transform.hasChanged)
+        {
+            transform.hasChanged = false;
+            SetMovement();
+        }
+    }
+
+    private void SetMovement()
+    {
+        _mainCamera.SetMovement(transform.position + (Vector3)_movableWorldObject.Direction * _outrunningValue, _speed, true, _priority);
     }
 }

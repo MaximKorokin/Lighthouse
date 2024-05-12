@@ -7,6 +7,6 @@ public class DialogueAct : ScenarioAct
 
     protected override void Act()
     {
-        DialoguesSystem.InitDialogue(_dialogue);
+        DialoguesSystem.InitDialogue(_dialogue, () => IsUsed = true);
     }
 }

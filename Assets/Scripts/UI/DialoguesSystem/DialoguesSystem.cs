@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 {
     [SerializeField]
     private DialogueView _dialogueView;
+
+    private Action _endDialogueCallback;
 
     protected override void Awake()
     {
@@ -13,6 +16,7 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 
     private void OnDialogueEnded()
     {
+        _endDialogueCallback?.Invoke();
         Game.Resume();
         _dialogueView.gameObject.SetActive(false);
     }
@@ -24,8 +28,9 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         _dialogueView.SetDialogue(dialogue);
     }
 
-    public static void InitDialogue(Dialogue dialogue)
+    public static void InitDialogue(Dialogue dialogue, Action endCallback = null)
     {
+        Instance._endDialogueCallback = endCallback;
         Instance.InitDialogueInternal(dialogue);
     }
 }

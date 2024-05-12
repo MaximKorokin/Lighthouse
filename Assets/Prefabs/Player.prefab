@@ -809,6 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _outrunningValue: 1
+  _priority: 20
 --- !u!114 &677912016663868352
 MonoBehaviour:
   m_ObjectHideFlags: 0

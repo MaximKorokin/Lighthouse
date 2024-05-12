@@ -1,9 +1,29 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
 public abstract class ScenarioAct : MonoBehaviour
 {
     private ActRequirement[] _requirements;
+    private bool _isUsed;
+
+    [field: SerializeField]
+    public bool IsReusable { get; protected set; }
+
+    public bool IsUsed
+    {
+        get => _isUsed;
+        protected set
+        {
+            _isUsed = value;
+            if (_isUsed)
+            {
+                Used?.Invoke();
+            }
+        }
+    }
+
+    public event Action Used;
 
     private void Start()
     {
@@ -24,7 +44,8 @@ public abstract class ScenarioAct : MonoBehaviour
 
     private void OnRequirementFulfilled(ActRequirement requirement)
     {
-        if (_requirements.Except(requirement.Yield()).All(x => x.IsFulfilled()))
+        if ((IsReusable || !IsUsed) && 
+            _requirements.Except(requirement.Yield()).All(x => x.IsFulfilled()))
         {
             Act();
         }
