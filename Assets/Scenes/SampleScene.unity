@@ -2353,8 +2353,8 @@ RectTransform:
   - {fileID: 206742685}
   - {fileID: 1010030195}
   - {fileID: 516653487}
-  - {fileID: 1452966888}
   - {fileID: 902758413}
+  - {fileID: 1452966888}
   m_Father: {fileID: 1532632477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10825,7 +10825,7 @@ MonoBehaviour:
   <IsReusable>k__BackingField: 0
   _transformPosition: {fileID: 0}
   _position: {x: 3, y: 0, z: -10}
-  _speed: 3
+  _speed: 1
   _priorityOverride: 30
 --- !u!4 &2119804380
 Transform:
