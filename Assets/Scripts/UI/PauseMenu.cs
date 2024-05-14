@@ -13,13 +13,13 @@ public class PauseMenu : MonoBehaviorSingleton<PauseMenu>
 
     public void EnterPause()
     {
-        Game.Pause();
+        GameManager.Pause();
         _pausePanel.SetActive(true);
     }
 
     public void ExitPause()
     {
-        Game.Resume();
+        GameManager.Resume();
         _pausePanel.SetActive(false);
     }
 
@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviorSingleton<PauseMenu>
 
     public void ReloadScene()
     {
-        Game.ReloadScene();
+        GameManager.ReloadScene();
     }
 
     public void SwitchLanguage()

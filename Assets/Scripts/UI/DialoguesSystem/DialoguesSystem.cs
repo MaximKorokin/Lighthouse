@@ -17,13 +17,13 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     private void OnDialogueEnded()
     {
         _endDialogueCallback?.Invoke();
-        Game.Resume();
+        GameManager.Resume();
         _dialogueView.gameObject.SetActive(false);
     }
 
     private void InitDialogueInternal(Dialogue dialogue)
     {
-        Game.Pause();
+        GameManager.Pause();
         _dialogueView.gameObject.SetActive(true);
         _dialogueView.SetDialogue(dialogue);
     }

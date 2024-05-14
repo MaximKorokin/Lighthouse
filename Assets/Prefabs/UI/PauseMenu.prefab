@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Setting>k__BackingField: 0
+  <Config>k__BackingField: 0
 --- !u!1 &2029569651507038762
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff2483212293e43948cfd3e581d423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingKey: 2
+  _configKey: 2
 --- !u!114 &5005767713585456432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff2483212293e43948cfd3e581d423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingKey: 3
+  _configKey: 3
 --- !u!114 &8963530419713251001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff2483212293e43948cfd3e581d423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingKey: 0
+  _configKey: 0
 --- !u!114 &2046928320459395043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,7 +2680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Setting>k__BackingField: 1
+  <Config>k__BackingField: 1
 --- !u!114 &948727711571726275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2944,7 +2944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff2483212293e43948cfd3e581d423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingKey: 1
+  _configKey: 1
 --- !u!114 &5941968698019287900
 MonoBehaviour:
   m_ObjectHideFlags: 0

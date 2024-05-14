@@ -9,9 +9,9 @@ public abstract class InputReader : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Game.IsPaused)
+        if (Input.anyKeyDown || Input.touchCount > 0)
         {
-            return;
+            InputManager.InvokeAnyKeyClicked();
         }
 
         var newMoveVectorinput = GetMoveVectorInput();

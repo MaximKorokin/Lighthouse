@@ -58,7 +58,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     private void Update()
     {
-        if (Game.IsPaused)
+        if (InputManager.IsControlInputBlocked)
         {
             DisableJoystick();
         }

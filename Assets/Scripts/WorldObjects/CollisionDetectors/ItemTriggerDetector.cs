@@ -7,9 +7,9 @@ public class ItemTriggerDetector : ValidatingTriggerDetector
     private Item _item;
     private readonly HashSet<Collider2D> _collidersInactive = new();
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         _item = WorldObject as Item;
         _item.Activated += () => _collidersInactive.ForEach(x => OnTriggerEnter2D(x));
     }

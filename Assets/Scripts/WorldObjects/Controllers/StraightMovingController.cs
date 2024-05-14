@@ -27,7 +27,7 @@ public class StraightMovingController : TargetController
             TargetSearchingType.Forward => source is MovableWorldObject movableSource ? movableSource.Direction : Direction,
             _ => Direction
         };
-        Direction = Quaternion.Euler(0, 0, yaw) * targetDirection;
+        Direction = targetDirection.Rotate(yaw);
     }
 
     protected override void Control()

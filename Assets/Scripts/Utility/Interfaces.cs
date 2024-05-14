@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public interface ICopyable<in T>
 {
@@ -15,4 +16,10 @@ public interface IInitializable<T>
     event Action<T> Initialized;
 
     void Initialize();
+}
+
+public interface IEditorIcon
+{
+    string IconName { get; }
+    Color IconColor { get; }
 }

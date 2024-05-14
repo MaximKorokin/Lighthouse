@@ -5,12 +5,20 @@ public static class InputManager
 {
     private static Vector2 _moveVector;
 
+    public static bool IsControlInputBlocked { get; set; }
+
+    public static event Action AnyKeyClicked;
     public static event Action<Vector2> MoveVectorChanged;
     public static event Action ActiveAbilityUsed;
 
+    public static void InvokeAnyKeyClicked()
+    {
+        AnyKeyClicked?.Invoke();
+    }
+
     public static void ChangeMoveVector(Vector2 vector)
     {
-        if (_moveVector == vector)
+        if (IsControlInputBlocked || _moveVector == vector)
         {
             return;
         }
@@ -20,6 +28,10 @@ public static class InputManager
 
     public static void UseActiveAbility()
     {
+        if (IsControlInputBlocked)
+        {
+            return;
+        }
         ActiveAbilityUsed?.Invoke();
     }
 }

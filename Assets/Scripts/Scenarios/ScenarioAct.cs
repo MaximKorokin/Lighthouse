@@ -1,37 +1,47 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class ScenarioAct : MonoBehaviour
+public class ScenarioAct : MonoBehaviour
 {
+    [SerializeField]
     private ActRequirement[] _requirements;
-    private bool _isUsed;
+    [SerializeField]
+    private ActPhase[] _phases;
+
+    public IEnumerable<ActRequirement> Requirements => _requirements;
+    public IEnumerable<ActPhase> Phases => _phases;
+
+    private bool _hasEnded;
+    private HashSet<ActPhase> _endedPhases;
 
     [field: SerializeField]
-    public bool IsReusable { get; protected set; }
+    public bool IsRepetitive { get; protected set; }
 
-    public bool IsUsed
+    public bool HasEnded
     {
-        get => _isUsed;
+        get => _hasEnded;
         protected set
         {
-            _isUsed = value;
-            if (_isUsed)
+            _hasEnded = value;
+            if (_hasEnded)
             {
-                Used?.Invoke();
+                Ended?.Invoke(this);
             }
         }
     }
 
-    public event Action Used;
+    public event Action<ScenarioAct> Ended;
 
     private void Start()
     {
-        _requirements = GetComponents<ActRequirement>();
+        _endedPhases = new();
+        _phases.Where(x => x != null).ForEach(x => x.Ended += OnPhaseEnded);
 
         if (_requirements.Length == 0)
         {
-            Act();
+            Invoke();
         }
         else
         {
@@ -42,14 +52,26 @@ public abstract class ScenarioAct : MonoBehaviour
         }
     }
 
-    private void OnRequirementFulfilled(ActRequirement requirement)
+    private void OnPhaseEnded(ActPhase phase)
     {
-        if ((IsReusable || !IsUsed) && 
-            _requirements.Except(requirement.Yield()).All(x => x.IsFulfilled()))
+        _endedPhases.Add(phase);
+        if (_phases.All(x => _endedPhases.Contains(x)))
         {
-            Act();
+            HasEnded = true;
         }
     }
 
-    protected abstract void Act();
+    private void OnRequirementFulfilled(ActRequirement requirement)
+    {
+        if ((IsRepetitive || !HasEnded) &&
+            _requirements.Except(requirement.Yield()).All(x => x.IsFulfilled()))
+        {
+            Invoke();
+        }
+    }
+
+    private void Invoke()
+    {
+        _phases.ForEach(x => x.Invoke());
+    }
 }

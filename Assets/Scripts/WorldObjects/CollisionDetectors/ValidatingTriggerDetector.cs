@@ -10,7 +10,7 @@ public class ValidatingTriggerDetector : WorldObjectTriggerDetector
     protected WorldObject WorldObject { get; private set; }
     protected WorldObjectValidator Validator { get; private set; }
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         WorldObject = GetComponent<WorldObject>();
         Validator = GetComponent<WorldObjectValidator>();
@@ -18,7 +18,7 @@ public class ValidatingTriggerDetector : WorldObjectTriggerDetector
 
     protected override bool ValidateTarget(Collider2D collision, out WorldObject worldObject)
     {
-        if (!base.ValidateTarget(collision, out worldObject))
+        if (!base.ValidateTarget(collision, out worldObject) || WorldObject == null)
         {
             return false;
         }
