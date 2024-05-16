@@ -13,8 +13,9 @@ public static class ActRequirementGizmosDrawers
 
         EditorUtils.DrawingColor = Color.white;
         EditorUtils.DrawArc(
-            requirement.transform.position,
             requirement.ScenarioAct.transform.position,
-            (requirement.ScenarioAct.transform.position - requirement.transform.position).magnitude * 0.1f);
+            requirement.transform.position,
+            (requirement.ScenarioAct.transform.position - requirement.transform.position).magnitude * 0.1f,
+            true);
     }
 }

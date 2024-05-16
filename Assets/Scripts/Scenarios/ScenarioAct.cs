@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[ExecuteAlways]
 public class ScenarioAct : MonoBehaviour
 {
     [SerializeField]
-    private ActRequirement[] _requirements;
+    private List<ActRequirement> _requirements;
     [SerializeField]
-    private ActPhase[] _phases;
+    private List<ActPhase> _phases;
 
     public IEnumerable<ActRequirement> Requirements => _requirements;
     public IEnumerable<ActPhase> Phases => _phases;
@@ -36,10 +37,15 @@ public class ScenarioAct : MonoBehaviour
 
     private void Start()
     {
+        if (!Application.isPlaying)
+        {
+            return;
+        }
+
         _endedPhases = new();
         _phases.Where(x => x != null).ForEach(x => x.Ended += OnPhaseEnded);
 
-        if (_requirements.Length == 0)
+        if (_requirements.Count == 0)
         {
             Invoke();
         }
@@ -72,6 +78,39 @@ public class ScenarioAct : MonoBehaviour
 
     private void Invoke()
     {
+        if (_phases == null || _phases.Count == 0)
+        {
+            HasEnded = true;
+        }
         _phases.ForEach(x => x.Invoke());
+    }
+
+    // Only for edit mode visualization purposes
+    private void Update()
+    {
+        if (Application.isPlaying)
+        {
+            return;
+        }
+
+        _requirements ??= new();
+        _phases ??= new();
+        _requirements.Where(x => x == null).ToArray().ForEach(x => _requirements.Remove(x));
+        _phases?.Where(x => x == null).ToArray().ForEach(x => _phases.Remove(x));
+
+        foreach (var requirement in GetComponents<ActRequirement>())
+        {
+            if (!_requirements.Contains(requirement))
+            {
+                _requirements.Add(requirement);
+            }
+        }
+        foreach (var phase in GetComponents<ActPhase>())
+        {
+            if (!_phases.Contains(phase))
+            {
+                _phases.Add(phase);
+            }
+        }
     }
 }

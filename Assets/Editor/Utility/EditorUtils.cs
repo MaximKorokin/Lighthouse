@@ -12,13 +12,13 @@ public static class EditorUtils
         }
     }
 
-    public static void DrawArc(Vector2 start, Vector2 end, float radius)
+    public static void DrawArc(Vector2 start, Vector2 end, float radius, bool withArrow)
     {
         var orientation = (end - start).x > 0 ? 1 : -1;
-        DrawArcRecursive(start, end, radius, orientation, 6);
+        DrawArcRecursive(start, end, radius, withArrow, orientation, 6);
     }
 
-    private static void DrawArcRecursive(Vector2 start, Vector2 end, float radius, int orientation, int deepness)
+    private static void DrawArcRecursive(Vector2 start, Vector2 end, float radius, bool withArrow, int orientation, int deepness)
     {
         if (deepness-- <= 0)
         {
@@ -28,8 +28,14 @@ public static class EditorUtils
         var middleDir = (end - start) / 2;
         var middlePoint = start + middleDir + middleDir.Rotate(90 * orientation).normalized * radius;
 
-        DrawArcRecursive(start, middlePoint, radius / 4f, orientation, deepness);
-        DrawArcRecursive(middlePoint, end, radius / 4f, orientation, deepness);
+        if (withArrow)
+        {
+            Gizmos.DrawLine(middlePoint, middlePoint - (middleDir.normalized * 0.2f).Rotate(25));
+            Gizmos.DrawLine(middlePoint, middlePoint - (middleDir.normalized * 0.2f).Rotate(-25));
+        }
+
+        DrawArcRecursive(start, middlePoint, radius / 4f, false, orientation, deepness);
+        DrawArcRecursive(middlePoint, end, radius / 4f, false, orientation, deepness);
     }
 
     public static void DrawArrow(Vector2 start, Vector2 end, float endIndent, bool isCircleArrow)

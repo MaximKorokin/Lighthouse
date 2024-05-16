@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public static class GameManager
 {
     private static int _pauseCalls;
-    private static int PauseCalls { get => _pauseCalls; set => _pauseCalls = _pauseCalls < 0 ? 0 : _pauseCalls; }
+    private static int PauseCalls { get => _pauseCalls; set => _pauseCalls = value < 0 ? 0 : value; }
 
     public static bool IsPaused { get ; private set; }
 
@@ -23,8 +23,8 @@ public static class GameManager
         {
             Time.timeScale = 1;
             IsPaused = false;
+            InputManager.IsControlInputBlocked = false;
         }
-        InputManager.IsControlInputBlocked = false;
     }
 
     public static void ReloadScene()

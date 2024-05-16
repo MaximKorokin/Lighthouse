@@ -29,3 +29,7 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.6603774, g: 0.19624422, b: 0.19624422, a: 1}
     <Icon>k__BackingField: {fileID: 21300000, guid: 5d0ad1f737662e945ae8c641bf2b4fe4, type: 3}
     <Id>k__BackingField: 1186ec1a-a22d-42b2-b977-b4539cedfcd9
+  - <Name>k__BackingField: Bomj
+    <Color>k__BackingField: {r: 0.41451585, g: 0.48766372, b: 0.6509434, a: 1}
+    <Icon>k__BackingField: {fileID: -2053250751, guid: 6d87c4f04c770ee4797817446d616146, type: 3}
+    <Id>k__BackingField: 23c737ec-5361-44ea-b89a-7148440b8364

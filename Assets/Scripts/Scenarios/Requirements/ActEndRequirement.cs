@@ -9,6 +9,11 @@ public class ActEndRequirement : ActRequirement
 
     private void Awake()
     {
+        if (_scenarioAct == null)
+        {
+            Logger.Warn($"{nameof(_scenarioAct)} is null");
+            return;
+        }
         _scenarioAct.Ended += OnEnded;
     }
 
@@ -19,11 +24,19 @@ public class ActEndRequirement : ActRequirement
 
     public override bool IsFulfilled()
     {
+        if (_scenarioAct == null)
+        {
+            return true;
+        }
         return _scenarioAct.HasEnded;
     }
 
     private void OnDestroy()
     {
+        if (_scenarioAct == null)
+        {
+            return;
+        }
         _scenarioAct.Ended -= OnEnded;
     }
 

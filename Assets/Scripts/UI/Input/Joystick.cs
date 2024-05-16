@@ -13,8 +13,31 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public Vector2 InputVector { get; private set; }
 
+    private void Awake()
+    {
+        InputManager.InputBlockChanging += OnInputBlockChanging;
+    }
+
+    private void OnDestroy()
+    {
+        InputManager.InputBlockChanging -= OnInputBlockChanging;
+    }
+
+    private void OnInputBlockChanging(bool blocked)
+    {
+        if (blocked)
+        {
+            DisableJoystick();
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
+        if (InputManager.IsControlInputBlocked)
+        {
+            return;
+        }
+
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _joystickBackground.rectTransform,
                 eventData.position,
@@ -35,6 +58,11 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (InputManager.IsControlInputBlocked)
+        {
+            return;
+        }
+
         if (!_joystickBackground.gameObject.activeSelf &&
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _joystickArea.rectTransform,
@@ -54,14 +82,6 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
             return;
         }
         DisableJoystick();
-    }
-
-    private void Update()
-    {
-        if (InputManager.IsControlInputBlocked)
-        {
-            DisableJoystick();
-        }
     }
 
     private void EnableJoystick()
