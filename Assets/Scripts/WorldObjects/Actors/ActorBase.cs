@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(WorldObject))]
 public abstract class ActorBase : MonoBehaviour
@@ -7,6 +8,8 @@ public abstract class ActorBase : MonoBehaviour
     public bool CanAct { get; set; } = true;
     private WorldObject _worldObject;
     public WorldObject WorldObject { get => _worldObject = _worldObject != null ? _worldObject : GetComponent<WorldObject>(); }
+
+    public event Action Acting;
 
     protected virtual void Awake()
     {
@@ -21,6 +24,10 @@ public abstract class ActorBase : MonoBehaviour
         }
     }
 
-    protected abstract void ActInternal(WorldObject worldObject);
+    protected virtual void ActInternal(WorldObject worldObject)
+    {
+        Acting?.Invoke();
+    }
+
     public abstract void Idle(WorldObject worldObject);
 }

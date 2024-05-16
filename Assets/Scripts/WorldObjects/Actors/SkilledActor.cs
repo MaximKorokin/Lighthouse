@@ -18,6 +18,7 @@ public class SkilledActor : ActorBase
 
     protected override void ActInternal(WorldObject worldObject)
     {
+        base.ActInternal(worldObject);
         _skills.ForEach(x => x.Invoke(WorldObject, worldObject, WorldObject.AttackSpeed));
     }
 

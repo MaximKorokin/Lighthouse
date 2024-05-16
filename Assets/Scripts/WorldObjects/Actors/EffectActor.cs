@@ -25,11 +25,13 @@ public abstract class EffectActor : ActorBase
 
     protected override void ActInternal(WorldObject worldObject)
     {
-        if (_effects != null && _effects.Length > 0)
+        if (_effects == null || _effects.Length == 0)
         {
-            CastState.Target = worldObject;
-            Effects.Invoke(CastState);
+            return;
         }
+        base.ActInternal(worldObject);
+        CastState.Target = worldObject;
+        Effects.Invoke(CastState);
     }
 
     public virtual void SetEffects(Effect[] effects, CastState castState)

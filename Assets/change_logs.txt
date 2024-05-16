@@ -59,14 +59,14 @@
 - Dialogues
 - Localization
 - Pause menu + settings
-- Scenario
+- Scenarios
 - Active task indicator
 
 #plans
 0.1.9
-- Map
-- Enemies
-- Skills
+- Prologue map
+- More enemies
+- More active and passive skills
 
 0.2.0
 - UI and graphics

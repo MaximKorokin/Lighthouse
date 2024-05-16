@@ -18,4 +18,14 @@ public static class ActRequirementGizmosDrawers
             (requirement.ScenarioAct.transform.position - requirement.transform.position).magnitude * 0.1f,
             true);
     }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void ActorActedRequirement(ActorActedRequirement requirement, GizmoType gizmoType)
+    {
+        if (requirement.Actor == null)
+        {
+            return;
+        }
+        EditorUtils.DrawArrowWithIcon(requirement.transform.position, requirement.Actor.transform.position, requirement.IconName);
+    }
 }

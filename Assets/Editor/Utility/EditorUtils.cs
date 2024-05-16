@@ -65,4 +65,17 @@ public static class EditorUtils
             Gizmos.DrawIcon(position, x.IconName, true, x.IconColor);
         });
     }
+
+    /// <summary>
+    /// It is not affected by value of <see cref="DrawingColor"/>
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <param name="iconName"></param>
+    public static void DrawArrowWithIcon(Vector3 start, Vector3 end, string iconName)
+    {
+        DrawingColor = MyColors.Gray;
+        DrawArrow(start, end, 0, true);
+        Gizmos.DrawIcon((start + end) / 2, iconName, true, MyColors.LightGray);
+    }
 }

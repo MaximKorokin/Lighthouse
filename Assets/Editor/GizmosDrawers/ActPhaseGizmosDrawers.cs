@@ -10,8 +10,6 @@ public static class ActPhaseGizmosDrawers
         {
             return;
         }
-        EditorUtils.DrawingColor = MyColors.Gray;
-        EditorUtils.DrawArrow(phase.transform.position, phase.TransformPosition.position, 0, true);
-        Gizmos.DrawIcon((phase.transform.position + phase.TransformPosition.position) / 2, phase.IconName, true, MyColors.LightGray);
+        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, phase.IconName);
     }
 }
