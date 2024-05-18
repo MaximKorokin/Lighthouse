@@ -60,7 +60,7 @@
 - Localization
 - Pause menu + settings
 - Scenarios
-- Active task indicator
+- Active task marker
 
 #plans
 0.1.9

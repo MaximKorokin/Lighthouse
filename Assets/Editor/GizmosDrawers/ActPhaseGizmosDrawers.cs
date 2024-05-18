@@ -1,5 +1,4 @@
 ﻿using UnityEditor;
-using UnityEngine;
 
 public static class ActPhaseGizmosDrawers
 {
@@ -10,6 +9,6 @@ public static class ActPhaseGizmosDrawers
         {
             return;
         }
-        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, phase.IconName);
+        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
     }
 }

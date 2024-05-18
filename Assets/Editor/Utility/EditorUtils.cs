@@ -38,19 +38,22 @@ public static class EditorUtils
         DrawArcRecursive(middlePoint, end, radius / 4f, false, orientation, deepness);
     }
 
-    public static void DrawArrow(Vector2 start, Vector2 end, float endIndent, bool isCircleArrow)
+    public static void DrawArrow(Vector2 start, Vector2 end, float endIndent, ArrowType type)
     {
         var direction = (end - start).normalized;
         var toVector = end - direction * endIndent;
         Gizmos.DrawLine(start, toVector);
-        if (isCircleArrow)
+        switch (type)
         {
-            Handles.DrawWireDisc(toVector, Vector3.forward, 0.1f);
-        }
-        else
-        {
-            Gizmos.DrawLine(toVector, toVector - (direction * 0.2f).Rotate(10));
-            Gizmos.DrawLine(toVector, toVector - (direction * 0.2f).Rotate(-10));
+            case ArrowType.Arrow:
+                Gizmos.DrawLine(toVector, toVector - (direction * 0.2f).Rotate(15));
+                Gizmos.DrawLine(toVector, toVector - (direction * 0.2f).Rotate(-15));
+                break;
+            case ArrowType.Circle:
+                Handles.DrawWireDisc(toVector, Vector3.forward, 0.1f);
+                break;
+            default:
+                break;
         }
     }
 
@@ -72,10 +75,17 @@ public static class EditorUtils
     /// <param name="start"></param>
     /// <param name="end"></param>
     /// <param name="iconName"></param>
-    public static void DrawArrowWithIcon(Vector3 start, Vector3 end, string iconName)
+    public static void DrawArrowWithIcon(Vector3 start, Vector3 end, ArrowType type, string iconName)
     {
         DrawingColor = MyColors.Gray;
-        DrawArrow(start, end, 0, true);
+        DrawArrow(start, end, 0, type);
         Gizmos.DrawIcon((start + end) / 2, iconName, true, MyColors.LightGray);
     }
+}
+
+public enum ArrowType
+{
+    Line,
+    Arrow,
+    Circle
 }

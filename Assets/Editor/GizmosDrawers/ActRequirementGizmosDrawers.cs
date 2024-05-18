@@ -11,12 +11,7 @@ public static class ActRequirementGizmosDrawers
             return;
         }
 
-        EditorUtils.DrawingColor = Color.white;
-        EditorUtils.DrawArc(
-            requirement.ScenarioAct.transform.position,
-            requirement.transform.position,
-            (requirement.ScenarioAct.transform.position - requirement.transform.position).magnitude * 0.1f,
-            true);
+        EditorUtils.DrawArrowWithIcon(requirement.transform.position, requirement.ScenarioAct.transform.position, ArrowType.Arrow, requirement.IconName);
     }
 
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
@@ -26,6 +21,6 @@ public static class ActRequirementGizmosDrawers
         {
             return;
         }
-        EditorUtils.DrawArrowWithIcon(requirement.transform.position, requirement.Actor.transform.position, requirement.IconName);
+        EditorUtils.DrawArrowWithIcon(requirement.transform.position, requirement.Actor.transform.position, ArrowType.Line, requirement.IconName);
     }
 }

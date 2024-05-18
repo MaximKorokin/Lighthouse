@@ -40,5 +40,5 @@ public class ActEndRequirement : ActRequirement
         _scenarioAct.Ended -= OnEnded;
     }
 
-    //public override string IconName => "Transition.png";
+    public override string IconName => "Transition.png";
 }

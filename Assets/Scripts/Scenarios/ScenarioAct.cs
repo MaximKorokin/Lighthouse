@@ -3,45 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[ExecuteAlways]
-public class ScenarioAct : MonoBehaviour
+public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 {
     [SerializeField]
     private List<ActRequirement> _requirements;
     [SerializeField]
     private List<ActPhase> _phases;
+    [SerializeField]
+    private List<ScenarioAct> _childrenActs;
+
+    [field: SerializeField]
+    public bool IsRepetitive { get; private set; }
 
     public IEnumerable<ActRequirement> Requirements => _requirements;
     public IEnumerable<ActPhase> Phases => _phases;
+    public IEnumerable<ScenarioAct> ChildrenActs => _childrenActs;
 
     private bool _hasEnded;
+    public bool HasEnded => _hasEnded;
+
     private HashSet<ActPhase> _endedPhases;
 
-    [field: SerializeField]
-    public bool IsRepetitive { get; protected set; }
-
-    public bool HasEnded
-    {
-        get => _hasEnded;
-        protected set
-        {
-            _hasEnded = value;
-            if (_hasEnded)
-            {
-                Ended?.Invoke(this);
-            }
-        }
-    }
-
     public event Action<ScenarioAct> Ended;
+    public event Action<ScenarioAct> Initialized;
 
-    private void Start()
+    public void Initialize()
     {
-        if (!Application.isPlaying)
-        {
-            return;
-        }
-
         _endedPhases = new();
         _phases.Where(x => x != null).ForEach(x => x.Ended += OnPhaseEnded);
 
@@ -56,6 +43,22 @@ public class ScenarioAct : MonoBehaviour
                 requirement.OnFulfilled += OnRequirementFulfilled;
             }
         }
+        Initialized?.Invoke(this);
+    }
+
+    private void End()
+    {
+        _hasEnded = true;
+        _childrenActs.ForEach(x => x.Initialize());
+        Ended?.Invoke(this);
+    }
+
+    private void Start()
+    {
+        if (Application.isPlaying && _selfInitializable)
+        {
+            Initialize();
+        }
     }
 
     private void OnPhaseEnded(ActPhase phase)
@@ -63,7 +66,7 @@ public class ScenarioAct : MonoBehaviour
         _endedPhases.Add(phase);
         if (_phases.All(x => _endedPhases.Contains(x)))
         {
-            HasEnded = true;
+            End();
         }
     }
 
@@ -80,37 +83,8 @@ public class ScenarioAct : MonoBehaviour
     {
         if (_phases == null || _phases.Count == 0)
         {
-            HasEnded = true;
+            End();
         }
         _phases.ForEach(x => x.Invoke());
-    }
-
-    // Only for edit mode visualization purposes
-    private void Update()
-    {
-        if (Application.isPlaying)
-        {
-            return;
-        }
-
-        _requirements ??= new();
-        _phases ??= new();
-        _requirements.Where(x => x == null).ToArray().ForEach(x => _requirements.Remove(x));
-        _phases?.Where(x => x == null).ToArray().ForEach(x => _phases.Remove(x));
-
-        foreach (var requirement in GetComponents<ActRequirement>())
-        {
-            if (!_requirements.Contains(requirement))
-            {
-                _requirements.Add(requirement);
-            }
-        }
-        foreach (var phase in GetComponents<ActPhase>())
-        {
-            if (!_phases.Contains(phase))
-            {
-                _phases.Add(phase);
-            }
-        }
     }
 }

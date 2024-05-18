@@ -11,11 +11,14 @@ public interface IClonable<out T>
     T Clone();
 }
 
-public interface IInitializable<T>
+public interface IInitializable
+{
+    void Initialize();
+}
+
+public interface IInitializable<T> : IInitializable
 {
     event Action<T> Initialized;
-
-    void Initialize();
 }
 
 public interface IEditorIcon
