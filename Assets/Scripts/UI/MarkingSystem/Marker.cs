@@ -27,14 +27,30 @@ public class Marker : MonoBehaviour
 
         if ((Vector2)markerPosition != (Vector2)transform.localPosition)
         {
-            _image.sprite = _arrowSprite;
-            var direction = (Vector2)MarkingTarget.position - (Vector2)Camera.main.transform.position;
-            transform.up = direction;
+            if (_arrowSprite == null)
+            {
+                _image.enabled = false;
+            }
+            else
+            {
+                _image.enabled = true;
+                _image.sprite = _arrowSprite;
+                var direction = (Vector2)MarkingTarget.position - (Vector2)Camera.main.transform.position;
+                transform.up = direction;
+            }
         }
         else
         {
-            _image.sprite = _pointSprite;
-            transform.up = Vector2.up;
+            if (_pointSprite == null)
+            {
+                _image.enabled = false;
+            }
+            else
+            {
+                _image.enabled = true;
+                _image.sprite = _pointSprite;
+                transform.up = Vector2.up;
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ public class SpawningPhase : ActPhase
     private SpawnActEndCondition _usedCondition;
 
     private int _spawnCount;
-    private int _aliveCount;
+    private int _destroyedCount;
 
     public override void Invoke()
     {
@@ -20,7 +20,6 @@ public class SpawningPhase : ActPhase
     private void OnSpawned(DestroyableWorldObject worldObject)
     {
         _spawnCount++;
-        _aliveCount++;
         worldObject.OnDestroying(OnDestroying);
         worldObject.transform.position = _transformPosition.position;
 
@@ -32,9 +31,9 @@ public class SpawningPhase : ActPhase
 
     private void OnDestroying()
     {
-        _aliveCount--;
+        _destroyedCount++;
 
-        if (_usedCondition == SpawnActEndCondition.AllDestoyed && _spawnCount == _settings.Amount && _aliveCount == 0)
+        if (_usedCondition == SpawnActEndCondition.AllDestoyed && _spawnCount == _settings.Amount && _destroyedCount == _spawnCount)
         {
             InvokeEnded();
         }

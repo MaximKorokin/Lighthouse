@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  EffectSettings: {fileID: 11400000, guid: 8e8d881f9edff9745a9eb8c6352943ea, type: 2}
+  _effectSettings: {fileID: 11400000, guid: 8e8d881f9edff9745a9eb8c6352943ea, type: 2}
   _timeToAct: 3
   _actsAmount: 1
 --- !u!95 &3078007347813226423

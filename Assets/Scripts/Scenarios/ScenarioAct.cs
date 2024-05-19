@@ -13,28 +13,29 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     private List<ScenarioAct> _childrenActs;
 
     [field: SerializeField]
+    public bool IsConsecutive { get; private set; }
+    [field: SerializeField]
     public bool IsRepetitive { get; private set; }
 
     public IEnumerable<ActRequirement> Requirements => _requirements;
     public IEnumerable<ActPhase> Phases => _phases;
     public IEnumerable<ScenarioAct> ChildrenActs => _childrenActs;
 
+    private PhasesInvoker _invoker;
     private bool _hasEnded;
     public bool HasEnded => _hasEnded;
-
-    private HashSet<ActPhase> _endedPhases;
 
     public event Action<ScenarioAct> Ended;
     public event Action<ScenarioAct> Initialized;
 
     public void Initialize()
     {
-        _endedPhases = new();
-        _phases.Where(x => x != null).ForEach(x => x.Ended += OnPhaseEnded);
+        _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
+        _invoker.Ended += OnEnded;
 
         if (_requirements.Count == 0)
         {
-            Invoke();
+            _invoker.Invoke();
         }
         else
         {
@@ -46,7 +47,7 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
         Initialized?.Invoke(this);
     }
 
-    private void End()
+    private void OnEnded()
     {
         _hasEnded = true;
         _childrenActs.ForEach(x => x.Initialize());
@@ -61,30 +62,93 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
         }
     }
 
-    private void OnPhaseEnded(ActPhase phase)
-    {
-        _endedPhases.Add(phase);
-        if (_phases.All(x => _endedPhases.Contains(x)))
-        {
-            End();
-        }
-    }
-
     private void OnRequirementFulfilled(ActRequirement requirement)
     {
         if ((IsRepetitive || !HasEnded) &&
             _requirements.Except(requirement.Yield()).All(x => x.IsFulfilled()))
         {
-            Invoke();
+            _invoker.Invoke();
         }
     }
 
-    private void Invoke()
+    #region PhasesInvoker
+    private abstract class PhasesInvoker
     {
-        if (_phases == null || _phases.Count == 0)
+        protected List<ActPhase> Phases;
+
+        public event Action Ended;
+
+        public PhasesInvoker(List<ActPhase> phases)
         {
-            End();
+            Phases = phases;
+            Phases.Where(x => x != null).ForEach(x => x.Ended += OnPhaseEnded);
         }
-        _phases.ForEach(x => x.Invoke());
+
+        protected void InvokeEnded()
+        {
+            Ended?.Invoke();
+        }
+
+        public void Invoke()
+        {
+            if (Phases == null || Phases.Count == 0)
+            {
+                InvokeEnded();
+                return;
+            }
+            InvokeInternal();
+        }
+
+        protected abstract void InvokeInternal();
+        protected abstract void OnPhaseEnded(ActPhase phase);
     }
+
+    private class ConsecutivePhasesInvoker : PhasesInvoker
+    {
+        private int _activePhaseIndex = -1;
+
+        public ConsecutivePhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
+
+        protected override void InvokeInternal()
+        {
+            _activePhaseIndex++;
+            if (_activePhaseIndex < Phases.Count)
+            {
+                Phases[_activePhaseIndex].Invoke();
+            }
+        }
+
+        protected override void OnPhaseEnded(ActPhase phase)
+        {
+            if (_activePhaseIndex + 1 >= Phases.Count)
+            {
+                _activePhaseIndex = -1;
+                InvokeEnded();
+                return;
+            }
+            InvokeInternal();
+        }
+    }
+
+    private class SimultaneousPhasesInvoker : PhasesInvoker
+    {
+        private readonly HashSet<ActPhase> _endedPhases = new();
+
+        public SimultaneousPhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
+
+        protected override void InvokeInternal()
+        {
+            Phases.ForEach(x => x.Invoke());
+        }
+
+        protected override void OnPhaseEnded(ActPhase phase)
+        {
+            _endedPhases.Add(phase);
+            if (Phases.All(x => _endedPhases.Contains(x)))
+            {
+                InvokeEnded();
+            }
+        }
+    }
+    #endregion
 }

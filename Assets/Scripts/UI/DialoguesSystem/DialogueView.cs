@@ -46,7 +46,8 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         }
         if (dialogue == null)
         {
-            Logger.Error("Dialogue is null");
+            Logger.Warn("Dialogue is null");
+            DialogueEnded?.Invoke();
             return;
         }
         _currentDialogue = dialogue;
