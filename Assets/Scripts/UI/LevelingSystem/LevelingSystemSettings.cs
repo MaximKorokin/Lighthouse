@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelingSystemSettings", menuName = "ScriptableObjects/Settings/LevelingSystemSettings", order = 1)]
+[CreateAssetMenu(fileName = "LevelingSystemSettings", menuName = "ScriptableObjects/Settings/LevelingSystem", order = 1)]
 public class LevelingSystemSettings : ScriptableObject
 {
     [field: SerializeField]

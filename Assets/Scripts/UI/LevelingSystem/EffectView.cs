@@ -20,12 +20,18 @@ public class EffectView : MonoBehaviour
     {
         _effectPreview = effect;
         _image.sprite = effect.Sprite;
-        _title.text = effect.Name;
-        _description.text = effect.Description;
+        LocalizationManager.SetLanguageChangeListener(_title, effect.Name, text => _title.text = text);
+        LocalizationManager.SetLanguageChangeListener(_description, effect.Description, text => _description.text = text);
     }
 
     public void InvokeClicked()
     {
         Clicked?.Invoke(this, _effectPreview);
+    }
+
+    private void OnDestroy()
+    {
+        LocalizationManager.RemoveLanguageChangeListener(_title);
+        LocalizationManager.RemoveLanguageChangeListener(_description);
     }
 }

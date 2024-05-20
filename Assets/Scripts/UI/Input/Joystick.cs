@@ -13,19 +13,42 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public Vector2 InputVector { get; private set; }
 
+    private void Awake()
+    {
+        InputManager.InputBlockChanging += OnInputBlockChanging;
+    }
+
+    private void OnDestroy()
+    {
+        InputManager.InputBlockChanging -= OnInputBlockChanging;
+    }
+
+    private void OnInputBlockChanging(bool blocked)
+    {
+        if (blocked)
+        {
+            DisableJoystick();
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
+        if (InputManager.IsControlInputBlocked)
+        {
+            return;
+        }
+
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _joystickBackground.rectTransform,
                 eventData.position,
                 eventData.pressEventCamera,
                 out Vector2 joystickPosition))
         {
+            EnableJoystick();
             joystickPosition.x = joystickPosition.x * 2 / _joystickBackground.rectTransform.sizeDelta.x;
             joystickPosition.y = joystickPosition.y * 2 / _joystickBackground.rectTransform.sizeDelta.y;
 
-            InputVector = new Vector2(joystickPosition.x, joystickPosition.y);
-            InputVector = (InputVector.sqrMagnitude > 1) ? InputVector.normalized : InputVector;
+            InputVector = (joystickPosition.sqrMagnitude > 1) ? joystickPosition.normalized : joystickPosition;
 
             _joystick.rectTransform.anchoredPosition = new Vector2(
                 InputVector.x * (_joystickBackground.rectTransform.sizeDelta.x / 2),
@@ -35,6 +58,11 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (InputManager.IsControlInputBlocked)
+        {
+            return;
+        }
+
         if (!_joystickBackground.gameObject.activeSelf &&
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _joystickArea.rectTransform,
@@ -42,10 +70,8 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
                 eventData.pressEventCamera,
                 out Vector2 joystickBackgroundPosition))
         {
-            _joystickBackground.gameObject.SetActive(true);
-            _joystickBackground.rectTransform.anchoredPosition = new Vector2(
-                joystickBackgroundPosition.x,
-                joystickBackgroundPosition.y);
+            EnableJoystick();
+            _joystickBackground.rectTransform.anchoredPosition = joystickBackgroundPosition;
         }
     }
 
@@ -55,6 +81,24 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
         {
             return;
         }
+        DisableJoystick();
+    }
+
+    private void EnableJoystick()
+    {
+        if (!_joystickBackground.gameObject.activeSelf)
+        {
+            _joystickBackground.gameObject.SetActive(true);
+        }
+    }
+
+    private void DisableJoystick()
+    {
+        if (!_joystickBackground.gameObject.activeSelf)
+        {
+            return;
+        }
+
         _joystickBackground.gameObject.SetActive(false);
         InputVector = Vector2.zero;
         _joystick.rectTransform.anchoredPosition = Vector2.zero;

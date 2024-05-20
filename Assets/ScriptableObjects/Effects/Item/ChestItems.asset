@@ -33,7 +33,7 @@ MonoBehaviour:
     - rid: 4259499536714563601
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 0
+        <Value>k__BackingField: 1
         _key: 8
     - rid: 4259499536714563602
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}

@@ -8,7 +8,7 @@ public abstract class WorldObject : MonoBehaviour
     [field: SerializeField]
     public PositioningType TriggeringType { get; protected set; }
     [field: SerializeField]
-    public Faction Faction { get; protected set; }
+    public Faction Faction { get; private set; }
 
     public Vector2 VisualPositionOffset { get; set; }
 
@@ -65,6 +65,17 @@ public abstract class WorldObject : MonoBehaviour
     public virtual void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
     {
         AnimatorValueSet?.Invoke(key, Convert.ToSingle(value));
+    }
+
+    public void SetFaction(Faction faction)
+    {
+        Faction = faction;
+        // Needs this action to retrigger colliders and triggers with a new faction
+        foreach (var item in GetComponents<Collider2D>())
+        {
+            item.enabled = false;
+            item.enabled = true;
+        }
     }
 }
 

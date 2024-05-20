@@ -18,7 +18,7 @@ public class ConditionalEffect : ComplexEffect
     {
         if (_conditions == EffectCondition.None)
         {
-            return false;
+            return true;
         }
 
         var direction = (Vector2)castState.InitialSource.transform.position - (Vector2)castState.Target.transform.position;
@@ -35,6 +35,11 @@ public class ConditionalEffect : ComplexEffect
         {
             return false;
         }
+        if ((_conditions & EffectCondition.IsSourceAlive) == EffectCondition.IsSourceAlive &&
+            castState.InitialSource is DestroyableWorldObject destroyable && !destroyable.IsAlive)
+        {
+            return false;
+        }
         return true;
     }
 }
@@ -42,7 +47,8 @@ public class ConditionalEffect : ComplexEffect
 [Flags]
 public enum EffectCondition
 {
-    None,
-    InActionRange,
-    IsReachable,
+    None = 0,
+    InActionRange = 1,
+    IsReachable = 2,
+    IsSourceAlive = 4,
 }

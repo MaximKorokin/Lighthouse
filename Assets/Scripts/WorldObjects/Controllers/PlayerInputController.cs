@@ -14,6 +14,7 @@ public class PlayerInputController : TriggerController
         _movable = GetComponent<MovableWorldObject>();
         _playerInputActor = GetComponent<PlayerInputActor>();
 
+        _movable.Direction = _direction;
         InputManager.MoveVectorChanged += OnMoveVectorChanged;
     }
 
@@ -31,14 +32,17 @@ public class PlayerInputController : TriggerController
             return;
         }
 
-        _movable.Direction = _direction;
-        if (_direction == Vector2.zero)
+        if (_movable.Direction != _direction)
         {
-            _movable.Stop();
-        }
-        else
-        {
-            _movable.Move();
+            _movable.Direction = _direction;
+            if (_direction == Vector2.zero)
+            {
+                _movable.Stop();
+            }
+            else
+            {
+                _movable.Move();
+            }
         }
 
         if (TriggeredWorldObjects.Any())

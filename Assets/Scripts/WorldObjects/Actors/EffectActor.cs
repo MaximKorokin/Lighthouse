@@ -3,8 +3,8 @@ using UnityEngine;
 
 public abstract class EffectActor : ActorBase
 {
-    [field: SerializeField]
-    private EffectSettings EffectSettings;
+    [SerializeField]
+    private EffectSettings _effectSettings;
 
     private Effect[] _effects;
     protected IEnumerable<Effect> Effects => _effects;
@@ -13,9 +13,9 @@ public abstract class EffectActor : ActorBase
     protected override void Awake()
     {
         base.Awake();
-        if (EffectSettings != null)
+        if (_effectSettings != null)
         {
-            SetEffects(EffectSettings.GetEffects(), new CastState(WorldObject));
+            SetEffects(_effectSettings.GetEffects(), new CastState(WorldObject));
         }
         else
         {
@@ -25,11 +25,13 @@ public abstract class EffectActor : ActorBase
 
     protected override void ActInternal(WorldObject worldObject)
     {
-        if (_effects != null && _effects.Length > 0)
+        if (_effects == null || _effects.Length == 0)
         {
-            CastState.Target = worldObject;
-            Effects.Invoke(CastState);
+            return;
         }
+        base.ActInternal(worldObject);
+        CastState.Target = worldObject;
+        _effects.Invoke(CastState);
     }
 
     public virtual void SetEffects(Effect[] effects, CastState castState)

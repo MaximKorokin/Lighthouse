@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Speed+01
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
-    <Name>k__BackingField: Speed
-    <Description>k__BackingField: Add Move Speed +1 per level
+    <Name>k__BackingField: '!(WindWalkName)'
+    <Description>k__BackingField: '!(WindWalkDescription)'
     <Sprite>k__BackingField: {fileID: 21300000, guid: 482dc39ec0d50f948a43e59ccae5c76e, type: 3}
   <Cooldown>k__BackingField: 0
   _effects:

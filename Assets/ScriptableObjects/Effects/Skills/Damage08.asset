@@ -40,7 +40,7 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563596
-        _conditions: 1
+        _conditions: 5
     - rid: 4259499536714563596
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

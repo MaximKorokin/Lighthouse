@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelingSystemUI : Singleton<LevelingSystemUI>
+public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
 {
     [SerializeField]
     private Transform _effectsParent;
@@ -18,7 +18,7 @@ public class LevelingSystemUI : Singleton<LevelingSystemUI>
 
     public void DisplayEffects(IEnumerable<EffectPreview> effectPreviews)
     {
-        Game.Pause();
+        GameManager.Pause();
 
         _effectsParent.gameObject.SetActive(true);
         foreach (var effectPreview in effectPreviews)
@@ -49,7 +49,7 @@ public class LevelingSystemUI : Singleton<LevelingSystemUI>
 
     private void OnViewClicked(EffectView view, EffectPreview effectPreview)
     {
-        Game.Resume();
+        GameManager.Resume();
 
         _effectsParent.gameObject.SetActive(false);
         _currentViews.ForEach(EffectViewPool.Return);

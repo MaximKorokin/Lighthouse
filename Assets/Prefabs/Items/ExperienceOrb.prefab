@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  EffectSettings: {fileID: 11400000, guid: 8a8967266c315d84db41ae9ac97ad34c, type: 2}
+  _effectSettings: {fileID: 11400000, guid: 8a8967266c315d84db41ae9ac97ad34c, type: 2}
 --- !u!114 &3867142928487500961
 MonoBehaviour:
   m_ObjectHideFlags: 0
