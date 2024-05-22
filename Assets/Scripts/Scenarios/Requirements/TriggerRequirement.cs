@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class TriggerRequirement : ActRequirement
 {
     [SerializeField]
     private TriggerTarget _triggerTarget;
+    [SerializeField]
+    private TriggerOn _triggerOn;
 
     private TriggeredWorldObjectsCollection _triggeredObjectsCollection;
 
@@ -31,7 +34,11 @@ public class TriggerRequirement : ActRequirement
 
     private void OnTriggered(WorldObject worldObject, bool entered)
     {
-        if (entered)
+        if ((_triggerOn & TriggerOn.Enter) == TriggerOn.Enter && entered)
+        {
+            InvokeFulfilled();
+        }
+        else if ((_triggerOn & TriggerOn.Exit) == TriggerOn.Exit && !entered)
         {
             InvokeFulfilled();
         }
@@ -43,4 +50,11 @@ public class TriggerRequirement : ActRequirement
 public enum TriggerTarget
 {
     Player,
+}
+
+public enum TriggerOn
+{
+    Enter = 1,
+    Exit = 2,
+    Both = 3,
 }
