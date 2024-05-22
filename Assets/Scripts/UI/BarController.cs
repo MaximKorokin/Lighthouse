@@ -139,7 +139,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         obj._currentRatio = _currentRatio;
     }
 
-    private void CopyImage(Image source, Image target)
+    private static void CopyImage(Image source, Image target)
     {
         if (target == null)
         {

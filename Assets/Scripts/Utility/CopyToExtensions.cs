@@ -9,9 +9,14 @@ public static class CopyToExtensions
         {
             return;
         }
+
+        target.localPosition = source.localPosition;
         target.localScale = source.localScale;
-        target.offsetMin = source.offsetMin;
-        target.offsetMax = source.offsetMax;
+        target.sizeDelta = source.sizeDelta;
+        target.anchorMin = source.anchorMin;
+        target.anchorMax = source.anchorMax;
+        target.anchoredPosition = source.anchoredPosition;
+        target.pivot = source.pivot;
     }
 
     public static void CopyTo(this Image source, Image target)

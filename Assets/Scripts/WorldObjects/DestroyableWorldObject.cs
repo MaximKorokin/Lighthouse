@@ -137,7 +137,7 @@ public abstract class DestroyableWorldObject : WorldObject
             return;
         }
 
-        SetAnimatorValue(AnimatorKey.Dead, true);
+        SetAnimatorValue(AnimatorKey.IsDead, true);
 
         IsAlive = false;
         Destroying?.Invoke();

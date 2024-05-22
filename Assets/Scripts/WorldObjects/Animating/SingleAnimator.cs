@@ -82,7 +82,7 @@ public enum AnimatorKey
 {
     Attack = 1,
     Hurt = 2,
-    Dead = 3,
+    IsDead = 3,
     IsMoving = 4,
     HPRatio = 5,
     AttackSpeed = 6,
