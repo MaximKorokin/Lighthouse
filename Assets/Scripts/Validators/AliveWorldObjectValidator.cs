@@ -2,8 +2,7 @@ public class AliveWorldObjectValidator : WorldObjectValidator
 {
     public override bool IsValidTarget(WorldObject worldObject, FactionsRelation relation)
     {
-        var destroyableWorldObject = worldObject as DestroyableWorldObject;
-        if (destroyableWorldObject == null || !destroyableWorldObject.IsAlive)
+        if (worldObject is DestroyableWorldObject destroyable && !destroyable.IsAlive)
         {
             return false;
         }

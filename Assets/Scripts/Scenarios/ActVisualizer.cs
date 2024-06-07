@@ -18,7 +18,7 @@ public class ActVisualizer : MonoBehaviour
 
     private void AddVisualization(ScenarioAct act)
     {
-        if ((_visualizationType & ActVisualizationType.Marker) == ActVisualizationType.Marker)
+        if (_visualizationType.HasFlag(ActVisualizationType.Marker))
         {
             MarkingSystem.AddMarker(act.transform);
         }

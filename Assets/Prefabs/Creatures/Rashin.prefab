@@ -479,7 +479,6 @@ MonoBehaviour:
     - Name: 11
       Value: 0
   <IsDamagable>k__BackingField: 1
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
@@ -496,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3902a68b1357c439f45ddaf11c7faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanControl>k__BackingField: 1
 --- !u!114 &8780682363822004070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 0
-  _triggerOn: 3
+  _triggerOn: 4
 --- !u!114 &9014890507950539100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTargets: -1
+  _validTargets: 3
 --- !u!114 &5518852754763388740
 MonoBehaviour:
   m_ObjectHideFlags: 0

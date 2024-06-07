@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -34,11 +33,11 @@ public class TriggerRequirement : ActRequirement
 
     private void OnTriggered(WorldObject worldObject, bool entered)
     {
-        if ((_triggerOn & TriggerOn.Enter) == TriggerOn.Enter && entered)
+        if (_triggerOn.HasFlag(TriggerOn.Enter) && entered)
         {
             InvokeFulfilled();
         }
-        else if ((_triggerOn & TriggerOn.Exit) == TriggerOn.Exit && !entered)
+        else if (_triggerOn.HasFlag(TriggerOn.Exit) && !entered)
         {
             InvokeFulfilled();
         }

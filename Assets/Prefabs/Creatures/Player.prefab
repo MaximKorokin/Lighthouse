@@ -532,7 +532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &241050426451241158
 Transform:
   m_ObjectHideFlags: 0
@@ -724,7 +724,6 @@ MonoBehaviour:
     - Name: 11
       Value: 2
   <IsDamagable>k__BackingField: 1
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
@@ -741,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3902a68b1357c439f45ddaf11c7faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanControl>k__BackingField: 1
 --- !u!114 &7416560538419184190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 0
-  _triggerOn: 3
+  _triggerOn: 4
 --- !u!114 &7024971320545400970
 MonoBehaviour:
   m_ObjectHideFlags: 0

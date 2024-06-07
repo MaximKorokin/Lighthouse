@@ -63,9 +63,9 @@
 
 #current
 0.1.9
-- Prologue map
-- More enemies
-- More active and passive skills
+- ...Prologue map
+- ...More enemies
+- ...More active and passive skills
 
 #plans
 0.2.0

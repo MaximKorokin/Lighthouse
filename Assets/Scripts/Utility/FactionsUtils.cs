@@ -61,10 +61,11 @@ public enum Faction
     Enemy3 = 32,
 }
 
+[Flags]
 public enum FactionsRelation
 {
     None = 0,
     Ally = 1,
     Neutral = 2,
-    Enemy = 3,
+    Enemy = 4,
 }

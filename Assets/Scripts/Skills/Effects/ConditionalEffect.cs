@@ -22,12 +22,12 @@ public class ConditionalEffect : ComplexEffect
         }
 
         var direction = (Vector2)castState.InitialSource.transform.position - (Vector2)castState.Target.transform.position;
-        if ((_conditions & EffectCondition.InActionRange) == EffectCondition.InActionRange &&
+        if (_conditions.HasFlag(EffectCondition.InActionRange) &&
             castState.InitialSource.ActionRange * castState.InitialSource.ActionRange < direction.sqrMagnitude)
         {
             return false;
         }
-        if ((_conditions & EffectCondition.IsReachable) == EffectCondition.IsReachable &&
+        if (_conditions.HasFlag(EffectCondition.IsReachable) &&
             castState.Target.gameObject.IsReachable(
                 castState.InitialSource.transform.position,
                 direction.normalized,
@@ -35,7 +35,7 @@ public class ConditionalEffect : ComplexEffect
         {
             return false;
         }
-        if ((_conditions & EffectCondition.IsSourceAlive) == EffectCondition.IsSourceAlive &&
+        if (_conditions.HasFlag(EffectCondition.IsSourceAlive) &&
             castState.InitialSource is DestroyableWorldObject destroyable && !destroyable.IsAlive)
         {
             return false;

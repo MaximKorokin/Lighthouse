@@ -1143,9 +1143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7693b277800604b8d0bf1c9e7e3f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PositioningType>k__BackingField: 0
+  <PositioningType>k__BackingField: -1
   <TriggeringType>k__BackingField: 0
-  <Faction>k__BackingField: 0
+  <Faction>k__BackingField: 1
   _stats:
     _stats:
     - Name: 1
@@ -7675,10 +7675,6 @@ PrefabInstance:
     - target: {fileID: 7537639882005055995, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7537639882005055995, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

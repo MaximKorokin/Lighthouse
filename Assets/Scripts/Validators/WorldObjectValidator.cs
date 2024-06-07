@@ -22,27 +22,23 @@ public abstract class WorldObjectValidator : MonoBehaviour
 
     public virtual bool IsValidTarget(WorldObject worldObject, FactionsRelation relation)
     {
-        var isRelationValid = relation switch
-        {
-            FactionsRelation.Ally => WorldObject.Faction.IsAllyTo(worldObject.Faction),
-            FactionsRelation.Neutral => WorldObject.Faction.IsNeutralTo(worldObject.Faction),
-            FactionsRelation.Enemy => WorldObject.Faction.IsEnemyTo(worldObject.Faction),
-            _ => false
-        };
+        var isRelationValid = 
+            relation.HasFlag(FactionsRelation.Neutral) && WorldObject.Faction.IsNeutralTo(worldObject.Faction) ||
+            relation.HasFlag(FactionsRelation.Ally) && WorldObject.Faction.IsAllyTo(worldObject.Faction) ||
+            relation.HasFlag(FactionsRelation.Enemy) && WorldObject.Faction.IsEnemyTo(worldObject.Faction);
 
-        return isRelationValid && worldObject switch
-        {
-            NPC or PlayerCreature => (_validTargets & ValidTarget.Creature) == ValidTarget.Creature,
-            DestroyableWorldObject => (_validTargets & ValidTarget.DestroyableObstacle) == ValidTarget.DestroyableObstacle,
-            _ => false
-        };
+        var isFactionValid = 
+            _validTargets.HasFlag(ValidTarget.Creature) && (worldObject is NPC or PlayerCreature) ||
+            _validTargets.HasFlag(ValidTarget.DestroyableObstacle) && (worldObject is DestroyableObstacle) ||
+            _validTargets.HasFlag(ValidTarget.Obstacle) && (worldObject is Obstacle);
+
+        return isRelationValid && isFactionValid;
     }
 }
 
 [Flags]
 public enum ValidTarget
 {
-    None = 0,
     Creature = 1,
     DestroyableObstacle = 2,
     Obstacle = 4,
