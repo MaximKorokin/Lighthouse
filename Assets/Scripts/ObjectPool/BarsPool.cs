@@ -1,4 +1,4 @@
-﻿class BarsPool : ObjectPool<BarController, BarController>
+﻿class BarsPool : ObjectsPool<BarController, BarController>
 {
     protected override void Initialize(BarController bar, BarController source)
     {

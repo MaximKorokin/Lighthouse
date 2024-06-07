@@ -21,16 +21,36 @@ public class Stats
         }
     }
 
-    public void Modify(Stats other)
+    public event Action Modified;
+
+    public void Modify(Stats other, StatsModificationType modificationType)
     {
-        if (StatsDictionary == null || other.StatsDictionary == null)
+        if (StatsDictionary == null || other == null)
         {
             return;
         }
 
         foreach (var statName in StatsDictionary.Keys.Where(x => other.StatsDictionary.ContainsKey(x)).ToArray())
         {
-            StatsDictionary[statName] += other.StatsDictionary[statName];
+            ModifyStat(statName, other[statName], modificationType);
+        }
+
+        Modified?.Invoke();
+    }
+
+    private void ModifyStat(StatName statName, float statValue, StatsModificationType modificationType)
+    {
+        switch (modificationType)
+        {
+            case StatsModificationType.Set:
+                StatsDictionary[statName] = statValue;
+                break;
+            case StatsModificationType.Increment:
+                StatsDictionary[statName] += statValue;
+                break;
+            case StatsModificationType.Decrement:
+                StatsDictionary[statName] -= statValue;
+                break;
         }
     }
 
@@ -55,4 +75,11 @@ public struct Stat
     public StatName Name;
     [SerializeField]
     public float Value;
+}
+
+public enum StatsModificationType
+{
+    Set,
+    Increment,
+    Decrement,
 }

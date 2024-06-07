@@ -4,7 +4,7 @@ using UnityEngine;
 public class TemporaryWorldObject : MovableWorldObject
 {
     [field: SerializeField]
-    public float LifeTime { get; protected set; }
+    public float LifeTime { get; set; }
 
     protected override void Awake()
     {

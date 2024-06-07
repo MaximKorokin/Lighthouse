@@ -4,9 +4,9 @@ using UnityEngine;
 public abstract class WorldObject : MonoBehaviour
 {
     [field: SerializeField]
-    public PositioningType PositioningType { get; protected set; }
+    public PositioningType PositioningType { get; set; }
     [field: SerializeField]
-    public PositioningType TriggeringType { get; protected set; }
+    public PositioningType TriggeringType { get; set; }
     [field: SerializeField]
     public Faction Faction { get; private set; }
 
@@ -14,7 +14,7 @@ public abstract class WorldObject : MonoBehaviour
 
     [SerializeField]
     private Stats _stats;
-    protected Stats Stats => _stats;
+    public Stats Stats => _stats;
 
     public virtual float ActionRange => Stats[StatName.ActionRange] * Stats[StatName.SizeScale];
     public virtual float AttackSpeed => Stats[StatName.AttackSpeed];
@@ -24,7 +24,7 @@ public abstract class WorldObject : MonoBehaviour
 
     protected virtual void Awake()
     {
-
+        Stats.Modified += OnStatsModified;
     }
 
     private void OnValidate()
@@ -43,14 +43,8 @@ public abstract class WorldObject : MonoBehaviour
         Destroyed?.Invoke();
     }
 
-    public void ModifyStats(Stats otherStats)
-    {
-        Stats.Modify(otherStats);
-        OnStatsModified();
-    }
-
     /// <summary>
-    /// Called on initialization and each time <see cref="ModifyStats"/> is called
+    /// Called on initialization and each time <see cref="Stats.Modify"/> is called
     /// </summary>
     protected virtual void OnStatsModified()
     {

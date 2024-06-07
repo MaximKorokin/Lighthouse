@@ -10,17 +10,17 @@ GameObject:
   m_Component:
   - component: {fileID: 2140693746531350728}
   - component: {fileID: 6890217733997509643}
-  - component: {fileID: 5453227386650948948}
+  - component: {fileID: 1916937086069036047}
   - component: {fileID: 1770973192567836993}
   - component: {fileID: 7123078960929944400}
-  - component: {fileID: 4316505220260097887}
-  - component: {fileID: 3089553073019125008}
+  - component: {fileID: 7461735635080617453}
+  - component: {fileID: 7313172375181996366}
   - component: {fileID: 5597023380158865238}
-  - component: {fileID: -4888402200594630173}
-  - component: {fileID: -5832053135177737166}
-  - component: {fileID: 5655109392601563538}
+  - component: {fileID: -8909341099840797249}
+  - component: {fileID: 3770413621153106002}
+  - component: {fileID: 2476698497534978375}
   m_Layer: 0
-  m_Name: MagicMissile
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 1842881814, guid: 6a34c855ab4b3e14dabb9c022c537572, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06e2fe08318e11249b690dcb7a21ae79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5453227386650948948
+--- !u!58 &1916937086069036047
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +127,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.08
 --- !u!50 &1770973192567836993
 Rigidbody2D:
   serializedVersion: 4
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 1
   <TriggeringType>k__BackingField: -1
-  <Faction>k__BackingField: 2
+  <Faction>k__BackingField: 0
   _stats:
     _stats:
     - Name: 1
@@ -177,16 +177,14 @@ MonoBehaviour:
     - Name: 2
       Value: 1
     - Name: 3
-      Value: 2
-    - Name: 5
-      Value: 0.3
+      Value: 1
   <IsDamagable>k__BackingField: 0
   <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
-  <LifeTime>k__BackingField: 3
---- !u!114 &4316505220260097887
+  <LifeTime>k__BackingField: 5
+--- !u!114 &7461735635080617453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validTargets: 1
---- !u!114 &3089553073019125008
+  _validTargets: 0
+--- !u!114 &7313172375181996366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 0
-  _triggerOn: 3
---- !u!114 &-4888402200594630173
+  _triggerOn: 0
+--- !u!114 &-8909341099840797249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +237,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
   _effectSettings: {fileID: 0}
---- !u!114 &-5832053135177737166
+--- !u!95 &3770413621153106002
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2476698497534978375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,24 +270,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &5655109392601563538
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254378381488008843}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 3b09f16b881830b4aa4d16fc8c203aff, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

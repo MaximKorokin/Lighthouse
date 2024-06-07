@@ -17,7 +17,7 @@ public class ProjectileActor : EffectActor
     private void OnDestroying()
     {
         CastState.Target = WorldObject;
-        _projectileEffect.InvokeEnd(CastState);
+        _projectileEffect?.InvokeEnd(CastState);
     }
 
     protected override void ActInternal(WorldObject worldObject)

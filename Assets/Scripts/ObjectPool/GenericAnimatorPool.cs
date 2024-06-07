@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GenericAnimatorPool : ObjectPool<Animator, AnimationClip>
+public class GenericAnimatorPool : ObjectsPool<Animator, AnimationClip>
 {
     private const string IsActingKey = "IsActing";
     private const string ActionAnimationName = "Action";

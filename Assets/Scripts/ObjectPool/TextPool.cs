@@ -1,6 +1,6 @@
 ﻿using TMPro;
 
-class TextPool : ObjectPool<TMP_Text, TMP_Text>
+class TextPool : ObjectsPool<TMP_Text, TMP_Text>
 {
     protected override void Initialize(TMP_Text text, TMP_Text _)
     {

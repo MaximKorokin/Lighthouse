@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 57380985}
   - component: {fileID: 57380984}
   - component: {fileID: 57380983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SolidWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3147,7 +3147,7 @@ GameObject:
   - component: {fileID: 587479076}
   - component: {fileID: 587479075}
   - component: {fileID: 587479074}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SolidWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

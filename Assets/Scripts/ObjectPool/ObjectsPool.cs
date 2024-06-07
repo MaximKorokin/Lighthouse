@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjectPool<T, P> : MonoBehaviorSingleton<ObjectPool<T, P>> where T : Component
+public abstract class ObjectsPool<T, P> : MonoBehaviorSingleton<ObjectsPool<T, P>> where T : Component
 {
     [field: SerializeField]
     protected T Object { get; private set; }

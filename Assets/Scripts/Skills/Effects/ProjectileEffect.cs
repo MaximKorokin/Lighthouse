@@ -27,16 +27,6 @@ public class ProjectileEffect : EndingEffect
     }
 
     /// <summary>
-    /// Calls Invoke method of base class. Should be called outside.
-    /// </summary>
-    /// <param name="source"></param>
-    /// <param name="target"></param>
-    public void InvokeEffects(CastState castState)
-    {
-        base.Invoke(castState);
-    }
-
-    /// <summary>
     /// If <paramref name="source"/> == <paramref name="target"/> it will try to find a new target.
     /// If no target found, it will not do anything.
     /// </summary>

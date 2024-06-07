@@ -17,7 +17,7 @@ public abstract class WorldObjectValidator : MonoBehaviour
         {
             if (_worldObject == null) _worldObject = GetComponent<WorldObject>();
             return _worldObject;
-        }
+        } 
     }
 
     public virtual bool IsValidTarget(WorldObject worldObject, FactionsRelation relation)
@@ -45,4 +45,5 @@ public enum ValidTarget
     None = 0,
     Creature = 1,
     DestroyableObstacle = 2,
+    Obstacle = 4,
 }

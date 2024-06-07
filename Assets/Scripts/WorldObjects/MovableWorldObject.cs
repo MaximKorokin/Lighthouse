@@ -7,9 +7,9 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     public const float MoveSpeedModifier = 2f;
 
     [field: SerializeField]
-    public bool CanRotate { get; protected set; }
+    public bool CanRotate { get; set; }
     [field: SerializeField]
-    public bool CanFlip { get; protected set; }
+    public bool CanFlip { get; set; }
 
     public Vector2 Direction
     {
@@ -28,7 +28,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     private Rigidbody2D _rigidbody;
     private LayerMask _rigidbodyExcludeLayerMask;
     private bool _previousFlipX;
-    private float _speed;
+    private float _currentMoveSpeed;
 
     public event Action<bool> Flipped;
     public event Action<Vector2> DirectionSet;
@@ -59,7 +59,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         if (IsMoving)
         {
             //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
-            _rigidbody.velocity = _speed * MoveSpeedModifier * Direction;
+            _rigidbody.velocity = _currentMoveSpeed * MoveSpeedModifier * Direction;
         }
     }
 
@@ -70,7 +70,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public virtual void Move(float speedOverride = -1)
     {
-        _speed = speedOverride < 0 ? Stats[StatName.MoveSpeed] : speedOverride;
+        _currentMoveSpeed = speedOverride < 0 ? Stats[StatName.MoveSpeed] : speedOverride;
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
     }

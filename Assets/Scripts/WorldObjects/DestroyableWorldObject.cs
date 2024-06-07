@@ -6,9 +6,9 @@ public abstract class DestroyableWorldObject : WorldObject
     [field: SerializeField]
     public bool IsDamagable { get; set; } = true;
     [field: SerializeField]
+    public float DestroyTime { get; set; }
+
     public bool IsAlive { get; private set; } = true;
-    [field: SerializeField]
-    public float DestroyTime { get; private set; }
 
     public float MaxHealthPoints => Stats[StatName.MaxHealthPoints];
     public float MaxShieldValue => Stats[StatName.MaxShield];

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
+    [field: SerializeField]
     public bool CanControl { get; set; } = true;
 
     protected WorldObject WorldObject { get; private set; }

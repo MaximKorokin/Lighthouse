@@ -1,4 +1,4 @@
-﻿class EffectViewPool : ObjectPool<EffectView, EffectPreview>
+﻿class EffectViewPool : ObjectsPool<EffectView, EffectPreview>
 {
     protected override void Initialize(EffectView view, EffectPreview param)
     {
