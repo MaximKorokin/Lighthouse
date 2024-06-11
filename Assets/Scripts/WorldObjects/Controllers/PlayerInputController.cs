@@ -15,7 +15,7 @@ public class PlayerInputController : TriggerController
         _playerInputActor = GetComponent<PlayerInputActor>();
 
         _movable.Direction = _direction;
-        InputManager.MoveVectorChanged += OnMoveVectorChanged;
+        InputReader.MoveInputRecieved += OnMoveVectorChanged;
     }
 
     protected override void Trigger(WorldObject worldObject, bool entered) { }
@@ -32,17 +32,14 @@ public class PlayerInputController : TriggerController
             return;
         }
 
-        if (_movable.Direction != _direction)
+        _movable.Direction = _direction;
+        if (_direction == Vector2.zero)
         {
-            _movable.Direction = _direction;
-            if (_direction == Vector2.zero)
-            {
-                _movable.Stop();
-            }
-            else
-            {
-                _movable.Move();
-            }
+            _movable.Stop();
+        }
+        else
+        {
+            _movable.Move();
         }
 
         if (TriggeredWorldObjects.Any())
@@ -53,11 +50,12 @@ public class PlayerInputController : TriggerController
         if (_playerInputActor != null)
         {
             _playerInputActor.UseActiveSkill(WorldObject);
+            _playerInputActor.UseMoveSkill(WorldObject);
         }
     }
 
     private void OnDestroy()
     {
-        InputManager.MoveVectorChanged -= OnMoveVectorChanged;
+        InputReader.MoveInputRecieved -= OnMoveVectorChanged;
     }
 }

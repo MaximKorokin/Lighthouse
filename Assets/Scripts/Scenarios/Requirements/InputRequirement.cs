@@ -5,8 +5,8 @@
     private void Awake()
     {
         _anyKeyClicked = false;
-        InputManager.AnyKeyClicked -= OnAnyKeyClicked;
-        InputManager.AnyKeyClicked += OnAnyKeyClicked;
+        InputReader.AnyKeyClicked -= OnAnyKeyClicked;
+        InputReader.AnyKeyClicked += OnAnyKeyClicked;
     }
 
     private void OnAnyKeyClicked()
@@ -22,7 +22,7 @@
 
     private void OnDestroy()
     {
-        InputManager.AnyKeyClicked -= OnAnyKeyClicked;
+        InputReader.AnyKeyClicked -= OnAnyKeyClicked;
     }
 
     public override string IconName => "Input";

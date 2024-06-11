@@ -532,7 +532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &241050426451241158
 Transform:
   m_ObjectHideFlags: 0
@@ -826,6 +826,7 @@ MonoBehaviour:
   _effectsSettings:
   - {fileID: 11400000, guid: 0c8f1c1812c870f469f40323b8ce9264, type: 2}
   _activeEffectSettings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
+  _moveEffectSettings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
 --- !u!114 &3676242523460579892
 MonoBehaviour:
   m_ObjectHideFlags: 0

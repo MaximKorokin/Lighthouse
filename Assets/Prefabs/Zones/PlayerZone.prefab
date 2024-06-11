@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerType: 0
-  _triggerOn: 3
+  _triggerOn: 4
 --- !u!114 &4775625874383946485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  EffectSettings: {fileID: 0}
+  _effectSettings: {fileID: 0}
 --- !u!114 &3955326340313482173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24a5b7999b4c334987053506ced0754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanControl>k__BackingField: 1
 --- !u!114 &-4205010632983814517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +178,6 @@ MonoBehaviour:
     - Name: 7
       Value: 1
   <IsDamagable>k__BackingField: 0
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
