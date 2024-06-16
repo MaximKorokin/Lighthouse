@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 9014890507950539100}
   - component: {fileID: 5518852754763388740}
   - component: {fileID: 6509048060926399744}
-  - component: {fileID: 5957262474769838283}
+  - component: {fileID: 5769142195166632743}
   - component: {fileID: 1623174105441629562}
   - component: {fileID: 792045906607730162}
   - component: {fileID: 2189691964686447022}
@@ -552,7 +552,7 @@ MonoBehaviour:
   _speed: 3
   _outrunningValue: 1
   _priority: 20
---- !u!114 &5957262474769838283
+--- !u!114 &5769142195166632743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,14 +561,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8873908040075855237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c874f4f7959a84cb8153f219a81df3, type: 3}
+  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  _effectsSettings:
-  - {fileID: 11400000, guid: 00e9c160590802b42955c8eb415ec0dd, type: 2}
-  _activeEffectSettings: {fileID: 11400000, guid: 0c8f1c1812c870f469f40323b8ce9264, type: 2}
-  _moveEffectSettings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
+  _effectsSettings: []
+  _skills:
+  - _settings: {fileID: 11400000, guid: 00e9c160590802b42955c8eb415ec0dd, type: 2}
+    _condition: 256
+  - _settings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
+    _condition: 2
 --- !u!114 &1623174105441629562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
+  _skillIndex: 0
   _barParent: {fileID: 8296220764867255667}
 --- !u!114 &7609296278093717242
 MonoBehaviour:

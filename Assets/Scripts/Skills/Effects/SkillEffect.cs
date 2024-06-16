@@ -3,7 +3,7 @@ using UnityEngine;
 public class SkillEffect : Effect
 {
     [field: SerializeField]
-    public EffectSettings Skill { get; private set; }
+    public Skill Skill { get; private set; }
 
     public override void Invoke(CastState castState)
     {

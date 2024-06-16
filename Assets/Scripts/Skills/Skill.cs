@@ -1,28 +1,63 @@
-public class Skill
+using System;
+using System.Linq;
+using UnityEngine;
+
+[Serializable]
+public class Skill : IInitializable
 {
-    private readonly Effect[] _effects;
-    public readonly CooldownCounter CooldownCounter;
+    [SerializeField]
+    private EffectSettings _settings;
+    [SerializeField]
+    private SkillCondition _condition;
 
-    private bool _inputRecieved;
+    private Effect[] _effects;
+    public CooldownCounter CooldownCounter;
+    private Func<WorldObject, WorldObject, bool> _conditionPredicate;
 
-    public Skill(EffectSettings settings)
+    public void Initialize()
     {
-        _effects = settings.GetEffects();
-        CooldownCounter = new CooldownCounter(settings.Cooldown);
+        if (_settings == null)
+        {
+            return;
+        }
+        _effects = _settings.GetEffects();
+        CooldownCounter = new CooldownCounter(_settings.Cooldown);
         CooldownCounter.Reset();
+
+        if (_condition.HasFlag(SkillCondition.ActiveAbilityInputRecieved))
+        {
+            _conditionPredicate += (s, t) => InputReader.ActiveAbilityInputRecieved.HasOccured;
+        }
+        if (_condition.HasFlag(SkillCondition.MoveAbilityInputRecieved))
+        {
+            _conditionPredicate += (s, t) => InputReader.MoveAbilityInputRecieved.HasOccured;
+        }
+
+        if (_condition.HasFlag(SkillCondition.HasTriggeredTargets))
+        {
+            _conditionPredicate += (s, t) => s.TryGetComponent<TriggerController>(out var triggerController) && triggerController.TriggeredWorldObjects.Any();
+        }
+
+        if (_condition.HasFlag(SkillCondition.TargetAboveHalfActionRange))
+        {
+            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) > s.Stats[StatName.ActionRange] / 2;
+        }
+        if (_condition.HasFlag(SkillCondition.TargetBelowHalfActionRange))
+        {
+            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) < s.Stats[StatName.ActionRange] / 2;
+        }
     }
 
     public void Invoke(WorldObject source, float divider = 1) => Invoke(source, source, divider);
 
     public void Invoke(WorldObject source, WorldObject target, float divider = 1)
     {
-        if (!_inputRecieved)
+        if (_conditionPredicate != null && !_conditionPredicate.Invoke(source, target))
         {
             return;
         }
-        _inputRecieved = false;
 
-        if (!CooldownCounter.TryReset(divider))
+        if (CooldownCounter == null || !CooldownCounter.TryReset(divider))
         {
             return;
         }
@@ -32,9 +67,16 @@ public class Skill
             effect.Invoke(new CastState(source, source, target));
         }
     }
+}
 
-    public void OnInputRecieved()
-    {
-        _inputRecieved = true;
-    }
+[Flags]
+public enum SkillCondition
+{
+    ActiveAbilityInputRecieved = 1,
+    MoveAbilityInputRecieved = 2,
+
+    HasTriggeredTargets = 64,
+
+    TargetAboveHalfActionRange = 256,
+    TargetBelowHalfActionRange = 512,
 }

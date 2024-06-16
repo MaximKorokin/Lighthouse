@@ -64,6 +64,7 @@ public class Stats
         set
         {
             StatsDictionary[name] = value;
+            Modified?.Invoke();
         }
     }
 }

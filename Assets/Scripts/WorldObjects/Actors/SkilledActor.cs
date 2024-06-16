@@ -1,19 +1,18 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(DestroyableWorldObject))]
 public class SkilledActor : ActorBase
 {
     [SerializeField]
-    private List<EffectSettings> _effectsSettings;
-
     private List<Skill> _skills;
+
+    public IEnumerable<Skill> Skills => _skills;
 
     protected override void Awake()
     {
         base.Awake();
-        _skills = _effectsSettings.Select(x => new Skill(x)).ToList();
+        _skills.ForEach(x => x.Initialize());
     }
 
     protected override void ActInternal(WorldObject worldObject)
@@ -27,12 +26,12 @@ public class SkilledActor : ActorBase
 
     }
 
-    public void AddSkill(EffectSettings settings)
+    public void AddSkill(Skill skill)
     {
-        if (_effectsSettings.Contains(settings))
+        if (_skills.Contains(skill))
         {
             return;
         }
-        _skills.Add(new Skill(settings));
+        _skills.Add(skill);
     }
 }

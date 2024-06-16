@@ -9,7 +9,7 @@
         InputReader.AnyKeyClicked += OnAnyKeyClicked;
     }
 
-    private void OnAnyKeyClicked()
+    private void OnAnyKeyClicked(bool _)
     {
         _anyKeyClicked = true;
         InvokeFulfilled();

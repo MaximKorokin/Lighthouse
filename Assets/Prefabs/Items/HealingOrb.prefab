@@ -130,7 +130,6 @@ MonoBehaviour:
     - Name: 2
       Value: 1
   <IsDamagable>k__BackingField: 0
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
@@ -212,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed2f51595f0a34391e2feb30c8e998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanControl>k__BackingField: 1
   _drag: 0.1
 --- !u!95 &3454752445968733899
 Animator:

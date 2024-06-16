@@ -380,10 +380,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  _effectsSettings:
-  - {fileID: 11400000, guid: a02a9888357734a438e4d4442bd961f4, type: 2}
-  - {fileID: 11400000, guid: cc741e8f20656294f9b388cb45036f41, type: 2}
-  - {fileID: 11400000, guid: 6c7c5363057e0e84a99e938293906fac, type: 2}
+  _effectsSettings: []
+  _skills:
+  - _settings: {fileID: 11400000, guid: cc741e8f20656294f9b388cb45036f41, type: 2}
+    _condition: 0
+  - _settings: {fileID: 11400000, guid: a02a9888357734a438e4d4442bd961f4, type: 2}
+    _condition: 512
+  - _settings: {fileID: 11400000, guid: 6c7c5363057e0e84a99e938293906fac, type: 2}
+    _condition: 256
 --- !u!114 &1887583048410395116
 MonoBehaviour:
   m_ObjectHideFlags: 0

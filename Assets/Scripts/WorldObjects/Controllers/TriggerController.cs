@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class TriggerController : ControllerBase
 {
     private TriggeredWorldObjectsCollection _triggeredWorldObjectsCollection;
-    protected IEnumerable<WorldObject> TriggeredWorldObjects => _triggeredWorldObjectsCollection;
+    public IEnumerable<WorldObject> TriggeredWorldObjects => _triggeredWorldObjectsCollection;
 
     protected override void Awake()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 public abstract class InputReader : MonoBehaviour
 {
     #region static
+    private static readonly object _eventsInvoker = new();
+
     public static bool _isControlInputBlocked;
     public static bool IsControlInputBlocked
     {
@@ -12,7 +14,7 @@ public abstract class InputReader : MonoBehaviour
         {
             if (_isControlInputBlocked != value)
             {
-                if (value) MoveInputRecieved?.Invoke(Vector2.zero);
+                if (value) MoveInputRecieved?.Invoke(_eventsInvoker, Vector2.zero);
 
                 InputBlockChanging?.Invoke(value);
                 _isControlInputBlocked = value;
@@ -22,10 +24,10 @@ public abstract class InputReader : MonoBehaviour
 
     public static event Action<bool> InputBlockChanging;
 
-    public static event Action AnyKeyClicked;
-    public static event Action<Vector2> MoveInputRecieved;
-    public static event Action ActiveAbilityInputRecieved;
-    public static event Action MoveAbilityInputRecieved;
+    public static FrameBoundEvent<bool> AnyKeyClicked = new(_eventsInvoker);
+    public static FrameBoundEvent<Vector2> MoveInputRecieved = new(_eventsInvoker);
+    public static FrameBoundEvent<bool> ActiveAbilityInputRecieved = new(_eventsInvoker);
+    public static FrameBoundEvent<bool> MoveAbilityInputRecieved = new(_eventsInvoker);
     #endregion
 
     private Vector2 _moveInput = new();
@@ -40,25 +42,25 @@ public abstract class InputReader : MonoBehaviour
         {
             return;
         }
-
+        
         if (Input.anyKeyDown || Input.touchCount > 0)
         {
-            AnyKeyClicked?.Invoke();
+            AnyKeyClicked?.Invoke(_eventsInvoker, true);
         }
 
         if (TryGetMoveVectorInput(out var moveInput))
         {
-            MoveInputRecieved?.Invoke(moveInput);
+            MoveInputRecieved?.Invoke(_eventsInvoker, moveInput);
         }
 
         if (IsActiveAbilityUsed())
         {
-            ActiveAbilityInputRecieved?.Invoke();
+            ActiveAbilityInputRecieved?.Invoke(_eventsInvoker, true);
         }
 
         if (IsMoveAbilityUsed())
         {
-            MoveAbilityInputRecieved?.Invoke();
+            MoveAbilityInputRecieved?.Invoke(_eventsInvoker, true);
         }
     }
 
