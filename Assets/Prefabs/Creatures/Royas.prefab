@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
   _skills:
-  - _settings: {fileID: 11400000, guid: a5d113fb375fdb54fa867d543a850823, type: 2}
+  - _settings: {fileID: 11400000, guid: c0230ab703768e544ac22f57b417ebc8, type: 2}
     _condition: 0
   - _settings: {fileID: 11400000, guid: fe187b10f86da3642978ce102a73dbe8, type: 2}
     _condition: 512
