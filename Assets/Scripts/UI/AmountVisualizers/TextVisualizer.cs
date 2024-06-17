@@ -4,8 +4,6 @@ using TMPro;
 
 public abstract class TextVisualizer : MonoBehaviour
 {
-    [SerializeField]
-    private bool _useSingle;
     [Header("Multiple")]
     [SerializeField]
     private float _showTime;
@@ -14,31 +12,10 @@ public abstract class TextVisualizer : MonoBehaviour
     [SerializeField]
     private Vector2 _verticalRandomMovementRange;
 
-    private TMP_Text _singleText;
-
-    protected virtual void Start()
-    {
-        if (_useSingle)
-        {
-            _singleText = TextPool.Take(null);
-        }
-    }
-
-    protected virtual void OnDestroy()
-    {
-        if (_singleText != null)
-        {
-            TextPool.Return(_singleText);
-        }
-    }
-
     public virtual TMP_Text VisualizeText(string visualizeString)
     {
-        var text = _useSingle ? _singleText : TextPool.Take(null);
-        if (!_useSingle)
-        {
-            StartCoroutine(TextLifetimeCoroutine(text));
-        }
+        var text = TextPool.Take(null);
+        text.StartCoroutine(TextLifetimeCoroutine(text));
 
         if (double.TryParse(visualizeString, out var result))
         {

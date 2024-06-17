@@ -27,9 +27,15 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 834406557198581762
+        - rid: 834406557198581764
         _redirectTo: 2
     - rid: 834406557198581762
       type: {class: EscapingDashEffect, ns: , asm: Assembly-CSharp}
       data:
-        OverrideTime: 1
-        _speed: 3
+        OverrideTime: 0.6
+        _speed: 2
+    - rid: 834406557198581764
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 9

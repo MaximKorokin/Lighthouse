@@ -11,9 +11,8 @@ class HPChangeTextVisualizer : TextVisualizer
 
     protected DestroyableWorldObject WorldObject { get; private set; }
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         WorldObject = GetComponent<DestroyableWorldObject>();
         WorldObject.HealthPointsChanged += VisualizeHPChange;
     }

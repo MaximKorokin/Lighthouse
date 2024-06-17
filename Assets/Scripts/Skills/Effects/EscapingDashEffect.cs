@@ -6,6 +6,6 @@ public class EscapingDashEffect : DashEffect
     {
         var escapeDirection = castState.Source.transform.position - castState.Target.transform.position;
 
-        return escapeDirection;
+        return escapeDirection.normalized;
     }
 }
