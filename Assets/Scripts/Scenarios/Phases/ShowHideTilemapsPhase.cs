@@ -1,57 +1,48 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class ShowHideTilemapsPhase : ActPhase
 {
     [SerializeField]
-    private Tilemap[] _tilemaps;
+    private Tilemap[] _tilemapsToShow;
+    [SerializeField]
+    private Tilemap[] _tilemapsToHide;
     [SerializeField]
     private float _time;
-    [SerializeField]
-    private bool _show;
 
     public override void Invoke()
     {
         if (_time == 0)
         {
-            foreach (var tilemap in _tilemaps)
+            foreach (var tilemap in _tilemapsToShow)
             {
-                if (_show)
-                {
-                    tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 1);
-                }
-                else
-                {
-                    tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0);
-                }
+                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 1);
             }
-
+            foreach (var tilemap in _tilemapsToHide)
+            {
+                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0);
+            }
             InvokeEnded();
         }
         else
         {
-            StartCoroutine(TransitionCoroutine());
+            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.Instance.StartUniqueCoroutine(x, TransitionCoroutine(x, 1, 1)));
+            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.Instance.StartUniqueCoroutine(x, TransitionCoroutine(x, 0, -1)));
         }
     }
 
-    private IEnumerator TransitionCoroutine()
+    private IEnumerator TransitionCoroutine(Tilemap tilemap, float targetAlpha, float stepMultiplier)
     {
-        var targetAlpha = _show ? 1 : 0;
-        var stepMultiplier = _show ? 1 : -1;
-        while (_tilemaps.Any(x => x.color.a != targetAlpha))
+        while (tilemap.color.a != targetAlpha)
         {
-            foreach (var tilemap in _tilemaps)
-            {
-                var step = stepMultiplier / _time * Time.deltaTime;
-                var newAlpha = Mathf.Clamp01(tilemap.color.a + step);
-                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
-            }
+            var step = stepMultiplier / _time * Time.deltaTime;
+            var newAlpha = Mathf.Clamp01(tilemap.color.a + step);
+            tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
             yield return new WaitForEndOfFrame();
         }
+        InvokeEnded();
     }
 
     public override string IconName => "Eye.png";
-    public override Color IconColor => _show ? MyColors.Green : MyColors.Red;
 }
