@@ -14,6 +14,8 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
 
     public CameraMovementPriority MinPriority { get; set; } = CameraMovementPriority.Low;
 
+    public event Action<Vector2, Vector2> PositionChanged;
+
     protected override void Awake()
     {
         _camera = GetComponent<Camera>();
@@ -60,7 +62,9 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
                 _destination,
                 _speed * factor);
         }
+        var oldPosition = _camera.transform.position;
         _camera.transform.position = new Vector3(newPosition.x, newPosition.y, _destination.z + _zDifference);
+        PositionChanged?.Invoke(oldPosition, _camera.transform.position);
     }
 
     public void SetMovement(Vector3 destination, float speed, bool smooth, CameraMovementPriority priority, Action callback = null)

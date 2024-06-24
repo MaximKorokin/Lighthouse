@@ -10,15 +10,12 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private CameraMovementPriority _priority;
 
-    private MainCameraController _mainCamera;
     private MovableWorldObject _movableWorldObject;
 
     private void Start()
     {
         _movableWorldObject = GetComponent<MovableWorldObject>();
         _movableWorldObject.DirectionSet += OnDirectionSet;
-
-        _mainCamera = MainCameraController.Instance;
     }
 
     private void OnDirectionSet(Vector2 obj)
@@ -37,6 +34,6 @@ public class CameraFollow : MonoBehaviour
 
     private void SetMovement()
     {
-        _mainCamera.SetMovement(transform.position + (Vector3)_movableWorldObject.Direction * _outrunningValue, _speed, true, _priority);
+        MainCameraController.Instance.SetMovement(transform.position + (Vector3)_movableWorldObject.Direction * _outrunningValue, _speed, true, _priority);
     }
 }
