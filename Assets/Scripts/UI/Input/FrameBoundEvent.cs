@@ -12,7 +12,10 @@ public class FrameBoundEvent<T>
         _invoker = invoker;
     }
 
-    public bool HasOccured => _invokeFrame == Time.frameCount;
+    /// <summary>
+    /// Returns True if <see cref="Invoke"/> was called this or previous frame
+    /// </summary>
+    public bool HasOccured => _invokeFrame + 1 >= Time.frameCount;
 
     public void Invoke(object invoker, T val)
     {

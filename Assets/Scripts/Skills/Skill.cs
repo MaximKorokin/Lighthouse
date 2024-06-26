@@ -48,8 +48,6 @@ public class Skill : IInitializable
         }
     }
 
-    public void Invoke(WorldObject source, float divider = 1) => Invoke(source, source, divider);
-
     public void Invoke(WorldObject source, WorldObject target, float divider = 1)
     {
         if (_conditionPredicate != null && !_conditionPredicate.Invoke(source, target))

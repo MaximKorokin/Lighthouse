@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
-    public const float MoveSpeedModifier = 2f;
-
     [field: SerializeField]
     public bool CanRotate { get; set; }
     [field: SerializeField]
@@ -59,7 +57,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         if (IsMoving)
         {
             //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
-            _rigidbody.velocity = _currentMoveSpeed * MoveSpeedModifier * Direction;
+            _rigidbody.velocity = _currentMoveSpeed * Direction;
         }
     }
 

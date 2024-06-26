@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class MoveOverrideEffect : ControllerOverrideEffect
 {
     [SerializeField]
-    private float _speed;
+    protected float Speed;
 
     protected override void StartOverride(CastState castState)
     {
@@ -30,7 +30,7 @@ public abstract class MoveOverrideEffect : ControllerOverrideEffect
         while (Time.time < endTime)
         {
             movable.Direction = direction;
-            movable.Move(_speed);
+            movable.Move(Speed);
             yield return new WaitForFixedUpdate();
         }
     }
