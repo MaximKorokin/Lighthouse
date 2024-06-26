@@ -3,7 +3,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     [SerializeField]
-    private float _movementScale;
+    private Vector2 _movementScale;
 
     private void Start()
     {
@@ -12,7 +12,7 @@ public class Parallax : MonoBehaviour
 
     private void OnCameraPositionChanged(Vector2 oldPosition, Vector2 newPosition)
     {
-        var positionDelta = newPosition.x - oldPosition.x;
-        transform.position += _movementScale * positionDelta * Vector3.right;
+        var positionDelta = newPosition - oldPosition;
+        transform.position += Vector3.Scale(positionDelta, _movementScale);
     }
 }

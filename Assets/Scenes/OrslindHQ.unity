@@ -2349,7 +2349,7 @@ Tilemap:
       - {fileID: 651570362, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1445180179, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -835631756, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 0, z: 0}
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: 0.7
+  _movementScale: {x: 0.7, y: 0}
 --- !u!1 &403373190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,7 +3961,7 @@ Tilemap:
       - {fileID: 419420772, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -63647013, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1048332419, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: 1, z: 0}
@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: 0.6
+  _movementScale: {x: 0.8, y: 0}
 --- !u!1 &505322675
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: 0.9
+  _movementScale: {x: 0.9, y: 0.2}
 --- !u!1 &614990600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5470,7 +5470,7 @@ Tilemap:
       - {fileID: 443318406, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1282018313, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1334756407, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 0, y: 0, z: 0}
@@ -5811,7 +5811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: 0.8
+  _movementScale: {x: 0.6, y: 0}
 --- !u!1 &1001785002
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,7 +7599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: 1
+  _movementScale: {x: 1, y: 0}
 --- !u!1 &2108987803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7611,7 +7611,7 @@ GameObject:
   - component: {fileID: 2108987805}
   - component: {fileID: 2108987804}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Parallax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
