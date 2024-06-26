@@ -44,6 +44,6 @@ public abstract class ObjectsPool<T, P> : MonoBehaviorSingleton<ObjectsPool<T, P
         obj.gameObject.SetActive(false);
     }
 
-    protected abstract void Initialize(T obj, P param);
+    protected abstract void Initialize(T obj, P parameter);
     protected abstract void Deinitialize(T obj);
 }

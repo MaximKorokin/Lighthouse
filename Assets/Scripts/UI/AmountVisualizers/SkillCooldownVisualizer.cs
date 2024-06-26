@@ -26,7 +26,7 @@ public class SkillCooldownVisualizer : BarAmountVisualizer
     {
         if (_cooldownCounter != null && _cooldownCounter.Cooldown >= _cooldownCounter.TimeSinceReset)
         {
-            VisualizeAmount(_cooldownCounter.TimeSinceReset, _cooldownCounter.Cooldown);
+            VisualizeAmount(_cooldownCounter.TimeSinceReset, _cooldownCounter.TimeSinceReset, _cooldownCounter.Cooldown);
         }
     }
 }

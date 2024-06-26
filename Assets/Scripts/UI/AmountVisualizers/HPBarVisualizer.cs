@@ -9,6 +9,6 @@ public abstract class HPBarVisualizer : BarAmountVisualizer
     {
         base.Awake();
         WorldObject = GetComponent<DestroyableWorldObject>();
-        WorldObject.HealthPointsChanged += (prev, cur, max) => VisualizeAmount(cur, max);
+        WorldObject.HealthPointsChanged += (prev, cur, max) => VisualizeAmount(prev, cur, max);
     }
 }

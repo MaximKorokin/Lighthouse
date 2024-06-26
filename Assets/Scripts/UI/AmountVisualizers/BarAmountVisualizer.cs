@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class BarAmountVisualizer : MonoBehaviour, IInitializable<BarAmountVisualizer>
+public abstract class BarAmountVisualizer : AmountVisualizerBase, IInitializable<BarAmountVisualizer>
 {
     [SerializeField]
     private BarController _barControllerPrefab;
@@ -23,7 +23,7 @@ public abstract class BarAmountVisualizer : MonoBehaviour, IInitializable<BarAmo
     public void Initialize()
     {
         BarController = BarsPool.Take(_barControllerPrefab);
-        VisualizeAmount(1, 1);
+        VisualizeAmount(1, 1, 1);
         Initialized?.Invoke(this);
     }
 
@@ -32,11 +32,11 @@ public abstract class BarAmountVisualizer : MonoBehaviour, IInitializable<BarAmo
         ReturnBar();
     }
 
-    public virtual void VisualizeAmount(float value, float max)
+    public override void VisualizeAmount(float prev, float cur, float max)
     {
         if (BarController != null)
         {
-            BarController.SetFillRatio(max > 0 ? (value / max) : 0);
+            BarController.SetFillRatio(max > 0 ? (cur / max) : 0);
         }
     }
 

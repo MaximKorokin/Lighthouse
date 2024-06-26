@@ -21,8 +21,7 @@ public static class WorldObjectsInteractionUtils
 
     public static bool IsValidTarget(this WorldObject worldObject, WorldObject source, FactionsRelation relation)
     {
-        var validator = source.GetComponent<WorldObjectValidator>();
-        if (validator == null)
+        if (!source.TryGetComponent<WorldObjectValidator>(out var validator))
         {
             return true;
         }

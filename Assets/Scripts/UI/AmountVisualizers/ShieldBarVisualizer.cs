@@ -9,6 +9,6 @@ public abstract class ShieldBarVisualizer : BarAmountVisualizer
     {
         base.Awake();
         WorldObject = GetComponent<DestroyableWorldObject>();
-        WorldObject.ShieldValueChanged += (prev, cur, max) => VisualizeAmount(cur, max);
+        WorldObject.ShieldValueChanged += (prev, cur, max) => VisualizeAmount(prev, cur, max);
     }
 }

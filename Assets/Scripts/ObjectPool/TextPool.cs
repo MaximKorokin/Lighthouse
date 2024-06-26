@@ -12,7 +12,7 @@ class TextPool : ObjectsPool<TMP_Text, TMP_Text>
         text.gameObject.SetActive(true);
     }
 
-    protected override void Deinitialize(TMP_Text bar)
+    protected override void Deinitialize(TMP_Text text)
     {
 
     }

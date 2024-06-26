@@ -16,11 +16,11 @@ class TimerVisualizer : BarAmountVisualizer
     {
         if (_timer != null)
         {
-            _timer.Ticked -= VisualizeAmount;
+            _timer.Ticked -= OnTimerTicked;
         }
         _timer = timer;
-        _timer.Ticked -= VisualizeAmount;
-        _timer.Ticked += VisualizeAmount;
+        _timer.Ticked -= OnTimerTicked;
+        _timer.Ticked += OnTimerTicked;
     }
 
     protected override void OnDestroy()
@@ -28,7 +28,12 @@ class TimerVisualizer : BarAmountVisualizer
         base.OnDestroy();
         if (_timer != null)
         {
-            _timer.Ticked -= VisualizeAmount;
+            _timer.Ticked -= OnTimerTicked;
         }
+    }
+
+    private void OnTimerTicked(float cur, float max)
+    {
+        VisualizeAmount(0, cur, max);
     }
 }

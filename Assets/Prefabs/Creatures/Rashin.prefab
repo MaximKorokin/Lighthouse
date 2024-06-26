@@ -283,6 +283,8 @@ GameObject:
   - component: {fileID: 2189691964686447022}
   - component: {fileID: 8069756656352211100}
   - component: {fileID: 7609296278093717242}
+  - component: {fileID: 844742998062246562}
+  - component: {fileID: 740726156351051180}
   m_Layer: 0
   m_Name: Rashin
   m_TagString: Untagged
@@ -644,3 +646,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &844742998062246562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2950da43fce77184a86d73511830b784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _overlayParameter:
+    Sprite: {fileID: 21300000, guid: 4ccf1f19dfde12646a5bf355105ad935, type: 3}
+    Color: {r: 0.9716981, g: 0, b: 0, a: 0}
+  _hpThreshold: 0.4
+  _minAlpha: 0.05
+  _maxAlpha: 0.2
+  _blinkTime: 1.5
+--- !u!114 &740726156351051180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452c9e8404fddb04c877d986aa1a2d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _overlayParameter:
+    Sprite: {fileID: 21300000, guid: 48a97daa9a48e5a45b96ed1fe155b057, type: 3}
+    Color: {r: 1, g: 0, b: 0, a: 0}
+  _showTime: 0.5
+  _alpha: 0.3

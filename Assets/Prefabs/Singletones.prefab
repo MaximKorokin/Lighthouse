@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1468600060618494540}
   - component: {fileID: 1576417372000684615}
   - component: {fileID: 2694683946699042092}
+  - component: {fileID: 8026765319251604809}
   - component: {fileID: 8144298637956405786}
   m_Layer: 0
   m_Name: Singletones
@@ -103,6 +104,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Object>k__BackingField: {fileID: 3506923594107464452, guid: b94286b2a9795c642ad337ddae7edce0, type: 3}
+--- !u!114 &8026765319251604809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085181546571833547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d21028f113ee3543a876dbca5580958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Object>k__BackingField: {fileID: 4643841290108152186, guid: bc15b4e0cd48b444db5cf8a2bb16092f, type: 3}
 --- !u!114 &8144298637956405786
 MonoBehaviour:
   m_ObjectHideFlags: 0
