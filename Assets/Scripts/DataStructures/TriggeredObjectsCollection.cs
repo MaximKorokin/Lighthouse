@@ -34,6 +34,10 @@ public class TriggeredObjectsCollection<T> : IEnumerable<T>
 
     protected virtual void OnTriggerExited(T obj)
     {
+        if (_additionalCondition != null && !_additionalCondition(obj))
+        {
+            return;
+        }
         TriggeredObjects.Remove(obj);
         Triggered?.Invoke(obj, false);
     }

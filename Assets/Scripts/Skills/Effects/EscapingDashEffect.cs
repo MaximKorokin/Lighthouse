@@ -14,19 +14,20 @@ public class EscapingDashEffect : DashEffect
             new Vector2(0, -1).normalized,
             new Vector2(-1, -1).normalized,
             new Vector2(-1, 0).normalized,
-            new Vector2(-1, 0).normalized
+            new Vector2(-1, 1).normalized
         };
 
     protected override Vector2 GetDirection(CastState castState)
     {
-        return Directions.MaxBy(x => EstimateDirection(x, Speed * OverrideTime, castState));
+        var dangerAngle = Vector2.SignedAngle(Vector2.up, castState.Target.transform.position - castState.Source.transform.position);
+        return Directions.Select(x => x.Rotate(dangerAngle)).MaxBy(x => EstimateDirection(x, Speed * OverrideTime, castState));
     }
 
     private static float EstimateDirection(Vector2 direction, float distance, CastState castState)
     {
         var hits = Physics2D
             .RaycastAll(castState.Source.transform.position, direction, distance)
-            .Where(x => x.collider.gameObject.layer == LayerMask.NameToLayer(Constants.ObstacleLayerName))
+            .Where(x => !x.collider.isTrigger && x.collider.gameObject.layer == LayerMask.NameToLayer(Constants.ObstacleLayerName))
             .ToArray();
 
         var predictedMovement = hits.Length == 0 ? direction * distance :

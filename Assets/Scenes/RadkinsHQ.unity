@@ -12055,7 +12055,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &317854368
 TilemapRenderer:
@@ -28423,7 +28423,7 @@ Tilemap:
       - {fileID: 419420772, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -63647013, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1048332419, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -2, y: -1, z: 0}
@@ -28837,7 +28837,7 @@ Tilemap:
       - {fileID: 419420772, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -63647013, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1048332419, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 0, z: 0}
@@ -29555,7 +29555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: {x: 0.2, y: 0.2}
+  _movementScale: {x: -0.2, y: 0}
 --- !u!1 &614990600
 GameObject:
   m_ObjectHideFlags: 0
@@ -31132,7 +31132,7 @@ Tilemap:
       - {fileID: 443318406, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1282018313, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1334756407, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -1, z: 0}
@@ -31700,7 +31700,7 @@ Transform:
   - {fileID: 839575890}
   - {fileID: 66932395}
   - {fileID: 1532818252}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &976861461
 Tilemap:
@@ -38077,7 +38077,7 @@ Transform:
   - {fileID: 1008647465}
   - {fileID: 1982590299}
   - {fileID: 1570111121}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1071680767
 Tilemap:
@@ -42371,10 +42371,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8069756656352211100, guid: cf07d6c290d2a5047bf2e262bb670afd, type: 3}
-      propertyPath: _skillIndex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8550672845687707803, guid: cf07d6c290d2a5047bf2e262bb670afd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3718661
@@ -42473,14 +42469,6 @@ Transform:
   - {fileID: 331727462}
   - {fileID: 614990601}
   - {fileID: 64814502}
-  - {fileID: 317854367}
-  - {fileID: 1257789243}
-  - {fileID: 1071680766}
-  - {fileID: 1294318702}
-  - {fileID: 1801063919}
-  - {fileID: 2040008963}
-  - {fileID: 976861460}
-  - {fileID: 1846814658}
   - {fileID: 262635685}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42522,7 +42510,7 @@ Transform:
   - {fileID: 692217372}
   - {fileID: 654839478}
   - {fileID: 807567983}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1257789244
 Tilemap:
@@ -44474,7 +44462,7 @@ Transform:
   - {fileID: 719663886}
   - {fileID: 1383268743}
   - {fileID: 1770618260}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1294318703
 Tilemap:
@@ -60660,7 +60648,7 @@ Transform:
   - {fileID: 504313090}
   - {fileID: 236903940}
   - {fileID: 859570836}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1801063920
 Tilemap:
@@ -62162,7 +62150,7 @@ Transform:
   - {fileID: 206605695}
   - {fileID: 2131352054}
   - {fileID: 974917218}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1846814659
 Tilemap:
@@ -63372,6 +63360,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasScaler: {fileID: 1570643762}
+--- !u!1 &1888468632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888468634}
+  - component: {fileID: 1888468633}
+  m_Layer: 0
+  m_Name: FogGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!156049354 &1888468633
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888468632}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!4 &1888468634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888468632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 317854367}
+  - {fileID: 1257789243}
+  - {fileID: 1071680766}
+  - {fileID: 1294318702}
+  - {fileID: 1801063919}
+  - {fileID: 2040008963}
+  - {fileID: 976861460}
+  - {fileID: 1846814658}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903801322
 GameObject:
   m_ObjectHideFlags: 0
@@ -63596,7 +63636,7 @@ Transform:
   - {fileID: 473772982}
   - {fileID: 1977396155}
   - {fileID: 85044445}
-  m_Father: {fileID: 1248458991}
+  m_Father: {fileID: 1888468634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &2040008964
 Tilemap:
@@ -67917,7 +67957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac93be760b3644b8d1b8e1290a731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementScale: {x: 1, y: 0}
+  _movementScale: {x: -0.2, y: 0}
 --- !u!1 &2108987803
 GameObject:
   m_ObjectHideFlags: 0
@@ -68045,6 +68085,7 @@ SceneRoots:
   - {fileID: 275656129}
   - {fileID: 745023183}
   - {fileID: 1248458991}
+  - {fileID: 1888468634}
   - {fileID: 505322676}
   - {fileID: 2108987805}
   - {fileID: 1122352859}

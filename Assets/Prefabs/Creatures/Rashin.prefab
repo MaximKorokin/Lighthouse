@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
-  _skillIndex: 0
+  _skillIndex: 1
   _barParent: {fileID: 8296220764867255667}
 --- !u!114 &7609296278093717242
 MonoBehaviour:
