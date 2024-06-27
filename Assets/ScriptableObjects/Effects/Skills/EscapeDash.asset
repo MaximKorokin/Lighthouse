@@ -32,8 +32,8 @@ MonoBehaviour:
     - rid: 834406557198581762
       type: {class: EscapingDashEffect, ns: , asm: Assembly-CSharp}
       data:
-        OverrideTime: 0.6
-        Speed: 3
+        OverrideTime: 0.7
+        Speed: 4
     - rid: 834406557198581764
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:

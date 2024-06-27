@@ -8,6 +8,11 @@ public class CoroutinesHandler : MonoBehaviorSingleton<CoroutinesHandler>
 
     public void StartUniqueCoroutine(object obj, IEnumerator enumerator)
     {
+        if (Instance == null)
+        {
+            return;
+        }
+
         if (_uniqueCoroutines.TryGetValue(obj, out var coroutine) && coroutine != null)
         {
             StopCoroutine(coroutine);
