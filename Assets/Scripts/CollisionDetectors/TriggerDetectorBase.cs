@@ -1,17 +1,22 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public abstract class TriggerDetectorBase<T> : MonoBehaviour
 {
     [SerializeField]
-    private TriggerType _triggerType;
+    private DetectingVariant[] _variants;
 
     public event Action<T> TriggerEntered;
     public event Action<T> TriggerExited;
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
-        if (ValidateTarget(collider, out var obj))
+        T obj = default;
+        if (_variants.Any(x =>
+            x.TriggerType.IsValidTriggerType(collider) &&
+            TryGetTargetingObject(collider, out obj) &&
+            IsValidTarget(obj, x)))
         {
             TriggerEntered?.Invoke(obj);
         }
@@ -19,27 +24,46 @@ public abstract class TriggerDetectorBase<T> : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D collider)
     {
-        if (ValidateTarget(collider, out var obj))
+        T obj = default;
+        if (_variants.Any(x =>
+            x.TriggerType.IsValidTriggerType(collider) &&
+            TryGetTargetingObject(collider, out obj) &&
+            IsValidTarget(obj, x)))
         {
             TriggerExited?.Invoke(obj);
         }
     }
 
-    protected virtual bool ValidateTarget(Collider2D collision, out T result)
+    protected abstract bool TryGetTargetingObject(Collider2D collision, out T result);
+
+    protected abstract bool IsValidTarget(T obj, DetectingVariant variant);
+
+    public bool IsValidTarget(T obj)
     {
-        result = default;
-        if (collision == null)
-        {
-            Logger.Warn("collision is null");
-            return false;
-        }
-        return (_triggerType == TriggerType.Triggers && collision.isTrigger) ||
-            (_triggerType == TriggerType.Colliders && !collision.isTrigger);
+        return _variants.Any(x => IsValidTarget(obj, x));
     }
 }
 
+[Flags]
 public enum TriggerType
 {
-    Colliders,
-    Triggers
+    Colliders = 1,
+    Triggers = 2,
+}
+
+[Flags]
+public enum ValidTarget
+{
+    Creature = 1,
+    DestroyableObstacle = 2,
+    Obstacle = 4,
+    TemporaryWorldObject = 8,
+}
+
+[Serializable]
+public partial struct DetectingVariant
+{
+    public TriggerType TriggerType;
+    public ValidTarget ValidTargets;
+    public FactionsRelation Relation;
 }

@@ -13,12 +13,11 @@ GameObject:
   - component: {fileID: 5453227386650948948}
   - component: {fileID: 1770973192567836993}
   - component: {fileID: 7123078960929944400}
-  - component: {fileID: 4316505220260097887}
   - component: {fileID: 3089553073019125008}
-  - component: {fileID: 5597023380158865238}
   - component: {fileID: -4888402200594630173}
   - component: {fileID: -5832053135177737166}
   - component: {fileID: 5655109392601563538}
+  - component: {fileID: 5784559971183788074}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Untagged
@@ -185,19 +184,6 @@ MonoBehaviour:
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
   <LifeTime>k__BackingField: 3
---- !u!114 &4316505220260097887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254378381488008843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _validTargets: -1
 --- !u!114 &3089553073019125008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,20 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
---- !u!114 &5597023380158865238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7254378381488008843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 6
+  _priorities: 
 --- !u!114 &-4888402200594630173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +245,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5784559971183788074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 3
+    Relation: 4

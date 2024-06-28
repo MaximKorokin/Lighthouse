@@ -33,6 +33,14 @@ public class Skill : IInitializable
             _conditionPredicate += (s, t) => InputReader.MoveAbilityInputRecieved.HasOccured;
         }
 
+        if (_condition.HasFlag(SkillCondition.HasLPTriggeredTargetsBelowHalfAR))
+        {
+            _conditionPredicate += (s, t) =>
+                s.TryGetComponent<TargetController>(out var targetController) &&
+                targetController.TriggeredWorldObjects.Any(x =>
+                    targetController.IsValidTarget(x, TargetController.LowPriorityIndex) &&
+                    Vector2.Distance(s.transform.position, x.transform.position) < s.Stats[StatName.ActionRange] / 2);
+        }
         if (_condition.HasFlag(SkillCondition.HasTriggeredTargets))
         {
             _conditionPredicate += (s, t) => s.TryGetComponent<TriggerController>(out var triggerController) && triggerController.TriggeredWorldObjects.Any();
@@ -73,6 +81,7 @@ public enum SkillCondition
     ActiveAbilityInputRecieved = 1,
     MoveAbilityInputRecieved = 2,
 
+    HasLPTriggeredTargetsBelowHalfAR = 32,
     HasTriggeredTargets = 64,
 
     TargetAboveHalfActionRange = 256,

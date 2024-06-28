@@ -84,7 +84,11 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     public override void DestroyWorldObject()
     {
         base.DestroyWorldObject();
-        _rigidbody.simulated = false;
+        // Fog is shown if detects that player left trigger
+        if (this is not PlayerCreature)
+        {
+            _rigidbody.simulated = false;
+        }
         Stop();
     }
 

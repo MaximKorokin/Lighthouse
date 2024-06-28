@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _priorities: 01000000
   _validTargets: 1
 --- !u!114 &5827333591135236265
 MonoBehaviour:
@@ -292,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24a5b7999b4c334987053506ced0754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanControl>k__BackingField: 1
 --- !u!114 &8727188674890356502
 MonoBehaviour:
   m_ObjectHideFlags: 0

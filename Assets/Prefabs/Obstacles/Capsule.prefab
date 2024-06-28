@@ -148,7 +148,6 @@ MonoBehaviour:
     - Name: 2
       Value: 15
   <IsDamagable>k__BackingField: 1
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
 --- !u!95 &2190903019382194184
 Animator:
@@ -183,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _priorities: ffffffff
   _validTargets: -1
 --- !u!114 &4354589762432459233
 MonoBehaviour:

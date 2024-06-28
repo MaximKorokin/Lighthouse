@@ -33,7 +33,8 @@ MonoBehaviour:
     - rid: 834406557198581767
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Effects>k__BackingField: []
+        <Effects>k__BackingField:
+        - rid: 834406809090654208
         <EndEffects>k__BackingField: []
         <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
         <PierceAmount>k__BackingField: 1
@@ -41,6 +42,10 @@ MonoBehaviour:
         <AmountSpread>k__BackingField: 0
         <RandomSpread>k__BackingField: 1
         <TargetType>k__BackingField: 0
+    - rid: 834406809090654208
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 1
     - rid: 4259499536714563588
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StraightMovingController : TargetController
@@ -20,6 +21,7 @@ public class StraightMovingController : TargetController
 
     public override void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
+        targets = targets.Where(x => IsValidTarget(x, HighPriorityIndex));
         Vector2 targetDirection = targetType switch
         {
             TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude).transform.position - transform.position,

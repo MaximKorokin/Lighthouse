@@ -273,8 +273,6 @@ GameObject:
   - component: {fileID: 3251087844827923757}
   - component: {fileID: 3714879933402528441}
   - component: {fileID: 2419617520290294306}
-  - component: {fileID: 8780682363822004070}
-  - component: {fileID: 9014890507950539100}
   - component: {fileID: 5518852754763388740}
   - component: {fileID: 6509048060926399744}
   - component: {fileID: 5769142195166632743}
@@ -285,6 +283,7 @@ GameObject:
   - component: {fileID: 7609296278093717242}
   - component: {fileID: 844742998062246562}
   - component: {fileID: 740726156351051180}
+  - component: {fileID: 2118121083948704928}
   m_Layer: 0
   m_Name: Rashin
   m_TagString: Untagged
@@ -498,33 +497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
---- !u!114 &8780682363822004070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873908040075855237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
---- !u!114 &9014890507950539100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873908040075855237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _validTargets: 3
 --- !u!114 &5518852754763388740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,3 +654,20 @@ MonoBehaviour:
     Color: {r: 1, g: 0, b: 0, a: 0}
   _showTime: 0.5
   _alpha: 0.3
+--- !u!114 &2118121083948704928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 3
+    Relation: 4
+  _triggerOn: 4

@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _priorities: 01000000
   _validTargets: 1
 --- !u!114 &2775772125359899738
 MonoBehaviour:
@@ -380,7 +381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
-  _effectsSettings: []
   _skills:
   - _settings: {fileID: 11400000, guid: cc741e8f20656294f9b388cb45036f41, type: 2}
     _condition: 0
@@ -400,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3e6b6738e3e9842b07063c5c830fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useSingle: 0
   _showTime: 0.3
   _horizontalRandomMovementRange: {x: -2, y: 2}
   _verticalRandomMovementRange: {x: 3, y: 5}

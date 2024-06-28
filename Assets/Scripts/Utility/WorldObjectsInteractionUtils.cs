@@ -6,28 +6,27 @@ using UnityEngine;
 
 public static class WorldObjectsInteractionUtils
 {
-    public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source, FactionsRelation relation)
+    public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source)
     {
-        var validator = source.GetComponent<WorldObjectValidator>();
-        if (validator == null)
+        if (!source.TryGetComponent<TargetController>(out var controller))
         {
             return worldObjects;
         }
         else
         {
-            return worldObjects.Where(x => validator.IsValidTarget(x, relation));
+            return worldObjects.Where(x => controller.IsValidTarget(x, TargetController.HighPriorityIndex) && controller.Detector.IsValidTarget(x));
         }
     }
 
-    public static bool IsValidTarget(this WorldObject worldObject, WorldObject source, FactionsRelation relation)
+    public static bool IsValidTarget(this WorldObject worldObject, WorldObject source)
     {
-        if (!source.TryGetComponent<WorldObjectValidator>(out var validator))
+        if (!source.TryGetComponent<TargetController>(out var controller))
         {
             return true;
         }
         else
         {
-            return validator.IsValidTarget(worldObject, relation);
+            return controller.IsValidTarget(worldObject, TargetController.HighPriorityIndex) && controller.Detector.IsValidTarget(worldObject);
         }
     }
 

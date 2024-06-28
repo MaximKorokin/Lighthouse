@@ -35,6 +35,11 @@ public class LowHPVignetteVisualizer : HPVignetteVisualizer
         if (Overlay == null) return;
 
         _isHPUnderThreshold = cur <= max * _hpThreshold;
+
+        if (!_isHPUnderThreshold && Overlay.Color.a != 0)
+        {
+            Overlay.Color = new(Overlay.Color.r, Overlay.Color.g, Overlay.Color.b, 0);
+        }
     }
 
     private void Update()

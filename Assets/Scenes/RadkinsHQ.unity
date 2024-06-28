@@ -26384,6 +26384,7 @@ GameObject:
   - component: {fileID: 331727464}
   - component: {fileID: 331727463}
   - component: {fileID: 331727465}
+  - component: {fileID: 331727466}
   m_Layer: 7
   m_Name: Window
   m_TagString: Untagged
@@ -26675,6 +26676,25 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &331727466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331727461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7693b277800604b8d0bf1c9e7e3f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PositioningType>k__BackingField: -1
+  <TriggeringType>k__BackingField: 0
+  <Faction>k__BackingField: 1
+  _stats:
+    _stats:
+    - Name: 1
+      Value: 1
 --- !u!1 &402460898
 GameObject:
   m_ObjectHideFlags: 0
@@ -27600,7 +27620,7 @@ Tilemap:
       - {fileID: 651570362, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1445180179, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -835631756, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -5, y: 1, z: 0}
@@ -28515,7 +28535,7 @@ Tilemap:
       - {fileID: 419420772, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -63647013, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1048332419, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -1, z: 0}
@@ -28561,7 +28581,7 @@ Tilemap:
       - {fileID: 419420772, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -63647013, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1048332419, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -1, z: 0}
@@ -28791,7 +28811,7 @@ Tilemap:
       - {fileID: 419420772, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -63647013, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1048332419, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: 0, z: 0}
@@ -29568,6 +29588,7 @@ GameObject:
   - component: {fileID: 614990603}
   - component: {fileID: 614990602}
   - component: {fileID: 614990604}
+  - component: {fileID: 614990605}
   m_Layer: 7
   m_Name: BrokenWindow
   m_TagString: Untagged
@@ -29859,6 +29880,25 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &614990605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614990600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7693b277800604b8d0bf1c9e7e3f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PositioningType>k__BackingField: -1
+  <TriggeringType>k__BackingField: 0
+  <Faction>k__BackingField: 1
+  _stats:
+    _stats:
+    - Name: 1
+      Value: 1
 --- !u!1 &654839477
 GameObject:
   m_ObjectHideFlags: 0
@@ -31132,7 +31172,7 @@ Tilemap:
       - {fileID: 443318406, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1282018313, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1334756407, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -1, z: 0}
@@ -31417,7 +31457,7 @@ Tilemap:
       - {fileID: 443318406, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1282018313, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
       - {fileID: -1334756407, guid: d7fa5e84435a34b4491be9cc50efdfea, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: 1, z: 0}
@@ -35058,7 +35098,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &976861465
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -42175,7 +42218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &1071680771
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -42373,11 +42419,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8550672845687707803, guid: cf07d6c290d2a5047bf2e262bb670afd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3718661
+      value: -3.773
       objectReference: {fileID: 0}
     - target: {fileID: 8550672845687707803, guid: cf07d6c290d2a5047bf2e262bb670afd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.286889
+      value: -2.957
       objectReference: {fileID: 0}
     - target: {fileID: 8550672845687707803, guid: cf07d6c290d2a5047bf2e262bb670afd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44338,7 +44384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &1257789248
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -48420,7 +48469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &1294318707
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -49596,6 +49648,7 @@ GameObject:
   - component: {fileID: 1383208948}
   - component: {fileID: 1383208947}
   - component: {fileID: 1383208949}
+  - component: {fileID: 1383208950}
   m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
@@ -56207,6 +56260,25 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1383208950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383208945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7693b277800604b8d0bf1c9e7e3f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PositioningType>k__BackingField: -1
+  <TriggeringType>k__BackingField: 0
+  <Faction>k__BackingField: 1
+  _stats:
+    _stats:
+    - Name: 1
+      Value: 1
 --- !u!1 &1383268742
 GameObject:
   m_ObjectHideFlags: 0
@@ -62026,7 +62098,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &1801063924
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -63218,7 +63293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &1846814663
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -67774,7 +67852,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!19719996 &2040008968
 TilemapCollider2D:
   m_ObjectHideFlags: 0

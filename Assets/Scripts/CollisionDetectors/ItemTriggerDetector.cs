@@ -2,14 +2,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Item))]
-public class ItemTriggerDetector : ValidatingTriggerDetector
+public class ItemTriggerDetector : WorldObjectInteractingTriggerDetector
 {
     private Item _item;
     private readonly HashSet<Collider2D> _collidersInactive = new();
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         _item = WorldObject as Item;
         _item.Activated += () => _collidersInactive.ForEach(x => OnTriggerEnter2D(x));
     }
@@ -38,13 +37,8 @@ public class ItemTriggerDetector : ValidatingTriggerDetector
         }
     }
 
-    protected override bool ValidateTarget(Collider2D collision, out WorldObject worldObject)
+    protected override bool IsValidTarget(WorldObject obj, DetectingVariant variant)
     {
-        if (_item.IsActive && base.ValidateTarget(collision, out worldObject))
-        {
-            return true;
-        }
-        worldObject = null;
-        return false;
+        return _item.IsActive && base.IsValidTarget(obj, variant);
     }
 }

@@ -1,26 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 public class EscapingDashEffect : DashEffect
 {
-    private static readonly IEnumerable<Vector2> Directions =
-        new Vector2[]
-        {
-            new Vector2(0, 1).normalized,
-            new Vector2(1, 1).normalized,
-            new Vector2(1, 0).normalized,
-            new Vector2(1, -1).normalized,
-            new Vector2(0, -1).normalized,
-            new Vector2(-1, -1).normalized,
-            new Vector2(-1, 0).normalized,
-            new Vector2(-1, 1).normalized
-        };
+    [SerializeField]
+    private Vector2[] _directions;
 
     protected override Vector2 GetDirection(CastState castState)
     {
         var dangerAngle = Vector2.SignedAngle(Vector2.up, castState.Target.transform.position - castState.Source.transform.position);
-        return Directions.Select(x => x.Rotate(dangerAngle)).MaxBy(x => EstimateDirection(x, Speed * OverrideTime, castState));
+        return _directions
+            .OrderBy(x => Random.Range(int.MinValue, int.MaxValue))
+            .Select(x => x.normalized.Rotate(dangerAngle))
+            .MaxBy(x => EstimateDirection(x, Speed * OverrideTime, castState));
     }
 
     private static float EstimateDirection(Vector2 direction, float distance, CastState castState)

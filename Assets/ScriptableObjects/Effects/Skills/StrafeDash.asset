@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: EscapeDash
+  m_Name: StrafeDash
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
@@ -35,14 +35,8 @@ MonoBehaviour:
         OverrideTime: 0.7
         Speed: 4
         _directions:
-        - {x: 0, y: 1}
-        - {x: 1, y: 1}
         - {x: 1, y: 0}
-        - {x: 1, y: -1}
-        - {x: 0, y: -1}
-        - {x: -1, y: -1}
         - {x: -1, y: 0}
-        - {x: -1, y: 1}
     - rid: 834406557198581764
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
