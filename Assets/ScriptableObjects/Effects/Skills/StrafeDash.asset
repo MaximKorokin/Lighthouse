@@ -32,7 +32,7 @@ MonoBehaviour:
     - rid: 834406557198581762
       type: {class: EscapingDashEffect, ns: , asm: Assembly-CSharp}
       data:
-        OverrideTime: 0.7
+        OverrideTime: 0.2
         Speed: 4
         _directions:
         - {x: 1, y: 0}

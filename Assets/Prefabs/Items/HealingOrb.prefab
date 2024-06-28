@@ -13,13 +13,12 @@ GameObject:
   - component: {fileID: 8039660207906110568}
   - component: {fileID: 6741397075715308881}
   - component: {fileID: 4095242153396451076}
-  - component: {fileID: 4641833351409709706}
   - component: {fileID: -7325769007762636370}
   - component: {fileID: 3454752445968733899}
   - component: {fileID: 2338888315662349175}
-  - component: {fileID: 3363170444335394930}
   - component: {fileID: -4401986470944856457}
   - component: {fileID: 5717824719486847908}
+  - component: {fileID: -7648320260561659608}
   m_Layer: 6
   m_Name: HealingOrb
   m_TagString: Untagged
@@ -186,20 +185,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4641833351409709706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734253315142589745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: 01000000
-  _validTargets: 1
 --- !u!114 &-7325769007762636370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
+  _priorities: 
   _drag: 0.1
 --- !u!95 &3454752445968733899
 Animator:
@@ -249,20 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: 4b958447032d39043badbe5614398ee1, type: 2}
---- !u!114 &3363170444335394930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734253315142589745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 1
-  _triggerOn: 1
 --- !u!114 &-4401986470944856457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,3 +261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7648320260561659608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734253315142589745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd0f523e942c14db51a56f102515d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 2
+    ValidTargets: 1
+    Relation: 1

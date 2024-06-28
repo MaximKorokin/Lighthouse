@@ -2947,7 +2947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants: []
 --- !u!114 &392289732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4790,7 +4790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants: []
 --- !u!4 &995717874
 Transform:
   m_ObjectHideFlags: 0
@@ -6287,7 +6287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants: []
 --- !u!114 &1175075606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6651,7 +6651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants: []
 --- !u!19719996 &1255986395
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -7245,7 +7245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants: []
 --- !u!114 &1381815958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7411,7 +7411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!114 &1382765036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7573,7 +7576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c56f559de1eb114ea3de39d0e9cc2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 0
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 0
 --- !u!114 &1478394870
 MonoBehaviour:
   m_ObjectHideFlags: 0

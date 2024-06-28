@@ -134,15 +134,14 @@ GameObject:
   - component: {fileID: 8594055158552949140}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
-  - component: {fileID: 3447483860829897823}
   - component: {fileID: 6858036627184363089}
   - component: {fileID: 9107368912397738076}
   - component: {fileID: 8130319755436434985}
-  - component: {fileID: 1629970672303732006}
   - component: {fileID: 956674304161731618}
   - component: {fileID: 5255762296922553113}
   - component: {fileID: 8202858902348007583}
   - component: {fileID: 4802814716285693844}
+  - component: {fileID: 2406881424162235867}
   m_Layer: 0
   m_Name: EliteRangedEnemy
   m_TagString: Untagged
@@ -297,20 +296,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
---- !u!114 &3447483860829897823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: 01000000
-  _validTargets: 1
 --- !u!114 &6858036627184363089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
+  _priorities: 
 --- !u!114 &9107368912397738076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,20 +341,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: bc32551aefece9b45a7ed757e07c68c2, type: 2}
---- !u!114 &1629970672303732006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
 --- !u!114 &956674304161731618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +399,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2406881424162235867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 4
 --- !u!1 &7175603728334546691
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,7 +47,6 @@ public class ProjectileEffect : EndingEffect
             {
                 var targets = Physics2DUtils.GetWorldObjectsInRadius(castState.Source.transform.position, castState.Source.ActionRange)
                     .GetValidTargets(castState.InitialSource)
-                    .GetValidTargets(Projectile.WorldObject)
                     .ToArray();
                 if (targets.Length > 0)
                 {

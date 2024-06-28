@@ -13,15 +13,14 @@ GameObject:
   - component: {fileID: 6695786381773470441}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
-  - component: {fileID: 400794251466932638}
   - component: {fileID: 4439412699593374245}
   - component: {fileID: 558756004280993318}
   - component: {fileID: 8610639369254492348}
-  - component: {fileID: 1629970672303732006}
   - component: {fileID: 4613729088056806375}
   - component: {fileID: 2868373690515548622}
   - component: {fileID: 8817053128519033484}
   - component: {fileID: 881060608149087163}
+  - component: {fileID: 2406881424162235867}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -176,20 +175,6 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
---- !u!114 &400794251466932638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: 01000000
-  _validTargets: 1
 --- !u!114 &4439412699593374245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
+  _priorities: 
 --- !u!114 &558756004280993318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,20 +221,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: bc32551aefece9b45a7ed757e07c68c2, type: 2}
---- !u!114 &1629970672303732006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
 --- !u!114 &4613729088056806375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +279,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2406881424162235867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 4
 --- !u!1 &1619220829688206649
 GameObject:
   m_ObjectHideFlags: 0

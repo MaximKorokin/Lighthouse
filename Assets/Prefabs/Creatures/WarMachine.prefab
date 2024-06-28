@@ -136,13 +136,12 @@ GameObject:
   - component: {fileID: 2965000820131452520}
   - component: {fileID: 6454421279967523020}
   - component: {fileID: 8057892309787658375}
-  - component: {fileID: 1955366328074347186}
-  - component: {fileID: 2775772125359899738}
   - component: {fileID: 5893237358921338281}
   - component: {fileID: 8766864823537118557}
   - component: {fileID: 1887583048410395116}
   - component: {fileID: 8794408943787818381}
   - component: {fileID: 2167350268594445280}
+  - component: {fileID: 4930249111672775480}
   m_Layer: 0
   m_Name: WarMachine
   m_TagString: Untagged
@@ -327,34 +326,6 @@ MonoBehaviour:
   _damageEffectsSettings:
   - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
   _destroyEffectsSettings: []
---- !u!114 &1955366328074347186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382743352609133667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: 01000000
-  _validTargets: 1
---- !u!114 &2775772125359899738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382743352609133667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
 --- !u!114 &5893237358921338281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
+  _priorities: 
 --- !u!114 &8766864823537118557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +402,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4930249111672775480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382743352609133667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 4
 --- !u!1 &4866136565801370716
 GameObject:
   m_ObjectHideFlags: 0

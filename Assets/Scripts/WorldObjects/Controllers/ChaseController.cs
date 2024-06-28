@@ -37,15 +37,16 @@ public class ChaseController : TargetController
         var direction = (Vector2)Target.transform.position - (Vector2)transform.position;
         MovableWorldObject.Direction = direction.normalized;
 
-        if (direction.sqrMagnitude > WorldObject.ActionRange * WorldObject.ActionRange)
+        if (direction.magnitude > WorldObject.ActionRange)
         {
             MovableWorldObject.Move();
         }
         else
         {
-            InvokeActors(Target);
             MovableWorldObject.Stop();
         }
+
+        InvokeActors(Target);
     }
 
     private void SeekNearestTarget()

@@ -48,11 +48,15 @@ public class Skill : IInitializable
 
         if (_condition.HasFlag(SkillCondition.TargetAboveHalfActionRange))
         {
-            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) > s.Stats[StatName.ActionRange] / 2;
+            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) > s.ActionRange / 2;
         }
         if (_condition.HasFlag(SkillCondition.TargetBelowHalfActionRange))
         {
-            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) < s.Stats[StatName.ActionRange] / 2;
+            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) < s.ActionRange / 2;
+        }
+        if (_condition.HasFlag(SkillCondition.TargetBelowActionRange))
+        {
+            _conditionPredicate += (s, t) => Vector2.Distance(s.transform.position, t.transform.position) <= s.ActionRange;
         }
     }
 
@@ -86,4 +90,5 @@ public enum SkillCondition
 
     TargetAboveHalfActionRange = 256,
     TargetBelowHalfActionRange = 512,
+    TargetBelowActionRange = 1024,
 }

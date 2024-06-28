@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 9196707661421475881}
   - component: {fileID: 7506501873956054667}
   - component: {fileID: 1263713273994002270}
-  - component: {fileID: 6803735324127952152}
-  - component: {fileID: 160712140205557075}
   - component: {fileID: 4775625874383946485}
   - component: {fileID: 3955326340313482173}
   - component: {fileID: -4205010632983814517}
+  - component: {fileID: 8821228847454533411}
   m_Layer: 0
   m_Name: PlayerZone
   m_TagString: Untagged
@@ -100,34 +99,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6803735324127952152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5409970523839823098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: ffffffff
-  _validTargets: -1
---- !u!114 &160712140205557075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5409970523839823098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
 --- !u!114 &4775625874383946485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +154,19 @@ MonoBehaviour:
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
   <LifeTime>k__BackingField: 0.5
+--- !u!114 &8821228847454533411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409970523839823098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 4

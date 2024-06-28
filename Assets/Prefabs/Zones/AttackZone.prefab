@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 6958969571384328656}
   - component: {fileID: 6655919407921690822}
   - component: {fileID: 366837762407652382}
-  - component: {fileID: 1998366000354405603}
-  - component: {fileID: 5541775594834989513}
   - component: {fileID: 5899376340007028653}
   - component: {fileID: 4322612965802900331}
+  - component: {fileID: 7490147288630035378}
   m_Layer: 0
   m_Name: AttackZone
   m_TagString: Untagged
@@ -203,34 +202,6 @@ MonoBehaviour:
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
   <LifeTime>k__BackingField: 0.5
---- !u!114 &1998366000354405603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3153314722134067989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: ffffffff
-  _validTargets: -1
---- !u!114 &5541775594834989513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3153314722134067989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
 --- !u!114 &5899376340007028653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,3 +229,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanAct>k__BackingField: 1
   _effectSettings: {fileID: 0}
+--- !u!114 &7490147288630035378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153314722134067989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 3
+    Relation: 4

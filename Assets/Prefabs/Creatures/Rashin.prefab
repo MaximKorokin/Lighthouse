@@ -668,6 +668,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _variants:
   - TriggerType: 1
-    ValidTargets: 3
+    ValidTargets: 1
     Relation: 4
-  _triggerOn: 4

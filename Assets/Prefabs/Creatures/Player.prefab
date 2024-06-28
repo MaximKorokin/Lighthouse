@@ -515,8 +515,6 @@ GameObject:
   - component: {fileID: 1067456175170885560}
   - component: {fileID: 322627562551336750}
   - component: {fileID: 4808862166265668767}
-  - component: {fileID: 7416560538419184190}
-  - component: {fileID: 7024971320545400970}
   - component: {fileID: 4561559417053363611}
   - component: {fileID: 3098221627740768917}
   - component: {fileID: 4140782551836971032}
@@ -526,6 +524,7 @@ GameObject:
   - component: {fileID: 7450678416333758852}
   - component: {fileID: 8324557593489910904}
   - component: {fileID: 6634669953884819681}
+  - component: {fileID: 8930367440314818539}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -741,34 +740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
---- !u!114 &7416560538419184190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537639882005055995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerType: 0
-  _triggerOn: 4
---- !u!114 &7024971320545400970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537639882005055995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priorities: ffffffff
-  _validTargets: -1
 --- !u!114 &4561559417053363611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,3 +874,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8930367440314818539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9be5da0176ccaf43b5fe22ac8291789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _variants:
+  - TriggerType: 1
+    ValidTargets: 1
+    Relation: 4
