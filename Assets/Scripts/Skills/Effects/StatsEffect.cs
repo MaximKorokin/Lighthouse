@@ -7,6 +7,6 @@ public class StatsEffect : Effect
 
     public override void Invoke(CastState castState)
     {
-        castState.Target.Stats.Modify(StatsDelta, StatsModificationType.Increment);
+        castState.Target.Stats.Modify(StatsDelta, StatsModificationType.Add);
     }
 }

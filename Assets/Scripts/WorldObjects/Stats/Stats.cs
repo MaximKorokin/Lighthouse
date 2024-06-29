@@ -42,13 +42,13 @@ public class Stats
     {
         switch (modificationType)
         {
-            case StatsModificationType.Set:
+            case StatsModificationType.Assign:
                 StatsDictionary[statName] = statValue;
                 break;
-            case StatsModificationType.Increment:
+            case StatsModificationType.Add:
                 StatsDictionary[statName] += statValue;
                 break;
-            case StatsModificationType.Decrement:
+            case StatsModificationType.Substract:
                 StatsDictionary[statName] -= statValue;
                 break;
         }
@@ -80,7 +80,7 @@ public struct Stat
 
 public enum StatsModificationType
 {
-    Set,
-    Increment,
-    Decrement,
+    Assign,
+    Add,
+    Substract,
 }

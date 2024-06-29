@@ -62,7 +62,7 @@ public abstract class DestroyableWorldObject : WorldObject
 
     protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         CurrentHealthPoints = MaxHealthPoints;
         CurrentShieldValue = MaxShieldValue;
     }

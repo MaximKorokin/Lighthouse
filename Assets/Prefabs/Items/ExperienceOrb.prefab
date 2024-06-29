@@ -280,4 +280,7 @@ MonoBehaviour:
   <CanAct>k__BackingField: 1
   _skills:
   - _settings: {fileID: 11400000, guid: 8f935806eb0f92e44a3a7f2ea36b63da, type: 2}
-    _condition: 1024
+    _conditionData:
+      Predicate: 0
+      ReferenceArgument: 0
+      ValueArgument: 0

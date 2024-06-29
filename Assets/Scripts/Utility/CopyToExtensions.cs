@@ -56,7 +56,7 @@ public static class CopyToExtensions
         target.PositioningType = source.PositioningType;
         target.TriggeringType = source.TriggeringType;
         target.SetFaction(source.Faction);
-        target.Stats.Modify(source.Stats, StatsModificationType.Set);
+        target.Stats.Modify(source.Stats, StatsModificationType.Assign);
 
         // Collider2D[]
         // Sprite
