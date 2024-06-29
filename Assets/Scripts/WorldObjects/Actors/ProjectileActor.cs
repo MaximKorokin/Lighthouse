@@ -37,7 +37,7 @@ public class ProjectileActor : EffectActor
 
     public override void Idle(WorldObject worldObject)
     {
-        _destroyable.DestroyWorldObject();
+
     }
 
     public void SetProjectileEffect(ProjectileEffect effect, CastState castState)

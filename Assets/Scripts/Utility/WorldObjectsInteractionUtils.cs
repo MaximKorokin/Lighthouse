@@ -8,25 +8,25 @@ public static class WorldObjectsInteractionUtils
 {
     public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source)
     {
-        if (!source.TryGetComponent<TargetController>(out var controller))
+        if (!source.TryGetComponent<WorldObjectInteractingTriggerDetector>(out var detector))
         {
             return worldObjects;
         }
         else
         {
-            return worldObjects.Where(x => controller.IsValidTarget(x, TargetController.HighPriorityIndex) && controller.Detector.IsValidTarget(x));
+            return worldObjects.Where(x => detector.IsValidTarget(x));
         }
     }
 
     public static bool IsValidTarget(this WorldObject worldObject, WorldObject source)
     {
-        if (!source.TryGetComponent<TargetController>(out var controller))
+        if (!source.TryGetComponent<WorldObjectInteractingTriggerDetector>(out var detector))
         {
             return true;
         }
         else
         {
-            return controller.IsValidTarget(worldObject, TargetController.HighPriorityIndex) && controller.Detector.IsValidTarget(worldObject);
+            return detector.IsValidTarget(worldObject);
         }
     }
 

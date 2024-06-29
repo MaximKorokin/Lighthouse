@@ -10,6 +10,9 @@ public class ZoneController : TriggerController
 
     protected override void Trigger(WorldObject worldObject, bool entered)
     {
-        IdleActors(worldObject);
+        if (!entered)
+        {
+            IdleActors(worldObject);
+        }
     }
 }

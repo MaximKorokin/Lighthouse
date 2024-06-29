@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: -7325769007762636370}
   - component: {fileID: 3454752445968733899}
   - component: {fileID: 2338888315662349175}
-  - component: {fileID: -4401986470944856457}
   - component: {fileID: 5717824719486847908}
   - component: {fileID: -7648320260561659608}
+  - component: {fileID: -3635323585366941415}
   m_Layer: 6
   m_Name: HealingOrb
   m_TagString: Untagged
@@ -128,6 +128,8 @@ MonoBehaviour:
       Value: 0.1
     - Name: 2
       Value: 1
+    - Name: 7
+      Value: 1
   <IsDamagable>k__BackingField: 0
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
@@ -235,20 +237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: 4b958447032d39043badbe5614398ee1, type: 2}
---- !u!114 &-4401986470944856457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734253315142589745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0983ba5a87dd6564caf6667526e8eb8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CanAct>k__BackingField: 1
-  _effectSettings: {fileID: 11400000, guid: 3be42e631b808ad4eaee33d5adaacd42, type: 2}
 --- !u!114 &5717824719486847908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,3 +265,19 @@ MonoBehaviour:
   - TriggerType: 2
     ValidTargets: 1
     Relation: 1
+--- !u!114 &-3635323585366941415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734253315142589745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CanAct>k__BackingField: 1
+  _skills:
+  - _settings: {fileID: 11400000, guid: f519d8b4aaacbab4bb985c0c99edfe59, type: 2}
+    _condition: 1024
