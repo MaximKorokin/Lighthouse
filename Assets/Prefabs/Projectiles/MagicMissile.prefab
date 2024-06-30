@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CanControl>k__BackingField: 1
-  _priorities: 
+  _priorities: 01000000
 --- !u!114 &-4888402200594630173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,5 +259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _variants:
   - TriggerType: 1
-    ValidTargets: 3
+    ValidTargets: 1
     Relation: 4
+  - TriggerType: 1
+    ValidTargets: 6
+    Relation: 2
