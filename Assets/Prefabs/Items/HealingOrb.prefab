@@ -134,6 +134,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
+  <IsFlipped>k__BackingField: 0
   <InactiveTime>k__BackingField: 0
 --- !u!212 &4095242153396451076
 SpriteRenderer:
@@ -281,6 +282,6 @@ MonoBehaviour:
   _skills:
   - _settings: {fileID: 11400000, guid: f519d8b4aaacbab4bb985c0c99edfe59, type: 2}
     _conditionData:
-      Predicate: 0
-      ReferenceArgument: 0
-      ValueArgument: 0
+      Predicate: 4096
+      ReferenceArgument: 1
+      ValueArgument: 1

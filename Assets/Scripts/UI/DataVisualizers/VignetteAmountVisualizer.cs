@@ -3,7 +3,7 @@
 public abstract class VignetteAmountVisualizer : AmountVisualizerBase
 {
     [SerializeField]
-    private OverlayParameter _overlayParameter;
+    private OverlaySettings _overlayParameter;
 
     protected OverlayController Overlay { get; private set; }
 

@@ -126,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.08
 --- !u!50 &1770973192567836993
 Rigidbody2D:
   serializedVersion: 4
@@ -183,6 +183,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
+  <IsFlipped>k__BackingField: 0
   <LifeTime>k__BackingField: 3
 --- !u!114 &3089553073019125008
 MonoBehaviour:

@@ -21,6 +21,7 @@ public class AnimationEffect : Effect
     public override void Invoke(CastState castState)
     {
         var animator = GenericAnimatorPool.Take(_animation);
+        animator.PlayAnimation(false);
         var target = castState.GetTarget();
 
         if (_childToTarget)
@@ -47,7 +48,7 @@ public class AnimationEffect : Effect
         yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
     }
 
-    private void Cancel(Animator animator)
+    private void Cancel(GenericAnimatorController animator)
     {
         if (animator != null)
         {
@@ -56,7 +57,7 @@ public class AnimationEffect : Effect
     }
 
     // this is gavno
-    private void SetupAnimator(Animator animator, WorldObject target, Vector2 position)
+    private void SetupAnimator(GenericAnimatorController animator, WorldObject target, Vector2 position)
     {
         animator.transform.position = _childToTarget ? position + target.VisualPositionOffset : position;
 

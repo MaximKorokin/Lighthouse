@@ -1,13 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-class OverlayPool : ObjectsPool<OverlayController, OverlayParameter>
+class OverlayPool : ObjectsPool<OverlayController, OverlaySettings>
 {
-    protected override void Initialize(OverlayController overlay, OverlayParameter parameter)
+    protected override void Initialize(OverlayController overlay, OverlaySettings parameter)
     {
-        overlay.Sprite = parameter.Sprite;
-        overlay.Color = parameter.Color;
-        
+        overlay.SetSettings(parameter);
+
         overlay.transform.SetParent(OverlaysParent.Instance.transform);
 
         var rectTransform = overlay.transform as RectTransform;
@@ -24,11 +22,4 @@ class OverlayPool : ObjectsPool<OverlayController, OverlayParameter>
     {
 
     }
-}
-
-[Serializable]
-public struct OverlayParameter
-{
-    public Sprite Sprite;
-    public Color Color;
 }

@@ -90,4 +90,6 @@ public enum AnimatorKey
     Transit = 8,
     Dash = 9,
     ShieldRatio = 10,
+    PlayAnimation = 11,
+    StopAnimation = 12,
 }

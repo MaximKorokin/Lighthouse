@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 7508185068982668652}
   - component: {fileID: 2672765818256748374}
   - component: {fileID: 670664442182928598}
-  - component: {fileID: 8298410038236258243}
   - component: {fileID: 3867142928487500961}
+  - component: {fileID: 8298410038236258243}
   - component: {fileID: 8435661789408776086}
   m_Layer: 6
   m_Name: ExperienceOrb
@@ -134,6 +134,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
+  <IsFlipped>k__BackingField: 0
   <InactiveTime>k__BackingField: 0
 --- !u!212 &8725931171154606055
 SpriteRenderer:
@@ -237,6 +238,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: 4b958447032d39043badbe5614398ee1, type: 2}
+--- !u!114 &3867142928487500961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021736238142712522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8298410038236258243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,18 +266,6 @@ MonoBehaviour:
   - TriggerType: 2
     ValidTargets: 1
     Relation: 1
---- !u!114 &3867142928487500961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021736238142712522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8435661789408776086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +282,6 @@ MonoBehaviour:
   _skills:
   - _settings: {fileID: 11400000, guid: 8f935806eb0f92e44a3a7f2ea36b63da, type: 2}
     _conditionData:
-      Predicate: 0
-      ReferenceArgument: 0
-      ValueArgument: 0
+      Predicate: 4096
+      ReferenceArgument: 1
+      ValueArgument: 1

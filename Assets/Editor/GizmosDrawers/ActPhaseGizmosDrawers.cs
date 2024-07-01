@@ -30,4 +30,10 @@ public static class ActPhaseGizmosDrawers
             .Where(x => x != null)
             .ForEach(x => EditorUtils.DrawArrowWithIcon(phase.transform.position, x.transform.position, ArrowType.Line, phase.IconName));
     }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void SpawningPhase(SpawningPhase phase, GizmoType gizmoType)
+    {
+        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.SpawnPoint, ArrowType.Circle, phase.IconName);
+    }
 }

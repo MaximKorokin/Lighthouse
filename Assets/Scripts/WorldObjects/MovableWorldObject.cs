@@ -20,6 +20,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     }
     public Vector2 TurnDirection { get; private set; } = Vector2.right;
     public bool IsMoving { get; private set; }
+    [field: SerializeField]
     public bool IsFlipped { get; private set; }
 
     private Vector2 _direction;
@@ -37,6 +38,12 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbodyExcludeLayerMask = _rigidbody.excludeLayers;
         DirectionSet += OnDirectionSet;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        Flipped?.Invoke(IsFlipped);
     }
 
     protected override void OnStatsModified()

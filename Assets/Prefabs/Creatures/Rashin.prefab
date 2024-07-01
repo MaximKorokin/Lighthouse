@@ -483,6 +483,7 @@ MonoBehaviour:
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
+  <IsFlipped>k__BackingField: 0
   _levelingSystemSettings: {fileID: 11400000, guid: 10547097463749d4e9f3416e00abf3d6, type: 2}
 --- !u!114 &2419617520290294306
 MonoBehaviour:
@@ -637,12 +638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _overlayParameter:
-    Sprite: {fileID: 21300000, guid: 4ccf1f19dfde12646a5bf355105ad935, type: 3}
-    Color: {r: 0.9716981, g: 0, b: 0, a: 0}
+    Animation: {fileID: 7400000, guid: 525e92fee2ef0f24a944d8606f9b0570, type: 2}
   _hpThreshold: 0.4
-  _minAlpha: 0.05
-  _maxAlpha: 0.2
-  _blinkTime: 1.5
 --- !u!114 &740726156351051180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,10 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _overlayParameter:
-    Sprite: {fileID: 21300000, guid: 48a97daa9a48e5a45b96ed1fe155b057, type: 3}
-    Color: {r: 1, g: 0, b: 0, a: 0}
-  _showTime: 0.5
-  _alpha: 0.3
+    Animation: {fileID: 7400000, guid: 7bdac1bc05d9eb14381dd7c2ecc38f6f, type: 2}
 --- !u!114 &2118121083948704928
 MonoBehaviour:
   m_ObjectHideFlags: 0
