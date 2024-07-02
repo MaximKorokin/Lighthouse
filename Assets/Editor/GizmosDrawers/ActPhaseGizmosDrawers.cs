@@ -6,11 +6,10 @@ public static class ActPhaseGizmosDrawers
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
     public static void CameraMovePhase(CameraMovePhase phase, GizmoType gizmoType)
     {
-        if (phase.TransformPosition == null)
+        if (phase.TransformPosition != null)
         {
-            return;
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
         }
-        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
     }
 
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
@@ -34,6 +33,22 @@ public static class ActPhaseGizmosDrawers
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
     public static void SpawningPhase(SpawningPhase phase, GizmoType gizmoType)
     {
-        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.SpawnPoint, ArrowType.Circle, phase.IconName);
+        if (phase.TransformPosition != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
+        }
+    }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void MovableMovePhase(MovableMovePhase phase, GizmoType gizmoType)
+    {
+        if (phase.Movable != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.Movable.transform.position, ArrowType.Line, phase.IconName);
+        }
+        if (phase.TransformPosition != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
+        }
     }
 }

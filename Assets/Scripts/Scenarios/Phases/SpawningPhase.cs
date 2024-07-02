@@ -12,7 +12,7 @@ public class SpawningPhase : ActPhase
     private int _spawnCount;
     private int _destroyedCount;
 
-    public Vector2 SpawnPoint => _transformPosition.position;
+    public Transform TransformPosition => _transformPosition;
 
     public override void Invoke()
     {
@@ -23,7 +23,7 @@ public class SpawningPhase : ActPhase
     {
         _spawnCount++;
         worldObject.OnDestroying(OnDestroying);
-        worldObject.transform.position = SpawnPoint;
+        worldObject.transform.position = _transformPosition.position;
 
         if (_usedCondition == SpawnActEndCondition.EndSpawning && _spawnCount == _settings.Amount)
         {
