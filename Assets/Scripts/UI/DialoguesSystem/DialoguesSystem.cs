@@ -6,7 +6,7 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     [SerializeField]
     private DialogueView _dialogueView;
 
-    private Action _endDialogueCallback;
+    public static event Action DialogueFinished;
 
     protected override void Awake()
     {
@@ -20,7 +20,7 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         {
             GameManager.Resume();
         }
-        _endDialogueCallback?.Invoke();
+        DialogueFinished?.Invoke();
         _dialogueView.gameObject.SetActive(false);
     }
 
@@ -34,9 +34,8 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         _dialogueView.SetDialogue(dialogue);
     }
 
-    public static void InitDialogue(Dialogue dialogue, Action endCallback = null)
+    public static void InitDialogue(Dialogue dialogue)
     {
-        Instance._endDialogueCallback = endCallback;
         Instance.InitDialogueInternal(dialogue);
     }
 }

@@ -7,7 +7,15 @@ public class DialoguePhase : ActPhase
 
     public override void Invoke()
     {
-        DialoguesSystem.InitDialogue(_dialogue, InvokeFinished);
+        DialoguesSystem.InitDialogue(_dialogue);
+        DialoguesSystem.DialogueFinished -= OnDialogueFinished;
+        DialoguesSystem.DialogueFinished += OnDialogueFinished;
+    }
+
+    private void OnDialogueFinished()
+    {
+        DialoguesSystem.DialogueFinished -= OnDialogueFinished;
+        InvokeFinished();
     }
 
     public override string IconName => "Dialogue.png";

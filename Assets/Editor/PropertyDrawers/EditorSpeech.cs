@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Speech))]
@@ -16,7 +17,9 @@ public class EditorSpeech : PropertyDrawerBase
     {
         var element = typeof(Speech).CreateTypeFoldout(Property);
 
-        Func<CharacterPreview, string> displayNameSelector = prev => prev != null ? $"{prev?.Name} ({prev?.Id})" : "Select value";
+        Func<CharacterPreview, string> displayNameSelector = prev => prev != null
+            ? $"{(string.IsNullOrWhiteSpace(prev?.DisplayName) ? prev?.Name : prev?.DisplayName)} ({prev?.Name})"
+            : "Select value";
         var popup = new PopupField<CharacterPreview>(CharactersPreviewsDataBase.Instance.Items.ToList(), 0, displayNameSelector, displayNameSelector);
         element.Insert(0, popup);
 
@@ -28,8 +31,9 @@ public class EditorSpeech : PropertyDrawerBase
         });
         popup.value = CharactersPreviewsDataBase.FindById(characterPreviewId.stringValue);
 
-        var speechText = Property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.Text)).Name);
-        element.text = popup.value != null ? $"{popup.value?.Name}: {speechText.stringValue}" : "";
+        var speechText = Property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.Text)).Name).stringValue;
+        speechText = LocalizationData.GetLocalizedValue(SystemLanguage.English, speechText);
+        element.text = popup.value != null ? $"{popup.value?.Name}: {speechText}" : "";
 
         return element;
     }
