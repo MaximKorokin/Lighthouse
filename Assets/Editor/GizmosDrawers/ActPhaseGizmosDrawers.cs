@@ -25,8 +25,7 @@ public static class ActPhaseGizmosDrawers
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
     public static void FactionChangePhase(FactionChangingPhase phase, GizmoType gizmoType)
     {
-        phase.WorldObjects
-            .Where(x => x != null)
+        phase.WorldObjects?.Where(x => x != null)
             .ForEach(x => EditorUtils.DrawArrowWithIcon(phase.transform.position, x.transform.position, ArrowType.Line, phase.IconName));
     }
 
@@ -49,6 +48,15 @@ public static class ActPhaseGizmosDrawers
         if (phase.TransformPosition != null)
         {
             EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
+        }
+    }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void EffectAct(EffectPhase phase, GizmoType gizmoType)
+    {
+        if (phase.WorldObject != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.WorldObject.transform.position, ArrowType.Line, phase.IconName);
         }
     }
 }

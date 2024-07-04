@@ -14,16 +14,22 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         _dialogueView.DialogueEnded += OnDialogueEnded;
     }
 
-    private void OnDialogueEnded()
+    private void OnDialogueEnded(Dialogue dialogue)
     {
+        if (dialogue != null && dialogue.PauseGame)
+        {
+            GameManager.Resume();
+        }
         _endDialogueCallback?.Invoke();
-        GameManager.Resume();
         _dialogueView.gameObject.SetActive(false);
     }
 
     private void InitDialogueInternal(Dialogue dialogue)
     {
-        GameManager.Pause();
+        if (dialogue != null && dialogue.PauseGame)
+        {
+            GameManager.Pause();
+        }
         _dialogueView.gameObject.SetActive(true);
         _dialogueView.SetDialogue(dialogue);
     }

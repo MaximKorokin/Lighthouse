@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -14,6 +15,8 @@ public class GenericAnimatorController : MonoBehaviour
     private AnimationClip _animation;
     private CooldownCounter _playingCounter;
     private bool _isPlaying;
+
+    public event Action EndedPlaying;
 
     private void Awake()
     {
@@ -52,6 +55,7 @@ public class GenericAnimatorController : MonoBehaviour
         {
             _isPlaying = false;
             _animator.SetBool(StopAnimationKey, true);
+            EndedPlaying?.Invoke();
         }
     }
 }

@@ -19,4 +19,5 @@ public enum TypingSpeed
     Normal = 0,
     Slow = 1,
     Fast = 2,
+    Instant = 9,
 }

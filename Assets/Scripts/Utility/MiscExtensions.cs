@@ -14,6 +14,7 @@ public static class MiscExtensions
             TypingSpeed.Normal => 0.05f,
             TypingSpeed.Slow => 0.1f,
             TypingSpeed.Fast => 0.01f,
+            TypingSpeed.Instant => 0f,
             _ => 0,
         };
     }

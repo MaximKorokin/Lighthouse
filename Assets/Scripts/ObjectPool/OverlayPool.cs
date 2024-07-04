@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 class OverlayPool : ObjectsPool<OverlayController, OverlaySettings>
 {
@@ -20,6 +21,9 @@ class OverlayPool : ObjectsPool<OverlayController, OverlaySettings>
 
     protected override void Deinitialize(OverlayController overlay)
     {
-
+        if (overlay.TryGetComponent<Image>(out var image))
+        {
+            image.color = new(0, 0, 0, 0);
+        }
     }
 }

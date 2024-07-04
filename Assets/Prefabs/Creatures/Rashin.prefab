@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2950da43fce77184a86d73511830b784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlayParameter:
+  _settings:
     Animation: {fileID: 7400000, guid: 525e92fee2ef0f24a944d8606f9b0570, type: 2}
   _hpThreshold: 0.4
 --- !u!114 &740726156351051180
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452c9e8404fddb04c877d986aa1a2d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlayParameter:
+  _settings:
     Animation: {fileID: 7400000, guid: 7bdac1bc05d9eb14381dd7c2ecc38f6f, type: 2}
 --- !u!114 &2118121083948704928
 MonoBehaviour:

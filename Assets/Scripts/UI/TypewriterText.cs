@@ -5,15 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(TMP_Text))]
 public class TypewriterText : MonoBehaviour
 {
-    private TMP_Text _text;
     private string _currentTextString;
     private Coroutine _coroutine;
 
+    public TMP_Text Text { get; private set; }
     public bool IsTyping => _coroutine != null;
 
     private void Awake()
     {
-        _text = GetComponent<TMP_Text>();
+        Text = GetComponent<TMP_Text>();
     }
 
     public void SetText(string textString, float charTime)
@@ -23,7 +23,17 @@ public class TypewriterText : MonoBehaviour
             return;
         }
         _currentTextString = textString;
-        _text.text = "";
+
+        if (charTime > 0)
+        {
+            Text.text = "";
+        }
+        else
+        {
+            Text.text = textString;
+            return;
+        }
+
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
@@ -38,14 +48,14 @@ public class TypewriterText : MonoBehaviour
             StopCoroutine(_coroutine);
             _coroutine = null;
         }
-        _text.text = _currentTextString;
+        Text.text = _currentTextString;
     }
 
     private IEnumerator Typewrite(float charTime)
     {
         foreach (var c in _currentTextString)
         {
-            _text.text += c;
+            Text.text += c;
             yield return new WaitForSecondsRealtime(charTime);
         }
         _coroutine = null;

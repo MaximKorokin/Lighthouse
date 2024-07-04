@@ -16,7 +16,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
     private Dialogue _currentDialogue;
     private int _currentSpeechIndex;
 
-    public event Action DialogueEnded;
+    public event Action<Dialogue> DialogueEnded;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,7 +30,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         }
         else if (_currentDialogue.Speeches.Length <= ++_currentSpeechIndex)
         {
-            DialogueEnded?.Invoke();
+            DialogueEnded?.Invoke(_currentDialogue);
         }
         else
         {
@@ -47,7 +47,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         if (dialogue == null)
         {
             Logger.Warn("Dialogue is null");
-            DialogueEnded?.Invoke();
+            DialogueEnded?.Invoke(null);
             return;
         }
         _currentDialogue = dialogue;
@@ -67,9 +67,10 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         if (characterPreview != null)
         {
             _characterIcon.sprite = characterPreview.Icon;
+            var displayName = string.IsNullOrWhiteSpace(characterPreview.DisplayName) ? characterPreview.Name : characterPreview.DisplayName;
             LocalizationManager.SetLanguageChangeListener(
                 _characterNameText,
-                $"<color=#{characterPreview.Color.ToHexString()}>{characterPreview.Name}</color>",
+                $"<color=#{characterPreview.Color.ToHexString()}>{displayName}</color>",
                 text => _characterNameText.text = text);
         }
     }
