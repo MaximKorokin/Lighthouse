@@ -4,7 +4,7 @@ using UnityEngine;
 public static class ActRequirementGizmosDrawers
 {
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
-    public static void ActEndRequirement(ActEndRequirement requirement, GizmoType gizmoType)
+    public static void ActEndRequirement(ActFinishRequirement requirement, GizmoType gizmoType)
     {
         if (requirement.ScenarioAct == null)
         {

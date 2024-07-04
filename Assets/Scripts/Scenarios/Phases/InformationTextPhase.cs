@@ -19,7 +19,7 @@ public class InformationTextPhase : ActPhase
     private void OnFinishedShow()
     {
         InformationText.FinishedShow -= OnFinishedShow;
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Text.png";

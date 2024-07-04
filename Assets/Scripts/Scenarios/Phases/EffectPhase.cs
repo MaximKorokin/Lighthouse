@@ -17,7 +17,7 @@ public class EffectPhase : ActPhase
     public override void Invoke()
     {
         _effects.Invoke(new CastState(WorldObject));
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Effect.png";

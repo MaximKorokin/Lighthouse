@@ -3,11 +3,11 @@ using UnityEngine;
 
 public abstract class ActPhase : MonoBehaviour, IEditorIcon
 {
-    public event Action<ActPhase> Ended;
+    public event Action<ActPhase> Finished;
 
-    protected void InvokeEnded()
+    protected void InvokeFinished()
     {
-        Ended?.Invoke(this);
+        Finished?.Invoke(this);
     }
 
     public abstract void Invoke();

@@ -13,7 +13,7 @@ public class FactionChangingPhase : ActPhase
     public override void Invoke()
     {
         _worldObjects.ForEach(x => x.SetFaction(_faction));
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "WOSwitching.png";

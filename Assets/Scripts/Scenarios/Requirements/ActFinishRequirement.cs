@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ActEndRequirement : ActRequirement
+public class ActFinishRequirement : ActRequirement
 {
     [SerializeField]
     private ScenarioAct _scenarioAct;
@@ -14,10 +14,10 @@ public class ActEndRequirement : ActRequirement
             Logger.Warn($"{nameof(_scenarioAct)} is null");
             return;
         }
-        _scenarioAct.Ended += OnEnded;
+        _scenarioAct.Finished += OnFinished;
     }
 
-    private void OnEnded(ScenarioAct act)
+    private void OnFinished(ScenarioAct act)
     {
         InvokeFulfilled();
     }
@@ -28,7 +28,7 @@ public class ActEndRequirement : ActRequirement
         {
             return true;
         }
-        return _scenarioAct.HasEnded;
+        return _scenarioAct.HasFinished;
     }
 
     private void OnDestroy()
@@ -37,7 +37,7 @@ public class ActEndRequirement : ActRequirement
         {
             return;
         }
-        _scenarioAct.Ended -= OnEnded;
+        _scenarioAct.Finished -= OnFinished;
     }
 
     public override string IconName => "Transition.png";

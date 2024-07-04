@@ -45,7 +45,7 @@ public class MovableMovePhase : ActPhase
             controller.CanControl = controllerCanControl;
         }
 
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "WOMove.png";

@@ -20,7 +20,7 @@ public class ActorsActingPhase : ActPhase
         {
             _actors.ForEach(x => x.Idle(x.WorldObject));
         }
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Gear.png";

@@ -23,7 +23,7 @@ public class ShowHideTilemapsPhase : ActPhase
             {
                 tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0);
             }
-            InvokeEnded();
+            InvokeFinished();
         }
         else
         {
@@ -41,7 +41,7 @@ public class ShowHideTilemapsPhase : ActPhase
             tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
             yield return new WaitForEndOfFrame();
         }
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Eye.png";

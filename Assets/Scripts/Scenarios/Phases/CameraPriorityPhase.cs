@@ -8,7 +8,7 @@ public class CameraPriorityPhase : ActPhase
     public override void Invoke()
     {
         MainCameraController.Instance.MinPriority = _priorityOverride;
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "CameraPriority.png";

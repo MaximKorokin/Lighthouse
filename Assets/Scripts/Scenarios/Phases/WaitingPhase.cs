@@ -14,7 +14,7 @@ public class WaitingPhase : ActPhase
     private IEnumerator WaitCoroutine()
     {
         yield return new WaitForSeconds(_waitTime);
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Wait.png";

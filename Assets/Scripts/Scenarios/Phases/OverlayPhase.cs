@@ -12,15 +12,15 @@ public class OverlayPhase : ActPhase
         _overlay = OverlayPool.Take(_settings);
         _overlay.SetSettings(_settings);
         _overlay.AnimatorController.PlayAnimation(true);
-        _overlay.AnimatorController.EndedPlaying -= OnEndedPlaying;
-        _overlay.AnimatorController.EndedPlaying += OnEndedPlaying;
+        _overlay.AnimatorController.FinishedPlaying -= OnFinishedPlaying;
+        _overlay.AnimatorController.FinishedPlaying += OnFinishedPlaying;
     }
 
-    private void OnEndedPlaying()
+    private void OnFinishedPlaying()
     {
-        _overlay.AnimatorController.EndedPlaying -= OnEndedPlaying;
+        _overlay.AnimatorController.FinishedPlaying -= OnFinishedPlaying;
         OverlayPool.Return(_overlay);
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Overlay.png";

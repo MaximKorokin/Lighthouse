@@ -16,7 +16,7 @@ public class GameOperationPhase : ActPhase
                 GameManager.Resume();
                 break;
         }
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => _operation switch

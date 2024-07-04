@@ -11,10 +11,10 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     protected override void Awake()
     {
         base.Awake();
-        _dialogueView.DialogueEnded += OnDialogueEnded;
+        _dialogueView.DialogueFinished += OnDialogueFinished;
     }
 
-    private void OnDialogueEnded(Dialogue dialogue)
+    private void OnDialogueFinished(Dialogue dialogue)
     {
         if (dialogue != null && dialogue.PauseGame)
         {

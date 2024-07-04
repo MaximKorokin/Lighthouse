@@ -8,7 +8,7 @@ public class ControlInputSwitchPhase : ActPhase
     public override void Invoke()
     {
         InputReader.IsControlInputBlocked = !_turnOn;
-        InvokeEnded();
+        InvokeFinished();
     }
 
     public override string IconName => "Gamepad.png";

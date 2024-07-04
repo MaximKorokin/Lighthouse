@@ -18,7 +18,7 @@ public class CameraMovePhase : ActPhase
             Logger.Warn($"{nameof(_transformPosition)} parameter is not set in {nameof(CameraMovePhase)}");
             return;
         }
-        MainCameraController.Instance.SetMovement(_transformPosition.position, _speed, false, Priority, InvokeEnded);
+        MainCameraController.Instance.SetMovement(_transformPosition.position, _speed, false, Priority, InvokeFinished);
     }
 
     public override string IconName => "CameraMove.png";

@@ -16,7 +16,7 @@ public class GenericAnimatorController : MonoBehaviour
     private CooldownCounter _playingCounter;
     private bool _isPlaying;
 
-    public event Action EndedPlaying;
+    public event Action FinishedPlaying;
 
     private void Awake()
     {
@@ -55,7 +55,7 @@ public class GenericAnimatorController : MonoBehaviour
         {
             _isPlaying = false;
             _animator.SetBool(StopAnimationKey, true);
-            EndedPlaying?.Invoke();
+            FinishedPlaying?.Invoke();
         }
     }
 }
