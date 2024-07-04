@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Text))]
 public class TypewriterText : MonoBehaviour
 {
+    private readonly char[] _charsToShowImmediately = new char[] { ' ' };
+
     private string _currentTextString;
     private Coroutine _coroutine;
 
@@ -16,14 +20,16 @@ public class TypewriterText : MonoBehaviour
         Text = GetComponent<TMP_Text>();
     }
 
-    public void SetText(string textString, float charTime)
+    public float SetText(string textString, TypingSpeed typingSpeed)
     {
         if (!gameObject.activeInHierarchy)
         {
-            return;
+            return 0;
         }
+
         _currentTextString = textString;
 
+        var charTime = typingSpeed.ToFloatValue();
         if (charTime > 0)
         {
             Text.text = "";
@@ -31,7 +37,7 @@ public class TypewriterText : MonoBehaviour
         else
         {
             Text.text = textString;
-            return;
+            return 0;
         }
 
         if (_coroutine != null)
@@ -39,6 +45,8 @@ public class TypewriterText : MonoBehaviour
             StopCoroutine(_coroutine);
         }
         _coroutine = StartCoroutine(Typewrite(charTime));
+
+        return (textString.Length - textString.Count(x => ShouldShowImmediately(x))) * charTime;
     }
 
     public void ForceCurrentText()
@@ -56,8 +64,22 @@ public class TypewriterText : MonoBehaviour
         foreach (var c in _currentTextString)
         {
             Text.text += c;
-            yield return new WaitForSecondsRealtime(charTime);
+
+            if (!ShouldShowImmediately(c))
+            {
+                yield return new WaitForSecondsRealtime(charTime);
+            }
         }
         _coroutine = null;
     }
+
+    private bool ShouldShowImmediately(char c) => Array.IndexOf(_charsToShowImmediately, c) != -1;
+}
+
+public enum TypingSpeed
+{
+    Normal = 0,
+    Slow = 1,
+    Fast = 2,
+    Instant = 9,
 }

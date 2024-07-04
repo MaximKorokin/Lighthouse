@@ -42,9 +42,8 @@ public class InformationText : MonoBehaviorSingleton<InformationText>
             text,
             t =>
             {
-                var charTime = typingSpeed.ToFloatValue();
-                Instance._typewriter.SetText(t, charTime);
-                Instance._showCounter.Cooldown = showTime + text.Length * charTime;
+                var timeToShow = Instance._typewriter.SetText(t, typingSpeed);
+                Instance._showCounter.Cooldown = showTime + timeToShow;
             });
     }
 

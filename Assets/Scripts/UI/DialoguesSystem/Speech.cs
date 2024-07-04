@@ -13,11 +13,3 @@ public class Speech
     [field: SerializeField]
     public TypingSpeed TypingSpeed { get; private set; }
 }
-
-public enum TypingSpeed
-{
-    Normal = 0,
-    Slow = 1,
-    Fast = 2,
-    Instant = 9,
-}

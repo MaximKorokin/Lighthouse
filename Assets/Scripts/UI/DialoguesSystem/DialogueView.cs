@@ -61,7 +61,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         LocalizationManager.SetLanguageChangeListener(
             _speechText,
             currentSpeech.Text,
-            text => _speechText.SetText(text, currentSpeech.TypingSpeed.ToFloatValue()));
+            text => _speechText.SetText(text, currentSpeech.TypingSpeed));
 
         var characterPreview = CharactersPreviewsDataBase.FindById(currentSpeech.CharacterPreviewId);
         if (characterPreview != null)
