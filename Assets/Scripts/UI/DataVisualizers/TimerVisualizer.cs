@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(WorldObjectCanvasProvider))]
 class TimerVisualizer : BarAmountVisualizer
 {
-    [SerializeField]
-    private Transform _barParent;
     private Timer _timer;
 
     protected override void Start()
     {
         base.Start();
-        BarController.transform.SetParent(_barParent, false);
+        var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
+        BarController.transform.SetParent(canvasProvider.CanvasController.Canvas.transform, false);
     }
 
     public void SetTimer(Timer timer)

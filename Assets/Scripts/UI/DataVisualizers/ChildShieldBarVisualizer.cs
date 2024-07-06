@@ -1,37 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(BarAmountVisualizer))]
+[RequireComponent(typeof(WorldObjectCanvasProvider))]
 public class ChildShieldBarVisualizer : ShieldBarVisualizer
 {
-    private BarAmountVisualizer _parentBarVisualizer;
-    private bool _isParentInitialized;
-    private bool _isInitialized;
-
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
-        _parentBarVisualizer = GetComponent<BarAmountVisualizer>();
-        _parentBarVisualizer.Initialized += OnParentBarInitialized;
-        Initialized += OnInitialized;
-    }
-
-    private void OnInitialized(BarAmountVisualizer obj)
-    {
-        Initialized -= OnInitialized;
-        _isInitialized = true;
-        if (_isParentInitialized)
-        {
-            BarController.transform.SetParent(_parentBarVisualizer.BarController.transform, false);
-        }
-    }
-
-    private void OnParentBarInitialized(BarAmountVisualizer initializable)
-    {
-        _parentBarVisualizer.Initialized -= OnParentBarInitialized;
-        _isParentInitialized = true;
-        if (_isInitialized)
-        {
-            BarController.transform.SetParent(_parentBarVisualizer.BarController.transform, false);
-        }
+        base.Start();
+        var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
+        BarController.transform.SetParent(canvasProvider.CanvasController.LowerElementsParent, false);
     }
 }

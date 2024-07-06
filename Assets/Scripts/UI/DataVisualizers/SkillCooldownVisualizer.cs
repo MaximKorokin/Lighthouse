@@ -1,13 +1,11 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(SkilledActor))]
+[RequireComponent(typeof(WorldObjectCanvasProvider))]
 public class SkillCooldownVisualizer : BarAmountVisualizer
 {
     [SerializeField]
     private int _skillIndex;
-    [SerializeField]
-    private Transform _barParent;
     private CooldownCounter _cooldownCounter;
 
     protected override void Start()
@@ -19,7 +17,8 @@ public class SkillCooldownVisualizer : BarAmountVisualizer
             return;
         }
         _cooldownCounter = skill.CooldownCounter;
-        BarController.transform.SetParent(_barParent, false);
+        var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
+        BarController.transform.SetParent(canvasProvider.CanvasController.LowerElementsParent, false);
     }
 
     private void Update()

@@ -22,5 +22,5 @@ public class InformationTextPhase : ActPhase
         InvokeFinished();
     }
 
-    public override string IconName => "Text.png";
+    public override string IconName => "Info.png";
 }

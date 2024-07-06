@@ -6,17 +6,18 @@ public class CoroutinesHandler : MonoBehaviorSingleton<CoroutinesHandler>
 {
     private static readonly Dictionary<object, Coroutine> _uniqueCoroutines = new();
 
-    public void StartUniqueCoroutine(object obj, IEnumerator enumerator)
+    public static void StartUniqueCoroutine(object obj, IEnumerator enumerator)
     {
         if (Instance == null)
         {
+            Logger.Warn($"{nameof(Instance)} is null. Coroutine will not start.");
             return;
         }
 
         if (_uniqueCoroutines.TryGetValue(obj, out var coroutine) && coroutine != null)
         {
-            StopCoroutine(coroutine);
+            Instance.StopCoroutine(coroutine);
         }
-        _uniqueCoroutines[obj] = StartCoroutine(enumerator);
+        _uniqueCoroutines[obj] = Instance.StartCoroutine(enumerator);
     }
 }

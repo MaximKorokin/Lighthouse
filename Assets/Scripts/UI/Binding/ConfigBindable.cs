@@ -3,7 +3,7 @@ using UnityEngine;
 public class ConfigBindable : Bindable
 {
     [SerializeField]
-    private Config _configKey;
+    private ConfigKey _configKey;
 
     private void Start()
     {

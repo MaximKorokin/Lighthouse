@@ -18,7 +18,7 @@ public class EditorSpeech : PropertyDrawerBase
         var element = typeof(Speech).CreateTypeFoldout(Property);
 
         Func<CharacterPreview, string> displayNameSelector = prev => prev != null
-            ? $"{(string.IsNullOrWhiteSpace(prev?.DisplayName) ? prev?.Name : prev?.DisplayName)} ({prev?.Name})"
+            ? $"{LocalizationData.GetLocalizedValue(SystemLanguage.English, (string.IsNullOrWhiteSpace(prev?.DisplayName) ? prev?.Name : prev?.DisplayName))} ({LocalizationData.GetLocalizedValue(SystemLanguage.English, prev?.Name)})"
             : "Select value";
         var popup = new PopupField<CharacterPreview>(CharactersPreviewsDataBase.Instance.Items.ToList(), 0, displayNameSelector, displayNameSelector);
         element.Insert(0, popup);
@@ -33,7 +33,7 @@ public class EditorSpeech : PropertyDrawerBase
 
         var speechText = Property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.Text)).Name).stringValue;
         speechText = LocalizationData.GetLocalizedValue(SystemLanguage.English, speechText);
-        element.text = popup.value != null ? $"{popup.value?.Name}: {speechText}" : "";
+        element.text = popup.value != null ? $"{LocalizationData.GetLocalizedValue(SystemLanguage.English, popup.value?.Name)}: {speechText}" : "";
 
         return element;
     }

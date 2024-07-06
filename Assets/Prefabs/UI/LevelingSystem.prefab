@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 6566173329357340386}
   - component: {fileID: 253032288735558085}
   - component: {fileID: 49196193852367540}
+  - component: {fileID: 5364704854361289429}
   m_Layer: 5
   m_Name: ExpBarBackground
   m_TagString: Untagged
@@ -285,10 +286,10 @@ RectTransform:
   - {fileID: 3015988023627044952}
   m_Father: {fileID: 3088872917817422232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 700, y: 60}
+  m_SizeDelta: {x: -200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &253032288735558085
 CanvasRenderer:
@@ -328,6 +329,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5364704854361289429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3807044328342736071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Config>k__BackingField: 110
 --- !u!1 &7284921767372075543
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,8 +409,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 999
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2affc4118cd3a074691420f62366cce4, type: 2}
+  m_sharedMaterial: {fileID: -2595449137717220047, guid: 2affc4118cd3a074691420f62366cce4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -420,8 +434,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

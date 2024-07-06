@@ -48,6 +48,11 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
 
     public static string GetLocalizedValue(SystemLanguage language, string key)
     {
+        if (key.Length < 3)
+        {
+            return "";
+        }
+
         if (Instance._localizationDictionary == null)
         {
             Instance.UpdateData();

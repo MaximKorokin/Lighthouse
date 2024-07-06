@@ -1,18 +1,19 @@
 ﻿using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
+[RequireComponent(typeof(WorldObjectCanvasProvider))]
 class HPChangeTextVisualizer : TextVisualizer
 {
     [SerializeField]
-    private Transform _textParent;
-    [SerializeField]
     private float _lowerThreshold;
+
+    private WorldObjectCanvasProvider _canvasProvider;
 
     protected DestroyableWorldObject WorldObject { get; private set; }
 
     protected void Start()
     {
+        _canvasProvider = GetComponent<WorldObjectCanvasProvider>();
         WorldObject = GetComponent<DestroyableWorldObject>();
         WorldObject.HealthPointsChanged += VisualizeHPChange;
     }
@@ -39,7 +40,7 @@ class HPChangeTextVisualizer : TextVisualizer
     public override TMP_Text VisualizeText(string visualizeString)
     {
         var text = base.VisualizeText(visualizeString);
-        text.transform.SetParent(_textParent, false);
+        text.transform.SetParent(_canvasProvider.CanvasController.UpperElementsParent, false);
         return text;
     }
 }

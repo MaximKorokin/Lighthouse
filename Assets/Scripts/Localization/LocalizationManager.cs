@@ -11,12 +11,12 @@ public static class LocalizationManager
 
     static LocalizationManager()
     {
-        var configLanguage = LocalizationData.FindLanguage("LanguageName", ConfigsManager.GetValue(Config.Language));
+        var configLanguage = LocalizationData.FindLanguage("LanguageName", ConfigsManager.GetValue(ConfigKey.Language));
         if (configLanguage != SystemLanguage.Unknown)
         {
             ChangeLanguage(configLanguage);
         }
-        ConfigsManager.SetChangeListener(Config.Language, x => ChangeLanguage(LocalizationData.FindLanguage("LanguageName", x.ToString())));
+        ConfigsManager.SetChangeListener(ConfigKey.Language, x => ChangeLanguage(LocalizationData.FindLanguage("LanguageName", x.ToString())));
     }
 
     public static void ChangeLanguage(SystemLanguage language)

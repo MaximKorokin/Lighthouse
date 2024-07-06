@@ -3,9 +3,9 @@ using UnityEngine;
 public abstract class ConfigValueListener : MonoBehaviour
 {
     [field: SerializeField]
-    protected Config Config { get; private set; }
+    protected ConfigKey Config { get; private set; }
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         ConfigsManager.SetChangeListener(Config, OnConfigValueChanged);
     }

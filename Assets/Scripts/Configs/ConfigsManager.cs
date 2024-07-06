@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class ConfigsManager
 {
-    private static readonly Dictionary<Config, HashSet<Action<string>>> _listeners = new();
+    private static readonly Dictionary<ConfigKey, HashSet<Action<string>>> _listeners = new();
 
-    public static void SetValue(Config config, string value)
+    public static void SetValue(ConfigKey config, string value)
     {
         if (PlayerPrefs.GetString(config.ToString()) != value.ToString() && _listeners.ContainsKey(config))
         {
@@ -15,12 +15,12 @@ public static class ConfigsManager
         PlayerPrefs.SetString(config.ToString(), value.ToString());
     }
 
-    public static string GetValue(Config config)
+    public static string GetValue(ConfigKey config)
     {
         return PlayerPrefs.GetString(config.ToString());
     }
 
-    public static void SetChangeListener(Config config, Action<object> action)
+    public static void SetChangeListener(ConfigKey config, Action<object> action)
     {
         if (_listeners.ContainsKey(config))
         {
@@ -32,19 +32,26 @@ public static class ConfigsManager
         }
     }
 
-    public static void RemoveChangeListener(Config config, Action<string> action)
+    public static void RemoveChangeListener(ConfigKey config, Action<string> action)
     {
-        if (_listeners.ContainsKey(config))
+        if (_listeners.TryGetValue(config, out var actions))
         {
-            _listeners[config].Remove(action);
+            actions.Remove(action);
         }
     }
 }
 
-public enum Config
+public enum ConfigKey
 {
-    DebugMode,
-    FpsCounter,
-    AudioVolume,
-    Language
+    DebugMode = 0,
+    FpsCounter = 1,
+    AudioVolume = 2,
+    Language = 3,
+
+    ViewHPVisualization = 100,
+    ViewHPChangeVisualization = 101,
+
+    ViewLevelingSystem = 110,
+
+    ViewPauseButton = 120,
 }

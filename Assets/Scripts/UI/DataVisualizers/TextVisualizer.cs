@@ -4,7 +4,6 @@ using TMPro;
 
 public abstract class TextVisualizer : MonoBehaviour
 {
-    [Header("Multiple")]
     [SerializeField]
     private float _showTime;
     [SerializeField]
@@ -15,7 +14,7 @@ public abstract class TextVisualizer : MonoBehaviour
     public virtual TMP_Text VisualizeText(string visualizeString)
     {
         var text = TextPool.Take(null);
-        text.StartCoroutine(TextLifetimeCoroutine(text));
+        StartCoroutine(TextLifetimeCoroutine(text));
 
         if (double.TryParse(visualizeString, out var result))
         {

@@ -16,7 +16,7 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 2
+  <Cooldown>k__BackingField: 1
   _effects:
   - rid: 834406557198581761
   references:

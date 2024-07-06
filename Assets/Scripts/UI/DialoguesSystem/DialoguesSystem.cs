@@ -20,8 +20,8 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         {
             GameManager.Resume();
         }
-        DialogueFinished?.Invoke();
         _dialogueView.gameObject.SetActive(false);
+        DialogueFinished?.Invoke();
     }
 
     private void InitDialogueInternal(Dialogue dialogue)

@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(WorldObjectCanvasProvider))]
 public class ChildHPBarVisualizer : HPBarVisualizer
 {
-    [SerializeField]
-    private Transform _barParent;
-
     protected override void Start()
     {
         base.Start();
-        BarController.transform.SetParent(_barParent, false);
+        var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
+        BarController.transform.SetParent(canvasProvider.CanvasController.LowerElementsParent, false);
     }
 }

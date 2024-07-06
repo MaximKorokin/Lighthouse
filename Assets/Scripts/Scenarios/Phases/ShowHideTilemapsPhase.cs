@@ -27,8 +27,8 @@ public class ShowHideTilemapsPhase : ActPhase
         }
         else
         {
-            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.Instance.StartUniqueCoroutine(x, TransitionCoroutine(x, 1, 1)));
-            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.Instance.StartUniqueCoroutine(x, TransitionCoroutine(x, 0, -1)));
+            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 1, 1)));
+            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 0, -1)));
         }
     }
 
