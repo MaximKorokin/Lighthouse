@@ -59,4 +59,13 @@ public static class ActPhaseGizmosDrawers
             EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.WorldObject.transform.position, ArrowType.Line, phase.IconName);
         }
     }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void GameObjectSetActivePhase(GameObjectSetActivePhase phase, GizmoType gizmoType)
+    {
+        if (phase.GameObject != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.GameObject.transform.position, ArrowType.Line, phase.IconName);
+        }
+    }
 }
