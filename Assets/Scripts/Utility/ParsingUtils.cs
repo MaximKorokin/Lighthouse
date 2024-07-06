@@ -10,7 +10,9 @@ public static class ParsingUtils
 
         var isInsideQuotes = false;
         var startIndex = 0;
-        line = line.Replace("\"\"", QuotePlaceholder);
+        line = line
+            .Replace("\"\"", QuotePlaceholder)
+            .Replace("\\n", "\n");
         for (int i = 0; i < line.Length ; i++)
         {
             switch (line[i])

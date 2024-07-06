@@ -200,7 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed2f51595f0a34391e2feb30c8e998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanControl>k__BackingField: 1
   _priorities: 
   _drag: 0.2
 --- !u!95 &2672765818256748374
@@ -278,7 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanAct>k__BackingField: 1
   _skills:
   - _settings: {fileID: 11400000, guid: 8f935806eb0f92e44a3a7f2ea36b63da, type: 2}
     _conditionData:

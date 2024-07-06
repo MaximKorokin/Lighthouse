@@ -4,8 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
-    [field: SerializeField]
-    public bool CanControl { get; set; } = true;
+    public BoolCounter _canControl = new(true);
+    public bool CanControl { get => _canControl; set => _canControl.Set(value); }
 
     protected WorldObject WorldObject { get; private set; }
     protected ActorBase[] Actors { get; private set; }

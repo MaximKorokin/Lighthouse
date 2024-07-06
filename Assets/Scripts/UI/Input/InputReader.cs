@@ -6,20 +6,11 @@ public abstract class InputReader : MonoBehaviour
     #region static
     private static readonly object _eventsInvoker = new();
 
-    public static bool _isControlInputBlocked;
+    private static BoolCounter _isControlInputBlocked = new(false);
     public static bool IsControlInputBlocked
     {
         get => _isControlInputBlocked;
-        set
-        {
-            if (_isControlInputBlocked != value)
-            {
-                if (value) MoveInputRecieved?.Invoke(_eventsInvoker, Vector2.zero);
-
-                InputBlockChanging?.Invoke(value);
-                _isControlInputBlocked = value;
-            }
-        }
+        set => _isControlInputBlocked.Set(value);
     }
 
     public static event Action<bool> InputBlockChanging;
@@ -28,6 +19,15 @@ public abstract class InputReader : MonoBehaviour
     public static FrameBoundEvent<Vector2> MoveInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> ActiveAbilityInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> MoveAbilityInputRecieved = new(_eventsInvoker);
+
+    static InputReader()
+    {
+        _isControlInputBlocked.ValueChanged += v =>
+        {
+            if (v) ResetInput();
+            InputBlockChanging?.Invoke(v);
+        };
+    }
     #endregion
 
     private Vector2 _moveInput = new();
@@ -70,5 +70,10 @@ public abstract class InputReader : MonoBehaviour
         if (_moveInput == input) return false;
         _moveInput = input;
         return true;
+    }
+
+    private static void ResetInput()
+    {
+        MoveInputRecieved?.Invoke(_eventsInvoker, Vector2.zero);
     }
 }

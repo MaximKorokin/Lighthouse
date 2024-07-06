@@ -29,7 +29,7 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
             return;
         }
 
-        var data = _localizationData.text.Trim().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+        var data = _localizationData.text.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
         var languages = ParsingUtils.ParseCsvLine(data.First()).Skip(1).Select(x =>
         {
             if (Enum.TryParse<SystemLanguage>(x, true, out var result))
