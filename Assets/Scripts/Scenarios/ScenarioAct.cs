@@ -105,11 +105,17 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
     private class ConsecutivePhasesInvoker : PhasesInvoker
     {
-        private int _activePhaseIndex = -1;
+        private int _activePhaseIndex;
 
         public ConsecutivePhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
 
         protected override void InvokeInternal()
+        {
+            _activePhaseIndex = -1;
+            InvokeNextPhase();
+        }
+
+        private void InvokeNextPhase()
         {
             _activePhaseIndex++;
             if (_activePhaseIndex < Phases.Count)
@@ -120,13 +126,16 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
         protected override void OnPhaseFinished(ActPhase phase)
         {
+            if (phase != Phases[_activePhaseIndex])
+            {
+                return;
+            }
             if (_activePhaseIndex + 1 >= Phases.Count)
             {
-                _activePhaseIndex = -1;
                 InvokeFinished();
                 return;
             }
-            InvokeInternal();
+            InvokeNextPhase();
         }
     }
 
@@ -138,6 +147,7 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
         protected override void InvokeInternal()
         {
+            _finishedPhases.Clear();
             Phases.ForEach(x => x.Invoke());
         }
 

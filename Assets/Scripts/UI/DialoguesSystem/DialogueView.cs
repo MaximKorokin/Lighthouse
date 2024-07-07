@@ -16,7 +16,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
     private Dialogue _currentDialogue;
     private int _currentSpeechIndex;
 
-    public event Action<Dialogue> DialogueFinished;
+    public event Action DialogueFinished;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,7 +30,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         }
         else if (_currentDialogue.Speeches.Length <= ++_currentSpeechIndex)
         {
-            DialogueFinished?.Invoke(_currentDialogue);
+            DialogueFinished?.Invoke();
         }
         else
         {
@@ -47,7 +47,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         if (dialogue == null)
         {
             Logger.Warn("Dialogue is null");
-            DialogueFinished?.Invoke(null);
+            DialogueFinished?.Invoke();
             return;
         }
         _currentDialogue = dialogue;

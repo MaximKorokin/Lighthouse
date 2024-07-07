@@ -14,28 +14,34 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         _dialogueView.DialogueFinished += OnDialogueFinished;
     }
 
-    private void OnDialogueFinished(Dialogue dialogue)
+    private void OnDialogueFinished()
     {
-        if (dialogue != null && dialogue.PauseGame)
-        {
-            GameManager.Resume();
-        }
         _dialogueView.gameObject.SetActive(false);
         DialogueFinished?.Invoke();
     }
 
     private void InitDialogueInternal(Dialogue dialogue)
     {
-        if (dialogue != null && dialogue.PauseGame)
-        {
-            GameManager.Pause();
-        }
         _dialogueView.gameObject.SetActive(true);
         _dialogueView.SetDialogue(dialogue);
     }
 
     public static void InitDialogue(Dialogue dialogue)
     {
+        if (Instance == null)
+        {
+            Logger.Warn($"{nameof(Instance)} of {nameof(DialoguesSystem)} singletone is null.");
+            return;
+        }
         Instance.InitDialogueInternal(dialogue);
+    }
+
+    public static void SkipDialogue()
+    {
+        if (Instance == null)
+        {
+            return;
+        }
+        Instance.OnDialogueFinished();
     }
 }

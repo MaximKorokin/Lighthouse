@@ -14,4 +14,5 @@ public class ConfigValuePhase : ActPhase
     }
 
     public override string IconName => "Config.png";
+    public override Color IconColor => ConvertingUtils.ToBool(value) ? MyColors.Green : MyColors.Red;
 }

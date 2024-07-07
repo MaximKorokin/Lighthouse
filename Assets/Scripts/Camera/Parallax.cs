@@ -7,7 +7,7 @@ public class Parallax : MonoBehaviour
 
     private void Start()
     {
-        MainCameraController.Instance.PositionChanged += OnCameraPositionChanged;
+        MainCameraController.PositionChanged += OnCameraPositionChanged;
     }
 
     private void OnCameraPositionChanged(Vector2 oldPosition, Vector2 newPosition)

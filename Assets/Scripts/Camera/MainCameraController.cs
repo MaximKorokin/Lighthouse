@@ -8,13 +8,13 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
     private Vector3 _destination;
     private float _speed;
     private bool _smooth;
-    private Action _callback;
 
     private float _zDifference;
 
     public CameraMovementPriority MinPriority { get; set; } = CameraMovementPriority.Low;
 
-    public event Action<Vector2, Vector2> PositionChanged;
+    public static event Action<Vector2, Vector2> PositionChanged;
+    public static event Action MoveFinished;
 
     protected override void Awake()
     {
@@ -36,17 +36,14 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
 
     private void FixedUpdate()
     {
-        MoveTowardsDestination(Time.fixedDeltaTime);
+        if ((Vector2)_camera.transform.position != (Vector2)_destination)
+        {
+            MoveTowardsDestination(Time.fixedDeltaTime);
+        }
     }
 
     private void MoveTowardsDestination(float factor)
     {
-        if ((Vector2)_camera.transform.position == (Vector2)_destination)
-        {
-            _callback?.Invoke();
-            _callback = null;
-            return;
-        }
         Vector2 newPosition;
         if (_smooth)
         {
@@ -65,18 +62,22 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
         var oldPosition = _camera.transform.position;
         _camera.transform.position = new Vector3(newPosition.x, newPosition.y, _destination.z + _zDifference);
         PositionChanged?.Invoke(oldPosition, _camera.transform.position);
+
+        if ((Vector2)_camera.transform.position == (Vector2)_destination)
+        {
+            MoveFinished?.Invoke();
+        }
     }
 
-    public void SetMovement(Vector3 destination, float speed, bool smooth, CameraMovementPriority priority, Action callback = null)
+    public static void SetMovement(Vector3 destination, float speed, bool smooth, CameraMovementPriority priority)
     {
-        if (priority < MinPriority)
+        if (priority < Instance.MinPriority)
         {
             return;
         }
-        _destination = destination;
-        _speed = speed;
-        _smooth = smooth;
-        _callback = callback;
+        Instance._destination = destination;
+        Instance._speed = speed;
+        Instance._smooth = smooth;
     }
 }
 

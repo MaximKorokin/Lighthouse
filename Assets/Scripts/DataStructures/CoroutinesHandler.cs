@@ -10,7 +10,7 @@ public class CoroutinesHandler : MonoBehaviorSingleton<CoroutinesHandler>
     {
         if (Instance == null)
         {
-            Logger.Warn($"{nameof(Instance)} is null. Coroutine will not start.");
+            Logger.Warn($"{nameof(Instance)} of {nameof(CoroutinesHandler)} is null. Coroutine will not start.");
             return;
         }
 

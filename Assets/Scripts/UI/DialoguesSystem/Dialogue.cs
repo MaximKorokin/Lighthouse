@@ -4,7 +4,5 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     [field: SerializeField]
-    public bool PauseGame {  get; private set; }
-    [field: SerializeField]
     public Speech[] Speeches { get; private set; }
 }

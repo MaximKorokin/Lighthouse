@@ -34,6 +34,6 @@ public class CameraFollow : MonoBehaviour
 
     private void SetMovement()
     {
-        MainCameraController.Instance.SetMovement(transform.position + (Vector3)_movableWorldObject.Direction * _outrunningValue, _speed, true, _priority);
+        MainCameraController.SetMovement(transform.position + (Vector3)_movableWorldObject.Direction * _outrunningValue, _speed, true, _priority);
     }
 }

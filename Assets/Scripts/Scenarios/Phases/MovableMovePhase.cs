@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MovableMovePhase : ActPhase
+public class MovableMovePhase : SkippableActPhase
 {
     [SerializeField]
     private MovableWorldObject _movable;
@@ -18,6 +18,7 @@ public class MovableMovePhase : ActPhase
             Logger.Warn($"{nameof(_transformPosition)} parameter is not set in {nameof(MovableMovePhase)}");
             return;
         }
+        base.Invoke();
         StartCoroutine(MoveCoroutine());
     }
 
@@ -46,6 +47,11 @@ public class MovableMovePhase : ActPhase
         }
 
         InvokeFinished();
+    }
+
+    protected override void OnSkipped()
+    {
+        _movable.transform.position = _transformPosition.position;
     }
 
     public override string IconName => "WOMove.png";
