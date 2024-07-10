@@ -7,11 +7,14 @@ public class ProjectileActor : EffectActor
     private int _pierceLeft;
     private DestroyableWorldObject _destroyable;
 
+    private readonly CooldownCounter _obstacleHitCooldown = new(.1f);
+
     protected override void Awake()
     {
         base.Awake();
         _destroyable = WorldObject as DestroyableWorldObject;
         _destroyable.Destroying += OnDestroying;
+        _obstacleHitCooldown.Reset();
     }
 
     private void OnDestroying()
@@ -22,14 +25,16 @@ public class ProjectileActor : EffectActor
 
     protected override void ActInternal(WorldObject worldObject)
     {
-        if (!_destroyable.IsAlive || _pierceLeft <= 0)
+        if (!_destroyable.IsAlive ||
+            _pierceLeft <= 0 ||
+            (worldObject.gameObject.IsObstacle() && !_obstacleHitCooldown.IsOver()))
         {
             return;
         }
 
         base.ActInternal(worldObject);
 
-        if (--_pierceLeft <= 0)
+        if (--_pierceLeft <= 0 || worldObject.gameObject.IsObstacle())
         {
             _destroyable.DestroyWorldObject();
         }

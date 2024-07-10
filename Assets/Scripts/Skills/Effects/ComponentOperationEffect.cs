@@ -22,6 +22,7 @@ public class ComponentOperationEffect : Effect
         return type switch
         {
             ComponentType.Collider2D => gameObject.GetComponents<Collider2D>().FirstOrDefault(x => !x.isTrigger),
+            ComponentType.SpriteRenderer => gameObject.GetComponents<SpriteRenderer>().FirstOrDefault(),
             _ => null,
         };
     }
@@ -32,9 +33,11 @@ public class ComponentOperationEffect : Effect
         {
             case ComponentOperationType.Enable:
                 if (component is Behaviour enableBehaviour) enableBehaviour.enabled = true;
+                else if (component is Renderer enableRenderer) enableRenderer.enabled = true;
                 break;
             case ComponentOperationType.Disable:
                 if (component is Behaviour disableBehaviour) disableBehaviour.enabled = false;
+                else if (component is Renderer disableRenderer) disableRenderer.enabled = false;
                 break;
         }
     }
@@ -43,6 +46,7 @@ public class ComponentOperationEffect : Effect
 public enum ComponentType
 {
     Collider2D,
+    SpriteRenderer,
 }
 
 public enum ComponentOperationType

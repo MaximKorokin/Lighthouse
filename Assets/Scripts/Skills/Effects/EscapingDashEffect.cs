@@ -19,7 +19,7 @@ public class EscapingDashEffect : DashEffect
     {
         var hits = Physics2D
             .RaycastAll(castState.Source.transform.position, direction, distance)
-            .Where(x => !x.collider.isTrigger && x.collider.gameObject.layer == LayerMask.NameToLayer(Constants.ObstacleLayerName))
+            .Where(x => !x.collider.isTrigger && x.collider.gameObject.IsObstacle())
             .ToArray();
 
         var predictedMovement = hits.Length == 0 ? direction * distance :

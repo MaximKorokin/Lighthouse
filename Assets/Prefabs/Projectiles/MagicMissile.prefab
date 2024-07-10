@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -5832053135177737166}
   - component: {fileID: 5655109392601563538}
   - component: {fileID: 5784559971183788074}
+  - component: {fileID: -7438684566008377318}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
     - Name: 5
       Value: 0.3
   <IsDamagable>k__BackingField: 0
-  <DestroyTime>k__BackingField: 0
+  <DestroyTime>k__BackingField: 0.5
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
   <IsFlipped>k__BackingField: 0
@@ -197,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ad852864dcd58449d96ea8c3ad50ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanControl>k__BackingField: 1
   _priorities: 01000000
 --- !u!114 &-4888402200594630173
 MonoBehaviour:
@@ -211,7 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2735384f929f38243805496d9fdbfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanAct>k__BackingField: 1
   _effectSettings: {fileID: 0}
 --- !u!114 &-5832053135177737166
 MonoBehaviour:
@@ -265,3 +264,19 @@ MonoBehaviour:
   - TriggerType: 1
     ValidTargets: 6
     Relation: 2
+--- !u!114 &-7438684566008377318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbca283d82d0d24aae5e1b43a57c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEffectsSettings: []
+  _damageEffectsSettings: []
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: 65cc03fdd4d0b1141b00ee3ba64fa329, type: 2}

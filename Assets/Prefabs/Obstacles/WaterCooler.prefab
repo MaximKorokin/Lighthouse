@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2879121165284286293}
   - component: {fileID: 5138098337722001216}
   - component: {fileID: 5677143069249285679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaterCooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

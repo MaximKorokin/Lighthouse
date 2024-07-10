@@ -28,6 +28,7 @@ public class AnimationEffect : Effect
         {
             animator.transform.parent = target.transform;
             animator.transform.localScale = Vector3.one;
+            animator.transform.localEulerAngles = Vector3.zero;
 
             if (!_hasDuration)
             {
