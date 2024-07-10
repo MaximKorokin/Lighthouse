@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 740726156351051180}
   - component: {fileID: 2118121083948704928}
   - component: {fileID: 8681387949396865609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rashin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

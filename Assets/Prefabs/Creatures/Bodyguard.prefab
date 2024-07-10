@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6536686517941551996}
   - component: {fileID: 2406881424162235867}
   - component: {fileID: 8149176656860172405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bodyguard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

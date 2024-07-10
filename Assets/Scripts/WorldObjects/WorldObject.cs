@@ -65,6 +65,11 @@ public abstract class WorldObject : MonoBehaviour
     {
         Faction = faction;
         // Needs this action to retrigger colliders and triggers with a new faction
+        ReloadPhysicsState();
+    }
+
+    public void ReloadPhysicsState()
+    {
         foreach (var item in GetComponents<Collider2D>())
         {
             item.enabled = false;

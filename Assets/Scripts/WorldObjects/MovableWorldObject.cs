@@ -70,7 +70,10 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public void SetRigidbodyCollisions(bool enable)
     {
-        _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : (-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName));
+        _rigidbody.excludeLayers = enable
+            ? _rigidbodyExcludeLayerMask
+            : (-1 ^ (LayerMask.GetMask(Constants.ObstacleLayerName) | LayerMask.GetMask(Constants.CreatureLayerName)));
+        ReloadPhysicsState();
     }
 
     public virtual void Move(float speedOverride = -1)

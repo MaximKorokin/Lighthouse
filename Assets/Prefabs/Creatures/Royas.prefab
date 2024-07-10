@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3431535608654371817}
   - component: {fileID: 8933689640996523510}
   - component: {fileID: 7582170747218420475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Royas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

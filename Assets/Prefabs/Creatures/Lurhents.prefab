@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 8105381655039463507}
   - component: {fileID: 543994037497862892}
   - component: {fileID: 6536686517941551996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lurhents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
