@@ -22,6 +22,7 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     public IEnumerable<ScenarioAct> ChildrenActs => _childrenActs;
 
     private PhasesInvoker _invoker;
+    private bool _hasInitialized;
     private bool _hasFinished;
     public bool HasFinished => _hasFinished;
 
@@ -30,6 +31,12 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
     public void Initialize()
     {
+        if (_hasInitialized)
+        {
+            return;
+        }
+        _hasInitialized = true;
+
         _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
         _invoker.Finished += OnFinished;
 
@@ -76,6 +83,8 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     {
         protected List<ActPhase> Phases;
 
+        private bool _isInvoking;
+
         public event Action Finished;
 
         public PhasesInvoker(List<ActPhase> phases)
@@ -86,11 +95,17 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
         protected void InvokeFinished()
         {
+            _isInvoking = false;
             Finished?.Invoke();
         }
 
         public void Invoke()
         {
+            if (_isInvoking)
+            {
+                return;
+            }
+            _isInvoking = true;
             if (Phases == null || Phases.Count == 0)
             {
                 InvokeFinished();
