@@ -177,6 +177,8 @@ MonoBehaviour:
       Value: 1
     - Name: 3
       Value: 4
+    - Name: 7
+      Value: 1
   <IsDamagable>k__BackingField: 0
   <DestroyTime>k__BackingField: 0.5
   <CanRotate>k__BackingField: 1
@@ -195,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ad852864dcd58449d96ea8c3ad50ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priorities: 01000000
+  _primaryTargets: 0
 --- !u!114 &-8909341099840797249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2735384f929f38243805496d9fdbfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectSettings: {fileID: 0}
+  _skills: []
 --- !u!114 &382586674575037101
 MonoBehaviour:
   m_ObjectHideFlags: 0

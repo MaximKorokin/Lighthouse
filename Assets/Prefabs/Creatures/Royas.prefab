@@ -178,11 +178,11 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c9be6b6271cd042903ad6052f644d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priorities: 0100000008000000
+  _primaryTargetTypes: 1
 --- !u!114 &8105381655039463507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,16 +365,25 @@ MonoBehaviour:
       Predicate: 4096
       ReferenceArgument: 1
       ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
   - _settings: {fileID: 11400000, guid: fe187b10f86da3642978ce102a73dbe8, type: 2}
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1
       ValueArgument: 2
+    _targetChoosingData:
+      Type: 0
+      Func: 0
   - _settings: {fileID: 11400000, guid: 8ac2a285e1b3bed47aff5821f14b5b22, type: 2}
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 4
-      ValueArgument: 2
+      ValueArgument: 4
+    _targetChoosingData:
+      Type: 2
+      Func: 1
 --- !u!114 &543994037497862892
 MonoBehaviour:
   m_ObjectHideFlags: 0

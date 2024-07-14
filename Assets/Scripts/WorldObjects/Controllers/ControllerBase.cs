@@ -24,8 +24,7 @@ public abstract class ControllerBase : MonoBehaviour
         }
     }
 
-    protected void InvokeActors(WorldObject worldObject) => Actors.ForEach(x => x.Act(worldObject));
-    protected void IdleActors(WorldObject worldObject) => Actors.ForEach(x => x.Idle(worldObject));
+    protected void InvokeActors(PrioritizedTargets targets) => Actors.ForEach(x => x.Act(targets));
 
     protected abstract void Control();
 }

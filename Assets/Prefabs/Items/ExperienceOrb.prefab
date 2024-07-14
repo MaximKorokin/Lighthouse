@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed2f51595f0a34391e2feb30c8e998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priorities: 
+  _primaryTargetTypes: 0
   _drag: 0.2
 --- !u!95 &2672765818256748374
 Animator:
@@ -283,3 +283,6 @@ MonoBehaviour:
       Predicate: 4096
       ReferenceArgument: 1
       ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0

@@ -15,8 +15,6 @@ public class PlayerInputController : TriggerController
         InputReader.MoveInputRecieved += OnMoveVectorChanged;
     }
 
-    protected override void Trigger(WorldObject worldObject, bool entered) { }
-
     private void OnMoveVectorChanged(Vector2 vector)
     {
         _direction = vector;
@@ -39,7 +37,7 @@ public class PlayerInputController : TriggerController
             _movable.Move();
         }
 
-        InvokeActors(WorldObject);
+        InvokeActors(new PrioritizedTargets(WorldObject, TriggeredWorldObjects));
     }
 
     private void OnDestroy()

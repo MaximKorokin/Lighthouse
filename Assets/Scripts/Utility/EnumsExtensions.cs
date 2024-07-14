@@ -4,7 +4,8 @@ public static class EnumsExtensions
 {
     public static bool IsValidTarget(this ValidTarget target, WorldObject worldObject)
     {
-        return target.HasFlag(ValidTarget.Creature) && (worldObject is Creature)
+        return target == 0
+            || target.HasFlag(ValidTarget.Creature) && (worldObject is Creature)
             || target.HasFlag(ValidTarget.DestroyableObstacle) && (worldObject is DestroyableObstacle)
             || target.HasFlag(ValidTarget.Obstacle) && (worldObject is Obstacle)
             || target.HasFlag(ValidTarget.TemporaryWorldObject) && (worldObject is TemporaryWorldObject);

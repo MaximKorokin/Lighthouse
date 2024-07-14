@@ -5,13 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(MovableWorldObject))]
 public abstract class TargetController : TriggerController
 {
-    public const int HighPriorityIndex = 0;
-    public const int LowPriorityIndex = 1;
-
     [SerializeField]
-    private ValidTarget[] _priorities;
+    private ValidTarget _primaryTargetTypes;
 
     protected MovableWorldObject MovableWorldObject { get; private set; }
+    protected IEnumerable<WorldObject> PrimaryTargets => TriggeredWorldObjects.Where(IsPrimaryTarget);
+    protected IEnumerable<WorldObject> SecondaryTargets => TriggeredWorldObjects.Except(PrimaryTargets);
 
     protected override void Awake()
     {
@@ -27,11 +26,9 @@ public abstract class TargetController : TriggerController
         }
     }
 
-    public bool IsValidTarget(WorldObject worldObject, int priority)
+    public bool IsPrimaryTarget(WorldObject worldObject)
     {
-        return _priorities == null
-            || _priorities.Length == 0
-            || _priorities.Skip(priority).Take(1).Any(x => x.IsValidTarget(worldObject));
+        return _primaryTargetTypes.IsValidTarget(worldObject);
     }
 
     public abstract void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw);

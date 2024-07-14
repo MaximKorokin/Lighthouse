@@ -72,7 +72,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     {
         _rigidbody.excludeLayers = enable
             ? _rigidbodyExcludeLayerMask
-            : (-1 ^ (LayerMask.GetMask(Constants.ObstacleLayerName) | LayerMask.GetMask(Constants.CreatureLayerName)));
+            : (-1 ^ (LayerMask.GetMask(Constants.ObstacleLayerName)));
         ReloadPhysicsState();
     }
 

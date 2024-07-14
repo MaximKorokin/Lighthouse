@@ -8,6 +8,7 @@ public enum StatName
     ActionRange = 5,
     AutoLootRange = 6,
     // rename to ActionSpeedModifier ?
+    //           CooldownModifier ?
     AttackSpeed = 7,
     MaxShield = 8,
     HPRegen = 9,

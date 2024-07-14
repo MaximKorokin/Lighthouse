@@ -187,6 +187,8 @@ MonoBehaviour:
       Value: 1
     - Name: 2
       Value: 1
+    - Name: 7
+      Value: 1
 --- !u!114 &5827333591135236265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +214,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a640be50bf0264f4880091aa4e5ad118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectSettings: {fileID: 11400000, guid: 8e8d881f9edff9745a9eb8c6352943ea, type: 2}
+  _skills:
+  - _settings: {fileID: 11400000, guid: 8e8d881f9edff9745a9eb8c6352943ea, type: 2}
+    _conditionData:
+      Predicate: 0
+      ReferenceArgument: 0
+      ValueArgument: 0
+    _targetChoosingData:
+      Type: 0
+      Func: 0
   _timeToAct: 3
   _actsAmount: 1
 --- !u!95 &3078007347813226423

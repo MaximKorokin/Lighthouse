@@ -1,29 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public class SkilledActor : ActorBase
 {
     [SerializeField]
     private List<Skill> _skills;
+    
+    protected CastState CastState;
 
     public IEnumerable<Skill> Skills => _skills;
 
-    protected override void Awake()
+    protected virtual void Awake()
     {
-        base.Awake();
         _skills.ForEach(x => x.Initialize());
+        CastState = new CastState(WorldObject);
     }
 
-    protected override void ActInternal(WorldObject worldObject)
+    protected override void ActInternal(PrioritizedTargets targets)
     {
-        base.ActInternal(worldObject);
-        _skills.ForEach(x => x.Invoke(WorldObject, worldObject, WorldObject.AttackSpeed));
-    }
-
-    public override void Idle(WorldObject worldObject)
-    {
-
+        base.ActInternal(targets);
+        CastState.Target = targets.MainTarget;
+        _skills.ForEach(x => x.Invoke(CastState, targets, WorldObject.AttackSpeed));
     }
 
     public void AddSkill(Skill skill)
@@ -33,5 +30,11 @@ public class SkilledActor : ActorBase
             return;
         }
         _skills.Add(skill);
+    }
+
+    public void SetCastState(CastState castState)
+    {
+        CastState = castState;
+        CastState.Source = WorldObject;
     }
 }

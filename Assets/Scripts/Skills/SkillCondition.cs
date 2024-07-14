@@ -25,8 +25,8 @@ public enum SkillConditionReferenceArgument
     None = 0,
     Target = 1,
     TriggeredTargets = 2,
-    HighPriorityTriggeredTargets = 3,
-    LowPriorityTriggeredTargets = 4,
+    PrimaryTargets = 3,
+    SecondaryTargets = 4,
 }
 
 public enum SkillConditionValueArgument
@@ -34,4 +34,6 @@ public enum SkillConditionValueArgument
     None = 0,
     ActionRange = 1,
     HalfActionRange = 2,
+    ThirdActionRange = 3,
+    QuarterActionRange = 4,
 }

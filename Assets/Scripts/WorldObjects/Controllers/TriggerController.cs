@@ -18,5 +18,5 @@ public abstract class TriggerController : ControllerBase
         _triggeredWorldObjectsCollection.Triggered += Trigger;
     }
 
-    protected abstract void Trigger(WorldObject worldObject, bool entered);
+    protected virtual void Trigger(WorldObject worldObject, bool entered) { }
 }

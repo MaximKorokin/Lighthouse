@@ -34,6 +34,7 @@ MonoBehaviour:
       data:
         OverrideTime: 0.2
         Speed: 4
+        _normalizeDirection: 1
         _directions:
         - {x: 1, y: 0}
         - {x: -1, y: 0}

@@ -47,10 +47,10 @@ public class ShowHideTilemapsPhase : ActPhase
     public override string IconName => "Eye.png";
     public override Color IconColor =>
         _tilemapsToShow.Length > 0 && _tilemapsToHide.Length > 0
-        ? Color.white
-        : _tilemapsToShow.Length > 0
-            ? MyColors.Green
-            : _tilemapsToHide.Length > 0
-                ? MyColors.Red
-                : MyColors.Gray;
+            ? Color.white
+            : _tilemapsToShow.Length > 0
+                ? MyColors.Green
+                : _tilemapsToHide.Length > 0
+                    ? MyColors.Red
+                    : MyColors.Gray;
 }

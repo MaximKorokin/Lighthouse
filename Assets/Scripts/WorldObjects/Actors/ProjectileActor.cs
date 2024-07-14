@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(DestroyableWorldObject))]
-public class ProjectileActor : EffectActor
+public class ProjectileActor : SkilledActor
 {
     private ProjectileEffect _projectileEffect;
     private int _pierceLeft;
@@ -23,32 +23,29 @@ public class ProjectileActor : EffectActor
         _projectileEffect?.InvokeEnd(CastState);
     }
 
-    protected override void ActInternal(WorldObject worldObject)
+    protected override void ActInternal(PrioritizedTargets targets)
     {
         if (!_destroyable.IsAlive ||
             _pierceLeft <= 0 ||
-            (worldObject.gameObject.IsObstacle() && !_obstacleHitCooldown.IsOver()))
+            targets.MainTarget == null ||
+            (targets.MainTarget.gameObject.IsObstacle() && !_obstacleHitCooldown.IsOver()))
         {
             return;
         }
 
-        base.ActInternal(worldObject);
+        base.ActInternal(targets);
 
-        if (--_pierceLeft <= 0 || worldObject.gameObject.IsObstacle())
+        if (--_pierceLeft <= 0 || targets.MainTarget.gameObject.IsObstacle())
         {
             _destroyable.DestroyWorldObject();
         }
-    }
-
-    public override void Idle(WorldObject worldObject)
-    {
-
     }
 
     public void SetProjectileEffect(ProjectileEffect effect, CastState castState)
     {
         _projectileEffect = effect;
         _pierceLeft = effect.PierceAmount;
-        SetEffects(effect.Effects, castState);
+        AddSkill(new Skill(effect.Effects, 0));
+        SetCastState(castState);
     }
 }

@@ -8,8 +8,6 @@ public class ChaseController : TargetController
 
     public WorldObject Target { get; private set; }
 
-    protected override void Trigger(WorldObject worldObject, bool entered) { }
-
     public override void SetTarget(WorldObject worldObject, float yaw)
     {
         Target = worldObject;
@@ -17,7 +15,7 @@ public class ChaseController : TargetController
 
     public override void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
-        targets = targets.Where(x => IsValidTarget(x, HighPriorityIndex));
+        targets = targets.Where(x => IsPrimaryTarget(x));
         SetTarget(targetType switch
         {
             TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude),
@@ -45,8 +43,7 @@ public class ChaseController : TargetController
         {
             MovableWorldObject.Stop();
         }
-
-        InvokeActors(Target);
+        InvokeActors(new PrioritizedTargets(Target, TriggeredWorldObjects, PrimaryTargets, SecondaryTargets));
     }
 
     private void SeekNearestTarget()

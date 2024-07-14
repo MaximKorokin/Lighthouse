@@ -6,14 +6,6 @@ public class StraightMovingController : TargetController
 {
     public Vector2 Direction { get; set; }
 
-    protected override void Trigger(WorldObject worldObject, bool entered)
-    {
-        if (entered)
-        {
-            InvokeActors(worldObject);
-        }
-    }
-
     public override void SetTarget(WorldObject worldObject, float yaw)
     {
         Direction = Quaternion.Euler(0, 0, yaw) * (worldObject.transform.position - transform.position);
@@ -21,7 +13,7 @@ public class StraightMovingController : TargetController
 
     public override void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
-        targets = targets.Where(x => IsValidTarget(x, HighPriorityIndex));
+        targets = targets.Where(x => IsPrimaryTarget(x));
         Vector2 targetDirection = targetType switch
         {
             TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude).transform.position - transform.position,
@@ -34,7 +26,16 @@ public class StraightMovingController : TargetController
 
     protected override void Control()
     {
-        MovableWorldObject.Direction = Direction;
+        MovableWorldObject.Direction = Direction.normalized;
         MovableWorldObject.Move();
+    }
+
+    protected override void Trigger(WorldObject worldObject, bool entered)
+    {
+        base.Trigger(worldObject, entered);
+        if (entered)
+        {
+            InvokeActors(new PrioritizedTargets(worldObject, TriggeredWorldObjects, PrimaryTargets, SecondaryTargets));
+        }
     }
 }

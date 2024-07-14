@@ -4,6 +4,8 @@ using UnityEngine;
 public class EscapingDashEffect : DashEffect
 {
     [SerializeField]
+    private bool _normalizeDirection;
+    [SerializeField]
     private Vector2[] _directions;
 
     protected override Vector2 GetDirection(CastState castState)
@@ -11,7 +13,7 @@ public class EscapingDashEffect : DashEffect
         var dangerAngle = Vector2.SignedAngle(Vector2.up, castState.Target.transform.position - castState.Source.transform.position);
         return _directions
             .OrderBy(x => Random.Range(int.MinValue, int.MaxValue))
-            .Select(x => x.normalized.Rotate(dangerAngle))
+            .Select(x => (_normalizeDirection ? x.normalized : x).Rotate(dangerAngle))
             .MaxBy(x => EstimateDirection(x, Speed * OverrideTime, castState));
     }
 
