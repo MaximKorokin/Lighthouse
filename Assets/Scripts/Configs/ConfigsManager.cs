@@ -20,7 +20,7 @@ public static class ConfigsManager
         return PlayerPrefs.GetString(config.ToString());
     }
 
-    public static void SetChangeListener(ConfigKey config, Action<object> action)
+    public static void SetChangeListener(ConfigKey config, Action<string> action)
     {
         if (_listeners.ContainsKey(config))
         {

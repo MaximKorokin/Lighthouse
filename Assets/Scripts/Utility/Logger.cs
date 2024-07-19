@@ -17,7 +17,7 @@ public static class Logger
             var sb = new StringBuilder();
             foreach (var element in enumerable)
             {
-                sb.Append(element.ToString());
+                sb.Append(element?.ToString());
                 sb.Append(Delimiter);
             }
             if (sb.Length > 0)

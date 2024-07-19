@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class SliderValueBinder : ValueBinder
+public class SliderValueBinder : ValueBinder<float>
 {
     private Slider _slider;
 
@@ -11,13 +11,18 @@ public class SliderValueBinder : ValueBinder
         _slider = GetComponent<Slider>();
     }
 
-    public override object GetCurrentValue()
+    public override float GetCurrentValue()
     {
         return _slider.value;
     }
 
-    public override void SetValue(object obj)
+    public override void SetValue(float value)
     {
-        _slider.value = ConvertingUtils.ToFloat(obj);
+        _slider.value = value;
+    }
+
+    public override float ConvertToValue(string str)
+    {
+        return ConvertingUtils.ToFloat(str);
     }
 }

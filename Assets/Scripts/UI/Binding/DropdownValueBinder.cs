@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Dropdown))]
-public class DropdownValueBinder : ValueBinder
+public class DropdownValueBinder : ValueBinder<string>
 {
     private TMP_Dropdown _dropdown;
 
@@ -11,13 +11,18 @@ public class DropdownValueBinder : ValueBinder
         _dropdown = GetComponent<TMP_Dropdown>();
     }
 
-    public override object GetCurrentValue()
+    public override string GetCurrentValue()
     {
         return _dropdown.options[_dropdown.value].text;
     }
 
-    public override void SetValue(object obj)
+    public override void SetValue(string value)
     {
-        _dropdown.value = _dropdown.options.FindIndex(x => x.text == obj.ToString());
+        _dropdown.value = _dropdown.options.FindIndex(x => x.text == value);
+    }
+
+    public override string ConvertToValue(string str)
+    {
+        return str;
     }
 }
