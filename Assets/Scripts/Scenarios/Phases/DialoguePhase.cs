@@ -24,5 +24,5 @@ public class DialoguePhase : SkippableActPhase
         DialoguesSystem.SkipDialogue();
     }
 
-    public override string IconName => "Dialogue.png";
+    public override string IconName => "Dialogue2.png";
 }

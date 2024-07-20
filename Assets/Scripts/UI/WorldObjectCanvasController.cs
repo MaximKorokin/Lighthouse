@@ -4,9 +4,11 @@ using UnityEngine;
 public class WorldObjectCanvasController : MonoBehaviour
 {
     [field: SerializeField]
-    public Transform UpperElementsParent { get; private set; }
+    public Transform SpeechBubbleParent { get; private set; }
     [field: SerializeField]
-    public Transform LowerElementsParent { get; private set; }
+    public Transform HPChangeParent { get; private set; }
+    [field: SerializeField]
+    public Transform HPViewParent { get; private set; }
 
     public Canvas Canvas { get; private set; }
 

@@ -7,6 +7,6 @@ public class ChildHPBarVisualizer : HPBarVisualizer
     {
         base.Start();
         var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
-        BarController.transform.SetParent(canvasProvider.CanvasController.LowerElementsParent, false);
+        BarController.transform.SetParent(canvasProvider.CanvasController.HPViewParent, false);
     }
 }

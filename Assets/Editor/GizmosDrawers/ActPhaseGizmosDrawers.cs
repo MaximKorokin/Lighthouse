@@ -68,4 +68,13 @@ public static class ActPhaseGizmosDrawers
             EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.GameObject.transform.position, ArrowType.Line, phase.IconName);
         }
     }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void SpeechBubblePhase(SpeechBubblePhase phase, GizmoType gizmoType)
+    {
+        if (phase.CanvasProvider != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.CanvasProvider.transform.position, ArrowType.Line, phase.IconName);
+        }
+    }
 }

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9981c37b844114e9f33425b647b68e, type: 3}
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
-  <PauseGame>k__BackingField: 0
   <Speeches>k__BackingField:
   - <CharacterPreviewId>k__BackingField: e6a1e194-4fa0-4a2a-8d26-6cd7b5a9a609
     <Text>k__BackingField: '!(e1_d2_s1)'
     <TypingSpeed>k__BackingField: 1
   - <CharacterPreviewId>k__BackingField: f1a21881-6f4b-41e1-b0b2-dafddce03e2e
     <Text>k__BackingField: '!(e1_d2_s2)'
-    <TypingSpeed>k__BackingField: 1
+    <TypingSpeed>k__BackingField: 9

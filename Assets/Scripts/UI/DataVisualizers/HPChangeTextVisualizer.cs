@@ -40,7 +40,7 @@ class HPChangeTextVisualizer : TextVisualizer
     public override TMP_Text VisualizeText(string visualizeString)
     {
         var text = base.VisualizeText(visualizeString);
-        text.transform.SetParent(_canvasProvider.CanvasController.UpperElementsParent, false);
+        text.transform.SetParent(_canvasProvider.CanvasController.HPChangeParent, false);
         return text;
     }
 }

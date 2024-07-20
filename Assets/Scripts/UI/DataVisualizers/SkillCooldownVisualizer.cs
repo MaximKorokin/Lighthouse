@@ -18,7 +18,7 @@ public class SkillCooldownVisualizer : BarAmountVisualizer
         }
         _cooldownCounter = skill.CooldownCounter;
         var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
-        BarController.transform.SetParent(canvasProvider.CanvasController.LowerElementsParent, false);
+        BarController.transform.SetParent(canvasProvider.CanvasController.HPViewParent, false);
     }
 
     private void Update()
