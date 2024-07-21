@@ -27,13 +27,14 @@ public class ShowHideTilemapsPhase : ActPhase
         }
         else
         {
-            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 1, 1)));
-            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 0, -1)));
+            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 1, 1), InvokeFinished));
+            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 0, -1), InvokeFinished));
         }
     }
 
     private IEnumerator TransitionCoroutine(Tilemap tilemap, float targetAlpha, float stepMultiplier)
     {
+        yield return new WaitForSeconds(0.1f);
         while (tilemap.color.a != targetAlpha)
         {
             var step = stepMultiplier / _time * Time.deltaTime;
@@ -41,7 +42,6 @@ public class ShowHideTilemapsPhase : ActPhase
             tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
             yield return new WaitForEndOfFrame();
         }
-        InvokeFinished();
     }
 
     public override string IconName => "Eye.png";

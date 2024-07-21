@@ -44,6 +44,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     {
         base.Start();
         Flipped?.Invoke(IsFlipped);
+        _previousFlipX = IsFlipped;
     }
 
     protected override void OnStatsModified()

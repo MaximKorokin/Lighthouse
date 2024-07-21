@@ -5,7 +5,7 @@ using UnityEngine;
 public class Speech
 {
     [field: SerializeField]
-    [field: HideInInspector]
+    [field: DataMapping(typeof(CharactersPreviewsDataBase))]
     public string CharacterPreviewId { get; private set; }
     [field: SerializeField]
     [field: TextArea]
