@@ -8,11 +8,11 @@ public class CharacterSetter : MonoBehaviour
 
     private void Awake()
     {
-        CharacterMapper.SetCharacter(CharacterPreviewId, gameObject);
+        CharactersMapper.SetCharacter(CharacterPreviewId, gameObject);
     }
 
     private void OnDestroy()
     {
-        CharacterMapper.RemoveCharacter(CharacterPreviewId, gameObject);
+        CharactersMapper.RemoveCharacter(CharacterPreviewId, gameObject);
     }
 }

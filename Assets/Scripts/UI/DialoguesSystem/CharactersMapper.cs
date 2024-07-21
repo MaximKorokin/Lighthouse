@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public static class CharacterMapper
+public static class CharactersMapper
 {
     private static readonly Dictionary<string, HashSet<GameObject>> _charactersMapping = new();
 

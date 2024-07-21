@@ -35,7 +35,7 @@ public class SpeechBubblesDialoguePhase : SkippableActPhase
     {
         var currentSpeech = _dialogue.Speeches[_currentSpeechIndex];
 
-        var characterObjects = CharacterMapper.GetMappedObjects(currentSpeech.CharacterPreviewId);
+        var characterObjects = CharactersMapper.GetMappedObjects(currentSpeech.CharacterPreviewId);
         if (characterObjects == null || !characterObjects.Any())
         {
             Logger.Warn($"Could not find any mapped characters with id {currentSpeech.CharacterPreviewId}");
