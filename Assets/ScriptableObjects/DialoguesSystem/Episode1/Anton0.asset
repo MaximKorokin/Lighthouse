@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c9981c37b844114e9f33425b647b68e, type: 3}
-  m_Name: Dialogue1
+  m_Name: Anton0
   m_EditorClassIdentifier: 
   <Speeches>k__BackingField:
-  - <CharacterPreviewId>k__BackingField: c0dcb991-cc0a-432b-a69f-d473597faac5
-    <Text>k__BackingField: '!(e1_d1_s1)'
-    <TypingSpeed>k__BackingField: 1
-  - <CharacterPreviewId>k__BackingField: e6a1e194-4fa0-4a2a-8d26-6cd7b5a9a609
-    <Text>k__BackingField: '!(e1_d1_s2)'
-    <TypingSpeed>k__BackingField: 1
+  - <CharacterPreviewId>k__BackingField: c25b4d00-a7c6-4857-9e4a-811d36fbae6e
+    <Text>k__BackingField: "\u042D\u0439, \u0438\u0434\u0438 \u0441\u044E\u0434\u0430"
+    <TypingSpeed>k__BackingField: 0

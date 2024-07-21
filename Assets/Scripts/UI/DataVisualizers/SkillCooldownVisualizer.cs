@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObjectCanvasProvider))]
+[RequireComponent(typeof(WorldCanvasProvider))]
 public class SkillCooldownVisualizer : BarAmountVisualizer
 {
     [SerializeField]
@@ -17,7 +17,7 @@ public class SkillCooldownVisualizer : BarAmountVisualizer
             return;
         }
         _cooldownCounter = skill.CooldownCounter;
-        var canvasProvider = GetComponent<WorldObjectCanvasProvider>();
+        var canvasProvider = GetComponent<WorldCanvasProvider>();
         BarController.transform.SetParent(canvasProvider.CanvasController.HPViewParent, false);
     }
 

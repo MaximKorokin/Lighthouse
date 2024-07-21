@@ -1,19 +1,19 @@
 ﻿using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObjectCanvasProvider))]
+[RequireComponent(typeof(WorldCanvasProvider))]
 class HPChangeTextVisualizer : TextVisualizer
 {
     [SerializeField]
     private float _lowerThreshold;
 
-    private WorldObjectCanvasProvider _canvasProvider;
+    private WorldCanvasProvider _canvasProvider;
 
     protected DestroyableWorldObject WorldObject { get; private set; }
 
     protected void Start()
     {
-        _canvasProvider = GetComponent<WorldObjectCanvasProvider>();
+        _canvasProvider = GetComponent<WorldCanvasProvider>();
         WorldObject = GetComponent<DestroyableWorldObject>();
         WorldObject.HealthPointsChanged += VisualizeHPChange;
     }

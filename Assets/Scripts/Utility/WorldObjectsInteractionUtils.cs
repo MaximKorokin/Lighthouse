@@ -51,43 +51,6 @@ public static class WorldObjectsInteractionUtils
         };
     }
 
-    public static Coroutine StartCoroutineSafe(this WorldObject worldObject, IEnumerator enumerator, Action finalAction = null)
-    {
-        Coroutine coroutine = null;
-        var finalActionCalled = false;
-        coroutine = worldObject.StartCoroutine(SafeCoroutine());
-        worldObject.Destroyed += OnWorldObjectDestroyed;
-        return coroutine;
-
-        IEnumerator SafeCoroutine()
-        {
-            while (enumerator.MoveNext())
-            {
-                yield return enumerator.Current;
-            }
-            Cancel();
-        }
-
-        void OnWorldObjectDestroyed()
-        {
-            if (coroutine != null)
-            {
-                worldObject.StopCoroutine(coroutine);
-            }
-            Cancel();
-        }
-
-        void Cancel()
-        {
-            worldObject.Destroyed -= OnWorldObjectDestroyed;
-            if (!finalActionCalled)
-            {
-                finalAction?.Invoke();
-            }
-            finalActionCalled = true;
-        }
-    }
-
     public static void OnDestroyed(this WorldObject worldObject, Action finalAction)
     {
         worldObject.Destroyed += OnWorldObjectDestroyed;

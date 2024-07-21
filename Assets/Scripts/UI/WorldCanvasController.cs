@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Canvas))]
-public class WorldObjectCanvasController : MonoBehaviour
+public class WorldCanvasController : MonoBehaviour
 {
     [field: SerializeField]
     public Transform SpeechBubbleParent { get; private set; }

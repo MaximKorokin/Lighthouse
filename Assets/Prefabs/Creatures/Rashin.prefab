@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 740726156351051180}
   - component: {fileID: 2118121083948704928}
   - component: {fileID: 8681387949396865609}
+  - component: {fileID: 3284562034359535098}
   m_Layer: 8
   m_Name: Rashin
   m_TagString: Untagged
@@ -546,3 +547,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae2b8d0853e89c40bc205dc3db1f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3284562034359535098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4f38a2a123604fa2f47703b976434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CharacterPreviewId>k__BackingField: f1a21881-6f4b-41e1-b0b2-dafddce03e2e

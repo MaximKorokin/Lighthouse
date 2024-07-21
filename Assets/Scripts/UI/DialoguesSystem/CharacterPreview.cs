@@ -16,4 +16,9 @@ public class CharacterPreview : IDataBaseEntry
     [field: SerializeField]
     [field: HideInInspector]
     public string Id { get; set; }
+
+    public override string ToString()
+    {
+        return $"{LocalizationData.GetLocalizedValue(SystemLanguage.English, (string.IsNullOrWhiteSpace(DisplayName) ? Name : DisplayName))} ({LocalizationData.GetLocalizedValue(SystemLanguage.English, Name)})";
+    }
 }

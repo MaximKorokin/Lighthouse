@@ -15,7 +15,7 @@ public abstract class ControllerOverrideEffect : Effect
     {
         var target = castState.GetTarget();
         target.GetComponent<ControllerBase>().CanControl = false;
-        var coroutine = target.StartCoroutineSafe(ControllerOverrideCoroutine(castState), () => StopOverride(target));
+        target.StartCoroutineSafe(ControllerOverrideCoroutine(castState), () => StopOverride(target));
     }
 
     protected virtual void StopOverride(WorldObject worldObject)
