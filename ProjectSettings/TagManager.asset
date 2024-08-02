@@ -56,6 +56,9 @@ TagManager:
   - name: Decorations3
     uniqueID: 4248078507
     locked: 0
+  - name: Effects
+    uniqueID: 3016488543
+    locked: 0
   - name: WorldObjects
     uniqueID: 2012048813
     locked: 0

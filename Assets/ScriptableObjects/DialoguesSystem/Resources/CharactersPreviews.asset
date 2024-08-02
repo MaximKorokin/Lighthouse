@@ -58,3 +58,8 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.68962485, g: 0.16789784, b: 0.7264151, a: 1}
     <Icon>k__BackingField: {fileID: -1216866689, guid: bb770cd325c7adc4caba6eea54431cb9, type: 3}
     <Id>k__BackingField: c25b4d00-a7c6-4857-9e4a-811d36fbae6e
+  - <Name>k__BackingField: Neko
+    <DisplayName>k__BackingField: 
+    <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+    <Icon>k__BackingField: {fileID: -551365417, guid: dc18b439f92608d4cb1ca35eec01d014, type: 3}
+    <Id>k__BackingField: 067fd5db-9625-4376-b7d4-20bcf9366f02
