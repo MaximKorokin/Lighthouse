@@ -9,7 +9,7 @@ AnimatorOverrideController:
   m_Name: MagicArcProjectileAC
   m_Controller: {fileID: 9100000, guid: d48e2ad84ef3de54499f8733c03aee12, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 82d71fa952b0b854eaaa324db406b7c0, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: f832059c45bbbfa4988efc835e582249, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: c0addb14e3aac3449af1992fcb96d6a2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f832059c45bbbfa4988efc835e582249, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b95f8fd995fd62f41bc88e06cb1d71c1, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 23611f09f48fc9b4a99ab53a75964fb0, type: 2}
