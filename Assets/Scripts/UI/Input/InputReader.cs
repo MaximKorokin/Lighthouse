@@ -16,6 +16,7 @@ public abstract class InputReader : MonoBehaviour
     public static event Action<bool> InputBlockChanging;
 
     public static FrameBoundEvent<bool> AnyKeyClicked = new(_eventsInvoker);
+    public static FrameBoundEvent<bool> SkipInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<Vector2> MoveInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> ActiveAbilityInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> MoveAbilityInputRecieved = new(_eventsInvoker);
@@ -32,20 +33,28 @@ public abstract class InputReader : MonoBehaviour
 
     private Vector2 _moveInput = new();
 
+    protected abstract bool IsAnyKeyClicked();
+    protected abstract bool IsSkipInputRecieved();
     protected abstract Vector2 GetMoveInput();
     protected abstract bool IsActiveAbilityUsed();
     protected abstract bool IsMoveAbilityUsed();
 
     protected virtual void Update()
     {
+        if (IsAnyKeyClicked())
+        {
+            AnyKeyClicked?.Invoke(_eventsInvoker, true);
+        }
+
+        if (IsSkipInputRecieved())
+        {
+            SkipInputRecieved?.Invoke(_eventsInvoker, true);
+        }
+
+        // controls
         if (IsControlInputBlocked)
         {
             return;
-        }
-        
-        if (Input.anyKeyDown || Input.touchCount > 0)
-        {
-            AnyKeyClicked?.Invoke(_eventsInvoker, true);
         }
 
         if (TryGetMoveVectorInput(out var moveInput))

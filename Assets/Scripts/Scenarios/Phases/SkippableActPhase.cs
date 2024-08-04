@@ -20,7 +20,7 @@ public abstract class SkippableActPhase : ActPhase
 
     private void Update()
     {
-        if (_isInvoking && _skipCooldownCounter.IsOver() && Input.GetKeyDown(KeyCode.Backspace))
+        if (_isInvoking && _skipCooldownCounter.IsOver() && InputReader.SkipInputRecieved.HasOccured)
         {
             OnSkipped();
         }

@@ -12,8 +12,18 @@ public class DeviceInputReader : InputReader
         return Input.GetKeyDown(KeyCode.Space);
     }
 
+    protected override bool IsAnyKeyClicked()
+    {
+        return Input.anyKeyDown;
+    }
+
     protected override bool IsMoveAbilityUsed()
     {
         return Input.GetKeyDown(KeyCode.LeftShift);
+    }
+
+    protected override bool IsSkipInputRecieved()
+    {
+        return Input.GetKeyDown(KeyCode.Backspace);
     }
 }

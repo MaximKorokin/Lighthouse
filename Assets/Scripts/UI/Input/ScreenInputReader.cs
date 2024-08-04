@@ -14,6 +14,8 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
     private Vector2 swipeStartPosition;
     private float swipeStartTime;
 
+    private bool _isSkipInputRecieved;
+
     protected override Vector2 GetMoveInput()
     {
         return _joystick.InputVector;
@@ -51,5 +53,22 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
         }
 
         return Time.time <= swipeStartTime + _timeForSwipe && Vector2.Distance(swipeStartPosition, Input.mousePosition) >= _swipeThreshold;
+    }
+
+    protected override bool IsAnyKeyClicked()
+    {
+        return Input.touchCount > 0;
+    }
+
+    protected override bool IsSkipInputRecieved()
+    {
+        var returnValue = _isSkipInputRecieved;
+        _isSkipInputRecieved = false;
+        return returnValue;
+    }
+
+    public void RecieveSkipInput()
+    {
+        _isSkipInputRecieved = true;
     }
 }
