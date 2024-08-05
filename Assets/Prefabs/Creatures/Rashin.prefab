@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 792045906607730162}
   - component: {fileID: 2189691964686447022}
   - component: {fileID: 8069756656352211100}
-  - component: {fileID: 7609296278093717242}
   - component: {fileID: 844742998062246562}
   - component: {fileID: 740726156351051180}
   - component: {fileID: 2118121083948704928}
@@ -187,7 +186,7 @@ CircleCollider2D:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 439
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -402,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skills:
-  - _settings: {fileID: 11400000, guid: 00e9c160590802b42955c8eb415ec0dd, type: 2}
+  - _settings: {fileID: 11400000, guid: 91716cd173d3bb343a72565ec55d69f3, type: 2}
     _conditionData:
       Predicate: 1024
       ReferenceArgument: 2
@@ -478,18 +477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
   _skillIndex: 1
---- !u!114 &7609296278093717242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873908040075855237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &844742998062246562
 MonoBehaviour:
   m_ObjectHideFlags: 0

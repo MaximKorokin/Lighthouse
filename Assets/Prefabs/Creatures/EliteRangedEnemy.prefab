@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 956674304161731618}
   - component: {fileID: 5255762296922553113}
   - component: {fileID: 8202858902348007583}
-  - component: {fileID: 4802814716285693844}
   - component: {fileID: 2406881424162235867}
   - component: {fileID: 8149176656860172405}
   m_Layer: 8
@@ -391,18 +390,6 @@ MonoBehaviour:
   _horizontalRandomMovementRange: {x: -2, y: 2}
   _verticalRandomMovementRange: {x: 3, y: 5}
   _lowerThreshold: 1
---- !u!114 &4802814716285693844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2406881424162235867
 MonoBehaviour:
   m_ObjectHideFlags: 0

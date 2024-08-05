@@ -76,6 +76,12 @@ public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAni
         _shift = shift;
         Reposition();
     }
+
+    public void SetOrdering(Vector2 globalPosition)
+    {
+        var newSortingOrder = -(int)(globalPosition.y * 10);
+        SpriteRenderer.sortingOrder = newSortingOrder;
+    }
 }
 
 public enum AnimatorKey

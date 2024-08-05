@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SpawnerSettings
   m_EditorClassIdentifier: 
   <Prefab>k__BackingField: {fileID: 6382580791305350808, guid: 1bf554c0d44f43842a8c7dfa094368d2, type: 3}
-  <Interval>k__BackingField: 1
-  <Amount>k__BackingField: 10
-  <MaxAliveAmount>k__BackingField: 3
+  <Interval>k__BackingField: 0.1
+  <Amount>k__BackingField: 100
+  <MaxAliveAmount>k__BackingField: 100

@@ -24,10 +24,8 @@ public class MovableMovePhase : SkippableActPhase
 
     private IEnumerator MoveCoroutine()
     {
-        var controllerCanControl = false;
         if (_movable.TryGetComponent<ControllerBase>(out var controller))
         {
-            controllerCanControl = controller.CanControl;
             controller.CanControl = false;
         }
 
@@ -43,7 +41,7 @@ public class MovableMovePhase : SkippableActPhase
 
         if (controller != null)
         {
-            controller.CanControl = controllerCanControl;
+            controller.CanControl = true;
         }
 
         InvokeFinished();
