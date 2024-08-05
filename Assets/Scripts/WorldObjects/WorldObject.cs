@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public abstract class WorldObject : MonoBehaviour
@@ -17,14 +18,18 @@ public abstract class WorldObject : MonoBehaviour
     public Stats Stats => _stats;
 
     public virtual float ActionRange => Stats[StatName.ActionRange] * Stats[StatName.SizeScale];
-    public virtual float AttackSpeed => Stats[StatName.AttackSpeed];
+    public virtual float VisionRange => Stats[StatName.VisionRange] * Stats[StatName.SizeScale];
+    public virtual float AttackSpeed => Stats[StatName.ActionCDModifier];
 
     public event Action<AnimatorKey, float> AnimatorValueSet;
     public event Action Destroyed;
 
+    protected Collider2D[] Colliders;
+
     protected virtual void Awake()
     {
         Stats.Modified += OnStatsModified;
+        Colliders = GetComponents<Collider2D>();
     }
 
     private void OnValidate()
@@ -53,7 +58,8 @@ public abstract class WorldObject : MonoBehaviour
         {
             transform.localScale = Vector3.one * sizeScale;
         }
-        SetAnimatorValue(AnimatorKey.AttackSpeed, Stats[StatName.AttackSpeed]);
+        Colliders?.Select(x => x as CircleCollider2D).Where(x => x != null && x.isTrigger).ForEach(x => x.radius = VisionRange);
+        SetAnimatorValue(AnimatorKey.AttackSpeed, Stats[StatName.ActionCDModifier]);
     }
 
     public virtual void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
@@ -70,7 +76,7 @@ public abstract class WorldObject : MonoBehaviour
 
     public void ReloadPhysicsState()
     {
-        foreach (var item in GetComponents<Collider2D>())
+        foreach (var item in Colliders)
         {
             item.enabled = false;
             item.enabled = true;

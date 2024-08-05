@@ -51,7 +51,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     {
         base.OnStatsModified();
 
-        SetAnimatorValue(AnimatorKey.MoveSpeed, Stats[StatName.MoveSpeed]);
+        SetAnimatorValue(AnimatorKey.MoveSpeed, Stats[StatName.MoveSpeedModifier]);
     }
 
     protected virtual void FixedUpdate()
@@ -79,7 +79,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public virtual void Move(float speedOverride = -1)
     {
-        _currentMoveSpeed = speedOverride < 0 ? Stats[StatName.MoveSpeed] : speedOverride;
+        _currentMoveSpeed = speedOverride < 0 ? Stats[StatName.MoveSpeedModifier] : speedOverride;
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
         //SetAnimatorValue(AnimatorKey.MoveSpeed, _currentMoveSpeed * Direction.magnitude);

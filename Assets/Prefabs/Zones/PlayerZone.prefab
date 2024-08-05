@@ -147,6 +147,8 @@ MonoBehaviour:
       Value: 1
     - Name: 7
       Value: 1
+    - Name: 12
+      Value: 0.5
   <IsDamagable>k__BackingField: 0
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0

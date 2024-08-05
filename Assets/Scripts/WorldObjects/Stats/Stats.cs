@@ -58,7 +58,10 @@ public class Stats
     {
         get
         {
-            StatsDictionary.TryGetValue(name, out var statValue);
+            if (!StatsDictionary.TryGetValue(name, out var statValue))
+            {
+                statValue = name.GetDefaultValue();
+            }
             return statValue;
         }
         set

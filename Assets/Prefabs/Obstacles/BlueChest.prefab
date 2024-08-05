@@ -188,6 +188,8 @@ MonoBehaviour:
       Value: 1
     - Name: 7
       Value: 1
+    - Name: 5
+      Value: 1
 --- !u!114 &5827333591135236265
 MonoBehaviour:
   m_ObjectHideFlags: 0

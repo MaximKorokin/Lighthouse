@@ -334,14 +334,10 @@ MonoBehaviour:
       Value: 1
     - Name: 7
       Value: 1
-    - Name: 8
-      Value: 0
     - Name: 9
       Value: 0.3
-    - Name: 10
-      Value: 0
-    - Name: 11
-      Value: 0
+    - Name: 12
+      Value: 3
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
