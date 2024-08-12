@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5655109392601563538}
   - component: {fileID: 5784559971183788074}
   - component: {fileID: -7438684566008377318}
+  - component: {fileID: -8038579445815576850}
   m_Layer: 0
   m_Name: MagicMissileProjectile
   m_TagString: Untagged
@@ -269,3 +270,15 @@ MonoBehaviour:
   _damageEffectsSettings: []
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: 65cc03fdd4d0b1141b00ee3ba64fa329, type: 2}
+--- !u!114 &-8038579445815576850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

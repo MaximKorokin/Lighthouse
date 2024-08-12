@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -23,13 +24,17 @@ public abstract class WorldObject : MonoBehaviour
 
     public event Action<AnimatorKey, float> AnimatorValueSet;
     public event Action Destroyed;
+    public event Action PhysicsStateReloading;
 
-    protected Collider2D[] Colliders;
+    private Collider2D[] _colliders;
+    public IEnumerable<Collider2D> Colliders => _colliders;
+    public Collider2D MainCollider { get; private set; }
 
     protected virtual void Awake()
     {
         Stats.Modified += OnStatsModified;
-        Colliders = GetComponents<Collider2D>();
+        _colliders = GetComponents<Collider2D>();
+        MainCollider = _colliders.FirstOrDefault(x => x.includeLayers == 0);
     }
 
     private void OnValidate()
@@ -58,7 +63,6 @@ public abstract class WorldObject : MonoBehaviour
         {
             transform.localScale = Vector3.one * sizeScale;
         }
-        Colliders?.Select(x => x as CircleCollider2D).Where(x => x != null && x.isTrigger).ForEach(x => x.radius = VisionRange);
         SetAnimatorValue(AnimatorKey.AttackSpeed, Stats[StatName.ActionCDModifier]);
     }
 
@@ -76,6 +80,7 @@ public abstract class WorldObject : MonoBehaviour
 
     public void ReloadPhysicsState()
     {
+        PhysicsStateReloading?.Invoke();
         foreach (var item in Colliders)
         {
             item.enabled = false;

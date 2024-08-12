@@ -10,7 +10,7 @@ public abstract class TriggerDetectorBase<T> : MonoBehaviour
     public event Action<T> TriggerEntered;
     public event Action<T> TriggerExited;
 
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    public virtual void OnTriggerEnter2D(Collider2D collider)
     {
         T obj = default;
         if (_variants.Any(x =>
@@ -22,7 +22,7 @@ public abstract class TriggerDetectorBase<T> : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerExit2D(Collider2D collider)
+    public virtual void OnTriggerExit2D(Collider2D collider)
     {
         T obj = default;
         if (_variants.Any(x =>

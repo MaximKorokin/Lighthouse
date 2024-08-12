@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 670664442182928598}
   - component: {fileID: 8298410038236258243}
   - component: {fileID: 8435661789408776086}
+  - component: {fileID: 8627536216688132997}
   m_Layer: 6
   m_Name: ExperienceOrb
   m_TagString: Untagged
@@ -275,3 +276,15 @@ MonoBehaviour:
     _targetChoosingData:
       Type: 0
       Func: 0
+--- !u!114 &8627536216688132997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021736238142712522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

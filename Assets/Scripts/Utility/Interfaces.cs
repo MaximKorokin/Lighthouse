@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface ICopyable<in T>
@@ -19,4 +20,9 @@ public interface IEditorIcon
 {
     string IconName { get; }
     Color IconColor { get; }
+}
+
+public interface IContainsEnumerable<T> : IEnumerable<T>
+{
+    bool Contains(T item);
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949926551165608891}
-  - component: {fileID: 5179061430041321045}
   - component: {fileID: 6695786381773470441}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
@@ -21,6 +20,7 @@ GameObject:
   - component: {fileID: 8817053128519033484}
   - component: {fileID: 2406881424162235867}
   - component: {fileID: 8149176656860172405}
+  - component: {fileID: -2854148661498599693}
   m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -44,41 +44,6 @@ Transform:
   - {fileID: 6448550028563957741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5179061430041321045
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 1
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5
 --- !u!70 &6695786381773470441
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -297,6 +262,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ae2b8d0853e89c40bc205dc3db1f901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2854148661498599693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3771082142633030165

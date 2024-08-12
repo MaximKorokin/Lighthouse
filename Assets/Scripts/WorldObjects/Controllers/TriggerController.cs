@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObjectInteractingTriggerDetector))]
 public abstract class TriggerController : ControllerBase
 {
     private TriggeredWorldObjectsCollection _triggeredWorldObjectsCollection;
-    public IEnumerable<WorldObject> TriggeredWorldObjects => _triggeredWorldObjectsCollection;
+    public IContainsEnumerable<WorldObject> TriggeredWorldObjects => _triggeredWorldObjectsCollection;
 
     private WorldObjectInteractingTriggerDetector _detector;
     public WorldObjectInteractingTriggerDetector Detector => _detector = _detector != null ? _detector : GetComponent<WorldObjectInteractingTriggerDetector>();

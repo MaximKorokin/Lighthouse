@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2338888315662349175}
   - component: {fileID: -7648320260561659608}
   - component: {fileID: -3635323585366941415}
+  - component: {fileID: 4429670179811112885}
   m_Layer: 6
   m_Name: HealingOrb
   m_TagString: Untagged
@@ -275,3 +276,15 @@ MonoBehaviour:
     _targetChoosingData:
       Type: 0
       Func: 0
+--- !u!114 &4429670179811112885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734253315142589745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

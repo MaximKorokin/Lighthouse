@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public static class EditorUtils
@@ -80,6 +82,12 @@ public static class EditorUtils
         DrawingColor = MyColors.Gray;
         DrawArrow(start, end, 0, type);
         Gizmos.DrawIcon((start + end) / 2, iconName, true, MyColors.LightGray);
+    }
+
+    public static void DrawRectangle(IEnumerable<Vector2> points, Color color)
+    {
+        Handles.color = color;
+        Handles.DrawAAPolyLine(points.Select(p => (Vector3)p).Concat(((Vector3)points.FirstOrDefault()).Yield()).ToArray());
     }
 }
 

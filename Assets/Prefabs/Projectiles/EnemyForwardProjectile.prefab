@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -8909341099840797249}
   - component: {fileID: 5784559971183788074}
   - component: {fileID: 920652680574053409}
+  - component: {fileID: 3974264610368654792}
   m_Layer: 0
   m_Name: EnemyForwardProjectile
   m_TagString: Untagged
@@ -247,3 +248,15 @@ MonoBehaviour:
   _damageEffectsSettings: []
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: 551a396868467004eb4b42a2adce3012, type: 2}
+--- !u!114 &3974264610368654792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

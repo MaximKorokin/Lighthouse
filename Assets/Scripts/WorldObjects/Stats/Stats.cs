@@ -9,17 +9,7 @@ public class Stats
     [SerializeField]
     private Stat[] _stats;
     private Dictionary<StatName, float> _statsDictionary;
-    private Dictionary<StatName, float> StatsDictionary
-    {
-        get
-        {
-            if (_statsDictionary == null)
-            {
-                _statsDictionary = _stats.ToDictionary(x => x.Name, x => x.Value);
-            }
-            return _statsDictionary;
-        }
-    }
+    private Dictionary<StatName, float> StatsDictionary => _statsDictionary ??= _stats.ToDictionary(x => x.Name, x => x.Value);
 
     public event Action Modified;
 
@@ -61,6 +51,7 @@ public class Stats
             if (!StatsDictionary.TryGetValue(name, out var statValue))
             {
                 statValue = name.GetDefaultValue();
+                this[name] = statValue;
             }
             return statValue;
         }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -8909341099840797249}
   - component: {fileID: 3770413621153106002}
   - component: {fileID: 5784559971183788074}
+  - component: {fileID: -4190784238552593045}
   m_Layer: 0
   m_Name: WarMachineProjectile
   m_TagString: Untagged
@@ -249,3 +250,15 @@ MonoBehaviour:
   - TriggerType: 1
     ValidTargets: 1
     Relation: 4
+--- !u!114 &-4190784238552593045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254378381488008843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

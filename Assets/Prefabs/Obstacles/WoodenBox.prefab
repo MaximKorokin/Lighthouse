@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7493313373310363115}
   - component: {fileID: 2879121165284286293}
   - component: {fileID: 5138098337722001216}
+  - component: {fileID: 5642452819628804966}
   m_Layer: 0
   m_Name: WoodenBox
   m_TagString: Untagged
@@ -198,3 +199,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+--- !u!114 &5642452819628804966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411322585630826401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

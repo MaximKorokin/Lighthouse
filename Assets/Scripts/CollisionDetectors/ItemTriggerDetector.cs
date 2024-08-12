@@ -13,7 +13,7 @@ public class ItemTriggerDetector : WorldObjectInteractingTriggerDetector
         _item.Activated += () => _collidersInactive.ForEach(x => OnTriggerEnter2D(x));
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collider)
+    public override void OnTriggerEnter2D(Collider2D collider)
     {
         if (_item.IsActive)
         {
@@ -25,7 +25,7 @@ public class ItemTriggerDetector : WorldObjectInteractingTriggerDetector
         }
     }
 
-    protected override void OnTriggerExit2D(Collider2D collider)
+    public override void OnTriggerExit2D(Collider2D collider)
     {
         if (_item.IsActive)
         {
