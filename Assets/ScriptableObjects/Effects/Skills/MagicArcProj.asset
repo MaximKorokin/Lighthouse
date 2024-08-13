@@ -37,7 +37,7 @@ MonoBehaviour:
     - rid: 4004304902827802625
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 1
+        <Value>k__BackingField: 5
     - rid: 4259499536714563588
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:

@@ -58,6 +58,10 @@ public abstract class WorldObject : MonoBehaviour
     /// </summary>
     protected virtual void OnStatsModified()
     {
+        if (Stats == null)
+        {
+            return;
+        }
         var sizeScale = Stats[StatName.SizeScale];
         if (sizeScale != transform.localScale.z)
         {

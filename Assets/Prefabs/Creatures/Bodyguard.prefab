@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 2406881424162235867}
   - component: {fileID: 8149176656860172405}
   - component: {fileID: -6713717209728786249}
+  - component: {fileID: -733822230861101734}
   m_Layer: 8
   m_Name: Bodyguard
   m_TagString: Untagged
@@ -396,3 +397,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-733822230861101734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4f38a2a123604fa2f47703b976434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CharacterPreviewId>k__BackingField: c0dcb991-cc0a-432b-a69f-d473597faac5
