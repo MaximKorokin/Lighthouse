@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 public class DirectedGraph<T> : IContainsEnumerable<T>
 {
     private readonly Dictionary<T, Node> _nodes = new();
+
+    public event Action<T, T> ConnectionAdded;
+    public event Action<T, T> ConnectionRemoved;
 
     private readonly struct Node
     {
@@ -41,10 +45,16 @@ public class DirectedGraph<T> : IContainsEnumerable<T>
     {
         if (!item1.Equals(item2) && _nodes.TryGetValue(item1, out var node1) && _nodes.TryGetValue(item2, out var node2))
         {
+            // Call ConnectionAdded if no connection existed before
+            if (!node1.Nodes.TryGetValue(node2, out var node1Connected) || !node1Connected) ConnectionAdded?.Invoke(item1, item2);
+
+            // Call ConnectionAdded if no connection existed before and both sides must be connected
+            if (bothSides && (!node2.Nodes.TryGetValue(node1, out var node2Connected) || !node2Connected)) ConnectionAdded?.Invoke(item2, item1);
+
             // The internal connection always must be two-side
             node1.Nodes[node2] = true;
 
-            // If inernal connection exists, then use its value if it is True, else use bothSides value.
+            // If internal connection exists, then use its value if it is True, else use bothSides value.
             node2.Nodes[node1] = (node2.Nodes.TryGetValue(node1, out var connected) && connected) || bothSides;
         }
     }
@@ -65,15 +75,23 @@ public class DirectedGraph<T> : IContainsEnumerable<T>
         {
             return;
         }
-        // If both connections shoul be removed or second node is not connected, then remove both connections.
-        if (bothSides || !node2.Nodes[node1])
+
+        node1.Nodes.TryGetValue(node2, out var node1Connected);
+        node2.Nodes.TryGetValue(node1, out var node2Connected);
+        // If both connections should be removed or second node is not connected, then remove both connections.
+        if (bothSides || !node2Connected)
         {
             node1.Nodes.Remove(node2);
             node2.Nodes.Remove(node1);
+
+            if (node1Connected) ConnectionRemoved?.Invoke(node1.Item, node2.Item);
+            if (node2Connected) ConnectionRemoved?.Invoke(node2.Item, node1.Item);
             return;
         }
         // If second node is connected, then just set connection to False.
         node1.Nodes[node2] = false;
+
+        if (node1Connected) ConnectionRemoved?.Invoke(node1.Item, node2.Item);
     }
 
     public void ClearConnections(T item, bool bothSides = false)

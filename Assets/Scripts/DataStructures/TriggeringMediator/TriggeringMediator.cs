@@ -21,7 +21,27 @@ public abstract class TriggeringMediator<T> : MonoBehaviorSingleton<TriggeringMe
     protected override void Awake()
     {
         base.Awake();
+
+        Items.ConnectionAdded += OnConnectionAdded;
+        Items.ConnectionRemoved += OnConnectionRemoved;
+
         StartCoroutine(TriggersFindingCoroutine());
+    }
+
+    private void OnConnectionAdded(T item1, T item2)
+    {
+        if (Listeners.TryGetValue(item1, out var detector))
+        {
+            detector.OnTriggerEnter2D(GetCollider(item2));
+        }
+    }
+
+    private void OnConnectionRemoved(T item1, T item2)
+    {
+        if (Listeners.TryGetValue(item1, out var detector))
+        {
+            detector.OnTriggerExit2D(GetCollider(item2));
+        }
     }
 
     private IEnumerator TriggersFindingCoroutine()
@@ -39,7 +59,7 @@ public abstract class TriggeringMediator<T> : MonoBehaviorSingleton<TriggeringMe
                 }
 
                 foreach (var item in WorldGrid
-                    .GetItems(new Bounds(GetPosition(listener.Key), 2 * GetTriggeringRadius(listener.Key) * Vector3.one))
+                    .GetItems(new Bounds(GetPosition(listener.Key), 2 * GetTriggeringRadius(listener.Key) * Vector2.one))
                     .Concat(Items.GetConnectedItems(listener.Key)).ToArray())
                 {
                     if (item.Equals(listener.Key))
@@ -55,7 +75,6 @@ public abstract class TriggeringMediator<T> : MonoBehaviorSingleton<TriggeringMe
                     {
                         if (!Items.HasConnection(listener.Key, item))
                         {
-                            listener.Value.OnTriggerEnter2D(collider);
                             Items.AddConnection(listener.Key, item);
                         }
                     }
@@ -63,7 +82,6 @@ public abstract class TriggeringMediator<T> : MonoBehaviorSingleton<TriggeringMe
                     {
                         if (Items.HasConnection(listener.Key, item))
                         {
-                            listener.Value.OnTriggerExit2D(collider);
                             Items.RemoveConnection(listener.Key, item);
                         }
                     }
@@ -74,11 +92,11 @@ public abstract class TriggeringMediator<T> : MonoBehaviorSingleton<TriggeringMe
                 if (frameOperations > _operationsPerFrame)
                 {
                     frameOperations = 0;
-                    yield return new WaitForEndOfFrame();
+                    yield return null;
                 }
             }
             frameOperations = 0;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
     }
 

@@ -50,7 +50,6 @@ public static class FactionsUtils
     public static bool IsEnemyTo(this Faction faction1, Faction faction2) => GetFactionsRelation(faction1, faction2) == FactionsRelation.Enemy;
 }
 
-[Flags]
 public enum Faction
 {
     Neutral = 1,
@@ -61,7 +60,6 @@ public enum Faction
     Enemy3 = 32,
 }
 
-[Flags]
 public enum FactionsRelation
 {
     None = 0,

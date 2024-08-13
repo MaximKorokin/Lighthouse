@@ -168,8 +168,8 @@ public static class EnumerableExtensions
         }
     }
 
-    public static void ToggleActive(this GameObject gameObject)
+    public static void AddRange<T>(this List<T> list, params T[] values)
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        list.AddRange(values);
     }
 }

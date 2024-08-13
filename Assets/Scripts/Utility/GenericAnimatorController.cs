@@ -42,7 +42,14 @@ public class GenericAnimatorController : MonoBehaviour
 
     public void PlayAnimation(bool hasDuration)
     {
-        _animator.SetBool(PlayAnimationKey, true);
+        if (_isPlaying)
+        {
+            _animator.Play(0, -1, 0);
+        }
+        else
+        {
+            _animator.SetBool(PlayAnimationKey, true);
+        }
 
         _playingCounter.Cooldown = hasDuration ? _animation.length : float.PositiveInfinity;
         _playingCounter.Reset();

@@ -114,7 +114,7 @@ public abstract class DynamicGrid<TItem, TCell> : IEnumerable<Vector2Int>
         {
             foreach (var point in yRow.Value)
             {
-                yield return new(point.Key, yRow.Key);
+                yield return new(yRow.Key, point.Key);
             }
         }
     }

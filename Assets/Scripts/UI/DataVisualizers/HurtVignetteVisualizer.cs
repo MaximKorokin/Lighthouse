@@ -7,7 +7,6 @@ public class HurtVignetteVisualizer : HPVignetteVisualizer
     {
         if (prev > cur)
         {
-            Overlay.AnimatorController.StopAnimation();
             Overlay.AnimatorController.PlayAnimation(true);
         }
     }

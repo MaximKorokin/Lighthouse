@@ -6,4 +6,9 @@ public static class GameObjectExtenions
     {
         return obj.layer == LayerMask.NameToLayer(Constants.ObstacleLayerName);
     }
+
+    public static void ToggleActive(this GameObject gameObject)
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
+    }
 }

@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: 2
-  <Faction>k__BackingField: 8
+  <Faction>k__BackingField: 16
   _stats:
     _stats:
     - Name: 2
@@ -257,7 +257,7 @@ MonoBehaviour:
     - Name: 7
       Value: 1
     - Name: 12
-      Value: 5
+      Value: 10
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
