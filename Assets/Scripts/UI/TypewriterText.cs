@@ -20,6 +20,12 @@ public class TypewriterText : MonoBehaviour
         Text = GetComponent<TMP_Text>();
     }
 
+    /// <summary>
+    /// Returns estimated time needed to completely show the provided text
+    /// </summary>
+    /// <param name="textString"></param>
+    /// <param name="typingSpeed"></param>
+    /// <returns></returns>
     public float SetText(string textString, TypingSpeed typingSpeed)
     {
         if (!gameObject.activeInHierarchy)

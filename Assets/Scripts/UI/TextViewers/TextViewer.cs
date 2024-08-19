@@ -21,12 +21,14 @@ public abstract class TextViewer : MonoBehaviour
 
     public void ShowText(string text, float showTime, TypingSpeed typingSpeed)
     {
+        // mb change text with a collection of strings to have ability to show series of them in a row
         if (!_showCounter.IsOver())
         {
             ViewFinished?.Invoke();
         }
 
         StartView();
+        _showCounter.Cooldown = float.MaxValue;
         _showCounter.Reset();
         LocalizationManager.SetLanguageChangeListener(
             Typewriter.Text,

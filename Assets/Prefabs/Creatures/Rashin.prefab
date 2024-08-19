@@ -363,6 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: 91716cd173d3bb343a72565ec55d69f3, type: 2}
+    _startsWithCooldown: 0
     _conditionData:
       Predicate: 1024
       ReferenceArgument: 2
@@ -371,6 +372,7 @@ MonoBehaviour:
       Type: 0
       Func: 0
   - _settings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
+    _startsWithCooldown: 0
     _conditionData:
       Predicate: 2
       ReferenceArgument: 0

@@ -8,8 +8,7 @@ public abstract class MoveOverrideEffect : ControllerOverrideEffect
 
     protected override void StartOverride(CastState castState)
     {
-        var moveTarget = castState.GetTarget();
-        if (moveTarget is not MovableWorldObject movable)
+        if (castState.GetTarget() is not MovableWorldObject movable)
         {
             return;
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SkilledActor : ActorBase
@@ -20,7 +21,7 @@ public class SkilledActor : ActorBase
     {
         base.ActInternal(targets);
         CastState.Target = targets.MainTarget;
-        _skills.ForEach(x => x.Invoke(CastState, targets, WorldObject.AttackSpeed));
+        _skills.Any(x => x.Invoke(CastState, targets, WorldObject.AttackSpeed));
     }
 
     public void AddSkill(Skill skill)

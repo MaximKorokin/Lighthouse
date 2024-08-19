@@ -7,6 +7,8 @@ public class Skill : IInitializable
     [SerializeField]
     private EffectSettings _settings;
     [SerializeField]
+    private bool _startsInCooldown;
+    [SerializeField]
     private SkillConditionData _conditionData;
     [SerializeField]
     private SkillTargetChoosingData _targetChoosingData;
@@ -37,22 +39,32 @@ public class Skill : IInitializable
         }
         _effects ??= _settings.GetEffects();
         CooldownCounter ??= new CooldownCounter(_settings.Cooldown);
-        CooldownCounter.Reset();
+        if (_startsInCooldown)
+        {
+            CooldownCounter.Reset();
+        }
     }
 
-    public void Invoke(CastState castState, PrioritizedTargets targets, float cooldownDivider = 1)
+    public bool Invoke(CastState castState, PrioritizedTargets targets, float cooldownDivider = 1)
     {
         if (CooldownCounter == null ||
             !_conditionData.EvaluateCondition(castState.Source, targets) ||
             !CooldownCounter.TryReset(cooldownDivider))
         {
-            return;
+            return false;
         }
 
-        castState.Target = _targetChoosingData.ChooseTarget(castState.Source, targets);
+        var target = _targetChoosingData.ChooseTarget(castState.Source, targets);
+        if (target == null)
+        {
+            return false;
+        }
+
+        castState.Target = target;
         foreach (var effect in _effects)
         {
             effect.Invoke(castState);
         }
+        return true;
     }
 }

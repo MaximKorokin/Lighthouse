@@ -1421,6 +1421,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8244828858906753660}
     m_Modifications:
+    - target: {fileID: 1249477640949989216, guid: 9036dbd29f2bb4941b7db0906a6a54b5, type: 3}
+      propertyPath: m_MinWidth
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 3193217487694308405, guid: 9036dbd29f2bb4941b7db0906a6a54b5, type: 3}
       propertyPath: m_Name
       value: DialoguesSystem

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9981c37b844114e9f33425b647b68e, type: 3}
+  m_Name: RoyasFight3
+  m_EditorClassIdentifier: 
+  <Speeches>k__BackingField:
+  - <CharacterPreviewId>k__BackingField: 57d41b7a-05eb-4d6b-adba-462767456cd8
+    <Text>k__BackingField: '!(e1_royasFight3_s1)'
+    <TypingSpeed>k__BackingField: 1
+  - <CharacterPreviewId>k__BackingField: 57d41b7a-05eb-4d6b-adba-462767456cd8
+    <Text>k__BackingField: '!(e1_royasFight3_s2)'
+    <TypingSpeed>k__BackingField: 1
+  - <CharacterPreviewId>k__BackingField: 57d41b7a-05eb-4d6b-adba-462767456cd8
+    <Text>k__BackingField: '!(e1_royasFight3_s3)'
+    <TypingSpeed>k__BackingField: 1
+  - <CharacterPreviewId>k__BackingField: 57d41b7a-05eb-4d6b-adba-462767456cd8
+    <Text>k__BackingField: '!(e1_royasFight3_s4)'
+    <TypingSpeed>k__BackingField: 1
