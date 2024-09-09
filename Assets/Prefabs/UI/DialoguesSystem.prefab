@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7c57c12aa5953459135ea504e3dd9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueView: {fileID: 6860182726334586669}
+  _dialogueView: {fileID: 6349731100535776851}
 --- !u!1 &5455038878387964387
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 750147699824958550}
-  - component: {fileID: 6860182726334586669}
+  - component: {fileID: 6349731100535776851}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -436,7 +436,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6860182726334586669
+--- !u!114 &6349731100535776851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,12 +445,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5993275618796630402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ae248173a512d4c902f86f150ef707, type: 3}
+  m_Script: {fileID: 11500000, guid: a30569aeefa98534f91a5f5594272a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Typewriter: {fileID: 1725135648729446824}
   _characterIcon: {fileID: 3645486012712869037}
   _characterNameText: {fileID: 6047790811174023471}
-  _speechText: {fileID: 1725135648729446824}
 --- !u!1 &6404201810477286221
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 700
+  m_MinWidth: 500
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1

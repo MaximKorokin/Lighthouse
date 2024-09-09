@@ -9,33 +9,48 @@ public class SpeechBubblePhase : SkippableActPhase
     [SerializeField]
     private TypingSpeed _typingSpeed;
     [SerializeField]
+    private AudioClip _typingSoundOverride;
+    [SerializeField]
     private WorldCanvasProvider _canvasProvider;
 
     public WorldCanvasProvider CanvasProvider => _canvasProvider;
 
-    private SpeechBubbleController _controller;
+    private SpeechBubbleViewer _viewer;
 
     public override void Invoke()
     {
         base.Invoke();
-        _controller = SpeechBubblesPool.Take(null);
-        _controller.transform.SetParent(_canvasProvider.CanvasController.SpeechBubbleParent.transform, false);
+        _viewer = SpeechBubblePool.Take(null);
+        _viewer.transform.SetParent(_canvasProvider.CanvasController.SpeechBubbleParent.transform, false);
 
-        _controller.ShowText(_text, _showTime, _typingSpeed);
-        _controller.ViewFinished -= OnViewFinished;
-        _controller.ViewFinished += OnViewFinished;
+        if (_typingSoundOverride != null)
+        {
+            _viewer.SetTypingSound(_typingSoundOverride);
+        }
+        else if (_canvasProvider.TryGetComponent<CharacterSetter>(out var characterSetter))
+        {
+            var characterPreview = CharactersPreviewsDataBase.FindById(characterSetter.CharacterPreviewId);
+            if (characterPreview != null)
+            {
+                _viewer.SetTypingSound(characterPreview.TypingSound);
+            }
+        }
+
+        _viewer.ViewText(_text, _showTime, _typingSpeed);
+        _viewer.ViewFinished -= OnViewFinished;
+        _viewer.ViewFinished += OnViewFinished;
     }
 
     private void OnViewFinished()
     {
-        _controller.ViewFinished -= OnViewFinished;
-        SpeechBubblesPool.Return(_controller);
+        _viewer.ViewFinished -= OnViewFinished;
+        SpeechBubblePool.Return(_viewer);
         InvokeFinished();
     }
 
     protected override void OnSkipped()
     {
-        _controller.ShowText("", 0, TypingSpeed.Instant);
+        _viewer.FinishViewText();
     }
 
     public override string IconName => "Dialogue1.png";

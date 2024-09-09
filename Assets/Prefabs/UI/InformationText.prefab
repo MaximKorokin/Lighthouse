@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1837799f463ca74f814a05a93beff33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Typewriter: {fileID: 8189147359523265807}
+  _charTypeSound: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
 --- !u!114 &8189147359523265807
 MonoBehaviour:
   m_ObjectHideFlags: 0

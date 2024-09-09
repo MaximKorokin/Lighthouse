@@ -1,14 +1,9 @@
 ﻿using UnityEngine;
 
-class WorldCanvasPool : ObjectsPool<WorldCanvasController, WorldCanvasController>
+class WorldCanvasPool : ObjectsPool<WorldCanvasController, object>
 {
-    protected override void Initialize(WorldCanvasController canvasController, WorldCanvasController _)
+    protected override void Initialize(WorldCanvasController canvasController, object _)
     {
-        if (canvasController == null)
-        {
-            return;
-        }
-
         canvasController.Canvas.transform.localScale = Vector3.one * .1f;
         canvasController.gameObject.SetActive(true);
     }

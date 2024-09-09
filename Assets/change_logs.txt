@@ -61,14 +61,12 @@
 - Scenarios
 - Active task marker
 
-#current
 0.1.9
-- ...Prologue map
-- ...More enemies
-- ...More active and passive skills
+- Radkins HQ map
+- Bunch of new NPCs
 
-#plans
+#current
 0.2.0
-- UI and graphics
-- Prologue
+- UI and graphics improvements (?)
+- Prologue with 2 maps
 - Music and sounds

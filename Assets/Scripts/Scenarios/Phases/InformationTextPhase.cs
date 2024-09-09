@@ -12,20 +12,20 @@ public class InformationTextPhase : SkippableActPhase
     public override void Invoke()
     {
         base.Invoke();
-        InformationText.Instance.ShowText(_text, _showTime, _typingSpeed);
-        InformationText.Instance.ViewFinished -= OnFinishedShow;
-        InformationText.Instance.ViewFinished += OnFinishedShow;
+        InformationTextViewer.Instance.ViewText(_text, _showTime, _typingSpeed);
+        InformationTextViewer.Instance.ViewFinished -= OnViewFinished;
+        InformationTextViewer.Instance.ViewFinished += OnViewFinished;
     }
 
-    private void OnFinishedShow()
+    private void OnViewFinished()
     {
-        InformationText.Instance.ViewFinished -= OnFinishedShow;
+        InformationTextViewer.Instance.ViewFinished -= OnViewFinished;
         InvokeFinished();
     }
 
     protected override void OnSkipped()
     {
-        InformationText.Instance.ShowText("", 0, TypingSpeed.Instant);
+        InformationTextViewer.Instance.FinishViewText();
     }
 
     public override string IconName => "Info.png";
