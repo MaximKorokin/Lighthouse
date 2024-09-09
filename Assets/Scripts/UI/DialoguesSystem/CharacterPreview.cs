@@ -12,10 +12,18 @@ public class CharacterPreview : IDataBaseEntry
     public Color Color { get; private set; }
     [field: SerializeField]
     public Sprite Icon { get; private set; }
+    [field: SerializeField]
+    public AudioClip TypingSound { get; private set; }
 
     [field: SerializeField]
     [field: HideInInspector]
     public string Id { get; set; }
+
+    /// <summary>
+    /// Returns <see cref="DisplayName"/> if it is not empty, otherwise returns <see cref="Name"/>
+    /// </summary>
+    /// <returns></returns>
+    public string GetName() => string.IsNullOrWhiteSpace(DisplayName) ? Name : DisplayName;
 
     public override string ToString()
     {

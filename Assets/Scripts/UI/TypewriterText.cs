@@ -15,6 +15,8 @@ public class TypewriterText : MonoBehaviour
     public TMP_Text Text { get; private set; }
     public bool IsTyping => _coroutine != null;
 
+    public event Action CharTyping;
+
     private void Awake()
     {
         Text = GetComponent<TMP_Text>();
@@ -35,6 +37,12 @@ public class TypewriterText : MonoBehaviour
 
         _currentTextString = textString;
 
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
+
         var charTime = typingSpeed.ToFloatValue();
         if (charTime > 0)
         {
@@ -46,35 +54,24 @@ public class TypewriterText : MonoBehaviour
             return 0;
         }
 
-        if (_coroutine != null)
-        {
-            StopCoroutine(_coroutine);
-        }
         _coroutine = StartCoroutine(Typewrite(charTime));
 
         return (textString.Length - textString.Count(x => ShouldShowImmediately(x))) * charTime;
     }
 
-    public void ForceCurrentText()
-    {
-        if (_coroutine != null)
-        {
-            StopCoroutine(_coroutine);
-            _coroutine = null;
-        }
-        Text.text = _currentTextString;
-    }
-
     private IEnumerator Typewrite(float charTime)
     {
-        foreach (var c in _currentTextString)
+        for (int i = 0; i < _currentTextString.Length; i++)
         {
-            Text.text += c;
+            var c = _currentTextString[i];
 
-            if (!ShouldShowImmediately(c))
+            if (charTime > 0 && !ShouldShowImmediately(c))
             {
+                CharTyping?.Invoke();
                 yield return new WaitForSecondsRealtime(charTime);
             }
+
+            Text.text += c;
         }
         _coroutine = null;
     }
@@ -87,5 +84,6 @@ public enum TypingSpeed
     Normal = 0,
     Slow = 1,
     Fast = 2,
+    SuperSlow = 3,
     Instant = 9,
 }

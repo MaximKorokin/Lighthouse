@@ -4,7 +4,7 @@ using UnityEngine;
 public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 {
     [SerializeField]
-    private DialogueView _dialogueView;
+    private DialogueViewer _dialogueView;
 
     public static event Action DialogueFinished;
 

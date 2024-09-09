@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class LineRenderersPool : ObjectsPool<LineRenderer, LineRenderer>
+public class LineRenderersPool : ObjectsPool<LineRenderer, object>
 {
-    protected override void Initialize(LineRenderer renderer, LineRenderer _)
+    protected override void Initialize(LineRenderer renderer, object _)
     {
         renderer.gameObject.SetActive(true);
     }
