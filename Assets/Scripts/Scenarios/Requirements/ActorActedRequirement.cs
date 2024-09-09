@@ -25,5 +25,5 @@ public class ActorActedRequirement : ActRequirement
         return _hasActed;
     }
 
-    public override string IconName => "Text.png";
+    public override string IconName => "Action.png";
 }

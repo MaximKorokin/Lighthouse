@@ -15,12 +15,12 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     private void Awake()
     {
-        InputManager.InputBlockChanging += OnInputBlockChanging;
+        InputReader.InputBlockChanging += OnInputBlockChanging;
     }
 
     private void OnDestroy()
     {
-        InputManager.InputBlockChanging -= OnInputBlockChanging;
+        InputReader.InputBlockChanging -= OnInputBlockChanging;
     }
 
     private void OnInputBlockChanging(bool blocked)
@@ -33,7 +33,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (InputManager.IsControlInputBlocked)
+        if (InputReader.IsControlInputBlocked)
         {
             return;
         }
@@ -58,7 +58,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (InputManager.IsControlInputBlocked)
+        if (InputReader.IsControlInputBlocked)
         {
             return;
         }

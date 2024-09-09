@@ -35,6 +35,11 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
         }
     }
 
+    private void Update()
+    {
+        _animators.ForEach(x => x.SetOrdering((Vector2)transform.position + _worldObject.VisualPositionOffset));
+    }
+
     public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
     {
         if (_animators.Length == 0)

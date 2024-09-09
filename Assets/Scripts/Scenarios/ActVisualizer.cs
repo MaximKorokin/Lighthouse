@@ -13,12 +13,12 @@ public class ActVisualizer : MonoBehaviour
     {
         _act = GetComponent<ScenarioAct>();
         _act.Initialized += x => AddVisualization(x);
-        _act.Ended += x => RemoveVisualization(x);
+        _act.Finished += x => RemoveVisualization(x);
     }
 
     private void AddVisualization(ScenarioAct act)
     {
-        if ((_visualizationType & ActVisualizationType.Marker) == ActVisualizationType.Marker)
+        if (_visualizationType.HasFlag(ActVisualizationType.Marker))
         {
             MarkingSystem.AddMarker(act.transform);
         }

@@ -1,22 +1,41 @@
 using System;
 using UnityEngine;
 
-public abstract class ValueBinder : MonoBehaviour
+public abstract class ValueBinder<T> : MonoBehaviour where T : IEquatable<T>
 {
-    protected object PreviousValue;
+    [SerializeField]
+    private ConfigKey _configKey;
 
-    public event Action<object> ValueChanged;
+    private T _previousValue;
+
+    protected virtual void Start()
+    {
+        _previousValue = ConvertToValue(ConfigsManager.GetValue(_configKey));
+        SetValue(_previousValue);
+        ConfigsManager.SetChangeListener(_configKey, OnConfigChanged);
+    }
 
     protected virtual void Update()
     {
         var currentValue = GetCurrentValue();
-        if (!currentValue.Equals(PreviousValue)) 
+        if (!currentValue.Equals(_previousValue))
         {
-            PreviousValue = currentValue;
-            ValueChanged?.Invoke(PreviousValue);
+            ConfigsManager.SetValue(_configKey, currentValue?.ToString());
         }
     }
 
-    public abstract object GetCurrentValue();
-    public abstract void SetValue(object obj);
+    private void OnConfigChanged(string value)
+    {
+        _previousValue = ConvertToValue(value);
+        SetValue(_previousValue);
+    }
+
+    private void OnDestroy()
+    {
+        ConfigsManager.RemoveChangeListener(_configKey, OnConfigChanged);
+    }
+
+    public abstract T GetCurrentValue();
+    public abstract void SetValue(T obj);
+    public abstract T ConvertToValue(string obj);
 }

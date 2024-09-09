@@ -1,14 +1,28 @@
 using UnityEngine;
 
-public class DialoguePhase : ActPhase
+public class DialoguePhase : SkippableActPhase
 {
     [SerializeField]
     private Dialogue _dialogue;
 
     public override void Invoke()
     {
-        DialoguesSystem.InitDialogue(_dialogue, InvokeEnded);
+        base.Invoke();
+        DialoguesSystem.InitDialogue(_dialogue);
+        DialoguesSystem.DialogueFinished -= OnDialogueFinished;
+        DialoguesSystem.DialogueFinished += OnDialogueFinished;
     }
 
-    public override string IconName => "Dialogue.png";
+    private void OnDialogueFinished()
+    {
+        DialoguesSystem.DialogueFinished -= OnDialogueFinished;
+        InvokeFinished();
+    }
+
+    protected override void OnSkipped()
+    {
+        DialoguesSystem.SkipDialogue();
+    }
+
+    public override string IconName => "Dialogue2.png";
 }

@@ -1,6 +1,5 @@
-using System;
-using System.Linq;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Speech))]
@@ -16,20 +15,11 @@ public class EditorSpeech : PropertyDrawerBase
     {
         var element = typeof(Speech).CreateTypeFoldout(Property);
 
-        Func<CharacterPreview, string> displayNameSelector = prev => prev != null ? $"{prev?.Name} ({prev?.Id})" : "Select value";
-        var popup = new PopupField<CharacterPreview>(CharactersPreviewsDataBase.Instance.Items.ToList(), 0, displayNameSelector, displayNameSelector);
-        element.Insert(0, popup);
+        var speechText = Property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.Text)).Name).stringValue;
+        speechText = LocalizationData.GetLocalizedValue(SystemLanguage.English, speechText);
 
-        var characterPreviewId = Property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.CharacterPreviewId)).Name);
-        popup.RegisterValueChangedCallback(x =>
-        {
-            characterPreviewId.stringValue = x.newValue.Id.ToString();
-            Property.serializedObject.ApplyModifiedProperties();
-        });
-        popup.value = CharactersPreviewsDataBase.FindById(characterPreviewId.stringValue);
-
-        var speechText = Property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.Text)).Name);
-        element.text = popup.value != null ? $"{popup.value?.Name}: {speechText.stringValue}" : "";
+        var characterPreview = CharactersPreviewsDataBase.FindById(((Speech)Property.boxedValue).CharacterPreviewId);
+        element.text = characterPreview != null ? $"{LocalizationData.GetLocalizedValue(SystemLanguage.English, characterPreview.Name)}: {speechText}" : "";
 
         return element;
     }

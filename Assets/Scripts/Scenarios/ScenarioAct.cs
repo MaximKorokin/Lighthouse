@@ -22,16 +22,23 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     public IEnumerable<ScenarioAct> ChildrenActs => _childrenActs;
 
     private PhasesInvoker _invoker;
-    private bool _hasEnded;
-    public bool HasEnded => _hasEnded;
+    private bool _hasInitialized;
+    private bool _hasFinished;
+    public bool HasFinished => _hasFinished;
 
-    public event Action<ScenarioAct> Ended;
+    public event Action<ScenarioAct> Finished;
     public event Action<ScenarioAct> Initialized;
 
     public void Initialize()
     {
+        if (_hasInitialized)
+        {
+            return;
+        }
+        _hasInitialized = true;
+
         _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
-        _invoker.Ended += OnEnded;
+        _invoker.Finished += OnFinished;
 
         if (_requirements.Count == 0)
         {
@@ -47,11 +54,11 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
         Initialized?.Invoke(this);
     }
 
-    private void OnEnded()
+    private void OnFinished()
     {
-        _hasEnded = true;
+        _hasFinished = true;
         _childrenActs.ForEach(x => x.Initialize());
-        Ended?.Invoke(this);
+        Finished?.Invoke(this);
     }
 
     private void Start()
@@ -64,7 +71,7 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
     private void OnRequirementFulfilled(ActRequirement requirement)
     {
-        if ((IsRepetitive || !HasEnded) &&
+        if ((IsRepetitive || !HasFinished) &&
             _requirements.Except(requirement.Yield()).All(x => x.IsFulfilled()))
         {
             _invoker.Invoke();
@@ -76,40 +83,54 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     {
         protected List<ActPhase> Phases;
 
-        public event Action Ended;
+        private bool _isInvoking;
+
+        public event Action Finished;
 
         public PhasesInvoker(List<ActPhase> phases)
         {
             Phases = phases;
-            Phases.Where(x => x != null).ForEach(x => x.Ended += OnPhaseEnded);
+            Phases.Where(x => x != null).ForEach(x => x.Finished += OnPhaseFinished);
         }
 
-        protected void InvokeEnded()
+        protected void InvokeFinished()
         {
-            Ended?.Invoke();
+            _isInvoking = false;
+            Finished?.Invoke();
         }
 
         public void Invoke()
         {
+            if (_isInvoking)
+            {
+                return;
+            }
+            _isInvoking = true;
             if (Phases == null || Phases.Count == 0)
             {
-                InvokeEnded();
+                InvokeFinished();
                 return;
             }
             InvokeInternal();
         }
 
         protected abstract void InvokeInternal();
-        protected abstract void OnPhaseEnded(ActPhase phase);
+        protected abstract void OnPhaseFinished(ActPhase phase);
     }
 
     private class ConsecutivePhasesInvoker : PhasesInvoker
     {
-        private int _activePhaseIndex = -1;
+        private int _activePhaseIndex;
 
         public ConsecutivePhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
 
         protected override void InvokeInternal()
+        {
+            _activePhaseIndex = -1;
+            InvokeNextPhase();
+        }
+
+        private void InvokeNextPhase()
         {
             _activePhaseIndex++;
             if (_activePhaseIndex < Phases.Count)
@@ -118,35 +139,39 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
             }
         }
 
-        protected override void OnPhaseEnded(ActPhase phase)
+        protected override void OnPhaseFinished(ActPhase phase)
         {
-            if (_activePhaseIndex + 1 >= Phases.Count)
+            if (phase != Phases[_activePhaseIndex])
             {
-                _activePhaseIndex = -1;
-                InvokeEnded();
                 return;
             }
-            InvokeInternal();
+            if (_activePhaseIndex + 1 >= Phases.Count)
+            {
+                InvokeFinished();
+                return;
+            }
+            InvokeNextPhase();
         }
     }
 
     private class SimultaneousPhasesInvoker : PhasesInvoker
     {
-        private readonly HashSet<ActPhase> _endedPhases = new();
+        private readonly HashSet<ActPhase> _finishedPhases = new();
 
         public SimultaneousPhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
 
         protected override void InvokeInternal()
         {
+            _finishedPhases.Clear();
             Phases.ForEach(x => x.Invoke());
         }
 
-        protected override void OnPhaseEnded(ActPhase phase)
+        protected override void OnPhaseFinished(ActPhase phase)
         {
-            _endedPhases.Add(phase);
-            if (Phases.All(x => _endedPhases.Contains(x)))
+            _finishedPhases.Add(phase);
+            if (Phases.All(x => _finishedPhases.Contains(x)))
             {
-                InvokeEnded();
+                InvokeFinished();
             }
         }
     }

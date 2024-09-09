@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(TimerVisualizer))]
-class DeferredActor : EffectActor
+class DeferredActor : SkilledActor
 {
     [SerializeField]
     private float _timeToAct;
@@ -11,7 +11,7 @@ class DeferredActor : EffectActor
 
     private Timer _timer;
     private int _actedAmount;
-    private readonly HashSet<WorldObject> _worldObjects = new();
+    private PrioritizedTargets _targets;
 
     protected override void Awake()
     {
@@ -25,31 +25,34 @@ class DeferredActor : EffectActor
 
     private void OnTimerFinished()
     {
-        _actedAmount++;
-        base.ActInternal(WorldObject);
+        foreach (var target in _targets.Targets)
+        {
+            if (++_actedAmount > _actsAmount)
+            {
+                break;
+            }
+            _targets.MainTarget = target;
+            base.ActInternal(_targets);
+        }
     }
 
-    protected override void ActInternal(WorldObject worldObject)
+    protected override void ActInternal(PrioritizedTargets targets)
     {
         if (_actedAmount >= _actsAmount)
         {
             return;
         }
-        _worldObjects.Add(worldObject);
-        if (!_timer.Started)
-        {
-            _timer.Start(_timeToAct);
-        }
-    }
+        
+        _targets = targets;
 
-    public override void Idle(WorldObject worldObject)
-    {
-        if (_actedAmount >= _actsAmount)
+        if (_targets.Targets.Any())
         {
-            return;
+            if (!_timer.Started)
+            {
+                _timer.Start(_timeToAct);
+            }
         }
-        _worldObjects.Remove(worldObject);
-        if (_worldObjects.Count == 0)
+        else if(_timer.Started)
         {
             _timer.Stop();
         }

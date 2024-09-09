@@ -6,31 +6,42 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     [SerializeField]
     private DialogueView _dialogueView;
 
-    private Action _endDialogueCallback;
+    public static event Action DialogueFinished;
 
     protected override void Awake()
     {
         base.Awake();
-        _dialogueView.DialogueEnded += OnDialogueEnded;
+        _dialogueView.DialogueFinished += OnDialogueFinished;
     }
 
-    private void OnDialogueEnded()
+    private void OnDialogueFinished()
     {
-        _endDialogueCallback?.Invoke();
-        GameManager.Resume();
         _dialogueView.gameObject.SetActive(false);
+        DialogueFinished?.Invoke();
     }
 
     private void InitDialogueInternal(Dialogue dialogue)
     {
-        GameManager.Pause();
         _dialogueView.gameObject.SetActive(true);
         _dialogueView.SetDialogue(dialogue);
     }
 
-    public static void InitDialogue(Dialogue dialogue, Action endCallback = null)
+    public static void InitDialogue(Dialogue dialogue)
     {
-        Instance._endDialogueCallback = endCallback;
+        if (Instance == null)
+        {
+            Logger.Warn($"{nameof(Instance)} of {nameof(DialoguesSystem)} singletone is null.");
+            return;
+        }
         Instance.InitDialogueInternal(dialogue);
+    }
+
+    public static void SkipDialogue()
+    {
+        if (Instance == null)
+        {
+            return;
+        }
+        Instance.OnDialogueFinished();
     }
 }

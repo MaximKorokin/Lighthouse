@@ -19,7 +19,7 @@ public class CooldownCounter
         {
             return false;
         }
-        return TimeSinceReset > Cooldown / divider;
+        return TimeSinceReset >= Cooldown / divider;
     }
 
     public bool TryReset(float divider = 1)

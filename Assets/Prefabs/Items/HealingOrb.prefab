@@ -9,17 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2383970601079609831}
-  - component: {fileID: 3833654232008857652}
   - component: {fileID: 8039660207906110568}
+  - component: {fileID: 3833654232008857652}
   - component: {fileID: 6741397075715308881}
   - component: {fileID: 4095242153396451076}
-  - component: {fileID: 4641833351409709706}
   - component: {fileID: -7325769007762636370}
   - component: {fileID: 3454752445968733899}
   - component: {fileID: 2338888315662349175}
-  - component: {fileID: 3363170444335394930}
-  - component: {fileID: -4401986470944856457}
-  - component: {fileID: 5717824719486847908}
+  - component: {fileID: -7648320260561659608}
+  - component: {fileID: -3635323585366941415}
+  - component: {fileID: 4429670179811112885}
   m_Layer: 6
   m_Name: HealingOrb
   m_TagString: Untagged
@@ -42,33 +41,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &3833654232008857652
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734253315142589745}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &8039660207906110568
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -104,6 +76,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!50 &3833654232008857652
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734253315142589745}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &6741397075715308881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,11 +128,15 @@ MonoBehaviour:
       Value: 0.1
     - Name: 2
       Value: 1
+    - Name: 7
+      Value: 1
+    - Name: 12
+      Value: 0.1
   <IsDamagable>k__BackingField: 0
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
+  <IsFlipped>k__BackingField: 0
   <InactiveTime>k__BackingField: 0
 --- !u!212 &4095242153396451076
 SpriteRenderer:
@@ -173,8 +176,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2012048813
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1885556156, guid: 28dba62a465adea4c97aca7a9e5c3659, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,19 +190,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4641833351409709706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734253315142589745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _validTargets: 1
 --- !u!114 &-7325769007762636370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed2f51595f0a34391e2feb30c8e998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _primaryTargetTypes: 0
   _drag: 0.1
 --- !u!95 &3454752445968733899
 Animator:
@@ -248,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: 4b958447032d39043badbe5614398ee1, type: 2}
---- !u!114 &3363170444335394930
+--- !u!114 &-7648320260561659608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,12 +248,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2734253315142589745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfff87899fc174d8944f9e472c9b0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bfd0f523e942c14db51a56f102515d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 1
-  _triggerOn: 1
---- !u!114 &-4401986470944856457
+  _variants:
+  - TriggerType: 2
+    ValidTargets: 1
+    Relation: 1
+--- !u!114 &-3635323585366941415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,12 +264,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2734253315142589745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0983ba5a87dd6564caf6667526e8eb8f, type: 3}
+  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanAct>k__BackingField: 1
-  _effectSettings: {fileID: 11400000, guid: 3be42e631b808ad4eaee33d5adaacd42, type: 2}
---- !u!114 &5717824719486847908
+  _skills:
+  - _settings: {fileID: 11400000, guid: f519d8b4aaacbab4bb985c0c99edfe59, type: 2}
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 1
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
+--- !u!114 &4429670179811112885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,6 +285,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2734253315142589745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

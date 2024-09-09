@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObjectSingleton<T>
 {
-    public static T _instance;
+    private static T _instance;
     public static T Instance
     {
         get

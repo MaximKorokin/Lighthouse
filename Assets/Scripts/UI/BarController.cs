@@ -27,7 +27,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
 
     private const float DefaultAlphaValue = 1;
 
-    private float _currentRatio;
+    public float CurrentFillRatio { get; private set; }
     private float _currentStartFadeTime;
 
     public void SetFillRatio(float value)
@@ -42,11 +42,11 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
             IncrementAlphaValue(DefaultAlphaValue);
         }
 
-        _currentRatio = value;
-        BarImage.fillAmount = _currentRatio;
+        CurrentFillRatio = value;
+        BarImage.fillAmount = CurrentFillRatio;
         if (ShouldUseGradient)
         {
-            BarImage.color = Gradient.Evaluate(_currentRatio);
+            BarImage.color = Gradient.Evaluate(CurrentFillRatio);
         }
     }
 
@@ -62,7 +62,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         {
             return;
         }
-        var fillDifference = _currentRatio - SmoothBarImage.fillAmount;
+        var fillDifference = CurrentFillRatio - SmoothBarImage.fillAmount;
         if (fillDifference != 0)
         {
             var fillStep = (fillDifference > 0 ? 1 : -1) * SmoothSpeed * Time.deltaTime;
@@ -72,7 +72,7 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
             }
             else
             {
-                SmoothBarImage.fillAmount = _currentRatio;
+                SmoothBarImage.fillAmount = CurrentFillRatio;
             }
         }
     }
@@ -136,10 +136,10 @@ public class BarController : MonoBehaviour, ICopyable<BarController>
         obj.TimeToFade = TimeToFade;
         obj.TimeToStartFade = TimeToStartFade;
 
-        obj._currentRatio = _currentRatio;
+        obj.CurrentFillRatio = CurrentFillRatio;
     }
 
-    private void CopyImage(Image source, Image target)
+    private static void CopyImage(Image source, Image target)
     {
         if (target == null)
         {

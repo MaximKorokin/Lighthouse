@@ -44,7 +44,7 @@ MonoBehaviour:
       type: {class: DashEffect, ns: , asm: Assembly-CSharp}
       data:
         OverrideTime: 1
-        _speed: 1.5
+        Speed: 3
     - rid: 4259499607476142086
       type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
       data:

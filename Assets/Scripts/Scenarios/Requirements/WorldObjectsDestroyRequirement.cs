@@ -6,8 +6,9 @@ public class WorldObjectsDestroyRequirement : ActRequirement
 {
     [SerializeField]
     private DestroyableWorldObject[] _worldObjects;
+    public IEnumerable<DestroyableWorldObject> WorldObjects => _worldObjects;
 
-    private HashSet<DestroyableWorldObject> _destroyedWorldObjects = new(); 
+    private readonly HashSet<DestroyableWorldObject> _destroyedWorldObjects = new(); 
 
     private void Awake()
     {

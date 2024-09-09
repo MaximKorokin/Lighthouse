@@ -8,24 +8,20 @@ public class ChaseController : TargetController
 
     public WorldObject Target { get; private set; }
 
-    protected override void Trigger(WorldObject worldObject, bool entered) { }
-
     public override void SetTarget(WorldObject worldObject, float yaw)
     {
-        if (Target == null)
-        {
-            Target = worldObject;
-        }
+        Target = worldObject;
     }
 
     public override void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
     {
-        Target = targetType switch
+        targets = targets.Where(x => IsPrimaryTarget(x));
+        SetTarget(targetType switch
         {
             TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude),
             TargetSearchingType.Random => targets.Skip(Random.Range(0, targets.Count() - 1)).First(),
             _ => targets.First(),
-        };
+        }, yaw);
     }
 
     protected override void Control()
@@ -38,16 +34,16 @@ public class ChaseController : TargetController
         }
         var direction = (Vector2)Target.transform.position - (Vector2)transform.position;
         MovableWorldObject.Direction = direction.normalized;
-        // sqrt is much slower than sqr
-        if (direction.sqrMagnitude > WorldObject.ActionRange * WorldObject.ActionRange)
+
+        if (direction.magnitude > WorldObject.ActionRange)
         {
             MovableWorldObject.Move();
         }
         else
         {
-            InvokeActors(Target);
             MovableWorldObject.Stop();
         }
+        InvokeActors(new PrioritizedTargets(Target, TriggeredWorldObjects, PrimaryTargets, SecondaryTargets));
     }
 
     private void SeekNearestTarget()

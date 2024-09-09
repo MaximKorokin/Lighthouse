@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerCreature : Creature
@@ -20,17 +20,10 @@ public class PlayerCreature : Creature
     {
         base.OnStatsModified();
 
-        var colliders = GetComponents<CircleCollider2D>();
-        var autoLootCollider = Array.Find(colliders, x => x.isTrigger && (x.includeLayers & LayerMask.GetMask(Constants.PlayerLootingLayerName)) != 0);
-        if (autoLootCollider != null)
+        var autoLootCollider = Colliders?.FirstOrDefault(x => x.isTrigger && (x.includeLayers & LayerMask.GetMask(Constants.PlayerLootingLayerName)) != 0);
+        if (autoLootCollider != null && autoLootCollider is CircleCollider2D circleCollider)
         {
-            autoLootCollider.radius = AutoLootRange;
-        }
-
-        var actionRangeCollider = Array.Find(colliders, x => x.isTrigger && x != autoLootCollider);
-        if (actionRangeCollider != null)
-        {
-            actionRangeCollider.radius = ActionRange;
+            circleCollider.radius = AutoLootRange;
         }
     }
 

@@ -3,13 +3,13 @@ using UnityEngine;
 public class SkillEffect : Effect
 {
     [field: SerializeField]
-    public EffectSettings Skill { get; private set; }
+    public Skill Skill { get; private set; }
 
     public override void Invoke(CastState castState)
     {
-        var actor = castState.Target.GetComponent<SkilledActor>();
-        if (actor != null)
+        if (castState.Target.TryGetComponent<SkilledActor>(out var actor))
         {
+            Skill.Initialize();
             actor.AddSkill(Skill);
         }
     }

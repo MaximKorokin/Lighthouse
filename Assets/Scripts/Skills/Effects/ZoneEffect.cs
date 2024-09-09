@@ -18,7 +18,8 @@ public class ZoneEffect : ComplexEffect
     {
         var zone = Object.Instantiate(Zone);
         zone.Cooldown = InvokationCooldown;
-        zone.SetEffects(Effects, castState);
+        zone.AddSkill(new Skill(Effects, 0));
+        zone.SetCastState(castState);
         zone.transform.position = castState.GetTargetPosition();
         return zone;
     }

@@ -76,13 +76,19 @@ public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAni
         _shift = shift;
         Reposition();
     }
+
+    public void SetOrdering(Vector2 globalPosition)
+    {
+        var newSortingOrder = -(int)(globalPosition.y * 10);
+        SpriteRenderer.sortingOrder = newSortingOrder;
+    }
 }
 
 public enum AnimatorKey
 {
     Attack = 1,
     Hurt = 2,
-    Dead = 3,
+    IsDead = 3,
     IsMoving = 4,
     HPRatio = 5,
     AttackSpeed = 6,
@@ -90,4 +96,6 @@ public enum AnimatorKey
     Transit = 8,
     Dash = 9,
     ShieldRatio = 10,
+    PlayAnimation = 11,
+    StopAnimation = 12,
 }

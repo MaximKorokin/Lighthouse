@@ -12,6 +12,8 @@ public class SpawningPhase : ActPhase
     private int _spawnCount;
     private int _destroyedCount;
 
+    public Transform TransformPosition => _transformPosition;
+
     public override void Invoke()
     {
         WorldObjectsSpawner.Spawn(this, _settings, OnSpawned);
@@ -25,7 +27,7 @@ public class SpawningPhase : ActPhase
 
         if (_usedCondition == SpawnActEndCondition.EndSpawning && _spawnCount == _settings.Amount)
         {
-            InvokeEnded();
+            InvokeFinished();
         }
     }
 
@@ -35,7 +37,7 @@ public class SpawningPhase : ActPhase
 
         if (_usedCondition == SpawnActEndCondition.AllDestoyed && _spawnCount == _settings.Amount && _destroyedCount == _spawnCount)
         {
-            InvokeEnded();
+            InvokeFinished();
         }
     }
 

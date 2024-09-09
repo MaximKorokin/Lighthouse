@@ -1,28 +1,17 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GenericAnimatorPool : ObjectPool<Animator, AnimationClip>
+public class GenericAnimatorPool : ObjectsPool<GenericAnimatorController, AnimationClip>
 {
-    private const string IsActingKey = "IsActing";
-    private const string ActionAnimationName = "Action";
-
-    [SerializeField]
-    private RuntimeAnimatorController _animatorController;
-
-    protected override void Initialize(Animator animator, AnimationClip animation)
+    protected override void Initialize(GenericAnimatorController controller, AnimationClip animation)
     {
-        var overrideController = new AnimatorOverrideController(_animatorController);
-        overrideController[ActionAnimationName] = animation;
-        animator.runtimeAnimatorController = overrideController;
-        animator.gameObject.SetActive(true);
-        animator.enabled = true;
-        animator.SetBool(IsActingKey, true);
+        controller.gameObject.SetActive(true);
+        controller.SetAnimation(animation);
     }
 
-    protected override void Deinitialize(Animator animator)
+    protected override void Deinitialize(GenericAnimatorController controller)
     {
-        animator.SetBool(IsActingKey, false);
-        var spriteRenderer = animator.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        controller.StopAnimation();
+        if (controller.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
         {
             spriteRenderer.flipX = false;
             spriteRenderer.flipY = false;

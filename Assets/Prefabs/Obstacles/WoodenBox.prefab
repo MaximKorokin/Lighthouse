@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7493313373310363115}
   - component: {fileID: 2879121165284286293}
   - component: {fileID: 5138098337722001216}
-  - component: {fileID: 5677143069249285679}
+  - component: {fileID: 5642452819628804966}
   m_Layer: 0
   m_Name: WoodenBox
   m_TagString: Untagged
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2012048813
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1335537607, guid: 2e7d64d91a95d864bb29f6589f6750b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,7 +147,6 @@ MonoBehaviour:
     - Name: 2
       Value: 5
   <IsDamagable>k__BackingField: 1
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 3
 --- !u!95 &7493313373310363115
 Animator:
@@ -200,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
---- !u!114 &5677143069249285679
+--- !u!114 &5642452819628804966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,6 +208,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 411322585630826401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

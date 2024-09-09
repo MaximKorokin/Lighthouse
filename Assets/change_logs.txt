@@ -54,7 +54,6 @@
 - Minor UI and graphics improvements
 - Player only acts in action range
 
-#current
 0.1.8
 - Dialogues
 - Localization
@@ -62,12 +61,13 @@
 - Scenarios
 - Active task marker
 
-#plans
+#current
 0.1.9
-- Prologue map
-- More enemies
-- More active and passive skills
+- ...Prologue map
+- ...More enemies
+- ...More active and passive skills
 
+#plans
 0.2.0
 - UI and graphics
 - Prologue

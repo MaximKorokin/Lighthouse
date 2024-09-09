@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LineRenderersPool : ObjectPool<LineRenderer, LineRenderer>
+public class LineRenderersPool : ObjectsPool<LineRenderer, LineRenderer>
 {
     protected override void Initialize(LineRenderer renderer, LineRenderer _)
     {

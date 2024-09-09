@@ -16,7 +16,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
     private Dialogue _currentDialogue;
     private int _currentSpeechIndex;
 
-    public event Action DialogueEnded;
+    public event Action DialogueFinished;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,7 +30,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         }
         else if (_currentDialogue.Speeches.Length <= ++_currentSpeechIndex)
         {
-            DialogueEnded?.Invoke();
+            DialogueFinished?.Invoke();
         }
         else
         {
@@ -47,7 +47,7 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         if (dialogue == null)
         {
             Logger.Warn("Dialogue is null");
-            DialogueEnded?.Invoke();
+            DialogueFinished?.Invoke();
             return;
         }
         _currentDialogue = dialogue;
@@ -61,15 +61,16 @@ public class DialogueView : MonoBehaviour, IPointerDownHandler
         LocalizationManager.SetLanguageChangeListener(
             _speechText,
             currentSpeech.Text,
-            text => _speechText.SetText(text, currentSpeech.TypingSpeed.ToFloatValue()));
+            text => _speechText.SetText(text, currentSpeech.TypingSpeed));
 
         var characterPreview = CharactersPreviewsDataBase.FindById(currentSpeech.CharacterPreviewId);
         if (characterPreview != null)
         {
             _characterIcon.sprite = characterPreview.Icon;
+            var displayName = string.IsNullOrWhiteSpace(characterPreview.DisplayName) ? characterPreview.Name : characterPreview.DisplayName;
             LocalizationManager.SetLanguageChangeListener(
                 _characterNameText,
-                $"<color=#{characterPreview.Color.ToHexString()}>{characterPreview.Name}</color>",
+                $"<color=#{characterPreview.Color.ToHexString()}>{displayName}</color>",
                 text => _characterNameText.text = text);
         }
     }

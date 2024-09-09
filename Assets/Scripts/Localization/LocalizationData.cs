@@ -7,8 +7,7 @@ using UnityEngine;
 public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
 {
     [SerializeField]
-    [TextArea]
-    private string _localizationData;
+    private TextAsset _localizationData;
 
     private Dictionary<string, Dictionary<SystemLanguage, string>> _localizationDictionary;
 
@@ -24,7 +23,13 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
 
     private void UpdateData()
     {
-        var data = _localizationData.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+        if (_localizationData == null)
+        {
+            Logger.Warn("Localization data is not assigned");
+            return;
+        }
+
+        var data = _localizationData.text.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
         var languages = ParsingUtils.ParseCsvLine(data.First()).Skip(1).Select(x =>
         {
             if (Enum.TryParse<SystemLanguage>(x, true, out var result))
@@ -43,6 +48,11 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
 
     public static string GetLocalizedValue(SystemLanguage language, string key)
     {
+        if (key.Length < 3)
+        {
+            return "";
+        }
+
         if (Instance._localizationDictionary == null)
         {
             Instance.UpdateData();

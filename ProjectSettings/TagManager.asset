@@ -13,7 +13,7 @@ TagManager:
   - UI
   - PlayerLooting
   - Obstacle
-  - 
+  - Creature
   - 
   - 
   - 
@@ -38,6 +38,33 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 991129653
+    locked: 0
+  - name: Floor
+    uniqueID: 2786993471
+    locked: 0
+  - name: Walls
+    uniqueID: 3155478673
+    locked: 0
+  - name: Decorations1
+    uniqueID: 785706567
+    locked: 0
+  - name: Decorations2
+    uniqueID: 2039828077
+    locked: 0
+  - name: Decorations3
+    uniqueID: 4248078507
+    locked: 0
+  - name: Effects
+    uniqueID: 3016488543
+    locked: 0
+  - name: WorldObjects
+    uniqueID: 2012048813
+    locked: 0
+  - name: Fog
+    uniqueID: 3266443141
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

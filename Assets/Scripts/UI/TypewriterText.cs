@@ -1,34 +1,58 @@
+using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Text))]
 public class TypewriterText : MonoBehaviour
 {
-    private TMP_Text _text;
+    private readonly char[] _charsToShowImmediately = new char[] { ' ', '\n' };
+
     private string _currentTextString;
     private Coroutine _coroutine;
 
+    public TMP_Text Text { get; private set; }
     public bool IsTyping => _coroutine != null;
 
     private void Awake()
     {
-        _text = GetComponent<TMP_Text>();
+        Text = GetComponent<TMP_Text>();
     }
 
-    public void SetText(string textString, float charTime)
+    /// <summary>
+    /// Returns estimated time needed to completely show the provided text
+    /// </summary>
+    /// <param name="textString"></param>
+    /// <param name="typingSpeed"></param>
+    /// <returns></returns>
+    public float SetText(string textString, TypingSpeed typingSpeed)
     {
         if (!gameObject.activeInHierarchy)
         {
-            return;
+            return 0;
         }
+
         _currentTextString = textString;
-        _text.text = "";
+
+        var charTime = typingSpeed.ToFloatValue();
+        if (charTime > 0)
+        {
+            Text.text = "";
+        }
+        else
+        {
+            Text.text = textString;
+            return 0;
+        }
+
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
         }
         _coroutine = StartCoroutine(Typewrite(charTime));
+
+        return (textString.Length - textString.Count(x => ShouldShowImmediately(x))) * charTime;
     }
 
     public void ForceCurrentText()
@@ -38,16 +62,30 @@ public class TypewriterText : MonoBehaviour
             StopCoroutine(_coroutine);
             _coroutine = null;
         }
-        _text.text = _currentTextString;
+        Text.text = _currentTextString;
     }
 
     private IEnumerator Typewrite(float charTime)
     {
         foreach (var c in _currentTextString)
         {
-            _text.text += c;
-            yield return new WaitForSecondsRealtime(charTime);
+            Text.text += c;
+
+            if (!ShouldShowImmediately(c))
+            {
+                yield return new WaitForSecondsRealtime(charTime);
+            }
         }
         _coroutine = null;
     }
+
+    private bool ShouldShowImmediately(char c) => Array.IndexOf(_charsToShowImmediately, c) != -1;
+}
+
+public enum TypingSpeed
+{
+    Normal = 0,
+    Slow = 1,
+    Fast = 2,
+    Instant = 9,
 }

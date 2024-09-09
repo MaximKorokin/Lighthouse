@@ -9,17 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4795781210623329692}
-  - component: {fileID: 8539793273622966556}
   - component: {fileID: 2549380905516537656}
+  - component: {fileID: 8539793273622966556}
   - component: {fileID: 5409251804486583412}
   - component: {fileID: 8725931171154606055}
-  - component: {fileID: 3121574280319829085}
   - component: {fileID: 7508185068982668652}
   - component: {fileID: 2672765818256748374}
   - component: {fileID: 670664442182928598}
   - component: {fileID: 8298410038236258243}
-  - component: {fileID: 8769435079726342275}
-  - component: {fileID: 3867142928487500961}
+  - component: {fileID: 8435661789408776086}
+  - component: {fileID: 8627536216688132997}
   m_Layer: 6
   m_Name: ExperienceOrb
   m_TagString: Untagged
@@ -42,33 +41,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &8539793273622966556
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021736238142712522}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &2549380905516537656
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -104,6 +76,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!50 &8539793273622966556
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021736238142712522}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &5409251804486583412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,11 +128,15 @@ MonoBehaviour:
       Value: 0.1
     - Name: 2
       Value: 1
+    - Name: 7
+      Value: 1
+    - Name: 12
+      Value: 0.1
   <IsDamagable>k__BackingField: 0
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
+  <IsFlipped>k__BackingField: 0
   <InactiveTime>k__BackingField: 0
 --- !u!212 &8725931171154606055
 SpriteRenderer:
@@ -173,8 +176,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2012048813
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 374747432, guid: a24a154fb46f9e34680cefaa32c150e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,19 +190,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3121574280319829085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021736238142712522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220ad92f7655fad4bb42cb00b5403404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _validTargets: 1
 --- !u!114 &7508185068982668652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed2f51595f0a34391e2feb30c8e998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _primaryTargetTypes: 0
   _drag: 0.2
 --- !u!95 &2672765818256748374
 Animator:
@@ -260,9 +251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfd0f523e942c14db51a56f102515d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerType: 1
-  _triggerOn: 1
---- !u!114 &8769435079726342275
+  _variants:
+  - TriggerType: 2
+    ValidTargets: 1
+    Relation: 1
+--- !u!114 &8435661789408776086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,12 +264,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021736238142712522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0983ba5a87dd6564caf6667526e8eb8f, type: 3}
+  m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanAct>k__BackingField: 1
-  _effectSettings: {fileID: 11400000, guid: 8a8967266c315d84db41ae9ac97ad34c, type: 2}
---- !u!114 &3867142928487500961
+  _skills:
+  - _settings: {fileID: 11400000, guid: 8f935806eb0f92e44a3a7f2ea36b63da, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 1
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
+--- !u!114 &8627536216688132997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,6 +286,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021736238142712522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

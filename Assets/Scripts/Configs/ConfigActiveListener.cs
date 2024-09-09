@@ -1,8 +1,8 @@
 public class ConfigActiveListener : ConfigValueListener
 {
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         gameObject.SetActive(ConvertingUtils.ToBool(ConfigsManager.GetValue(Config)));
     }
 

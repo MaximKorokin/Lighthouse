@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class DamageEffect : SimpleEffect
 {
     public override void Invoke(CastState castState)

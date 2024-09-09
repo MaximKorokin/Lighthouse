@@ -7,13 +7,13 @@ public class DashEffect : MoveOverrideEffect
         Vector2 direction;
         if (castState.Source == castState.Target)
         {
-            direction = (castState.Source as MovableWorldObject).TurnDirection.normalized;
+            direction = (castState.Source as MovableWorldObject).TurnDirection;
         }
         else
         {
             direction = castState.Target.transform.position - castState.Source.transform.position;
         }
-        return direction;
+        return direction.normalized;
     }
 
     protected override void StartOverride(CastState castState)

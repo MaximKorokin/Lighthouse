@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
-    public bool CanControl { get; set; } = true;
+    public BoolCounter _canControl = new(true);
+    public bool CanControl { get => _canControl; set => _canControl.Set(value); }
 
     protected WorldObject WorldObject { get; private set; }
     protected ActorBase[] Actors { get; private set; }
@@ -23,8 +24,7 @@ public abstract class ControllerBase : MonoBehaviour
         }
     }
 
-    protected void InvokeActors(WorldObject worldObject) => Actors.ForEach(x => x.Act(worldObject));
-    protected void IdleActors(WorldObject worldObject) => Actors.ForEach(x => x.Idle(worldObject));
+    protected void InvokeActors(PrioritizedTargets targets) => Actors.ForEach(x => x.Act(targets));
 
     protected abstract void Control();
 }

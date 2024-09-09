@@ -4,12 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
-    public const float MoveSpeedModifier = 2f;
-
     [field: SerializeField]
-    public bool CanRotate { get; protected set; }
+    public bool CanRotate { get; set; }
     [field: SerializeField]
-    public bool CanFlip { get; protected set; }
+    public bool CanFlip { get; set; }
 
     public Vector2 Direction
     {
@@ -22,13 +20,14 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     }
     public Vector2 TurnDirection { get; private set; } = Vector2.right;
     public bool IsMoving { get; private set; }
+    [field: SerializeField]
     public bool IsFlipped { get; private set; }
 
     private Vector2 _direction;
     private Rigidbody2D _rigidbody;
     private LayerMask _rigidbodyExcludeLayerMask;
     private bool _previousFlipX;
-    private float _speed;
+    private float _currentMoveSpeed;
 
     public event Action<bool> Flipped;
     public event Action<Vector2> DirectionSet;
@@ -41,11 +40,18 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         DirectionSet += OnDirectionSet;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        Flipped?.Invoke(IsFlipped);
+        _previousFlipX = IsFlipped;
+    }
+
     protected override void OnStatsModified()
     {
         base.OnStatsModified();
 
-        SetAnimatorValue(AnimatorKey.MoveSpeed, Stats[StatName.MoveSpeed]);
+        SetAnimatorValue(AnimatorKey.MoveSpeed, Stats[StatName.MoveSpeedModifier]);
     }
 
     protected virtual void FixedUpdate()
@@ -59,20 +65,24 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         if (IsMoving)
         {
             //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
-            _rigidbody.velocity = _speed * MoveSpeedModifier * Direction;
+            _rigidbody.velocity = _currentMoveSpeed * Direction;
         }
     }
 
     public void SetRigidbodyCollisions(bool enable)
     {
-        _rigidbody.excludeLayers = enable ? _rigidbodyExcludeLayerMask : (-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName));
+        _rigidbody.excludeLayers = enable
+            ? _rigidbodyExcludeLayerMask
+            : (-1 ^ (LayerMask.GetMask(Constants.ObstacleLayerName)));
+        ReloadPhysicsState();
     }
 
     public virtual void Move(float speedOverride = -1)
     {
-        _speed = speedOverride < 0 ? Stats[StatName.MoveSpeed] : speedOverride;
+        _currentMoveSpeed = speedOverride < 0 ? Stats[StatName.MoveSpeedModifier] : speedOverride;
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
+        //SetAnimatorValue(AnimatorKey.MoveSpeed, _currentMoveSpeed * Direction.magnitude);
     }
 
     public virtual void Stop()
@@ -85,7 +95,11 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     public override void DestroyWorldObject()
     {
         base.DestroyWorldObject();
-        _rigidbody.simulated = false;
+        // Fog is shown if detects that player left trigger
+        if (this is not PlayerCreature)
+        {
+            _rigidbody.simulated = false;
+        }
         Stop();
     }
 

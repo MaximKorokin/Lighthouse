@@ -1,33 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObject))]
 public abstract class ActorBase : MonoBehaviour
 {
-    [field: SerializeField]
-    public bool CanAct { get; set; } = true;
+    public BoolCounter _canAct = new(true);
+    public bool CanAct { get => _canAct; set => _canAct.Set(value); }
+
     private WorldObject _worldObject;
     public WorldObject WorldObject { get => _worldObject = _worldObject != null ? _worldObject : GetComponent<WorldObject>(); }
 
     public event Action Acting;
 
-    protected virtual void Awake()
-    {
-
-    }
-
-    public void Act(WorldObject worldObject)
+    public void Act(PrioritizedTargets targets)
     {
         if (CanAct)
         {
-            ActInternal(worldObject);
+            ActInternal(targets);
         }
     }
 
-    protected virtual void ActInternal(WorldObject worldObject)
+    protected virtual void ActInternal(PrioritizedTargets targets)
     {
         Acting?.Invoke();
     }
+}
 
-    public abstract void Idle(WorldObject worldObject);
+public struct PrioritizedTargets
+{
+    public PrioritizedTargets(WorldObject target, IEnumerable<WorldObject> targets, IEnumerable<WorldObject> primaryTargets, IEnumerable<WorldObject> secondaryTargets)
+    {
+        MainTarget = target;
+        Targets = targets;
+        PrimaryTargets = primaryTargets;
+        SecondaryTargets = secondaryTargets;
+    }
+    public PrioritizedTargets(WorldObject target, IEnumerable<WorldObject> targets) : this(target, targets, targets, Enumerable.Empty<WorldObject>()) { }
+    public PrioritizedTargets(IEnumerable<WorldObject> targets) : this(targets.FirstOrDefault(), targets) { }
+
+    public WorldObject MainTarget;
+    public readonly IEnumerable<WorldObject> Targets;
+    public readonly IEnumerable<WorldObject> PrimaryTargets;
+    public readonly IEnumerable<WorldObject> SecondaryTargets;
 }

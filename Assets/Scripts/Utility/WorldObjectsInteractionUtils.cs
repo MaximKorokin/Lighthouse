@@ -6,29 +6,27 @@ using UnityEngine;
 
 public static class WorldObjectsInteractionUtils
 {
-    public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source, FactionsRelation relation)
+    public static IEnumerable<WorldObject> GetValidTargets(this IEnumerable<WorldObject> worldObjects, WorldObject source)
     {
-        var validator = source.GetComponent<WorldObjectValidator>();
-        if (validator == null)
+        if (!source.TryGetComponent<WorldObjectInteractingTriggerDetector>(out var detector))
         {
             return worldObjects;
         }
         else
         {
-            return worldObjects.Where(x => validator.IsValidTarget(x, relation));
+            return worldObjects.Where(x => detector.IsValidTarget(x));
         }
     }
 
-    public static bool IsValidTarget(this WorldObject worldObject, WorldObject source, FactionsRelation relation)
+    public static bool IsValidTarget(this WorldObject worldObject, WorldObject source)
     {
-        var validator = source.GetComponent<WorldObjectValidator>();
-        if (validator == null)
+        if (!source.TryGetComponent<WorldObjectInteractingTriggerDetector>(out var detector))
         {
             return true;
         }
         else
         {
-            return validator.IsValidTarget(worldObject, relation);
+            return detector.IsValidTarget(worldObject);
         }
     }
 
@@ -51,43 +49,6 @@ public static class WorldObjectsInteractionUtils
             TargetingType.Point => castState.Payload is PointCastStatePayload payload ? payload.Position : castState.InitialSource.transform.position,
             _ => castState.InitialSource.transform.position,
         };
-    }
-
-    public static Coroutine StartCoroutineSafe(this WorldObject worldObject, IEnumerator enumerator, Action finalAction = null)
-    {
-        Coroutine coroutine = null;
-        var finalActionCalled = false;
-        coroutine = worldObject.StartCoroutine(SafeCoroutine());
-        worldObject.Destroyed += OnWorldObjectDestroyed;
-        return coroutine;
-
-        IEnumerator SafeCoroutine()
-        {
-            while (enumerator.MoveNext())
-            {
-                yield return enumerator.Current;
-            }
-            Cancel();
-        }
-
-        void OnWorldObjectDestroyed()
-        {
-            if (coroutine != null)
-            {
-                worldObject.StopCoroutine(coroutine);
-            }
-            Cancel();
-        }
-
-        void Cancel()
-        {
-            worldObject.Destroyed -= OnWorldObjectDestroyed;
-            if (!finalActionCalled)
-            {
-                finalAction?.Invoke();
-            }
-            finalActionCalled = true;
-        }
     }
 
     public static void OnDestroyed(this WorldObject worldObject, Action finalAction)

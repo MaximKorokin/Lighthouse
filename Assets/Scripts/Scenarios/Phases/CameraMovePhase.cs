@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraMovePhase : ActPhase
+public class CameraMovePhase : SkippableActPhase
 {
     private const CameraMovementPriority Priority = CameraMovementPriority.High;
 
@@ -18,7 +18,20 @@ public class CameraMovePhase : ActPhase
             Logger.Warn($"{nameof(_transformPosition)} parameter is not set in {nameof(CameraMovePhase)}");
             return;
         }
-        MainCameraController.Instance.SetMovement(_transformPosition.position, _speed, false, Priority, InvokeEnded);
+        base.Invoke();
+        MainCameraController.SetMovement(_transformPosition.position, _speed, false, Priority);
+        MainCameraController.MoveFinished += OnMoveFinished;
+    }
+
+    private void OnMoveFinished()
+    {
+        MainCameraController.MoveFinished -= OnMoveFinished;
+        InvokeFinished();
+    }
+
+    protected override void OnSkipped()
+    {
+        MainCameraController.SetMovement(_transformPosition.position, float.PositiveInfinity, false, Priority);
     }
 
     public override string IconName => "CameraMove.png";

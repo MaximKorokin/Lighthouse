@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6678305225708000804}
   - component: {fileID: 3205102812550467014}
   - component: {fileID: 3292321424933142019}
-  - component: {fileID: 5853469160753767001}
+  - component: {fileID: -6978404448541048970}
   m_Layer: 0
   m_Name: CartonBox
   m_TagString: Untagged
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2012048813
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2000669516, guid: cb6ca045c66eae84684a6f68aa7dd8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,7 +147,6 @@ MonoBehaviour:
     - Name: 2
       Value: 5
   <IsDamagable>k__BackingField: 1
-  <IsAlive>k__BackingField: 1
   <DestroyTime>k__BackingField: 3
 --- !u!95 &6678305225708000804
 Animator:
@@ -200,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
---- !u!114 &5853469160753767001
+--- !u!114 &-6978404448541048970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,6 +208,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7521127911754497452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18504f0df51426644b2c23e2fc935c53, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

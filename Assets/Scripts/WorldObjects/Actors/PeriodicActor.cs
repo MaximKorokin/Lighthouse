@@ -1,22 +1,21 @@
 ﻿using System.Collections.Generic;
 
-public class PeriodicActor : EffectActor
+public class PeriodicActor : SkilledActor
 {
     public float Cooldown { get; set; }
 
     private readonly Dictionary<WorldObject, CooldownCounter> _cooldowns = new();
 
-    protected override void ActInternal(WorldObject worldObject)
+    protected override void ActInternal(PrioritizedTargets targets)
     {
-        _cooldowns.TryAdd(worldObject, new CooldownCounter(Cooldown));
-        if (_cooldowns[worldObject].TryReset(WorldObject.AttackSpeed))
+        foreach (var target in targets.Targets)
         {
-            base.ActInternal(worldObject);
+            _cooldowns.TryAdd(target, new CooldownCounter(Cooldown));
+            if (_cooldowns[target].TryReset(WorldObject.AttackSpeed))
+            {
+                targets.MainTarget = target;
+                base.ActInternal(targets);
+            }
         }
-    }
-
-    public override void Idle(WorldObject worldObject)
-    {
-
     }
 }

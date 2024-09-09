@@ -5,16 +5,11 @@ public abstract class DataBase<T> : ScriptableObjectSingleton<DataBase<T>> where
 {
     [SerializeField]
     private List<T> _items;
-    public IEnumerable<T> Items => _items;
+    public static IEnumerable<T> Items => Instance._items;
 
     public static T FindById(string id)
     {
-        return Instance.FindByIdInternal(id);
-    }
-
-    private T FindByIdInternal(string id)
-    {
-        return _items.Find(x => x.Id == id);
+        return Instance._items.Find(x => x.Id == id);
     }
 
     private void OnValidate()

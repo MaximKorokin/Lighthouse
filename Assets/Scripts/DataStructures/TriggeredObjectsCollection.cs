@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TriggeredObjectsCollection<T> : IEnumerable<T>
+public class TriggeredObjectsCollection<T> : IContainsEnumerable<T>
 {
     protected readonly HashSet<T> TriggeredObjects = new();
     private readonly TriggerDetectorBase<T> _detector;
@@ -34,6 +34,10 @@ public class TriggeredObjectsCollection<T> : IEnumerable<T>
 
     protected virtual void OnTriggerExited(T obj)
     {
+        if (_additionalCondition != null && !_additionalCondition(obj))
+        {
+            return;
+        }
         TriggeredObjects.Remove(obj);
         Triggered?.Invoke(obj, false);
     }
@@ -46,6 +50,11 @@ public class TriggeredObjectsCollection<T> : IEnumerable<T>
     IEnumerator IEnumerable.GetEnumerator()
     {
         return TriggeredObjects.GetEnumerator();
+    }
+
+    public bool Contains(T item)
+    {
+        return TriggeredObjects.Contains(item);
     }
 
     ~TriggeredObjectsCollection()

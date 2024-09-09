@@ -25,7 +25,7 @@ MonoBehaviour:
     - rid: 1867399666109251596
       type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
       data:
-        _animation: {fileID: 7400000, guid: 1cc834d49543a794cb3f651cfa7480ca, type: 2}
+        _animation: {fileID: 7400000, guid: 6d3455ab2437fc84abdd0643ab4a0f98, type: 2}
         _hasDuration: 0
         _duration: 0
         _childToTarget: 1

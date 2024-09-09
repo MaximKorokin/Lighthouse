@@ -1,17 +1,19 @@
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObjectTriggerDetector))]
+[RequireComponent(typeof(WorldObjectFindingTriggerDetector))]
 public class TriggerRequirement : ActRequirement
 {
     [SerializeField]
     private TriggerTarget _triggerTarget;
+    [SerializeField]
+    private TriggerOn _triggerOn;
 
     private TriggeredWorldObjectsCollection _triggeredObjectsCollection;
 
     private void Awake()
     {
-        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(GetComponent<WorldObjectTriggerDetector>(), IsProperWorldObject);
+        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(GetComponent<WorldObjectFindingTriggerDetector>(), IsProperWorldObject);
         _triggeredObjectsCollection.Triggered += OnTriggered;
     }
 
@@ -31,7 +33,11 @@ public class TriggerRequirement : ActRequirement
 
     private void OnTriggered(WorldObject worldObject, bool entered)
     {
-        if (entered)
+        if (_triggerOn.HasFlag(TriggerOn.Enter) && entered)
+        {
+            InvokeFulfilled();
+        }
+        else if (_triggerOn.HasFlag(TriggerOn.Exit) && !entered)
         {
             InvokeFulfilled();
         }
@@ -43,4 +49,11 @@ public class TriggerRequirement : ActRequirement
 public enum TriggerTarget
 {
     Player,
+}
+
+public enum TriggerOn
+{
+    Enter = 1,
+    Exit = 2,
+    Both = 3,
 }

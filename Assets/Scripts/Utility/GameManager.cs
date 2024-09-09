@@ -13,7 +13,7 @@ public static class GameManager
         PauseCalls++;
         Time.timeScale = 0;
         IsPaused = true;
-        InputManager.IsControlInputBlocked = true;
+        InputReader.IsControlInputBlocked = true;
     }
 
     public static void Resume()
@@ -23,7 +23,7 @@ public static class GameManager
         {
             Time.timeScale = 1;
             IsPaused = false;
-            InputManager.IsControlInputBlocked = false;
+            InputReader.IsControlInputBlocked = false;
         }
     }
 
