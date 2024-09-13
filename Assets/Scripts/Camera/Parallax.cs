@@ -15,4 +15,9 @@ public class Parallax : MonoBehaviour
         var positionDelta = newPosition - oldPosition;
         transform.position += Vector3.Scale(positionDelta, _movementScale);
     }
+
+    private void OnDestroy()
+    {
+        MainCameraController.PositionChanged -= OnCameraPositionChanged;
+    }
 }
