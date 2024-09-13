@@ -42,6 +42,6 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         {
             return;
         }
-        Instance.OnDialogueFinished();
+        Instance._dialogueView.FinishViewText();
     }
 }

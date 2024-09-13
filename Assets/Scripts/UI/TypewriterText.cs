@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(TMP_Text))]
 public class TypewriterText : MonoBehaviour
 {
-    private readonly char[] _charsToShowImmediately = new char[] { ' ', '\n' };
+    private readonly char[] _charsToShowImmediately = new char[] { ' ', '\n', ',', '.', '\'', '\"', '-' };
 
     private string _currentTextString;
     private Coroutine _coroutine;
