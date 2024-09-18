@@ -5,7 +5,7 @@ public class FrameBoundEvent<T>
 {
     private readonly object _invoker;
     private Action<T> _event;
-    private int _invokeFrame;
+    private int _invokeFrame = int.MinValue;
 
     public FrameBoundEvent(object invoker)
     {

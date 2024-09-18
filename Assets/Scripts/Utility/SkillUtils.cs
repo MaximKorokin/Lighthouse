@@ -58,7 +58,7 @@ public static class SkillUtils
 
     public static WorldObject ChooseTarget(this SkillTargetChoosingData targetChoosingData, WorldObject source, PrioritizedTargets targets)
     {
-        var toChooseFrom = targetChoosingData.Type.ConvertToWorldObjects(targets);
+        var toChooseFrom = targetChoosingData.Type.ConvertToWorldObjects(source, targets);
 
         if (!toChooseFrom.Any()) return null;
 
@@ -71,13 +71,14 @@ public static class SkillUtils
         };
     }
 
-    public static IEnumerable<WorldObject> ConvertToWorldObjects(this SkillTargetChoosingType targetChoosingType, PrioritizedTargets targets)
+    public static IEnumerable<WorldObject> ConvertToWorldObjects(this SkillTargetChoosingType targetChoosingType, WorldObject source, PrioritizedTargets targets)
     {
         return targetChoosingType switch
         {
             SkillTargetChoosingType.Main => targets.MainTarget.Yield(),
             SkillTargetChoosingType.Primary => targets.PrimaryTargets,
             SkillTargetChoosingType.Secondary => targets.SecondaryTargets,
+            SkillTargetChoosingType.Source => source.Yield(),
             _ => Enumerable.Empty<WorldObject>(),
         };
     }

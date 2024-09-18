@@ -39,23 +39,32 @@ MonoBehaviour:
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 834406860253822981
+        - rid: 3932639039221137423
         <EndEffects>k__BackingField: []
         <PeriodTime>k__BackingField: 0.1
         <Periods>k__BackingField: 3
-    - rid: 834406860253822981
+    - rid: 3932639039221137423
+      type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639039221137424
+        _data:
+          Distance: 3
+          Angle: 10
+          Number: 1
+          GeneratingFulcrum: 12
+          GeneratingDistance: 11
+          GeneratingOrder: 1
+          GeneratingDirection: 11
+    - rid: 3932639039221137424
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 834406860253822982
+        - rid: 3932639039221137425
         <EndEffects>k__BackingField: []
         <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
         <PierceAmount>k__BackingField: 1
-        <Amount>k__BackingField: 1
-        <AmountSpread>k__BackingField: 0
-        <RandomSpread>k__BackingField: 10
-        <TargetType>k__BackingField: 0
-    - rid: 834406860253822982
+    - rid: 3932639039221137425
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 1

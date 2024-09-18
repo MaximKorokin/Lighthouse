@@ -6,15 +6,46 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
     [SerializeField]
     private Joystick _joystick;
     [SerializeField]
-    private  float _swipeThreshold = Screen.width / 3f;
+    private float _swipeThreshold = Screen.width / 3f;
     [SerializeField]
-    private  float _timeForSwipe = 0.3f;
+    private float _timeForSwipe = 0.3f;
+    [SerializeField]
+    private float _timeForSecondaryHold = 0.3f;
+    [SerializeField]
+    private float _timeForDoubleTap = 0.2f;
 
-    private bool _isActiveAbilityUsed;
-    private Vector2 swipeStartPosition;
-    private float swipeStartTime;
+    private readonly ReadOnceValue<bool> _isSkipInputRecieved = new(false);
+    private readonly ReadOnceValue<bool> _gotDoubleTap = new(false);
+    private readonly ReadOnceValue<bool> _gotSecondaryHold = new(false);
 
-    private bool _isSkipInputRecieved;
+    private Vector2 _swipeStartPosition;
+    private float _swipeStartTime;
+    private CooldownCounter _secondaryHoldCooldownCounter;
+    private Vector2 _previousTapPosition = Vector2.one * float.NegativeInfinity;
+    private CooldownCounter _doubleTapCooldownCounter;
+
+    private void Awake()
+    {
+        _secondaryHoldCooldownCounter = new(_timeForSecondaryHold);
+        _doubleTapCooldownCounter = new(_timeForDoubleTap);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (Input.touchCount > 1)
+        {
+            if (_secondaryHoldCooldownCounter.TryReset())
+            {
+                _gotSecondaryHold.Set(true);
+            }
+        }
+        else
+        {
+            _secondaryHoldCooldownCounter.Reset();
+        }
+    }
 
     protected override Vector2 GetMoveInput()
     {
@@ -23,19 +54,21 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
 
     protected override bool IsActiveAbilityUsed()
     {
-        var used = _isActiveAbilityUsed;
-        _isActiveAbilityUsed = false;
-        return used;
+        return _gotDoubleTap;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _isActiveAbilityUsed = Input.touchCount > 1;
+        if ((eventData.position - _previousTapPosition).sqrMagnitude <= 10_000 && !_doubleTapCooldownCounter.TryReset())
+        {
+            _gotDoubleTap.Set(true);
+        }
+        _previousTapPosition = eventData.position;
     }
 
     protected override bool IsMoveAbilityUsed()
     {
-        return CheckForSwipe();
+        return CheckForSwipe() || _gotSecondaryHold;
     }
 
     private bool CheckForSwipe()
@@ -47,12 +80,12 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
 
         if (Input.GetMouseButtonDown(0))
         {
-            swipeStartTime = Time.time;
-            swipeStartPosition = Input.mousePosition;
+            _swipeStartTime = Time.time;
+            _swipeStartPosition = Input.mousePosition;
             return false;
         }
 
-        return Time.time <= swipeStartTime + _timeForSwipe && Vector2.Distance(swipeStartPosition, Input.mousePosition) >= _swipeThreshold;
+        return Time.time <= _swipeStartTime + _timeForSwipe && Vector2.Distance(_swipeStartPosition, Input.mousePosition) >= _swipeThreshold;
     }
 
     protected override bool IsAnyKeyClicked()
@@ -62,13 +95,11 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
 
     protected override bool IsSkipInputRecieved()
     {
-        var returnValue = _isSkipInputRecieved;
-        _isSkipInputRecieved = false;
-        return returnValue;
+        return _isSkipInputRecieved;
     }
 
     public void RecieveSkipInput()
     {
-        _isSkipInputRecieved = true;
+        _isSkipInputRecieved.Set(true);
     }
 }

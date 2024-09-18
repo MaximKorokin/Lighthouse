@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Typewriter: {fileID: 8189147359523265807}
-  _charTypeSound: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
+  _typingSound: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
 --- !u!114 &8189147359523265807
 MonoBehaviour:
   m_ObjectHideFlags: 0

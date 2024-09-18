@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 8933689640996523510}
   - component: {fileID: 7582170747218420475}
   - component: {fileID: -7144199876366788397}
+  - component: {fileID: 9084652684011521284}
   m_Layer: 8
   m_Name: Royas
   m_TagString: Untagged
@@ -241,11 +242,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: -1
-  <Faction>k__BackingField: 16
+  <Faction>k__BackingField: 1
   _stats:
     _stats:
     - Name: 2
-      Value: 200
+      Value: 30
     - Name: 1
       Value: 1.2
     - Name: 3
@@ -259,10 +260,10 @@ MonoBehaviour:
     - Name: 12
       Value: 5
   <IsDamagable>k__BackingField: 1
-  <DestroyTime>k__BackingField: 5
+  <DestroyTime>k__BackingField: 100
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 1
-  <IsFlipped>k__BackingField: 0
+  <IsFlipped>k__BackingField: 1
 --- !u!114 &2406881424162235867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,8 +312,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
-  _destroyEffectsSettings:
-  - {fileID: 11400000, guid: bc32551aefece9b45a7ed757e07c68c2, type: 2}
+  _destroyEffectsSettings: []
 --- !u!114 &8347436707394829878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: c0230ab703768e544ac22f57b417ebc8, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1
@@ -335,6 +336,7 @@ MonoBehaviour:
       Type: 0
       Func: 0
   - _settings: {fileID: 11400000, guid: fe187b10f86da3642978ce102a73dbe8, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1
@@ -343,6 +345,7 @@ MonoBehaviour:
       Type: 0
       Func: 0
   - _settings: {fileID: 11400000, guid: 8ac2a285e1b3bed47aff5821f14b5b22, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 4
@@ -416,3 +419,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9084652684011521284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4f38a2a123604fa2f47703b976434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CharacterPreviewId>k__BackingField: 57d41b7a-05eb-4d6b-adba-462767456cd8

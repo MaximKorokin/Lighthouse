@@ -37,9 +37,14 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563587
-        _baseOnTarget: 1
-        _pointsNumber: 3
-        _maxRandomDistance: 1
+        _data:
+          Distance: 1
+          Angle: 360
+          Number: 4
+          GeneratingFulcrum: 1
+          GeneratingDistance: 1
+          GeneratingOrder: 1
+          GeneratingDirection: 1
     - rid: 4259499536714563587
       type: {class: AreaWarningEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -84,4 +89,4 @@ MonoBehaviour:
     - rid: 4259499606198190080
       type: {class: DisableEffect, ns: , asm: Assembly-CSharp}
       data:
-        OverrideTime: 5
+        OverrideTime: 2.5

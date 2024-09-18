@@ -23,32 +23,41 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3932639039221137426
+      type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639039221137427
+        _data:
+          Distance: 1
+          Angle: 30
+          Number: 3
+          GeneratingFulcrum: 12
+          GeneratingDistance: 11
+          GeneratingOrder: 11
+          GeneratingDirection: 11
+    - rid: 3932639039221137427
+      type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639039221137429
+        <EndEffects>k__BackingField: []
+        <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: c2c78e04acd416b4b9c9c943153947ef, type: 3}
+        <PierceAmount>k__BackingField: 1
+    - rid: 3932639039221137429
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 1
     - rid: 7523118470901530625
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 7523118470901530626
+        - rid: 3932639039221137426
         <EndEffects>k__BackingField: []
         <PeriodTime>k__BackingField: 0.3
         <Periods>k__BackingField: 3
-    - rid: 7523118470901530626
-      type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Effects>k__BackingField:
-        - rid: 7523118470901530628
-        <EndEffects>k__BackingField: []
-        <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: c2c78e04acd416b4b9c9c943153947ef, type: 3}
-        <PierceAmount>k__BackingField: 1
-        <Amount>k__BackingField: 3
-        <AmountSpread>k__BackingField: 20
-        <RandomSpread>k__BackingField: 5
-        <TargetType>k__BackingField: 0
     - rid: 7523118470901530627
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
-    - rid: 7523118470901530628
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Value>k__BackingField: 1

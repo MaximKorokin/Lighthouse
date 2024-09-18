@@ -254,7 +254,7 @@ MonoBehaviour:
     - Name: 4
       Value: 1
     - Name: 5
-      Value: 1.5
+      Value: 2
     - Name: 7
       Value: 1
     - Name: 12
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: ad0585ff996a23343b430b1658ffbd73, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1

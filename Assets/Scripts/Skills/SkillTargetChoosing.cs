@@ -12,6 +12,7 @@ public enum SkillTargetChoosingType
     Main = 0,
     Primary = 1,
     Secondary = 2,
+    Source = 10,
 }
 
 public enum SkillTargetChoosingFunc

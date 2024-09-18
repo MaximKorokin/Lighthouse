@@ -1,17 +1,15 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MovableWorldObject))]
-public class PlayerInputController : TriggerController
+public class PlayerInputController : TargetController
 {
     private Vector2 _direction;
-    private MovableWorldObject _movable;
 
     protected override void Awake()
     {
         base.Awake();
-        _movable = GetComponent<MovableWorldObject>();
 
-        _movable.Direction = _direction;
+        MovableWorldObject.Direction = _direction;
         InputReader.MoveInputRecieved += OnMoveVectorChanged;
     }
 
@@ -22,22 +20,19 @@ public class PlayerInputController : TriggerController
 
     protected override void Control()
     {
-        if (!_movable.IsAlive)
-        {
-            return;
-        }
-
-        _movable.Direction = _direction;
+        MovableWorldObject.Direction = _direction;
         if (_direction == Vector2.zero)
         {
-            _movable.Stop();
+            MovableWorldObject.Stop();
         }
         else
         {
-            _movable.Move();
+            MovableWorldObject.Move();
         }
 
-        InvokeActors(new PrioritizedTargets(WorldObject, TriggeredWorldObjects));
+        base.Control();
+
+        InvokeActors(new PrioritizedTargets(Target, TriggeredWorldObjects, PrimaryTargets, SecondaryTargets));
     }
 
     private void OnDestroy()
