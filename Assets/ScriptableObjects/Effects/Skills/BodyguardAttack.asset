@@ -50,9 +50,9 @@ MonoBehaviour:
         - rid: 3932639039221137424
         _data:
           Distance: 3
-          Angle: 10
+          Angle: 15
           Number: 1
-          GeneratingFulcrum: 12
+          GeneratingFulcrum: 11
           GeneratingDistance: 11
           GeneratingOrder: 1
           GeneratingDirection: 11

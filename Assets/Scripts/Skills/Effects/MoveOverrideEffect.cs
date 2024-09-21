@@ -34,5 +34,14 @@ public abstract class MoveOverrideEffect : ControllerOverrideEffect
         }
     }
 
+    protected override void StopOverride(WorldObject worldObject)
+    {
+        if (worldObject is MovableWorldObject movable)
+        {
+            movable.Stop();
+        }
+        base.StopOverride(worldObject);
+    }
+
     protected abstract Vector2 GetDirection(CastState castState);
 }

@@ -2,34 +2,35 @@ using UnityEngine;
 
 public abstract class AudioTextViewer : TextViewer
 {
-    private AudioSource _audioSource;
-    private AudioSource AudioSource => _audioSource = _audioSource != null ? _audioSource : AudioSourcePool.Take(null);
+    private AudioSourceProvider _audioSourceProvider;
+    private AudioSourceProvider AudioSourceProvider => _audioSourceProvider = _audioSourceProvider != null ? _audioSourceProvider : AudioSourceProviderPool.Take(null);
 
     protected virtual void Start()
     {
         Typewriter.CharTyping += OnCharTyping;
-        AudioSource.loop = false;
+        AudioSourceProvider.SetAudioClipType(AudioClipType.Sound);
+        AudioSourceProvider.AudioSource.loop = false;
     }
 
     private void OnCharTyping()
     {
-        if (AudioSource.clip != null)
+        if (AudioSourceProvider.AudioSource.clip != null)
         {
-            AudioSource.Play();
+            AudioSourceProvider.AudioSource.Play();
         }
     }
 
     public void SetTypingSound(AudioClip audioClip)
     {
-        AudioSource.clip = audioClip;
+        AudioSourceProvider.AudioSource.clip = audioClip;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        if (_audioSource != null && _audioSource.gameObject.activeInHierarchy)
+        if (_audioSourceProvider != null && _audioSourceProvider.gameObject.activeInHierarchy)
         {
-            AudioSourcePool.Return(_audioSource);
+            AudioSourceProviderPool.Return(_audioSourceProvider);
         }
     }
 }

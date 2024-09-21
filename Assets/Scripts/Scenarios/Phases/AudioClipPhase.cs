@@ -7,21 +7,27 @@ public class AudioClipPhase : ActPhase
     private AudioClip _audioClip;
     [SerializeField]
     private bool _loop;
+    [SerializeField]
+    private AudioClipType _type;
 
     public override void Invoke()
     {
-        var audioSource = AudioSourcePool.Take(null);
-        this.StartCoroutineSafe(AudioSourceLifetimeCoroutine(audioSource));
-        audioSource.loop = _loop;
-        audioSource.clip = _audioClip;
-        audioSource.Play();
+        var provider = AudioSourceProviderPool.Take(null);
+
+        provider.SetAudioClipType(_type);
+        provider.AudioSource.loop = _loop;
+        provider.AudioSource.clip = _audioClip;
+        provider.AudioSource.Play();
+
+        this.StartCoroutineSafe(AudioSourceLifetimeCoroutine(provider));
+
         InvokeFinished();
     }
 
-    private IEnumerator AudioSourceLifetimeCoroutine(AudioSource audioSource)
+    private IEnumerator AudioSourceLifetimeCoroutine(AudioSourceProvider provider)
     {
         yield return new WaitForSeconds(_audioClip.length);
-        AudioSourcePool.Return(audioSource);
+        AudioSourceProviderPool.Return(provider);
     }
 
     public override string IconName => "SoundNote.png";

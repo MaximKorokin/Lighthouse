@@ -1445,6 +1445,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: RadkinsHQTileset_0
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef087b7fbe2c6a245bb3308a066862c4
+      internalID: 45182860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RadkinsHQTileset_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0a36ef3aa9c9c4cb182d7a2803d2b1
+      internalID: 338020839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1521,6 +1563,8 @@ TextureImporter:
       OrslindHQTileset_7: -847214323
       OrslindHQTileset_8: 1752970159
       OrslindHQTileset_9: 1591521856
+      RadkinsHQTileset_0: 45182860
+      RadkinsHQTileset_1: 338020839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

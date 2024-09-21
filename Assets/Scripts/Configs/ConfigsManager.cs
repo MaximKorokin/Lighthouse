@@ -30,6 +30,7 @@ public static class ConfigsManager
         {
             _listeners[config] = new HashSet<Action<string>> { action };
         }
+        action(GetValue(config));
     }
 
     public static void RemoveChangeListener(ConfigKey config, Action<string> action)
@@ -45,8 +46,11 @@ public enum ConfigKey
 {
     DebugMode = 0,
     FpsCounter = 1,
-    AudioVolume = 2,
-    Language = 3,
+
+    SoundVolume = 20,
+    MusicVolume = 21,
+
+    Language = 30,
 
     ViewHPVisualization = 100,
     ViewHPChangeVisualization = 101,

@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainAudioSourceAudioClipPhase : ActPhase
 {
     [SerializeField]
     private AudioClip _audioClip;
+    [SerializeField]
+    private AudioClipType _type;
     [SerializeField]
     private bool _loop;
     [SerializeField]
@@ -12,7 +13,7 @@ public class MainAudioSourceAudioClipPhase : ActPhase
 
     public override void Invoke()
     {
-        MainAudioSourceController.Instance.SetAudioClip(_audioClip, _loop, _operation);
+        MainAudioSourceController.Instance.SetAudioClip(_audioClip, _type, _loop, _operation);
         InvokeFinished();
     }
 
