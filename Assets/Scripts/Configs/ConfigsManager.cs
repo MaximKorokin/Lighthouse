@@ -17,11 +17,21 @@ public static class ConfigsManager
 
     public static string GetValue(ConfigKey config)
     {
-        return PlayerPrefs.GetString(config.ToString());
+        if (!PlayerPrefs.HasKey(config.ToString()))
+        {
+            var defaultValue = config.GetDefaultValue();
+            SetValue(config, defaultValue.ToString());
+            return defaultValue.ToString();
+        }
+        else
+        {
+            return PlayerPrefs.GetString(config.ToString());
+        }
     }
 
     public static void SetChangeListener(ConfigKey config, Action<string> action)
     {
+        action(GetValue(config));
         if (_listeners.ContainsKey(config))
         {
             _listeners[config].Add(action);
@@ -30,7 +40,6 @@ public static class ConfigsManager
         {
             _listeners[config] = new HashSet<Action<string>> { action };
         }
-        action(GetValue(config));
     }
 
     public static void RemoveChangeListener(ConfigKey config, Action<string> action)
@@ -44,10 +53,14 @@ public static class ConfigsManager
 
 public enum ConfigKey
 {
+    [DefaultValue(0)]
     DebugMode = 0,
+    [DefaultValue(0)]
     FpsCounter = 1,
 
+    [DefaultValue(10)]
     SoundVolume = 20,
+    [DefaultValue(10)]
     MusicVolume = 21,
 
     Language = 30,

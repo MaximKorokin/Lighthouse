@@ -34,6 +34,16 @@ public static class CoroutinesUtils
 
         IEnumerator SafeCoroutine()
         {
+            // Needs this condition in case of enumerator is empty and therefore wrapper is not created before Stop call
+            if (enumerator.MoveNext())
+            {
+                yield return enumerator.Current;
+            }
+            else
+            {
+                yield return null;
+            }
+
             while (enumerator.MoveNext())
             {
                 yield return enumerator.Current;

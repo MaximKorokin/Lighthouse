@@ -5,6 +5,7 @@ public class AudioSourceProvider : MonoBehaviour
 {
     [SerializeField]
     private AudioClipType _audioClipType;
+    private AudioClipType _currentAudioClipType;
 
     public AudioSource AudioSource { get; private set; }
 
@@ -16,17 +17,18 @@ public class AudioSourceProvider : MonoBehaviour
 
     public void SetAudioClipType(AudioClipType type)
     {
+        _currentAudioClipType = type;
         switch (type)
         {
             case AudioClipType.None:
-                RemoveConfigChangeListeners();
+                RemoveVolumeConfigChangeListeners();
                 break;
             case AudioClipType.Sound:
-                RemoveConfigChangeListeners();
+                RemoveVolumeConfigChangeListeners();
                 ConfigsManager.SetChangeListener(ConfigKey.SoundVolume, SetVolume);
                 break;
             case AudioClipType.Music:
-                RemoveConfigChangeListeners();
+                RemoveVolumeConfigChangeListeners();
                 ConfigsManager.SetChangeListener(ConfigKey.MusicVolume, SetVolume);
                 break;
             default:
@@ -35,20 +37,34 @@ public class AudioSourceProvider : MonoBehaviour
         }
     }
 
-    private void RemoveConfigChangeListeners()
+    /// <summary>
+    /// Returns volume from configs based on current AudioClipType
+    /// </summary>
+    /// <returns></returns>
+    public float GetTargetVolume()
+    {
+        return _currentAudioClipType switch
+        {
+            AudioClipType.None => AudioSource.volume,
+            AudioClipType.Sound => ConvertToVolume(ConfigsManager.GetValue(ConfigKey.SoundVolume)),
+            AudioClipType.Music => ConvertToVolume(ConfigsManager.GetValue(ConfigKey.MusicVolume)),
+            _ => 0,
+        };
+    }
+
+    private void RemoveVolumeConfigChangeListeners()
     {
         ConfigsManager.RemoveChangeListener(ConfigKey.SoundVolume, SetVolume);
         ConfigsManager.RemoveChangeListener(ConfigKey.MusicVolume, SetVolume);
     }
 
-    private void SetVolume(string str)
-    {
-        AudioSource.volume = ConvertingUtils.ToFloat(str) / 10;
-    }
+    private void SetVolume(string str) => AudioSource.volume = ConvertToVolume(str);
+
+    private float ConvertToVolume(string str) => ConvertingUtils.ToFloat(str) / 10;
 
     private void OnDestroy()
     {
-        RemoveConfigChangeListeners();
+        RemoveVolumeConfigChangeListeners();
     }
 }
 

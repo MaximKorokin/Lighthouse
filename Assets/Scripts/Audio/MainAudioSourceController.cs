@@ -80,7 +80,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     private void AssignAudioClipFadeOut(AudioClipItem audioClipItem)
     {
         var initialVolume = ActiveAudioSourceProvider.AudioSource.volume;
-        this.StartCoroutineSafe(ActiveAudioSourceProvider.AudioSource.FadeOut(2.5f), () =>
+        this.StartCoroutineSafe(ActiveAudioSourceProvider.FadeOut(2.5f), () =>
         {
             ActiveAudioSourceProvider.AudioSource.volume = initialVolume;
             AssignAudioClip(audioClipItem);
@@ -90,13 +90,13 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     private void AssignAudioClipFadeIn(AudioClipItem audioClipItem)
     {
         AssignAudioClip(audioClipItem);
-        this.StartCoroutineSafe(ActiveAudioSourceProvider.AudioSource.FadeIn(ActiveAudioSourceProvider.AudioSource.volume, 2.5f));
+        this.StartCoroutineSafe(ActiveAudioSourceProvider.FadeIn(2.5f));
     }
 
     private void AssignAudioClipFadeOutFadeIn(AudioClipItem audioClipItem)
     {
         var initialVolume = ActiveAudioSourceProvider.AudioSource.volume;
-        this.StartCoroutineSafe(ActiveAudioSourceProvider.AudioSource.FadeOut(2.5f), () =>
+        this.StartCoroutineSafe(ActiveAudioSourceProvider.FadeOut(2.5f), () =>
         {
             ActiveAudioSourceProvider.AudioSource.volume = initialVolume;
             AssignAudioClipFadeIn(audioClipItem);

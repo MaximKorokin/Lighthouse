@@ -18,12 +18,3 @@ public enum StatName
     [DefaultValue(1)]
     VisionRange = 12,
 }
-
-public static class StatNameExtensions
-{
-    public static float GetDefaultValue(this StatName statName)
-    {
-        var attributes = statName.GetType().GetMember(statName.ToString())[0].GetCustomAttributes(typeof(DefaultValueAttribute), false);
-        return attributes.Length > 0 ? ((DefaultValueAttribute)attributes[0]).Value : 0;
-    }
-}
