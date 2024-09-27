@@ -21,6 +21,7 @@ MonoBehaviour:
   - rid: 1867399862666133506
   - rid: 4259499470171930625
   - rid: 3932639018172022786
+  - rid: 3932639127874568199
   references:
     version: 2
     RefIds:
@@ -40,6 +41,10 @@ MonoBehaviour:
       data:
         OverrideTime: 0.8
         Speed: 3
+    - rid: 3932639127874568199
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: d0050ea9d162a1b4e97c2d63540ea9cf, type: 3}
     - rid: 4259499470171930625
       type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:

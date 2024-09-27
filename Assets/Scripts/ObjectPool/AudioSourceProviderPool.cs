@@ -1,14 +1,15 @@
 ﻿public class AudioSourceProviderPool : ObjectsPool<AudioSourceProvider, object>
 {
-    protected override void Initialize(AudioSourceProvider source, object _)
+    protected override void Initialize(AudioSourceProvider provider, object _)
     {
-        source.transform.SetParent(AudioSourcesParent.Instance.transform);
-        source.gameObject.SetActive(true);
+        provider.transform.SetParent(AudioSourcesParent.Instance.transform);
+        provider.gameObject.SetActive(true);
     }
 
-    protected override void Deinitialize(AudioSourceProvider source)
+    protected override void Deinitialize(AudioSourceProvider provider)
     {
-        source.AudioSource.clip = null;
-        source.SetAudioClipType(AudioClipType.None);
+        provider.AudioSource.clip = null;
+        provider.AudioSource.spatialBlend = 0;
+        provider.SetAudioClipType(AudioClipType.None);
     }
 }

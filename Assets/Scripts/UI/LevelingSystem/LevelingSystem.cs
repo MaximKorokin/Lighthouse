@@ -21,7 +21,7 @@ public class LevelingSystem
         LevelingSystemUI.Instance.EffectChosen += OnEffectChosen;
     }
 
-    public void AddExperience(float expValue)
+    public void AddExperience(int expValue)
     {
         var expToUp = GetExpereinceNeeded(Level, _currentExperience);
         var expDelta = expToUp - expValue;
@@ -33,7 +33,7 @@ public class LevelingSystem
         }
         else
         {
-            _currentExperience += (int)expValue;
+            _currentExperience += expValue;
             VisualizeExperienceAmount();
         }
     }

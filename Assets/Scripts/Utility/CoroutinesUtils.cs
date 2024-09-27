@@ -57,6 +57,11 @@ public static class CoroutinesUtils
         behaviour.StopCoroutine(wrapper.Coroutine);
         wrapper.Stop();
     }
+
+    public static IEnumerator WaitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
 }
 
 public class CoroutineWrapper

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AnimatorValueEffect : SimpleEffect
+public class AnimatorValueEffect : SimpleValueEffect
 {
     [SerializeField]
     private AnimatorKey _key;

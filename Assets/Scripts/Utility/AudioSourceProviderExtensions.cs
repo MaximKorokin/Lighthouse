@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
-public static class AudioSourceExtensions
+public static class AudioSourceProviderExtensions
 {
     /// <summary>
     /// Continuously reduses volume until its value is equal to 0
@@ -34,5 +35,15 @@ public static class AudioSourceExtensions
             provider.AudioSource.volume += targetVolume * Time.deltaTime / duration;
             yield return null;
         }
+    }
+
+    public static void PlayAudioClip(this AudioSourceProvider provider, AudioClip clip, bool loop, AudioClipType type, Action finalAction)
+    {
+        provider.SetAudioClipType(type);
+        provider.AudioSource.loop = loop;
+        provider.AudioSource.clip = clip;
+        provider.AudioSource.Play();
+
+        provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), finalAction);
     }
 }

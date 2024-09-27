@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class SimpleEffect : Effect
+public abstract class SimpleValueEffect : Effect
 {
     [field: SerializeField]
     public float Value { get; private set; }

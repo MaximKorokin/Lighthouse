@@ -19,9 +19,14 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 0
   _effects:
   - rid: 4004305113478070272
+  - rid: 3932639127874568203
   references:
     version: 2
     RefIds:
+    - rid: 3932639127874568203
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 599d01c2da6219748a3b64420e837618, type: 3}
     - rid: 4004305113478070272
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -36,9 +41,14 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 4004305113478070277
         - rid: 4004305113478070278
-        _baseOnTarget: 0
-        _pointsNumber: 4
-        _maxRandomDistance: 1.5
+        _data:
+          Distance: 1
+          Angle: 360
+          Number: 2
+          GeneratingFulcrum: 1
+          GeneratingDistance: 1
+          GeneratingOrder: 1
+          GeneratingDirection: 1
     - rid: 4004305113478070277
       type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
       data:

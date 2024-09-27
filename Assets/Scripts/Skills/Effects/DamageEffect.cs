@@ -1,4 +1,4 @@
-public class DamageEffect : SimpleEffect
+public class DamageEffect : SimpleValueEffect
 {
     public override void Invoke(CastState castState)
     {

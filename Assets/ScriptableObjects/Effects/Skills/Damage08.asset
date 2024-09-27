@@ -22,6 +22,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3932639127874568207
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 8c7afd0dfc152e64892b2bc3b3d20048, type: 3}
     - rid: 4259499536714563593
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -40,6 +44,7 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563596
+        - rid: 3932639127874568207
         _conditions: 5
     - rid: 4259499536714563596
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
