@@ -5,7 +5,6 @@
     private void Awake()
     {
         _anyKeyClicked = false;
-        InputReader.AnyKeyClicked -= OnAnyKeyClicked;
         InputReader.AnyKeyClicked += OnAnyKeyClicked;
     }
 

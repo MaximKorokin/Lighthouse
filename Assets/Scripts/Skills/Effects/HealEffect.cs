@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class HealEffect : SimpleValueEffect
 {
     public override void Invoke(CastState castState)

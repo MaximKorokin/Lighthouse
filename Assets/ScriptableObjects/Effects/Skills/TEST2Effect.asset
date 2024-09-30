@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: TEST2Effect
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 0
+  _effects:
+  - rid: 3932639285494415382
+  - rid: 3932639285494415383
+  - rid: 3932639285494415392
+  - rid: 3932639285494415420
+  - rid: 3932639285494415417
+  - rid: 3932639285494415421
+  references:
+    version: 2
+    RefIds:
+    - rid: 3932639285494415382
+      type: {class: StatsEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <StatsDelta>k__BackingField:
+          _stats:
+          - Name: 1
+            Value: 4545
+          - Name: 2
+            Value: 56564
+          - Name: 3
+            Value: 43
+    - rid: 3932639285494415383
+      type: {class: ComplexEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639285494415384
+    - rid: 3932639285494415384
+      type: {class: StatsEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <StatsDelta>k__BackingField:
+          _stats:
+          - Name: 1
+            Value: 1
+          - Name: 2
+            Value: 56564
+          - Name: 3
+            Value: 43
+    - rid: 3932639285494415392
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 8
+    - rid: 3932639285494415417
+      type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639285494415418
+        - rid: 3932639285494415419
+        <Radius>k__BackingField: 5
+    - rid: 3932639285494415418
+      type: {class: DisableEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 2
+    - rid: 3932639285494415419
+      type: {class: EffectReferenceEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectSettings: {fileID: 11400000, guid: 651b8aff2e0e31f4f85aee0a2d401cfb, type: 2}
+    - rid: 3932639285494415420
+      type: {class: StatsEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <StatsDelta>k__BackingField:
+          _stats:
+          - Name: 1
+            Value: 4545
+          - Name: 2
+            Value: 56564
+          - Name: 3
+            Value: 43
+    - rid: 3932639285494415421
+      type: {class: StatsEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <StatsDelta>k__BackingField:
+          _stats:
+          - Name: 1
+            Value: 4545
+          - Name: 2
+            Value: 56564
+          - Name: 3
+            Value: 43

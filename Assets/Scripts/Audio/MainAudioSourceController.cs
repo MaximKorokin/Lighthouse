@@ -11,8 +11,8 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
 
     private readonly List<AudioClipItem> _audioClipsQueue = new();
 
-    private AudioSourceProvider ActiveAudioSourceProvider => _areSourcesSwitched ? _audioSourceProvider2 : _audioSourceProvider1;
-    private AudioSourceProvider InactiveAudioSourceProvider => _areSourcesSwitched ? _audioSourceProvider1 : _audioSourceProvider2;
+    public AudioSourceProvider ActiveAudioSourceProvider => _areSourcesSwitched ? _audioSourceProvider2 : _audioSourceProvider1;
+    public AudioSourceProvider InactiveAudioSourceProvider => _areSourcesSwitched ? _audioSourceProvider1 : _audioSourceProvider2;
 
     private AudioClipItem CurrentAudioClipItem => _audioClipsQueue.Count > _currentAudioClipItemIndex ? _audioClipsQueue[_currentAudioClipItemIndex] : null;
     private AudioClipItem NextAudioClipItem => _audioClipsQueue.Count > (_currentAudioClipItemIndex + 1) ? _audioClipsQueue[_currentAudioClipItemIndex + 1] : null;

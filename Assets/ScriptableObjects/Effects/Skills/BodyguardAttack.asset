@@ -29,6 +29,7 @@ MonoBehaviour:
         - rid: 834406860253822978
         <EndEffects>k__BackingField:
         - rid: 834406860253822980
+        - rid: 3932639282344755200
         <Duration>k__BackingField: 0.3
     - rid: 834406860253822978
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
@@ -73,3 +74,8 @@ MonoBehaviour:
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
         _audioClip: {fileID: 8300000, guid: 7b39c94aff30d4a4793a0dd619fb475f, type: 3}
+    - rid: 3932639282344755200
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField: []
+        _conditions: 4

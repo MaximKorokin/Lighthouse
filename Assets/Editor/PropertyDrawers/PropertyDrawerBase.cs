@@ -3,8 +3,8 @@ using UnityEngine.UIElements;
 
 public abstract class PropertyDrawerBase : PropertyDrawer
 {
-    protected VisualElement RootContainer { get; private set; }
-    protected SerializedProperty Property { get; private set; }
+    protected VisualElement RootContainer { get; set; }
+    protected SerializedProperty Property { get; set; }
 
     public override VisualElement CreatePropertyGUI(SerializedProperty property)
     {

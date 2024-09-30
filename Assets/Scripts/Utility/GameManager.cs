@@ -1,29 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class GameManager
 {
-    private static int _pauseCalls;
-    private static int PauseCalls { get => _pauseCalls; set => _pauseCalls = value < 0 ? 0 : value; }
+    public static BoolCounter IsPaused { get ; private set; }
 
-    public static bool IsPaused { get ; private set; }
+    public static event Action Paused;
+    public static event Action Resumed;
 
     public static void Pause()
     {
-        PauseCalls++;
         Time.timeScale = 0;
-        IsPaused = true;
+        IsPaused.Set(true);
         InputReader.IsControlInputBlocked = true;
+
+        Paused?.Invoke();
     }
 
     public static void Resume()
     {
-        PauseCalls--;
-        if (PauseCalls <= 0)
+        IsPaused.Set(false);
+        if (!IsPaused)
         {
             Time.timeScale = 1;
-            IsPaused = false;
             InputReader.IsControlInputBlocked = false;
+
+            Resumed?.Invoke();
         }
     }
 

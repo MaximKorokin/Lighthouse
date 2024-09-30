@@ -9,11 +9,8 @@ public class ProjectileEffect : EndingEffect
 
     public override void Invoke(CastState castState)
     {
-        if (castState.InitialSource is not DestroyableWorldObject destroyable || destroyable.IsAlive)
-        {
-            var projectile = Object.Instantiate(Projectile, castState.Source.transform.position + (Vector3)castState.Source.VisualPositionOffset, Quaternion.identity);
-            projectile.SetProjectileEffect(this, castState);
-            projectile.GetComponent<StraightMovingController>().SetTargetPosition(castState.GetTargetPosition());
-        }
+        var projectile = Object.Instantiate(Projectile, castState.Source.transform.position + (Vector3)castState.Source.VisualPositionOffset, Quaternion.identity);
+        projectile.SetProjectileEffect(this, castState);
+        projectile.GetComponent<StraightMovingController>().SetTargetPosition(castState.GetTargetPosition());
     }
 }

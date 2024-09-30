@@ -19,10 +19,10 @@ public static class Extensions
             {
                 continue;
             }
-            var propertyField = new PropertyField();
             var relativeProperty = property.FindPropertyRelative(field.Name);
             if (relativeProperty != null)
             {
+                var propertyField = new PropertyField();
                 propertyField.BindProperty(relativeProperty);
                 foldout.Add(propertyField);
             }

@@ -12,6 +12,6 @@ public abstract class ActRequirement : MonoBehaviour, IEditorIcon
 
     public abstract bool IsFulfilled();
 
-    public virtual string IconName => null;
+    public virtual string IconName => "Empty.png";
     public virtual Color IconColor => Color.white;
 }
