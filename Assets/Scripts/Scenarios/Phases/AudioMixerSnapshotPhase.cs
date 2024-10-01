@@ -45,6 +45,8 @@ public class AudioMixerSnapshotPhase : ActPhase
         }
         base.InvokeFinished();
     }
+
+    public override string IconName => "SoundSnapshot.png";
 }
 
 public enum AudioMixerSnapshotPhaseType

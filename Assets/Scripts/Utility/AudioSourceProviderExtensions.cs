@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class AudioSourceProviderExtensions
@@ -37,13 +38,34 @@ public static class AudioSourceProviderExtensions
         }
     }
 
-    public static void PlayAudioClip(this AudioSourceProvider provider, AudioClip clip, bool loop, AudioClipType type, Action finalAction)
+    private static readonly Dictionary<AudioClip, float> _clipsStartTime = new();
+
+    /// <summary>
+    /// More preferrable way to play aduio clips than directly through AudioSource
+    /// </summary>
+    /// <param name="provider"></param>
+    /// <param name="clip"></param>
+    /// <param name="loop"></param>
+    /// <param name="type"></param>
+    /// <param name="finalAction"></param>
+    public static void PlayAudioClip(this AudioSourceProvider provider, AudioClip clip, bool loop, AudioClipType type, Action finalAction = null)
     {
+        // Prevents sounds interferencing
+        if (_clipsStartTime.TryGetValue(clip, out var previousStartTime) && Time.time - previousStartTime < 0.05f)
+        {
+            return;
+        }
+        _clipsStartTime[clip] = Time.time;
+
         provider.SetAudioClipType(type);
         provider.AudioSource.loop = loop;
         provider.AudioSource.clip = clip;
         provider.AudioSource.Play();
 
-        provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), finalAction);
+        provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), () =>
+        {
+            _clipsStartTime[clip]--;
+            finalAction?.Invoke();
+        });
     }
 }

@@ -5,6 +5,8 @@ public abstract class AudioTextViewer : TextViewer
     private AudioSourceProvider _audioSourceProvider;
     private AudioSourceProvider AudioSourceProvider => _audioSourceProvider = _audioSourceProvider != null ? _audioSourceProvider : AudioSourceProviderPool.Take(null);
 
+    private AudioClip _audioClip;
+
     protected virtual void Start()
     {
         Typewriter.CharTyping += OnCharTyping;
@@ -14,15 +16,15 @@ public abstract class AudioTextViewer : TextViewer
 
     private void OnCharTyping()
     {
-        if (AudioSourceProvider.AudioSource.clip != null)
+        if (_audioClip != null)
         {
-            AudioSourceProvider.AudioSource.Play();
+            AudioSourceProvider.PlayAudioClip(_audioClip, false, AudioClipType.Sound);
         }
     }
 
     public void SetTypingSound(AudioClip audioClip)
     {
-        AudioSourceProvider.AudioSource.clip = audioClip;
+        _audioClip = audioClip;
     }
 
     protected override void OnDestroy()

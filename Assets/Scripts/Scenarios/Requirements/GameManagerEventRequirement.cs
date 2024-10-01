@@ -46,4 +46,11 @@ public class GameManagerEventRequirement : ActRequirement
         Paused = 1,
         Resumed = 2,
     }
+
+    public override string IconName => _gameManagerEvent switch
+    {
+        GameManagerEvent.Paused => "Pause.png",
+        GameManagerEvent.Resumed => "Play.png",
+        _ => base.IconName,
+    };
 }

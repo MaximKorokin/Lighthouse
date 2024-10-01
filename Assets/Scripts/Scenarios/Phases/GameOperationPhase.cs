@@ -23,7 +23,7 @@ public class GameOperationPhase : ActPhase
     {
         GameOperation.Pause => "Pause.png",
         GameOperation.Resume => "Play.png",
-        _ => "Act.png"
+        _ => base.IconName,
     };
 }
 
