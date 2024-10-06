@@ -9,7 +9,7 @@ public class WaitingPhase : SkippableActPhase
     public override void Invoke()
     {
         base.Invoke();
-        StartCoroutine(WaitCoroutine());
+        CoroutinesHandler.StartUniqueCoroutine(this, WaitCoroutine());
     }
 
     private IEnumerator WaitCoroutine()

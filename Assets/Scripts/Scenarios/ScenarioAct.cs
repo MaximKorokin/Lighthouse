@@ -31,27 +31,25 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
     public void Initialize()
     {
-        if (_hasInitialized)
+        if (!_hasInitialized)
         {
-            return;
+            _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
+            _invoker.Finished += OnFinished;
+            _hasInitialized = true;
+
+            Initialized?.Invoke(this);
         }
-        _hasInitialized = true;
 
-        _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
-        _invoker.Finished += OnFinished;
+        foreach (var requirement in _requirements)
+        {
+            requirement.OnFulfilled -= OnRequirementFulfilled;
+            requirement.OnFulfilled += OnRequirementFulfilled;
+        }
 
-        if (_requirements.Count == 0)
+        if (_requirements.Count == 0 || _requirements.All(x => x.IsFulfilled()))
         {
             _invoker.Invoke();
         }
-        else
-        {
-            foreach (var requirement in _requirements)
-            {
-                requirement.OnFulfilled += OnRequirementFulfilled;
-            }
-        }
-        Initialized?.Invoke(this);
     }
 
     private void OnFinished()

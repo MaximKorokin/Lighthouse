@@ -5,7 +5,13 @@ using UnityEngine.Tilemaps;
 public class ShowHideTilemapsPhase : ActPhase
 {
     [SerializeField]
+    [Range(0, 1)]
+    private float _showAlpha = 1;
+    [SerializeField]
     private Tilemap[] _tilemapsToShow;
+    [SerializeField]
+    [Range(0, 1)]
+    private float _hideAlpha = 0;
     [SerializeField]
     private Tilemap[] _tilemapsToHide;
     [SerializeField]
@@ -17,18 +23,18 @@ public class ShowHideTilemapsPhase : ActPhase
         {
             foreach (var tilemap in _tilemapsToShow)
             {
-                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 1);
+                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, _showAlpha);
             }
             foreach (var tilemap in _tilemapsToHide)
             {
-                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0);
+                tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, _hideAlpha);
             }
             InvokeFinished();
         }
         else
         {
-            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 1, 1), InvokeFinished));
-            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, 0, -1), InvokeFinished));
+            if (_tilemapsToShow.Length > 0) _tilemapsToShow.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, _showAlpha, _showAlpha - x.color.a), InvokeFinished));
+            if (_tilemapsToHide.Length > 0) _tilemapsToHide.ForEach(x => CoroutinesHandler.StartUniqueCoroutine(x, TransitionCoroutine(x, _hideAlpha, _hideAlpha - x.color.a), InvokeFinished));
         }
     }
 
@@ -38,7 +44,9 @@ public class ShowHideTilemapsPhase : ActPhase
         while (tilemap.color.a != targetAlpha)
         {
             var step = stepMultiplier / _time * Time.deltaTime;
-            var newAlpha = Mathf.Clamp01(tilemap.color.a + step);
+            var newAlpha = stepMultiplier > 0
+                ? Mathf.Clamp(tilemap.color.a + step, 0, _showAlpha)
+                : Mathf.Clamp(tilemap.color.a + step, _hideAlpha, 1);
             tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
             yield return new WaitForEndOfFrame();
         }

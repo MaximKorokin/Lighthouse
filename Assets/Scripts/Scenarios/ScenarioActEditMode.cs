@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [ExecuteAlways]
+#endif
 public partial class ScenarioAct : MonoBehaviour
 {
     /// <summary>
@@ -43,8 +45,8 @@ public partial class ScenarioAct : MonoBehaviour
         }
 
         _childrenActs ??= new();
-        _childrenActs?.Where(x => x == null).ToArray().ForEach(x => _childrenActs.Remove(x));
-        _childrenActs.ForEach(x => x._selfInitializable = false);
+        _childrenActs.Where(x => x == null).ToArray().ForEach(x => _childrenActs.Remove(x));
+        _childrenActs.Where(x => x != this).ForEach(x => x._selfInitializable = false);
         _previousChildren.Except(_childrenActs).ForEach(x => x._selfInitializable = true);
         _previousChildren = _childrenActs.ToList();
     }

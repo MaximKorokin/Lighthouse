@@ -63,6 +63,7 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
         {
             _gotDoubleTap.Set(true);
         }
+        _doubleTapCooldownCounter.Reset();
         _previousTapPosition = eventData.position;
     }
 

@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-public abstract class SkippableActPhase : ActPhase
+﻿public abstract class SkippableActPhase : ActPhase
 {
-    private readonly CooldownCounter _skipCooldownCounter = new(.1f);
+    private readonly CooldownCounter _skipCooldownCounter = new(0.1f);
 
     private bool _isInvoking;
 

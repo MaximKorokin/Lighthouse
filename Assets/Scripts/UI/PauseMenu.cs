@@ -23,21 +23,6 @@ public class PauseMenu : MonoBehaviorSingleton<PauseMenu>
         _pausePanel.SetActive(false);
     }
 
-    public void ToggleFpsCounter()
-    {
-
-    }
-
-    public void ToggleDebugButtons()
-    {
-
-    }
-
-    public void ToggleAudio()
-    {
-
-    }
-
     public void ReloadScene()
     {
         GameManager.ReloadScene();
