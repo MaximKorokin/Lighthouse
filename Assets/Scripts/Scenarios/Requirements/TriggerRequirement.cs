@@ -27,6 +27,7 @@ public class TriggerRequirement : ActRequirement
         return _triggerTarget switch
         {
             TriggerTarget.Player => worldObject is PlayerCreature,
+            TriggerTarget.Creature => worldObject is Creature,
             _ => false
         };
     }
@@ -49,6 +50,7 @@ public class TriggerRequirement : ActRequirement
 public enum TriggerTarget
 {
     Player,
+    Creature,
 }
 
 public enum TriggerOn

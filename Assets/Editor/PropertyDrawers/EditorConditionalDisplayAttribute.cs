@@ -9,47 +9,47 @@ public class EditorConditionalDisplayAttribute : PropertyDrawerBase
     private bool _attached = false;
     private string _propertyName;
 
-    protected override void RedrawRootContainer()
+    protected override void RedrawRootContainer(VisualElement rootContainer, SerializedProperty property)
     {
-        RootContainer.Clear();
-        _propertyName = Property.name;
+        rootContainer.Clear();
+        _propertyName = property.name;
 
         var conditionalDispalyAttribute = attribute as ConditionalDisplayAttribute;
 
-        var property = Property.serializedObject.FindProperty(conditionalDispalyAttribute.FieldPath);
+        var conditionProperty = property.serializedObject.FindProperty(conditionalDispalyAttribute.FieldPath);
 
         // Display property if condition is met
-        if (property != null && AreEqual(property, conditionalDispalyAttribute.EqualityObject))
+        if (conditionProperty != null && AreEqual(conditionProperty, conditionalDispalyAttribute.EqualityObject))
         {
             var propertyField = new PropertyField();
-            propertyField.BindProperty(Property);
-            RootContainer.Add(propertyField);
+            propertyField.BindProperty(property);
+            rootContainer.Add(propertyField);
         }
 
         // Really weird recursive nesting things happen when registering callbacks more than once
         // As the object may be reused for more than one VisualElement, it will lead to something bad...
         if (!_attached)
         {
-            RootContainer.RegisterCallback<AttachToPanelEvent>(OnAttach);
+            rootContainer.RegisterCallback<AttachToPanelEvent>(OnAttach);
         }
-    }
 
-    private void OnAttach(AttachToPanelEvent e)
-    {
-        _attached = true;
-        RootContainer.UnregisterCallback<AttachToPanelEvent>(OnAttach);
-        var conditionalDispalyAttribute = attribute as ConditionalDisplayAttribute;
-
-        var element = RootContainer.parent.parent.Children().FirstOrDefault(x => x.name.Contains(conditionalDispalyAttribute.FieldPath)) as PropertyField;
-        element?.RegisterValueChangeCallback(e =>
+        void OnAttach(AttachToPanelEvent e)
         {
-            // Property may be Disposed
-            if (Property.serializedObject != e.changedProperty.serializedObject)
+            _attached = true;
+            rootContainer.UnregisterCallback<AttachToPanelEvent>(OnAttach);
+            var conditionalDispalyAttribute = attribute as ConditionalDisplayAttribute;
+
+            var element = rootContainer.parent.parent.Children().FirstOrDefault(x => x.name.Contains(conditionalDispalyAttribute.FieldPath)) as PropertyField;
+            element?.RegisterValueChangeCallback(e =>
             {
-                Property = e.changedProperty.serializedObject.FindProperty(_propertyName);
-            }
-            RedrawRootContainer();
-        });
+                // Property may be Disposed
+                if (property.serializedObject != e.changedProperty.serializedObject)
+                {
+                    property = e.changedProperty.serializedObject.FindProperty(_propertyName);
+                }
+                RedrawRootContainer(rootContainer, property);
+            });
+        }
     }
 
     private bool AreEqual(SerializedProperty property, object equalityObject)

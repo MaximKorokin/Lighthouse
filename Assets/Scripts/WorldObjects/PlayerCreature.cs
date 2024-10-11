@@ -12,8 +12,11 @@ public class PlayerCreature : Creature
     protected override void Start()
     {
         base.Start();
-        LevelingSystem = new LevelingSystem(_levelingSystemSettings);
-        LevelingSystem.LevelIncreased += OnLevelIncreased;
+        if (_levelingSystemSettings != null)
+        {
+            LevelingSystem = new LevelingSystem(_levelingSystemSettings);
+            LevelingSystem.LevelIncreased += OnLevelIncreased;
+        }
     }
 
     protected override void OnStatsModified()
