@@ -60,9 +60,19 @@ public class Skill : IInitializable
             return false;
         }
 
+        if (_effects == null || _effects.Length == 0)
+        {
+            return false;
+        }
+
         castState.Target = target;
         foreach (var effect in _effects)
         {
+            if (effect == null)
+            {
+                Logger.Error($"Effect in {nameof(Skill)} is null. {nameof(EffectSettings)} name is {_settings.Preview.Name}.");
+                continue;
+            }
             effect.Invoke(castState);
         }
         return true;

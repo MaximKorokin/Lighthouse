@@ -12,6 +12,8 @@ public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAni
     private bool _hasExtents = true;
     [SerializeField]
     private Vector2 _offset;
+    [SerializeField]
+    private float _orderingOffset;
     private Vector2 _shift;
     private Vector3 _initialLocalPosition;
 
@@ -79,7 +81,7 @@ public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAni
 
     public void SetOrdering(Vector2 globalPosition)
     {
-        var newSortingOrder = -(int)(globalPosition.y * 10);
+        var newSortingOrder = -(int)((globalPosition.y + _orderingOffset) * 10);
         SpriteRenderer.sortingOrder = newSortingOrder;
     }
 }

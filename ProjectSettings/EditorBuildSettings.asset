@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LobbyFirstVisit.unity
+    guid: 8f5a966a4a3339d40803c593b123e941
+  - enabled: 1
     path: Assets/Scenes/KinsnapHQAttack.unity
     guid: 17577c40f2cfa3e49a6f0784c272c1cc
   - enabled: 1

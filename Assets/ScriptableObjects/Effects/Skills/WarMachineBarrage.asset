@@ -20,12 +20,9 @@ MonoBehaviour:
   _effects:
   - rid: 4259499536714563584
   - rid: 4259499536714563610
-  - rid: -2
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 4259499536714563584
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
