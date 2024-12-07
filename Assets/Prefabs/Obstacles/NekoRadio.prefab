@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3586700601059412052}
   - component: {fileID: 1026604406031659251}
   - component: {fileID: 5350639494890645368}
+  - component: {fileID: 3818650168969038342}
   m_Layer: 0
   m_Name: NekoRadio
   m_TagString: Untagged
@@ -219,3 +220,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+  _orderingOffset: 0
+--- !u!114 &3818650168969038342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5676440634496359926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a2f39b2b5f6544294b9d326b586d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startEffectsSettings:
+  - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}

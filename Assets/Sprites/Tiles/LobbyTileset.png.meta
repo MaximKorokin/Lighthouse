@@ -437,6 +437,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: LobbyTileset_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d28d1fc083cfe4eb6c81bfd9e52740
+      internalID: 1185277581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -455,6 +476,7 @@ TextureImporter:
       LobbyTileset_12: -1691889526
       LobbyTileset_13: -561141064
       LobbyTileset_14: -1666191455
+      LobbyTileset_15: 1185277581
       LobbyTileset_2: 1224084627
       LobbyTileset_3: 2102373062
       LobbyTileset_4: -549189012
