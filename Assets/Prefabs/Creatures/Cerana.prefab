@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0.1, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +141,7 @@ GameObject:
   - component: {fileID: 5177895069343755974}
   - component: {fileID: 5843003414555851859}
   - component: {fileID: 8356547018347296963}
+  - component: {fileID: 5245265055705666701}
   m_Layer: 8
   m_Name: Cerana
   m_TagString: Untagged
@@ -241,7 +243,9 @@ MonoBehaviour:
   <TriggeringType>k__BackingField: 2
   <Faction>k__BackingField: 1
   _stats:
-    _stats: []
+    _stats:
+    - Name: 3
+      Value: 0.65
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
@@ -341,3 +345,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _primaryTargetTypes: 0
+--- !u!114 &5245265055705666701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2b8d0853e89c40bc205dc3db1f901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -23,4 +23,5 @@ public class OverlayController : MonoBehaviour
 public struct OverlaySettings
 {
     public AnimationClip Animation;
+    public bool IsHierarchyPriority;
 }

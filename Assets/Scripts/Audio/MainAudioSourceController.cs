@@ -73,6 +73,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     {
         _audioClipsQueue.Clear();
         _currentAudioClipItemIndex = 0;
+        ActiveAudioSourceProvider.SetAudioClipType(audioClipItem.Type);
 
         Enqueue(audioClipItem);
     }

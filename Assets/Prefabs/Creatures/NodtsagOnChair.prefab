@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startEffectsSettings:
-  - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
+  - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
   _destroyEffectsSettings: []

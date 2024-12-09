@@ -1949,6 +1949,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Obstacles_87
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46161582f1462443b1db9b7f9b28b12
+      internalID: -387917116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2046,6 +2067,7 @@ TextureImporter:
       Obstacles_84: 506095481
       Obstacles_85: 12787374
       Obstacles_86: 1871245011
+      Obstacles_87: -387917116
       Obstacles_9: 122249470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

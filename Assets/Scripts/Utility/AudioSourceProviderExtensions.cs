@@ -30,10 +30,11 @@ public static class AudioSourceProviderExtensions
     public static IEnumerator FadeIn(this AudioSourceProvider provider, float duration)
     {
         float targetVolume;
-        provider.AudioSource.volume = 0;
-        while (provider.AudioSource.volume < (targetVolume = provider.GetTargetVolume()))
+        float currentVolume = 0;
+        while (currentVolume < (targetVolume = provider.GetTargetVolume()))
         {
-            provider.AudioSource.volume += targetVolume * Time.deltaTime / duration;
+            currentVolume += targetVolume * Time.deltaTime / duration;
+            provider.AudioSource.volume = currentVolume;
             yield return null;
         }
     }
