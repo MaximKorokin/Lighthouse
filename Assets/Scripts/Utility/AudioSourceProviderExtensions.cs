@@ -65,7 +65,6 @@ public static class AudioSourceProviderExtensions
 
         provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), () =>
         {
-            _clipsStartTime[clip]--;
             finalAction?.Invoke();
         });
     }
