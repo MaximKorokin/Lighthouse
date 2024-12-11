@@ -42,7 +42,7 @@ public static class AudioSourceProviderExtensions
     private static readonly Dictionary<AudioClip, float> _clipsStartTime = new();
 
     /// <summary>
-    /// More preferrable way to play aduio clips than directly through AudioSource
+    /// More preferrable way to play audio clips than directly through AudioSource
     /// </summary>
     /// <param name="provider"></param>
     /// <param name="clip"></param>
@@ -63,9 +63,6 @@ public static class AudioSourceProviderExtensions
         provider.AudioSource.clip = clip;
         provider.AudioSource.Play();
 
-        provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), () =>
-        {
-            finalAction?.Invoke();
-        });
+        provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), finalAction);
     }
 }

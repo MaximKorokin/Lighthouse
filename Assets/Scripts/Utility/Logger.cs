@@ -45,4 +45,21 @@ public static class Logger
     {
         Debug.LogError(obj);
     }
+
+    public static void Write(object obj, LogLevel logLevel)
+    {
+        switch (logLevel)
+        {
+            case LogLevel.Log: Log(obj); break;
+            case LogLevel.Warn: Warn(obj); break;
+            case LogLevel.Error: Error(obj); break;
+        }
+    }
+}
+
+public enum LogLevel
+{
+    Log = 10,
+    Warn = 20,
+    Error = 30,
 }

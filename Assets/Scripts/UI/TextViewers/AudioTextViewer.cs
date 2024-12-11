@@ -3,15 +3,18 @@ using UnityEngine;
 public abstract class AudioTextViewer : TextViewer
 {
     private AudioSourceProvider _audioSourceProvider;
-    private AudioSourceProvider AudioSourceProvider => _audioSourceProvider = _audioSourceProvider != null ? _audioSourceProvider : AudioSourceProviderPool.Take(null);
+    private AudioSourceProvider AudioSourceProvider => _audioSourceProvider = _audioSourceProvider != null ? _audioSourceProvider : AudioSourceProviderPool.Take(new(_spatial, transform.position));
 
+    [SerializeField]
+    private bool _spatial;
+    [SerializeField]
     private AudioClip _audioClip;
 
     protected virtual void Start()
     {
         Typewriter.CharTyping += OnCharTyping;
         AudioSourceProvider.SetAudioClipType(AudioClipType.Sound);
-        AudioSourceProvider.AudioSource.loop = false;
+        AudioSourceProvider.transform.SetParent(transform);
     }
 
     private void OnCharTyping()

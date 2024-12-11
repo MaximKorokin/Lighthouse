@@ -22,8 +22,8 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
 
     private void Start()
     {
-        _audioSourceProvider1 = AudioSourceProviderPool.Take(null);
-        _audioSourceProvider2 = AudioSourceProviderPool.Take(null);
+        _audioSourceProvider1 = AudioSourceProviderPool.Take(new(false));
+        _audioSourceProvider2 = AudioSourceProviderPool.Take(new(false));
     }
 
     private void Update()

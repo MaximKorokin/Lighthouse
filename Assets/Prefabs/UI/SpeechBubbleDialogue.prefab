@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Typewriter: {fileID: 5319572258243516094}
+  _spatial: 1
+  _audioClip: {fileID: 0}
 --- !u!114 &5319572258243516094 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2397819013172482346, guid: 4d7a54d7ae296ae449885ca5b54b2c6d, type: 3}

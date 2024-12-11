@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4269646456400814716}
   - component: {fileID: 4517518955309396838}
   - component: {fileID: 5461371545299361967}
+  - component: {fileID: 1188689349966494215}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -118,6 +119,22 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &1188689349966494215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712670624642974226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_MaxRayIntersections: 0
 --- !u!1 &1560050609374582164
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,10 +348,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 1
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
 --- !u!1 &3165697995674519497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +1982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InformationText
       objectReference: {fileID: 0}
+    - target: {fileID: 2443253864115972832, guid: b26967e009ad97744977637daa59047c, type: 3}
+      propertyPath: _audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
     - target: {fileID: 3495397922981391698, guid: b26967e009ad97744977637daa59047c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

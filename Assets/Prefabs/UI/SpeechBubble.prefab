@@ -433,3 +433,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Typewriter: {fileID: 2397819013172482346}
+  _spatial: 1
+  _audioClip: {fileID: 0}

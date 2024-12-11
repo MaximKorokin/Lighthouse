@@ -28,6 +28,7 @@ public static class CoroutinesUtils
 
     public static CoroutineWrapper StartCoroutineSafe(this MonoBehaviour behaviour, IEnumerator enumerator, Action finalAction = null)
     {
+        // SafeCoroutine uses wrapper vriable, so it is declared before creation
         CoroutineWrapper wrapper = null;
         wrapper = new(behaviour.StartCoroutine(SafeCoroutine()), finalAction);
         return wrapper;

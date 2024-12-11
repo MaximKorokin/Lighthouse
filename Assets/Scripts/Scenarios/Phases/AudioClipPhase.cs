@@ -9,7 +9,7 @@ public class AudioClipPhase : ActPhase
 
     public override void Invoke()
     {
-        var provider = AudioSourceProviderPool.Take(null);
+        var provider = AudioSourceProviderPool.Take(new(false));
         provider.PlayAudioClip(_audioClip, false, _type, () => AudioSourceProviderPool.Return(provider));
 
         InvokeFinished();

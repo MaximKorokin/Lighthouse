@@ -7,10 +7,7 @@ public class AudioClipEffect : Effect
 
     public override void Invoke(CastState castState)
     {
-        var provider = AudioSourceProviderPool.Take(null);
-        provider.transform.parent = null;
-        provider.transform.position = castState.Source.transform.position;
-        provider.AudioSource.spatialBlend = 1;
+        var provider = AudioSourceProviderPool.Take(new(castState.Source.transform.position));
         provider.PlayAudioClip(_audioClip, false, AudioClipType.Sound, () => AudioSourceProviderPool.Return(provider));
     }
 }
