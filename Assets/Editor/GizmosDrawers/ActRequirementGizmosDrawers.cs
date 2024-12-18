@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 
 public static class ActRequirementGizmosDrawers
 {

@@ -13,7 +13,7 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     private List<ScenarioAct> _childrenActs;
 
     [field: SerializeField]
-    public bool IsConsecutive { get; private set; }
+    public bool IsConsecutive { get; private set; } = true;
     [field: SerializeField]
     public bool IsRepetitive { get; private set; }
 

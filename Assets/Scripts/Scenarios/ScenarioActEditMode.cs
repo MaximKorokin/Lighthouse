@@ -15,7 +15,7 @@ public partial class ScenarioAct : MonoBehaviour
     private bool _selfInitializable = true;
 
 #if UNITY_EDITOR
-    private List<ScenarioAct> _previousChildren = new();
+    private List<ScenarioAct> _previousChildrenActs = new();
 
     private void Update()
     {
@@ -47,8 +47,8 @@ public partial class ScenarioAct : MonoBehaviour
         _childrenActs ??= new();
         _childrenActs.Where(x => x == null).ToArray().ForEach(x => _childrenActs.Remove(x));
         _childrenActs.Where(x => x != this).ForEach(x => x._selfInitializable = false);
-        _previousChildren.Except(_childrenActs).ForEach(x => x._selfInitializable = true);
-        _previousChildren = _childrenActs.ToList();
+        _previousChildrenActs.Except(_childrenActs).ForEach(x => x._selfInitializable = true);
+        _previousChildrenActs = _childrenActs.ToList();
     }
 
     private void OnDestroy()
