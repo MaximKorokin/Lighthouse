@@ -12,8 +12,9 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     [SerializeField]
     private List<ScenarioAct> _childrenActs;
 
-    [field: SerializeField]
-    public bool IsConsecutive { get; private set; } = true;
+    [SerializeField]
+    private PhasesInvokationType _phasesInvokationType = PhasesInvokationType.Consecutive;
+
     [field: SerializeField]
     public bool IsRepetitive { get; private set; }
 
@@ -33,7 +34,13 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     {
         if (!_hasInitialized)
         {
-            _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
+            _invoker = _phasesInvokationType switch
+            {
+                PhasesInvokationType.Consecutive => new ConsecutivePhasesInvoker(_phases),
+                PhasesInvokationType.Simultaneous => new SimultaneousPhasesInvoker(_phases),
+                PhasesInvokationType.RandomSingle => new RandomSinglePhasesInvoker(_phases),
+                _ => null,
+            };
             _invoker.Finished += OnFinished;
             _hasInitialized = true;
 
@@ -77,6 +84,13 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     }
 
     #region PhasesInvoker
+    private enum PhasesInvokationType
+    {
+        Consecutive = 10,
+        Simultaneous = 20,
+        RandomSingle = 30,
+    }
+
     private abstract class PhasesInvoker
     {
         protected List<ActPhase> Phases;
@@ -171,6 +185,21 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
             {
                 InvokeFinished();
             }
+        }
+    }
+
+    private class RandomSinglePhasesInvoker : PhasesInvoker
+    {
+        public RandomSinglePhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
+
+        protected override void InvokeInternal()
+        {
+            Phases[UnityEngine.Random.Range(0, Phases.Count)].Invoke();
+        }
+
+        protected override void OnPhaseFinished(ActPhase phase)
+        {
+            InvokeFinished();
         }
     }
     #endregion

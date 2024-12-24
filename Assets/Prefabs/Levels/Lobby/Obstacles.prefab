@@ -945,7 +945,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 411322585630826401, guid: 52df5865bbc3ee44f82fa04363b975db, type: 3}
       propertyPath: m_Name
-      value: VRBed
+      value: ArcVRBed
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: 52df5865bbc3ee44f82fa04363b975db, type: 3}
       propertyPath: m_LocalPosition.x

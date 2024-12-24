@@ -19,7 +19,6 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 1
   _effects:
   - rid: 2717117746704285704
-  - rid: 2717117746704285706
   - rid: 2717117746704285707
   references:
     version: 2
@@ -29,18 +28,20 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 2717117746704285705
+        - rid: 2717117945108234242
         _redirectTo: 2
     - rid: 2717117746704285705
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
-    - rid: 2717117746704285706
-      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _audioClip: {fileID: 8300000, guid: bc0e6f4460f40614da96eeaea8dfb8e8, type: 3}
     - rid: 2717117746704285707
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
+    - rid: 2717117945108234242
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: bc0e6f4460f40614da96eeaea8dfb8e8, type: 3}
+        _parentToTarget: 1

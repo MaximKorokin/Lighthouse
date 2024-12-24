@@ -1156,7 +1156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f54685a17551449a3548a8760dcdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showAlpha: 1
   _tilemapsToShow: []
+  _hideAlpha: 0
   _tilemapsToHide:
   - {fileID: 1255986391}
   _time: 0.3
@@ -1177,6 +1179,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 130169427}
   _childrenActs: []
+  _phasesInvokationType: 0
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
@@ -2851,7 +2854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f54685a17551449a3548a8760dcdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showAlpha: 1
   _tilemapsToShow: []
+  _hideAlpha: 0
   _tilemapsToHide:
   - {fileID: 1175075602}
   _time: 0.3
@@ -2872,6 +2877,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 454428062}
   _childrenActs: []
+  _phasesInvokationType: 0
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
@@ -3240,6 +3246,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 601903847}
   _childrenActs: []
+  _phasesInvokationType: 20
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
@@ -4303,6 +4310,7 @@ MonoBehaviour:
   - {fileID: 931744827}
   - {fileID: 931744826}
   _childrenActs: []
+  _phasesInvokationType: 0
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
@@ -4419,6 +4427,7 @@ MonoBehaviour:
   - {fileID: 1030289101}
   - {fileID: 1030289100}
   _childrenActs: []
+  _phasesInvokationType: 20
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
@@ -6368,6 +6377,7 @@ MonoBehaviour:
   - {fileID: 1261235727}
   _childrenActs:
   - {fileID: 601903848}
+  _phasesInvokationType: 10
   <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
@@ -6603,8 +6613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f54685a17551449a3548a8760dcdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showAlpha: 1
   _tilemapsToShow:
   - {fileID: 1255986391}
+  _hideAlpha: 0
   _tilemapsToHide: []
   _time: 0.3
 --- !u!114 &1324795785
@@ -6624,6 +6636,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 1324795784}
   _childrenActs: []
+  _phasesInvokationType: 0
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
@@ -6746,6 +6759,7 @@ MonoBehaviour:
   - {fileID: 1382765037}
   _childrenActs:
   - {fileID: 1030289099}
+  _phasesInvokationType: 10
   <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
@@ -7038,6 +7052,7 @@ MonoBehaviour:
   - {fileID: 1478394875}
   _childrenActs:
   - {fileID: 1261235726}
+  _phasesInvokationType: 20
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
@@ -7206,6 +7221,7 @@ MonoBehaviour:
   - {fileID: 1724455272}
   - {fileID: 1724455278}
   _childrenActs: []
+  _phasesInvokationType: 20
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
@@ -7281,8 +7297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f54685a17551449a3548a8760dcdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showAlpha: 1
   _tilemapsToShow:
   - {fileID: 1175075602}
+  _hideAlpha: 0
   _tilemapsToHide: []
   _time: 0.3
 --- !u!114 &1748319313
@@ -7302,6 +7320,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 1748319312}
   _childrenActs: []
+  _phasesInvokationType: 0
   <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
