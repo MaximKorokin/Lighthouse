@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class SliderValueBinder : ValueBinder<float>
+public class SliderValueBinder : ConfigValueBinder<float>
 {
     private Slider _slider;
 

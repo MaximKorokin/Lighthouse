@@ -6,7 +6,7 @@ public class WorldCanvasProvider : MonoBehaviour
     private Vector3 _previousParentScale;
 
     private WorldCanvasController _canvasController;
-    public WorldCanvasController CanvasController => _canvasController = _canvasController != null ? _canvasController : TakeAndInitialize();
+    public WorldCanvasController CanvasController => _canvasController == null ? (_canvasController = TakeAndInitialize()) : _canvasController;
 
     private WorldCanvasController TakeAndInitialize()
     {

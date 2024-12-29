@@ -4,23 +4,27 @@ using UnityEngine.SceneManagement;
 
 public static class GameManager
 {
-    public static BoolCounter IsPaused { get ; private set; }
+    private static readonly BoolCounter _isPaused = new(false);
+    public static bool IsPaused => _isPaused;
 
     public static event Action Paused;
     public static event Action Resumed;
 
     public static void Pause()
     {
-        Time.timeScale = 0;
-        IsPaused.Set(true);
-        InputReader.IsControlInputBlocked = true;
+        _isPaused.Set(true);
+        if (IsPaused)
+        {
+            Time.timeScale = 0;
+            InputReader.IsControlInputBlocked = true;
 
-        Paused?.Invoke();
+            Paused?.Invoke();
+        }
     }
 
     public static void Resume()
     {
-        IsPaused.Set(false);
+        _isPaused.Set(false);
         if (!IsPaused)
         {
             Time.timeScale = 1;

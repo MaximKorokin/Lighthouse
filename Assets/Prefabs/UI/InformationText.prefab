@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8119933568058010789, guid: 3d2e2493db76f2347aebb308ac97dbef, type: 2}
+  - {fileID: 2100000, guid: 7cb9d4b2135aac840a270a9891bf5808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
     4 month earlier'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d2e2493db76f2347aebb308ac97dbef, type: 2}
-  m_sharedMaterial: {fileID: 8119933568058010789, guid: 3d2e2493db76f2347aebb308ac97dbef, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7cb9d4b2135aac840a270a9891bf5808, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -188,7 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Typewriter: {fileID: 8189147359523265807}
-  _typingSound: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
+  _spatial: 0
+  _audioClip: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
 --- !u!114 &8189147359523265807
 MonoBehaviour:
   m_ObjectHideFlags: 0

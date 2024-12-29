@@ -9,7 +9,7 @@ public class ConfigValuePhase : ActPhase
 
     public override void Invoke()
     {
-        ConfigsManager.SetValue(_key, value);
+        ConfigsManager.Observable.Set(_key, value);
         InvokeFinished();
     }
 

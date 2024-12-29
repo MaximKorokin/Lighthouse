@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public static class EnumerableExtensions
 {
@@ -19,6 +18,22 @@ public static class EnumerableExtensions
         foreach (var item in enumerable)
         {
             action(item, index++);
+        }
+    }
+
+    public static void For<T>(this IList<T> list, Action<T> action)
+    {
+        for (var i = 0; i < list.Count; i++)
+        {
+            action(list[i]);
+        }
+    }
+
+    public static void For<T>(this IList<T> list, Action<T, int> action)
+    {
+        for (var i = 0; i < list.Count; i++)
+        {
+            action(list[i], i);
         }
     }
 

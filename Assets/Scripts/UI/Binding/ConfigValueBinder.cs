@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class ValueBinder<T> : MonoBehaviour where T : IEquatable<T>
+public abstract class ConfigValueBinder<T> : MonoBehaviour where T : IEquatable<T>
 {
     [SerializeField]
     private ConfigKey _configKey;
@@ -10,9 +10,8 @@ public abstract class ValueBinder<T> : MonoBehaviour where T : IEquatable<T>
 
     protected virtual void Start()
     {
-        _previousValue = ConvertToValue(ConfigsManager.GetValue(_configKey));
-        SetValue(_previousValue);
-        ConfigsManager.SetChangeListener(_configKey, OnConfigChanged);
+        OnConfigChanged(ConfigsManager.Observable.Get(_configKey));
+        ConfigsManager.Observable.SetChangeListener(_configKey, OnConfigChanged);
     }
 
     protected virtual void Update()
@@ -20,7 +19,7 @@ public abstract class ValueBinder<T> : MonoBehaviour where T : IEquatable<T>
         var currentValue = GetCurrentValue();
         if (!currentValue.Equals(_previousValue))
         {
-            ConfigsManager.SetValue(_configKey, currentValue?.ToString());
+            ConfigsManager.Observable.Set(_configKey, currentValue?.ToString());
         }
     }
 
@@ -32,7 +31,7 @@ public abstract class ValueBinder<T> : MonoBehaviour where T : IEquatable<T>
 
     private void OnDestroy()
     {
-        ConfigsManager.RemoveChangeListener(_configKey, OnConfigChanged);
+        ConfigsManager.Observable.RemoveChangeListener(_configKey, OnConfigChanged);
     }
 
     public abstract T GetCurrentValue();

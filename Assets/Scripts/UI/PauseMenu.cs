@@ -11,16 +11,20 @@ public class PauseMenu : MonoBehaviorSingleton<PauseMenu>
         Application.targetFrameRate = 60;
     }
 
-    public void EnterPause()
+    private void Start()
     {
-        GameManager.Pause();
-        _pausePanel.SetActive(true);
+        UIStateManager.Observable.SetChangeListener(UIState.Pause, OnPauseStateChanged);
     }
 
-    public void ExitPause()
+    private void OnPauseStateChanged(bool value)
     {
-        GameManager.Resume();
-        _pausePanel.SetActive(false);
+        if (value) GameManager.Pause();
+        else GameManager.Resume();
+    }
+
+    private void OnDestroy()
+    {
+        UIStateManager.Observable.RemoveChangeListener(UIState.Pause, OnPauseStateChanged);
     }
 
     public void ReloadScene()

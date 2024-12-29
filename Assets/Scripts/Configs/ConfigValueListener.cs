@@ -7,12 +7,12 @@ public abstract class ConfigValueListener : MonoBehaviour
 
     protected virtual void Start()
     {
-        ConfigsManager.SetChangeListener(Config, OnConfigValueChanged);
+        ConfigsManager.Observable.SetChangeListener(Config, OnConfigValueChanged);
     }
 
     protected virtual void OnDestroy()
     {
-        ConfigsManager.RemoveChangeListener(Config, OnConfigValueChanged);
+        ConfigsManager.Observable.RemoveChangeListener(Config, OnConfigValueChanged);
     }
 
     protected abstract void OnConfigValueChanged(object val);

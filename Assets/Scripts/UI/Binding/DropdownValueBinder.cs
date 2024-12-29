@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Dropdown))]
-public class DropdownValueBinder : ValueBinder<string>
+public class DropdownValueBinder : ConfigValueBinder<string>
 {
     private TMP_Dropdown _dropdown;
 

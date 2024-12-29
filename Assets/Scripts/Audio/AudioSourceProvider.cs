@@ -29,11 +29,13 @@ public class AudioSourceProvider : MonoBehaviour
                 break;
             case AudioClipType.Sound:
                 RemoveVolumeConfigChangeListeners();
-                ConfigsManager.SetChangeListener(ConfigKey.SoundVolume, SetVolume);
+                SetVolume(ConfigsManager.Observable.Get(ConfigKey.SoundVolume));
+                ConfigsManager.Observable.SetChangeListener(ConfigKey.SoundVolume, SetVolume);
                 break;
             case AudioClipType.Music:
                 RemoveVolumeConfigChangeListeners();
-                ConfigsManager.SetChangeListener(ConfigKey.MusicVolume, SetVolume);
+                SetVolume(ConfigsManager.Observable.Get(ConfigKey.MusicVolume));
+                ConfigsManager.Observable.SetChangeListener(ConfigKey.MusicVolume, SetVolume);
                 break;
             default:
                 Logger.Error($"Invalid {nameof(AudioClipType)}");
@@ -50,8 +52,8 @@ public class AudioSourceProvider : MonoBehaviour
         return _currentAudioClipType switch
         {
             AudioClipType.None => AudioSource.volume,
-            AudioClipType.Sound => ConvertToVolume(ConfigsManager.GetValue(ConfigKey.SoundVolume)),
-            AudioClipType.Music => ConvertToVolume(ConfigsManager.GetValue(ConfigKey.MusicVolume)),
+            AudioClipType.Sound => ConvertToVolume(ConfigsManager.Observable.Get(ConfigKey.SoundVolume)),
+            AudioClipType.Music => ConvertToVolume(ConfigsManager.Observable.Get(ConfigKey.MusicVolume)),
             _ => 0,
         };
     }
@@ -82,8 +84,8 @@ public class AudioSourceProvider : MonoBehaviour
 
     private void RemoveVolumeConfigChangeListeners()
     {
-        ConfigsManager.RemoveChangeListener(ConfigKey.SoundVolume, SetVolume);
-        ConfigsManager.RemoveChangeListener(ConfigKey.MusicVolume, SetVolume);
+        ConfigsManager.Observable.RemoveChangeListener(ConfigKey.SoundVolume, SetVolume);
+        ConfigsManager.Observable.RemoveChangeListener(ConfigKey.MusicVolume, SetVolume);
     }
 
     private void SetVolume(string str) => AudioSource.volume = ConvertToVolume(str);

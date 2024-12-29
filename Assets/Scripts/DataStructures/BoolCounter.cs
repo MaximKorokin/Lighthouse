@@ -1,10 +1,10 @@
 ﻿using System;
 
-public struct BoolCounter
+public class BoolCounter
 {
     private int _counter;
 
-    public readonly bool Value => _counter > 0;
+    public bool Value => _counter > 0;
 
     public event Action<bool> ValueChanged;
 
@@ -25,8 +25,9 @@ public struct BoolCounter
         {
             ValueChanged?.Invoke(Value);
         }
-
     }
+
+    public override string ToString() => Value.ToString();
 
     public static implicit operator bool(BoolCounter counter) => counter.Value;
 }

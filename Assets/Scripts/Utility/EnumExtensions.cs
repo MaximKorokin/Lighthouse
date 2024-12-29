@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class EnumsExtensions
+public static class EnumExtensions
 {
     public static bool IsValidTarget(this ValidTarget target, WorldObject worldObject)
     {

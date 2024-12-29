@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Toggle))]
-public class ToggleValueBinder : ValueBinder<bool>
+public class ToggleValueBinder : ConfigValueBinder<bool>
 {
     [SerializeField]
     private Sprite _onSprite;

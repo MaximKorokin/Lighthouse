@@ -6,7 +6,7 @@ public abstract class InputReader : MonoBehaviour
     #region static
     private static readonly object _eventsInvoker = new();
 
-    private static BoolCounter _isControlInputBlocked = new(false);
+    private static readonly BoolCounter _isControlInputBlocked = new(false);
     public static bool IsControlInputBlocked
     {
         get => _isControlInputBlocked;
