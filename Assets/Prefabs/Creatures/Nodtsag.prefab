@@ -142,7 +142,8 @@ GameObject:
   - component: {fileID: 9092058079579593470}
   - component: {fileID: 5177895069343755974}
   - component: {fileID: 5843003414555851859}
-  m_Layer: 8
+  - component: {fileID: 5724839276661873686}
+  m_Layer: 0
   m_Name: Nodtsag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,5 +361,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5724839276661873686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2b8d0853e89c40bc205dc3db1f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

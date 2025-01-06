@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6382580791305350808}
   - component: {fileID: 8105381655039463507}
   - component: {fileID: 543994037497862892}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: NodtsagOnChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

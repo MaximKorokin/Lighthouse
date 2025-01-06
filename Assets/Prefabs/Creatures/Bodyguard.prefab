@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0.11, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ GameObject:
   - component: {fileID: 8149176656860172405}
   - component: {fileID: -6713717209728786249}
   - component: {fileID: -733822230861101734}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bodyguard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

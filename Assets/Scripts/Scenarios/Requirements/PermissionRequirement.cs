@@ -25,5 +25,5 @@ public class PermissionRequirement : ActRequirement
         _hasPermission.Set(false);
     }
 
-    public override string IconName => base.IconName;
+    public override string IconName => "Tick.png";
 }

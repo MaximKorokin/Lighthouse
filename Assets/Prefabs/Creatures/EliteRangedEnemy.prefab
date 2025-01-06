@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +143,7 @@ GameObject:
   - component: {fileID: 2406881424162235867}
   - component: {fileID: 8149176656860172405}
   - component: {fileID: 4555360506810191037}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: EliteRangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: a5d113fb375fdb54fa867d543a850823, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1

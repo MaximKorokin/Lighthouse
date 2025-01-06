@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 2406881424162235867}
   - component: {fileID: 8149176656860172405}
   - component: {fileID: -2854148661498599693}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: 0a199c07deaab9b4db859b7494cecd8a, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1
@@ -397,3 +398,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+  _orderingOffset: 0

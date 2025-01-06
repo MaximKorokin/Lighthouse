@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class WorldCanvasProvider : MonoBehaviour
@@ -22,10 +23,18 @@ public class WorldCanvasProvider : MonoBehaviour
         if (_canvasController == null || transform.localScale == _previousParentScale) return;
 
         _previousParentScale = transform.localScale;
-        _canvasController.transform.localScale = new Vector3(
-            _initialCanvasScale.x / _previousParentScale.x,
-            _initialCanvasScale.y / _previousParentScale.y,
-            _initialCanvasScale.z / _previousParentScale.z);
+
+        var targetScale = new Vector3(1 / _previousParentScale.x, 1 / _previousParentScale.y, 1 / _previousParentScale.z);
+
+        var childrenElements = new Transform[] { _canvasController.SpeechBubbleParent, _canvasController.HPChangeParent, _canvasController.HPViewParent };
+
+        foreach (var childTransform in childrenElements)
+        {
+            if (childTransform.localScale != targetScale)
+            {
+                childTransform.localScale = targetScale;
+            }
+        }
     }
 
     private void Update()

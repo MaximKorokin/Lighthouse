@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0.12, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ GameObject:
   - component: {fileID: 7582170747218420475}
   - component: {fileID: -7144199876366788397}
   - component: {fileID: 9084652684011521284}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Royas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

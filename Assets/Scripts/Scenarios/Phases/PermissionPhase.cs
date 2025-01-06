@@ -20,6 +20,6 @@ public class PermissionPhase : ActPhase
         InvokeFinished();
     }
 
-    public override string IconName => base.IconName;
+    public override string IconName => "Tick.png";
     public override Color IconColor => _permit ? MyColors.Green : MyColors.Red;
 }

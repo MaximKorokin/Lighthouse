@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0.15, y: 0}
+  _orderingOffset: 0
 --- !u!1 &8873908040075855237
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ GameObject:
   - component: {fileID: 8681387949396865609}
   - component: {fileID: 3284562034359535098}
   - component: {fileID: 1929431496788061061}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Rashin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,6 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Animation: {fileID: 7400000, guid: 525e92fee2ef0f24a944d8606f9b0570, type: 2}
+    IsHierarchyPriority: 0
   _hpThreshold: 0.4
 --- !u!114 &740726156351051180
 MonoBehaviour:
@@ -479,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Animation: {fileID: 7400000, guid: 7bdac1bc05d9eb14381dd7c2ecc38f6f, type: 2}
+    IsHierarchyPriority: 0
 --- !u!114 &2118121083948704928
 MonoBehaviour:
   m_ObjectHideFlags: 0

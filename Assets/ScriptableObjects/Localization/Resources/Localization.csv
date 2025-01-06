@@ -4,6 +4,15 @@ LanguageName,Русский,English,Українська
 
 PauseLabel,Настройки,Settings,Налаштування
 
+ArcUIMainMenuText,Arc UI v0.3.24b\nВыберите вариант:,Arc UI v0.3.24b\nChoose an option:,
+ArcUISettingsButton,Настройки аватара,Avatar settings,
+ArcUITransferButton,Начать перенос,Start transfer,
+ArcUISettingsText,Настройки аватара,Avatar settings,
+ArcUIDisplayDamageSetting,Оценка урона,Damage evaluation,
+ArcUIDisplayHealthSetting,Отслеживание сосотояния,Condition tracking,
+ArcUIBackButton,Назад,Back,
+ArcUITransfer1Text,Перенос в аватара начат...,Transfer to avatar in progress...,
+
 Anton,Антон,Anton,Антiн
 
 e1_neko1_s1,СРОЧНЫЕ НОВОСТИ,,
@@ -126,3 +135,5 @@ e3_arc2_s5,"Собственными руками",,
 
 e3_arc3_s1,"Хорошо",,
 e3_arc3_s2,"Можешь осмотреться, но не трать время зря",,
+
+e3_carrot_s1,"О, привет Морковка",,

@@ -8,7 +8,7 @@ public static class Constants
     /// <summary>
     /// New and old members must be exact names of scenes
     /// </summary>
-    public enum Scenes
+    public enum Scene
     {
         KinsnapHQAttack = 10,
         KinsnapHQVisit = 11,

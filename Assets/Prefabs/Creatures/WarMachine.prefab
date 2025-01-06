@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!1 &1382743352609133667
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +143,7 @@ GameObject:
   - component: {fileID: 4930249111672775480}
   - component: {fileID: 6030350402885892639}
   - component: {fileID: -1344805533852282761}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WarMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

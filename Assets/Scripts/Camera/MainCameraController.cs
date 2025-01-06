@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.U2D;
 
 [RequireComponent(typeof(Camera))]
+[RequireComponent(typeof(PixelPerfectCamera))]
 public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
 {
     private Camera _camera;
+    private PixelPerfectCamera _pixelPerfectCamera;
     private Vector3 _destination;
     private float _speed;
     private bool _smooth;
@@ -19,6 +22,7 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
     protected override void Awake()
     {
         _camera = GetComponent<Camera>();
+        _pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
         _zDifference = _camera.transform.position.z;
         if (_camera == Camera.main)
         {
@@ -79,6 +83,25 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
         Instance._speed = speed;
         Instance._smooth = smooth;
     }
+
+    public static void SetReferenceResolution(PixelPerfectCameraReferenceResolution resolution)
+    {
+        switch (resolution)
+        {
+            case PixelPerfectCameraReferenceResolution._160x90:
+                Instance._pixelPerfectCamera.refResolutionX = 160;
+                Instance._pixelPerfectCamera.refResolutionY = 90;
+                break;
+            case PixelPerfectCameraReferenceResolution._320x180:
+                Instance._pixelPerfectCamera.refResolutionX = 320;
+                Instance._pixelPerfectCamera.refResolutionY = 180;
+                break;
+            case PixelPerfectCameraReferenceResolution._640x360:
+                Instance._pixelPerfectCamera.refResolutionX = 640;
+                Instance._pixelPerfectCamera.refResolutionY = 360;
+                break;
+        }
+    }
 }
 
 public enum CameraMovementPriority
@@ -87,4 +110,11 @@ public enum CameraMovementPriority
     Low = 10,
     Medium = 20,
     High = 30,
+}
+
+public enum PixelPerfectCameraReferenceResolution
+{
+    _160x90 = 10,
+    _320x180 = 20,
+    _640x360 = 40,
 }

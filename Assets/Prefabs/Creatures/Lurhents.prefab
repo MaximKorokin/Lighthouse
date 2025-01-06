@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hasExtents: 1
   _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ GameObject:
   - component: {fileID: 543994037497862892}
   - component: {fileID: 494187537268497159}
   - component: {fileID: 2708845319277972257}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Lurhents
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 5843003414555851859}
   - component: {fileID: 8356547018347296963}
   - component: {fileID: 5245265055705666701}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cerana
   m_TagString: Untagged
   m_Icon: {fileID: 0}

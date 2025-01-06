@@ -64,6 +64,11 @@ public static class CoroutinesUtils
         yield return new WaitForSeconds(seconds);
     }
 
+    public static IEnumerator YieldNull()
+    {
+        yield return null;
+    }
+
     public static IEnumerator WaitForAsyncOperation(AsyncOperation operation)
     {
         while (operation != null && !operation.isDone)
