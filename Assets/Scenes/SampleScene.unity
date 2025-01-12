@@ -1179,8 +1179,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 130169427}
   _childrenActs: []
-  _phasesInvokationType: 0
-  <IsConsecutive>k__BackingField: 0
+  _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
 --- !u!1 &134698845
@@ -2877,8 +2876,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 454428062}
   _childrenActs: []
-  _phasesInvokationType: 0
-  <IsConsecutive>k__BackingField: 0
+  _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
 --- !u!114 &562951562 stripped
@@ -3247,7 +3245,6 @@ MonoBehaviour:
   - {fileID: 601903847}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &601903849
@@ -4310,8 +4307,7 @@ MonoBehaviour:
   - {fileID: 931744827}
   - {fileID: 931744826}
   _childrenActs: []
-  _phasesInvokationType: 0
-  <IsConsecutive>k__BackingField: 0
+  _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!4 &931744831
@@ -4428,7 +4424,6 @@ MonoBehaviour:
   - {fileID: 1030289100}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1030289100
@@ -6378,7 +6373,6 @@ MonoBehaviour:
   _childrenActs:
   - {fileID: 601903848}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1261235727
@@ -6636,8 +6630,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 1324795784}
   _childrenActs: []
-  _phasesInvokationType: 0
-  <IsConsecutive>k__BackingField: 0
+  _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
 --- !u!1001 &1365092101
@@ -6760,7 +6753,6 @@ MonoBehaviour:
   _childrenActs:
   - {fileID: 1030289099}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!114 &1382765032
@@ -7053,7 +7045,6 @@ MonoBehaviour:
   _childrenActs:
   - {fileID: 1261235726}
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!114 &1478394873
@@ -7222,7 +7213,6 @@ MonoBehaviour:
   - {fileID: 1724455278}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!114 &1724455278
@@ -7320,8 +7310,7 @@ MonoBehaviour:
   _phases:
   - {fileID: 1748319312}
   _childrenActs: []
-  _phasesInvokationType: 0
-  <IsConsecutive>k__BackingField: 0
+  _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
 --- !u!1001 &750349047899708395

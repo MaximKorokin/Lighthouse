@@ -57,7 +57,7 @@ public class ArcUI : MonoBehaviour
             .Then(EnableItems(_transferItems))
             .Then(AppendActionLogLines(_transferActionLogLines, 1))
             .Then(() => _actionLog.SetPrompt(true))
-            //.Then(() => ScenesUtils.Load(Constants.Scene.KinsnapHQAttack, this)));
+            //.Then(() => GameManager.LoadScene(Constants.Scene.KinsnapHQAttack, this)));
             .Then(() => Logger.Log("Loading scene")));
     }
 

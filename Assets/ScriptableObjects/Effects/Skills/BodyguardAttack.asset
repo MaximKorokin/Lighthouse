@@ -26,11 +26,17 @@ MonoBehaviour:
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 834406860253822978
+        - rid: 2221015825264934913
         <EndEffects>k__BackingField:
         - rid: 3932639282344755200
         <Duration>k__BackingField: 0.3
-    - rid: 834406860253822978
+    - rid: 2221015825264934913
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 2221015825264934914
+        _redirectTo: 2
+    - rid: 2221015825264934914
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
@@ -75,6 +81,7 @@ MonoBehaviour:
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
         _audioClip: {fileID: 8300000, guid: 7b39c94aff30d4a4793a0dd619fb475f, type: 3}
+        _parentToTarget: 0
     - rid: 3932639314526863365
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

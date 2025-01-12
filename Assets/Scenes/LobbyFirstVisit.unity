@@ -474,78 +474,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3165697995674519497, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
       propertyPath: m_Name
       value: Essentials
@@ -1103,6 +1031,7 @@ GameObject:
   - component: {fileID: 643673364}
   - component: {fileID: 643673367}
   - component: {fileID: 643673370}
+  - component: {fileID: 643673371}
   m_Layer: 0
   m_Name: ArcAct1
   m_TagString: Untagged
@@ -1171,6 +1100,7 @@ MonoBehaviour:
   - {fileID: 643673364}
   _phases:
   - {fileID: 643673370}
+  - {fileID: 643673371}
   _childrenActs:
   - {fileID: 2110768309}
   _phasesInvokationType: 10
@@ -1234,6 +1164,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnOn: 0
+--- !u!114 &643673371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643673362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ca2be645a91047878cae709745e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _block2D: 1
 --- !u!1 &656566402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1518,7 @@ GameObject:
   - component: {fileID: 879127471}
   - component: {fileID: 879127470}
   - component: {fileID: 879127469}
+  - component: {fileID: 879127474}
   m_Layer: 0
   m_Name: ArcAct3
   m_TagString: Untagged
@@ -1667,10 +1611,24 @@ MonoBehaviour:
   - {fileID: 879127471}
   - {fileID: 879127470}
   - {fileID: 879127469}
+  - {fileID: 879127474}
   _childrenActs: []
   _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
+--- !u!114 &879127474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879127467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ca2be645a91047878cae709745e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _block2D: 0
 --- !u!1 &902630300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,6 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1589808939}
+  _overrideController: 1
   _transformPosition: {fileID: 1505709483}
 --- !u!114 &1273768611
 MonoBehaviour:
@@ -2445,6 +2404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1589808939}
+  _overrideController: 1
   _transformPosition: {fileID: 1110601664}
 --- !u!114 &1273768613
 MonoBehaviour:
@@ -2459,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1589808939}
+  _overrideController: 1
   _transformPosition: {fileID: 2070352318}
 --- !u!1 &1326251850
 GameObject:
@@ -2550,6 +2511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1273450890}
+  _overrideController: 0
   _transformPosition: {fileID: 486209681}
 --- !u!114 &1351659302
 MonoBehaviour:
@@ -2564,6 +2526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1273450890}
+  _overrideController: 0
   _transformPosition: {fileID: 250930140}
 --- !u!114 &1351659303
 MonoBehaviour:
@@ -2603,6 +2566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1273450890}
+  _overrideController: 0
   _transformPosition: {fileID: 1630924656}
 --- !u!114 &1351659305
 MonoBehaviour:
@@ -2617,6 +2581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1273450890}
+  _overrideController: 0
   _transformPosition: {fileID: 364571723}
 --- !u!114 &1351659306
 MonoBehaviour:
@@ -2631,6 +2596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1273450890}
+  _overrideController: 0
   _transformPosition: {fileID: 525181163}
 --- !u!114 &1351659307
 MonoBehaviour:
@@ -2645,6 +2611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1273450890}
+  _overrideController: 0
   _transformPosition: {fileID: 1133874206}
 --- !u!1 &1407749076
 GameObject:
@@ -3255,6 +3222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1909617013}
+  _overrideController: 1
   _transformPosition: {fileID: 2128764794}
 --- !u!114 &1777188329
 MonoBehaviour:
@@ -3670,6 +3638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1909617013}
+  _overrideController: 1
   _transformPosition: {fileID: 116080818}
 --- !u!114 &2107731792
 MonoBehaviour:
@@ -3797,6 +3766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1193811381}
+  _overrideController: 1
   _transformPosition: {fileID: 1715881760}
 --- !u!114 &2110768308
 MonoBehaviour:
@@ -3884,6 +3854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1909617013}
+  _overrideController: 1
   _transformPosition: {fileID: 1606848638}
 --- !u!114 &2118684027
 MonoBehaviour:

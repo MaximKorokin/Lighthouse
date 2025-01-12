@@ -7,6 +7,6 @@ public class AnimatorValueEffect : SimpleValueEffect
 
     public override void Invoke(CastState castState)
     {
-        castState.Source.SetAnimatorValue(_key, Value);
+        castState.GetTarget().SetAnimatorValue(_key, Value);
     }
 }

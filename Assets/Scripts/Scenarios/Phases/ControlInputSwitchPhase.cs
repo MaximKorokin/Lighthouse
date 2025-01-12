@@ -7,7 +7,7 @@ public class ControlInputSwitchPhase : ActPhase
 
     public override void Invoke()
     {
-        InputReader.IsControlInputBlocked = !_turnOn;
+        GameManager.IsControlInputBlocked = !_turnOn;
         InvokeFinished();
     }
 

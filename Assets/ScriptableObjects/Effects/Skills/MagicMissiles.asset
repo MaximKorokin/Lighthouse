@@ -22,6 +22,17 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 2221015825264934921
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 2221015825264934922
+        _redirectTo: 2
+    - rid: 2221015825264934922
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 1
     - rid: 3932639039221137409
       type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -51,17 +62,13 @@ MonoBehaviour:
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
         _audioClip: {fileID: 8300000, guid: 242ca6f6e2692fa4b9b1295db5ffa609, type: 3}
+        _parentToTarget: 0
     - rid: 4259499536714563588
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 4259499536714563589
+        - rid: 2221015825264934921
         <EndEffects>k__BackingField:
         - rid: 3932639039221137409
         - rid: 3932639127874568198
         <Duration>k__BackingField: 0.2
-    - rid: 4259499536714563589
-      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Value>k__BackingField: 0
-        _key: 1

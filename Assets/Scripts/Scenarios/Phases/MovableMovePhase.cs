@@ -6,6 +6,8 @@ public class MovableMovePhase : SkippableActPhase
     [SerializeField]
     private MovableWorldObject _movable;
     [SerializeField]
+    private bool _overrideController = true;
+    [SerializeField]
     private Transform _transformPosition;
 
     public MovableWorldObject Movable => _movable;
@@ -24,7 +26,7 @@ public class MovableMovePhase : SkippableActPhase
 
     private IEnumerator MoveCoroutine()
     {
-        if (_movable.TryGetComponent<ControllerBase>(out var controller))
+        if (_movable.TryGetComponent<ControllerBase>(out var controller) && _overrideController)
         {
             controller.CanControl = false;
         }

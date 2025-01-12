@@ -7,7 +7,7 @@ public class ScenePhase : ActPhase
 
     public override void Invoke()
     {
-        ScenesUtils.Load(_sceneName, this, InvokeFinished);
+        GameManager.LoadScene(_sceneName, this, InvokeFinished);
     }
 
     public override string IconName => base.IconName;

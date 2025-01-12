@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d849e5b64a1ca348a74c56a6eaf90f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pausePanel: {fileID: 0}
 --- !u!1 &1905940669724549284
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +273,6 @@ GameObject:
   - component: {fileID: 8391533826872074736}
   - component: {fileID: 2176664608737157698}
   - component: {fileID: 4520051757565161961}
-  - component: {fileID: 7945785013310538044}
-  - component: {fileID: 7417972437463018416}
   - component: {fileID: 9139573947835155027}
   m_Layer: 5
   m_Name: PauseButton
@@ -410,32 +407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Config>k__BackingField: 120
---- !u!114 &7945785013310538044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357932226541310546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5968937ded8e4874da82edf948decf51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uiElementPrefab: {fileID: 9164311240540087870, guid: 0f7d64651da47c24d832a95bc25d496e, type: 3}
---- !u!114 &7417972437463018416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357932226541310546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afe25378f3298b348879c04c5f017d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _state: 1
 --- !u!114 &9139573947835155027
 MonoBehaviour:
   m_ObjectHideFlags: 0

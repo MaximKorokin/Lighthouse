@@ -6,15 +6,6 @@ public abstract class InputReader : MonoBehaviour
     #region static
     private static readonly object _eventsInvoker = new();
 
-    private static readonly BoolCounter _isControlInputBlocked = new(false);
-    public static bool IsControlInputBlocked
-    {
-        get => _isControlInputBlocked;
-        set => _isControlInputBlocked.Set(value);
-    }
-
-    public static event Action<bool> InputBlockChanging;
-
     public static FrameBoundEvent<bool> AnyKeyClicked = new(_eventsInvoker);
     public static FrameBoundEvent<bool> SkipInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<Vector2> MoveInputRecieved = new(_eventsInvoker);
@@ -23,10 +14,9 @@ public abstract class InputReader : MonoBehaviour
 
     static InputReader()
     {
-        _isControlInputBlocked.ValueChanged += v =>
+        GameManager.InputBlockChanged += v =>
         {
             if (v) ResetInput();
-            InputBlockChanging?.Invoke(v);
         };
     }
     #endregion
@@ -52,7 +42,8 @@ public abstract class InputReader : MonoBehaviour
         }
 
         // controls
-        if (IsControlInputBlocked)
+
+        if (GameManager.IsControlInputBlocked)
         {
             return;
         }

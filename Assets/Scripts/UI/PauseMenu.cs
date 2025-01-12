@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviorSingleton<PauseMenu>
 {
-    [SerializeField]
-    private GameObject _pausePanel;
-
     protected override void Awake()
     {
         base.Awake();

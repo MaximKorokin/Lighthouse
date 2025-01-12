@@ -10,8 +10,7 @@ public class BoolCounter
 
     public BoolCounter(bool initialValue)
     {
-        _counter = initialValue ? 1 : 0;
-        ValueChanged = null;
+        Reset(initialValue);
     }
 
     public void Set(bool value)
@@ -25,6 +24,11 @@ public class BoolCounter
         {
             ValueChanged?.Invoke(Value);
         }
+    }
+
+    public void Reset(bool value)
+    {
+        _counter = value ? 1 : 0;
     }
 
     public override string ToString() => Value.ToString();

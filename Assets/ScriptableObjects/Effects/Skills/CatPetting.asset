@@ -16,7 +16,7 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 1
+  <Cooldown>k__BackingField: 5
   _effects:
   - rid: 2717117746704285704
   - rid: 2717117746704285707
@@ -38,7 +38,7 @@ MonoBehaviour:
     - rid: 2717117746704285707
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 0
+        <Value>k__BackingField: 1
         _key: 1
     - rid: 2717117945108234242
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
