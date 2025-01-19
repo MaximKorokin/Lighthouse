@@ -4,13 +4,18 @@ using System.Linq;
 public class ObservableStateWrapper<T> : ObservableKeyValueStoreWrapper<T, bool>
 {
     private readonly Dictionary<T, bool> _items = new();
+    private readonly HashSet<T> _forbiddenStates = new();
 
     protected override void OnSet(T key, bool value)
     {
         if (value)
         {
             _items[key] = true;
-            _items.Keys.Except(key.Yield()).ToArray().For(x => Set(x, false));
+            // Reset other state values if not forbidden
+            foreach (var item in _items.Keys.Except(key.Yield()).ToArray())
+            {
+                if (!_forbiddenStates.Contains(item)) Set(item, false);
+            }
         }
         else
         {
@@ -26,5 +31,11 @@ public class ObservableStateWrapper<T> : ObservableKeyValueStoreWrapper<T, bool>
     protected override bool HasKey(T key)
     {
         return _items.ContainsKey(key);
+    }
+
+    public void ControlStateReset(T key, bool allow)
+    {
+        if (allow) _forbiddenStates.Remove(key);
+        else _forbiddenStates.Add(key);
     }
 }

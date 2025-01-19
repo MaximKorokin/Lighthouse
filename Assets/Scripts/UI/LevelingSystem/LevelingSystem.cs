@@ -16,9 +16,11 @@ public class LevelingSystem
     {
         _settings = settings;
         _effects = _settings.EffectsSettings.ToDictionary(x => x.Preview, x => x.GetEffects());
-        VisualizeExperienceAmount();
+
         LevelingSystemUI.Instance.VisualizeLevel(Level);
         LevelingSystemUI.Instance.EffectChosen += OnEffectChosen;
+
+        VisualizeExperienceAmount();
     }
 
     public void AddExperience(int expValue)

@@ -5,10 +5,10 @@ public static class ConfigsManager
 
 public enum ConfigKey
 {
-    [DefaultValue(0)]
-    DebugMode = 0,
-    [DefaultValue(0)]
-    FpsCounter = 1,
+    [DefaultValue(false)]
+    EnableDebugMode = 10,
+    [DefaultValue(false)]
+    ViewFpsCounter = 11,
 
     [DefaultValue(10)]
     SoundVolume = 20,
@@ -20,7 +20,7 @@ public enum ConfigKey
     ViewHPVisualization = 100,
     ViewHPChangeVisualization = 101,
 
-    ViewLevelingSystem = 110,
+    ViewExperienceBar = 110,
 
     ViewPauseButton = 120,
 }

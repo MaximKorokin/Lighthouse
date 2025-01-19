@@ -106,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3088872917817422232}
   - component: {fileID: 4048090260451534790}
+  - component: {fileID: 2776803223178906184}
   m_Layer: 5
   m_Name: LevelingSystem
   m_TagString: Untagged
@@ -125,7 +126,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4703605649467760403}
   - {fileID: 6566173329357340386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,111 +146,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3abecf70f973740a8c9eb634e34cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectsParent: {fileID: 4703605649467760403}
   _expBarController: {fileID: 8729713806896490605}
   _levelText: {fileID: 4654911896195288167}
---- !u!1 &3313209923635744457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4703605649467760403}
-  - component: {fileID: 2746406701006069147}
-  - component: {fileID: 1983842190412587731}
-  - component: {fileID: 6249206492478812088}
-  m_Layer: 5
-  m_Name: EffectsPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &4703605649467760403
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3313209923635744457}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3088872917817422232}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -800}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2746406701006069147
+--- !u!114 &2776803223178906184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3313209923635744457}
+  m_GameObject: {fileID: 2724803048288814944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 5968937ded8e4874da82edf948decf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 50
-    m_Right: 50
-    m_Top: 100
-    m_Bottom: 100
-  m_ChildAlignment: 4
-  m_Spacing: 30
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!222 &1983842190412587731
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3313209923635744457}
-  m_CullTransparentMesh: 1
---- !u!114 &6249206492478812088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3313209923635744457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9607843}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d477c4dda7d4be4191aeae4cb36b419, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  _uiElementPrefab: {fileID: 4824350290712445194, guid: 6f2f60f750f29db4ebbf7118fc6ebc8a, type: 3}
+  _priority: 10
 --- !u!1 &3807044328342736071
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +173,7 @@ GameObject:
   - component: {fileID: 6566173329357340386}
   - component: {fileID: 253032288735558085}
   - component: {fileID: 49196193852367540}
-  - component: {fileID: 5364704854361289429}
+  - component: {fileID: 6848703834208790444}
   m_Layer: 5
   m_Name: ExpBarBackground
   m_TagString: Untagged
@@ -289,7 +200,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: -200, y: 60}
+  m_SizeDelta: {x: -400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &253032288735558085
 CanvasRenderer:
@@ -329,7 +240,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5364704854361289429
+--- !u!114 &6848703834208790444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Config>k__BackingField: 110
+  <Key>k__BackingField: 110
 --- !u!1 &7284921767372075543
 GameObject:
   m_ObjectHideFlags: 0

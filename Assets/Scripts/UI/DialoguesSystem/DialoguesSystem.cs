@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 {
+    private const UIState UIStateKey = UIState.Dialogue;
+
     [SerializeField]
     private DialogueViewer _dialogueView;
 
@@ -16,18 +18,18 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 
     private void OnDialogueFinished()
     {
-        _dialogueView.gameObject.SetActive(false);
         DialogueFinished?.Invoke();
+        UIStateManager.Observable.Set(UIStateKey, false);
     }
 
     private void InitDialogueInternal(Dialogue dialogue)
     {
-        _dialogueView.gameObject.SetActive(true);
         _dialogueView.SetDialogue(dialogue);
     }
 
     public static void InitDialogue(Dialogue dialogue)
     {
+        UIStateManager.Observable.Set(UIStateKey, true);
         if (Instance == null)
         {
             Logger.Warn($"{nameof(Instance)} of {nameof(DialoguesSystem)} singletone is null.");

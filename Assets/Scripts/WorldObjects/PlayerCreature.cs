@@ -6,18 +6,9 @@ public class PlayerCreature : Creature
     [SerializeField]
     private LevelingSystemSettings _levelingSystemSettings;
 
-    public LevelingSystem LevelingSystem { get; private set; }
+    private LevelingSystem _levelingSystem;
+    public LevelingSystem LevelingSystem => _levelingSystem ??= InitializeLevelingSystem();
     public virtual float AutoLootRange => Stats[StatName.AutoLootRange] * Stats[StatName.SizeScale];
-
-    protected override void Start()
-    {
-        base.Start();
-        if (_levelingSystemSettings != null)
-        {
-            LevelingSystem = new LevelingSystem(_levelingSystemSettings);
-            LevelingSystem.LevelIncreased += OnLevelIncreased;
-        }
-    }
 
     protected override void OnStatsModified()
     {
@@ -28,6 +19,13 @@ public class PlayerCreature : Creature
         {
             circleCollider.radius = AutoLootRange;
         }
+    }
+
+    private LevelingSystem InitializeLevelingSystem()
+    {
+        var levelingSystem = new LevelingSystem(_levelingSystemSettings);
+        levelingSystem.LevelIncreased += OnLevelIncreased;
+        return levelingSystem;
     }
 
     private void OnLevelIncreased(Effect[] effects)
