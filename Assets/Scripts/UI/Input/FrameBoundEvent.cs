@@ -19,6 +19,8 @@ public class FrameBoundEvent<T>
 
     public void Invoke(object invoker, T val)
     {
+        if (_invokeFrame == Time.frameCount) return;
+
         if (_invoker == invoker)
         {
             _invokeFrame = Time.frameCount;
@@ -26,7 +28,7 @@ public class FrameBoundEvent<T>
         }
         else
         {
-            Logger.Error("Event is trying to be called with wrong invoker");
+            Logger.Error("Attempt of calling the event with wrong invoker");
         }
     }
 

@@ -770,6 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8648385993325020757}
   - component: {fileID: 2896715883794666788}
+  - component: {fileID: 9043781029183981935}
   m_Layer: 5
   m_Name: UICamera
   m_TagString: Untagged
@@ -843,6 +844,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &9043781029183981935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053689740049597521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db72dda1a6c68b4e88bec41c4abde2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentCamera: {fileID: 4269646456400814716}
 --- !u!1 &8456987692198574586
 GameObject:
   m_ObjectHideFlags: 0

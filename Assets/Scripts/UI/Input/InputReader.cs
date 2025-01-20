@@ -11,6 +11,7 @@ public abstract class InputReader : MonoBehaviour
     public static FrameBoundEvent<Vector2> MoveInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> ActiveAbilityInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> MoveAbilityInputRecieved = new(_eventsInvoker);
+    public static FrameBoundEvent<bool> BackInputRecieved = new(_eventsInvoker);
 
     static InputReader()
     {
@@ -28,12 +29,18 @@ public abstract class InputReader : MonoBehaviour
     protected abstract Vector2 GetMoveInput();
     protected abstract bool IsActiveAbilityUsed();
     protected abstract bool IsMoveAbilityUsed();
+    protected abstract bool IsBackInputRecieved();
 
     protected virtual void Update()
     {
         if (IsAnyKeyClicked())
         {
             AnyKeyClicked?.Invoke(_eventsInvoker, true);
+        }
+
+        if (IsBackInputRecieved())
+        {
+            BackInputRecieved?.Invoke(_eventsInvoker, true);
         }
 
         if (IsSkipInputRecieved())

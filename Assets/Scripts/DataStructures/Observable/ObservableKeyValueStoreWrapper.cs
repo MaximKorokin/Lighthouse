@@ -7,11 +7,12 @@ public abstract class ObservableKeyValueStoreWrapper<K, V> where V : IEquatable<
 
     public void Set(K key, V value)
     {
-        if (!OnGet(key).Equals(value) && _listeners.TryGetValue(key, out var listeners))
+        var previousValue = OnGet(key);
+        OnSet(key, value);
+        if (!value.Equals(previousValue) && _listeners.TryGetValue(key, out var listeners))
         {
             listeners.ForEach(x => x(value));
         }
-        OnSet(key, value);
     }
 
     /// <summary>

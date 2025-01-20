@@ -28,6 +28,8 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
     {
         _secondaryHoldCooldownCounter = new(_timeForSecondaryHold);
         _doubleTapCooldownCounter = new(_timeForDoubleTap);
+
+        SessionDataStorage.Observable.SetChangeListener(SessionDataKey.PhaseSkipInputRecieved, RecieveSkipInput);
     }
 
     protected override void Update()
@@ -94,13 +96,27 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
         return Input.touchCount > 0;
     }
 
+    protected override bool IsBackInputRecieved()
+    {
+        return Input.GetKeyDown(KeyCode.Escape);
+    }
+
     protected override bool IsSkipInputRecieved()
     {
         return _isSkipInputRecieved;
     }
 
-    public void RecieveSkipInput()
+    public void RecieveSkipInput(object value)
     {
-        _isSkipInputRecieved.Set(true);
+        if (ConvertingUtils.ToBool(value))
+        {
+            _isSkipInputRecieved.Set(true);
+            SessionDataStorage.Observable.Set(SessionDataKey.PhaseSkipInputRecieved, false.ToString());
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SessionDataStorage.Observable.RemoveChangeListener(SessionDataKey.PhaseSkipInputRecieved, RecieveSkipInput);
     }
 }

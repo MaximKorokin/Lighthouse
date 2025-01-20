@@ -18,8 +18,8 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 
     private void OnDialogueFinished()
     {
-        DialogueFinished?.Invoke();
         UIStateManager.Observable.Set(UIStateKey, false);
+        DialogueFinished?.Invoke();
     }
 
     private void InitDialogueInternal(Dialogue dialogue)

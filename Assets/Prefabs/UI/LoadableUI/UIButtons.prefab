@@ -834,9 +834,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ScreenInputReader, Assembly-CSharp
-        m_MethodName: RecieveSkipInput
+      - m_Target: {fileID: 201500633091505690}
+        m_TargetAssemblyTypeName: UIButtons, Assembly-CSharp
+        m_MethodName: SkipPhase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
