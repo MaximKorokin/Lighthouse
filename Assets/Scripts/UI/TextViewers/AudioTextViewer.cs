@@ -13,7 +13,6 @@ public abstract class AudioTextViewer : TextViewer
     protected virtual void Start()
     {
         Typewriter.CharTyping += OnCharTyping;
-        AudioSourceProvider.SetAudioClipType(AudioClipType.Sound);
         AudioSourceProvider.transform.SetParent(transform);
     }
 

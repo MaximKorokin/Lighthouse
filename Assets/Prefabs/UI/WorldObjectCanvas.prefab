@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Config>k__BackingField: 101
+  <Key>k__BackingField: 101
 --- !u!1 &4709995952131105544
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Config>k__BackingField: 100
+  <Key>k__BackingField: 100
 --- !u!1 &5994861031444002704
 GameObject:
   m_ObjectHideFlags: 0

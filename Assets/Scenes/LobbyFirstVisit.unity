@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-    Animation: {fileID: 7400000, guid: d398d852fc8dae24e8f72e5bc13c3b4e, type: 2}
+    Animation: {fileID: 7400000, guid: 7fa97cc0ccb66b548add5808bc2dc330, type: 2}
     IsHierarchyPriority: 0
 --- !u!114 &67732105
 MonoBehaviour:

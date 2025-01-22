@@ -54,6 +54,7 @@ public static class AudioSourceProviderExtensions
         // Prevents sounds interferencing
         if (_clipsStartTime.TryGetValue(clip, out var previousStartTime) && Time.time - previousStartTime < 0.05f)
         {
+            finalAction?.Invoke();
             return;
         }
         _clipsStartTime[clip] = Time.time;

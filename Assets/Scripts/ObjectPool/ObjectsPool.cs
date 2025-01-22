@@ -12,6 +12,7 @@ public abstract class ObjectsPool<T, P> : MonoBehaviorSingleton<ObjectsPool<T, P
     protected virtual T Create()
     {
         var obj = Instantiate(Object, transform);
+        obj.name += " " + AllObjects.Count;
         obj.gameObject.SetActive(false);
         AllObjects.Add(obj);
         Pool.Push(obj);
@@ -31,8 +32,13 @@ public abstract class ObjectsPool<T, P> : MonoBehaviorSingleton<ObjectsPool<T, P
 
     public static void Return(T obj)
     {
-        if (Instance == null || !Instance.AllObjects.Contains(obj))
+        if (Instance == null)
         {
+            return;
+        }
+        if (!Instance.AllObjects.Contains(obj) || Instance.Pool.Contains(obj))
+        {
+            Logger.Error("Trying to return wrong object");
             return;
         }
 
