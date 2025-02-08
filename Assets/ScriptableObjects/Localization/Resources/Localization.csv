@@ -13,6 +13,22 @@ ArcUIDisplayHealthSetting,Отслеживание сосотояния,Conditio
 ArcUIBackButton,Назад,Back,
 ArcUITransfer1Text,Перенос в аватара начат...,Transfer to avatar in progress...,
 
+TabletMail1Title,"Не пропустите!!!","Don't miss it!!!","Не пропустіть"
+TabletMail1Sender,"LuckyWin_67001","LuckyWin_67001","LuckyWin_67001"
+TabletMail1Body,"Здравствуйте, [Имя]!\n\nУ нас для вас отличная новость! Вы стали победителем в эксклюзивной акции и теперь можете получить ценный подарок совершенно бесплатно!\n\nЧтобы забрать свой приз, просто перейдите по ссылке ниже и подтвердите свои данные:\n[вставить фишинговую ссылку]\n\nПоторопитесь! Акция действует только 24 часа!","Hello, [Name]!\n\nGreat news for you! You have been selected as a winner in our exclusive promotion and can now claim a valuable gift absolutely free!\n\nTo receive your prize, simply follow the link below and confirm your details:\n[insert phishing link]\n\nHurry up! This offer is valid for 24 hours only!","Привіт, [Ім'я]!\n\nУ нас для вас чудова новина! Ви стали переможцем в ексклюзивній акції та тепер можете отримати цінний подарунок абсолютно безкоштовно!\n\nЩоб забрати свій приз, просто перейдіть за посиланням нижче та підтвердьте свої дані:\n[вставити фішингове посилання]\n\nПоспішайте! Акція діє лише 24 години!"
+TabletMail2Title,"<пусто>",,
+TabletMail2Sender,"анонимный отправитель",,
+TabletMail2Body,"зря ты сбежал\n\nтвоя сестра у нас\n\nхочешь её увидеть, ответь на письмо\n\nтвои игрушки мы тоже заберём\n\n",,
+TabletMail3Title,"Офис Кинснап",,
+TabletMail3Sender,"СБ Кинснап",,
+TabletMail3Body,"Уважаемый Нодцаг,\n\nВаша заявка рассмотрена. Вы приглашены посетить наш главный офис Кинснап для обсуждения важных вопросов. Ваш визит назначен на завтра.\n\nПри себе иметь документ, удостоверяющий личность.\n\nС уважением,\nРояс\nГлава СБ\nКинснап",,
+
+TabletCopypasta1,,,
+TabletCopypasta2,,,
+TabletCopypasta3,,,
+TabletCopypasta4,,,
+TabletCopypasta5,,,
+
 Anton,Антон,Anton,Антiн
 
 e1_neko1_s1,СРОЧНЫЕ НОВОСТИ,,

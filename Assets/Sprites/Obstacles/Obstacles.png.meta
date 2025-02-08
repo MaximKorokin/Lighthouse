@@ -1958,7 +1958,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1966,6 +1966,48 @@ TextureImporter:
       bones: []
       spriteID: e46161582f1462443b1db9b7f9b28b12
       internalID: -387917116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obstacles_88
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 512
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.53125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9ed8f66fa2cf94eb207979aa923415
+      internalID: 1276345359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obstacles_89
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.53125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d243809d2dc2d4544b19ebd962e4b94c
+      internalID: -623678775
       vertices: []
       indices: 
       edges: []
@@ -2068,6 +2110,8 @@ TextureImporter:
       Obstacles_85: 12787374
       Obstacles_86: 1871245011
       Obstacles_87: -387917116
+      Obstacles_88: 1276345359
+      Obstacles_89: -623678775
       Obstacles_9: 122249470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

@@ -17,7 +17,7 @@ public enum UIState
 {
     Pause = 1,
     ArcUI = 11,
-    PCUI = 21,
+    TabletUI = 21,
     Dialogue = 31,
     LevelingSystem = 41,
     UIButtons = 51,

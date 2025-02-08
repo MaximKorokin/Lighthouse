@@ -191,7 +191,6 @@ MonoBehaviour:
   _childrenActs:
   - {fileID: 1332235850}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &14223259
@@ -304,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
+  _overrideController: 1
   _transformPosition: {fileID: 597403834}
 --- !u!114 &14223267
 MonoBehaviour:
@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1411155634}
+  _overrideController: 1
   _transformPosition: {fileID: 2109439973}
 --- !u!114 &465953216
 MonoBehaviour:
@@ -506,7 +507,6 @@ MonoBehaviour:
   _childrenActs:
   - {fileID: 465953216}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
 --- !u!114 &465953217
@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1411155634}
+  _overrideController: 1
   _transformPosition: {fileID: 405173054}
 --- !u!1 &493253695
 GameObject:
@@ -592,7 +593,6 @@ MonoBehaviour:
   - {fileID: 1970877186}
   - {fileID: 1652541712}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!114 &493253698
@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1582793516}
+  _overrideController: 1
   _transformPosition: {fileID: 1588480437}
 --- !u!114 &493253700
 MonoBehaviour:
@@ -874,7 +875,6 @@ MonoBehaviour:
   - {fileID: 550040913}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!1 &597403833
@@ -1172,7 +1172,6 @@ MonoBehaviour:
   - {fileID: 779310150}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 0
 --- !u!114 &779310150
@@ -1400,7 +1399,6 @@ MonoBehaviour:
   - {fileID: 984498750}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 0
 --- !u!1 &1022573384
@@ -1483,7 +1481,6 @@ MonoBehaviour:
   - {fileID: 1022573386}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1022573389
@@ -1590,7 +1587,6 @@ MonoBehaviour:
   - {fileID: 1112819574}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1112819573
@@ -1606,6 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
+  _overrideController: 1
   _transformPosition: {fileID: 709771612}
 --- !u!114 &1112819574
 MonoBehaviour:
@@ -1685,7 +1682,6 @@ MonoBehaviour:
   - {fileID: 1158463552}
   _childrenActs: []
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1158463547
@@ -1789,6 +1785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
+  _overrideController: 1
   _transformPosition: {fileID: 2052546962}
 --- !u!114 &1158463552
 MonoBehaviour:
@@ -1803,6 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
+  _overrideController: 1
   _transformPosition: {fileID: 812333493}
 --- !u!114 &1158463553
 MonoBehaviour:
@@ -1877,6 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
+  _overrideController: 1
   _transformPosition: {fileID: 719452271}
 --- !u!114 &1332235850
 MonoBehaviour:
@@ -1896,7 +1895,6 @@ MonoBehaviour:
   _childrenActs:
   - {fileID: 1158463546}
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!1001 &1411155632
@@ -2225,7 +2223,6 @@ MonoBehaviour:
   - {fileID: 1022573388}
   - {fileID: 1851274768}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1652541713
@@ -2241,6 +2238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
+  _overrideController: 1
   _transformPosition: {fileID: 1540445548}
 --- !u!114 &1652541714
 MonoBehaviour:
@@ -2317,78 +2315,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1605576289057253848, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917329580107540243, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332073901165255580, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3165697995674519497, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
       propertyPath: m_Name
       value: Essentials
@@ -2557,7 +2483,6 @@ MonoBehaviour:
   - {fileID: 1112819572}
   - {fileID: 14223258}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!114 &1774596010
@@ -2624,7 +2549,6 @@ MonoBehaviour:
   - {fileID: 1851274769}
   _childrenActs: []
   _phasesInvokationType: 20
-  <IsConsecutive>k__BackingField: 0
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1851274769
@@ -2693,7 +2617,6 @@ MonoBehaviour:
   - {fileID: 1970877188}
   _childrenActs: []
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
 --- !u!114 &1970877188
@@ -2709,6 +2632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movable: {fileID: 1582793516}
+  _overrideController: 1
   _transformPosition: {fileID: 607347370}
 --- !u!1 &1977410975
 GameObject:
@@ -2980,7 +2904,6 @@ MonoBehaviour:
   - {fileID: 779310149}
   - {fileID: 984498752}
   _phasesInvokationType: 10
-  <IsConsecutive>k__BackingField: 1
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
 --- !u!1 &2052546961

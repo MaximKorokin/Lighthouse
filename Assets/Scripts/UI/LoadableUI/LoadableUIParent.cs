@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadableUIParent : MonoBehaviorSingleton<LoadableUIParent>
+public class LoadableUIParent : OptionalMonoBehaviorSingleton<LoadableUIParent>
 {
-    private static readonly SortedList<int, RectTransform> _prioritizedElements = new(new PriorityComparer());
+    private readonly SortedList<int, RectTransform> _prioritizedElements = new(new PriorityComparer());
 
-    public static void SetUIElement(RectTransform rect, int priority)
+    public void SetUIElement(RectTransform rect, int priority)
     {
         _prioritizedElements[priority] = rect;
-        rect.SetParent(Instance.transform, false);
+        rect.SetParent(transform, false);
         rect.SetSiblingIndex(_prioritizedElements.IndexOfValue(rect));
     }
 

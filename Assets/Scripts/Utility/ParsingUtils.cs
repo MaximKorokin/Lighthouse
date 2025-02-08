@@ -42,6 +42,11 @@ public static class ParsingUtils
         yield return line[startIndex..];
     }
 
+    /// <summary>
+    /// Parses all Localization keys in format !(key)
+    /// </summary>
+    /// <param name="line"></param>
+    /// <returns></returns>
     public static IEnumerable<string> ParseLocalizationKeys(string line)
     {
         if (line == null)

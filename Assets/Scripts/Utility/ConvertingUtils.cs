@@ -43,4 +43,26 @@ public static class ConvertingUtils
         }
         return 0f;
     }
+
+    public static int ToInt(object obj)
+    {
+        if (obj == null)
+        {
+            return 0;
+        }
+        if (obj is int number)
+        {
+            return number;
+        }
+        var stringObj = obj.ToString();
+        if (int.TryParse(stringObj, out int result1))
+        {
+            return result1;
+        }
+        if (bool.TryParse(stringObj, out bool result2))
+        {
+            return result2 ? 1 : 0;
+        }
+        return 0;
+    }
 }
