@@ -10,7 +10,7 @@ public abstract class ActorBase : MonoBehaviour
     public bool CanAct { get => _canAct; set => _canAct.Set(value); }
 
     private WorldObject _worldObject;
-    public WorldObject WorldObject { get => _worldObject = _worldObject != null ? _worldObject : GetComponent<WorldObject>(); }
+    public WorldObject WorldObject => gameObject.LazyGetComponent(ref _worldObject);
 
     public event Action Acting;
 

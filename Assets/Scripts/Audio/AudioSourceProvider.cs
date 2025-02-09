@@ -11,11 +11,11 @@ public class AudioSourceProvider : MonoBehaviour
 
     private readonly List<AudioMixerSnapshot> _snapshotsHistory = new();
 
-    public AudioSource AudioSource { get; private set; }
+    public AudioSource _audioSource;
+    public AudioSource AudioSource => gameObject.LazyGetComponent(ref _audioSource);
 
     private void Awake()
     {
-        AudioSource = GetComponent<AudioSource>();
         SetAudioClipType(_audioClipType);
     }
 

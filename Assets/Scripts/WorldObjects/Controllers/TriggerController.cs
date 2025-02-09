@@ -7,7 +7,7 @@ public abstract class TriggerController : ControllerBase
     public IContainsEnumerable<WorldObject> TriggeredWorldObjects => _triggeredWorldObjectsCollection;
 
     private WorldObjectInteractingTriggerDetector _detector;
-    public WorldObjectInteractingTriggerDetector Detector => _detector = _detector != null ? _detector : GetComponent<WorldObjectInteractingTriggerDetector>();
+    public WorldObjectInteractingTriggerDetector Detector => gameObject.LazyGetComponent(ref _detector);
 
     protected override void Awake()
     {

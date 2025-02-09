@@ -1,26 +1,26 @@
 using TMPro;
 using UnityEngine;
 
-//[ExecuteInEditMode]
 [RequireComponent(typeof(TMP_Text))]
 public class TextLocalizer : MonoBehaviour
 {
     [SerializeField]
     private string _text;
+
     private TMP_Text _textObject;
+    public TMP_Text TextObject => gameObject.LazyGetComponent(ref _textObject);
 
     private void Start()
     {
-        _textObject = GetComponent<TMP_Text>();
-        LocalizationManager.SetLanguageChangeListener(_textObject, _text, text => _textObject.text = text);
+        if (!string.IsNullOrEmpty(_text))
+        {
+            LocalizationManager.SetLanguageChangeListener(TextObject, _text, text => TextObject.text = text);
+        }
     }
 
-    private void OnValidate()
+    public void SetText(string text)
     {
-        if (_textObject != null)
-        {
-            LocalizationManager.SetLanguageChangeListener(_textObject, _text, text => _textObject.text = text);
-        }
+        LocalizationManager.SetLanguageChangeListener(TextObject, text, text => TextObject.text = text);
     }
 
     private void OnDestroy()

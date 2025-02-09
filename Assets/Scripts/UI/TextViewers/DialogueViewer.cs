@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public class DialogueViewer : DialogueViewerBase
     [SerializeField]
     private Image _characterIcon;
     [SerializeField]
-    private TMP_Text _characterNameText;
+    private TextLocalizer _characterNameText;
 
     protected override void Awake()
     {
@@ -23,18 +22,11 @@ public class DialogueViewer : DialogueViewerBase
         if (characterPreview != null)
         {
             SetTypingSound(characterPreview.TypingSound);
-            _characterIcon.sprite = characterPreview.Icon;
-            var displayName = characterPreview.GetName();
-            LocalizationManager.SetLanguageChangeListener(
-                _characterNameText,
-                $"<color=#{characterPreview.Color.ToHexString()}>{displayName}</color>",
-                text => _characterNameText.text = text);
-        }
-    }
 
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        LocalizationManager.RemoveLanguageChangeListener(_characterNameText);
+            _characterIcon.sprite = characterPreview.Icon;
+
+            var displayName = characterPreview.GetName();
+            _characterNameText.SetText($"<color=#{characterPreview.Color.ToHexString()}>{displayName}</color>");
+        }
     }
 }

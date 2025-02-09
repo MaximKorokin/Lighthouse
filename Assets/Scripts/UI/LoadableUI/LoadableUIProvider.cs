@@ -11,7 +11,7 @@ public class LoadableUIProvider : MonoBehaviour
     private int _priority;
 
     private RectTransform _uiElement;
-    public RectTransform UIElement { get => _uiElement == null ? (_uiElement = InitializeUIElement()) : _uiElement; }
+    public RectTransform UIElement => this.LazyInitialize(ref _uiElement, InitializeUIElement);
 
     public bool HasLoaded => _uiElement != null;
 

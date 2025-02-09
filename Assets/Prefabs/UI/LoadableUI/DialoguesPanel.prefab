@@ -269,7 +269,7 @@ MonoBehaviour:
   _spatial: 0
   _audioClip: {fileID: 0}
   _characterIcon: {fileID: 3645486012712869037}
-  _characterNameText: {fileID: 6047790811174023471}
+  _characterNameText: {fileID: 5502891266159410039}
 --- !u!114 &6804998600438328773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 4515993267775809087}
   - component: {fileID: 3426260648229805163}
   - component: {fileID: 6047790811174023471}
+  - component: {fileID: 5502891266159410039}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -417,6 +418,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5502891266159410039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455038878387964387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abe82a6dd3675e4c9349165baaecc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: 
 --- !u!1 &6404201810477286221
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
@@ -13,9 +12,9 @@ public class TabletMailPreview : TabletListApplicationPreview<TabletMailModel>
     private Sprite _unreadSprite;
     [Space]
     [SerializeField]
-    private TMP_Text _senderText;
+    private TextLocalizer _senderText;
     [SerializeField]
-    private TMP_Text _titleText;
+    private TextLocalizer _titleText;
 
     private void OnEnable()
     {
@@ -28,17 +27,11 @@ public class TabletMailPreview : TabletListApplicationPreview<TabletMailModel>
         if (mail == null) return;
 
         base.SetModel(mail);
-        
-        LocalizationManager.SetLanguageChangeListener(_senderText, $"<b>{mail.Sender}</b>", text => _senderText.text = text);
-        LocalizationManager.SetLanguageChangeListener(_titleText, $"<b><i>{mail.Title}</i></b>", text => _titleText.text = text);
+
+        _senderText.SetText($"<b>{mail.Sender}</b>");
+        _titleText.SetText($"<b><i>{mail.Title}</i></b>");
 
         _readStatusIcon.sprite = mail.IsRead ? _readSprite : _unreadSprite;
-    }
-
-    private void OnDestroy()
-    {
-        LocalizationManager.RemoveLanguageChangeListener(_senderText);
-        LocalizationManager.RemoveLanguageChangeListener(_titleText);
     }
 }
 

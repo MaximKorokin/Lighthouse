@@ -3,8 +3,8 @@ using UnityEngine;
 public abstract class AudioTextViewer : TextViewer
 {
     private AudioSourceProvider _audioSourceProvider;
-    private AudioSourceProvider AudioSourceProvider => _audioSourceProvider = _audioSourceProvider != null ? _audioSourceProvider : AudioSourceProviderPool.Take(new(_spatial, transform.position));
-
+    private AudioSourceProvider AudioSourceProvider => this.LazyInitialize(ref _audioSourceProvider, () => AudioSourceProviderPool.Take(new(_spatial, transform.position)));
+    
     [SerializeField]
     private bool _spatial;
     [SerializeField]

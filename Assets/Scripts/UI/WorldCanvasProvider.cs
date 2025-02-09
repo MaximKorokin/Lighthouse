@@ -1,19 +1,16 @@
-using System.Linq;
 using UnityEngine;
 
 public class WorldCanvasProvider : MonoBehaviour
 {
-    private Vector3 _initialCanvasScale;
     private Vector3 _previousParentScale;
 
     private WorldCanvasController _canvasController;
-    public WorldCanvasController CanvasController => _canvasController == null ? (_canvasController = TakeAndInitialize()) : _canvasController;
+    public WorldCanvasController CanvasController => this.LazyInitialize(ref _canvasController, TakeAndInitialize);
 
     private WorldCanvasController TakeAndInitialize()
     {
         _canvasController = WorldCanvasPool.Take(null);
         _canvasController.transform.SetParent(transform, false);
-        _initialCanvasScale = _canvasController.Canvas.transform.localScale;
         ScaleCanvasToParent();
         return _canvasController;
     }

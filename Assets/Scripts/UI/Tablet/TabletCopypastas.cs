@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class TabletCopypastas : TabletApplication
 {
     [SerializeField]
-    private TMP_Text _text;
+    private TextLocalizer _text;
 
     private string[] _copypastas;
     private readonly List<string> _unusedCopypastas = new();
@@ -28,12 +27,7 @@ public class TabletCopypastas : TabletApplication
             _copypastas.ForEach(x => _unusedCopypastas.Add(x));
         }
         var randomindex = Random.Range(0, _unusedCopypastas.Count);
-        LocalizationManager.SetLanguageChangeListener(_text, _unusedCopypastas[randomindex], text => _text.text = text);
-        _unusedCopypastas.Remove(_text.text);
-    }
-
-    private void OnDestroy()
-    {
-        LocalizationManager.RemoveLanguageChangeListener(_text);
+        _text.SetText(_unusedCopypastas[randomindex]);
+        _unusedCopypastas.Remove(_unusedCopypastas[randomindex]);
     }
 }
