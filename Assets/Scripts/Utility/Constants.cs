@@ -4,6 +4,7 @@ public static class Constants
 
     public const string PlayerLootingLayerName = "PlayerLooting";
     public const string ObstacleLayerName = "Obstacle";
+    public const string NoIgnoreLayerName = "NoIgnore";
 
     /// <summary>
     /// New and old members must be exact names of scenes

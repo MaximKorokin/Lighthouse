@@ -31,7 +31,7 @@ public class BoolCounter
         _counter = value ? 1 : 0;
     }
 
-    public override string ToString() => Value.ToString();
+    public override string ToString() => (Value, _counter).ToString();
 
     public static implicit operator bool(BoolCounter counter) => counter.Value;
 }

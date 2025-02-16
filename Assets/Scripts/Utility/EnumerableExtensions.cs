@@ -138,6 +138,20 @@ public static class EnumerableExtensions
         }
     }
 
+    public static Dictionary<K, V> AddOrModify<K, V>(this Dictionary<K, V> dictionary, K key, Func<V> valueCreator, Func<V, V> valueModifier)
+    {
+        if (dictionary.TryGetValue(key, out var value))
+        {
+            dictionary[key] = valueModifier(value);
+        }
+        else
+        {
+            dictionary.Add(key, valueCreator());
+        }
+
+        return dictionary;
+    }
+
     public static void AddRange<T>(this HashSet<T> set, IEnumerable<T> toAdd)
     {
         foreach (var val in toAdd)

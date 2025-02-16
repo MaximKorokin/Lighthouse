@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -47,6 +48,11 @@ public class Skill : IInitializable
 
     public bool Invoke(CastState castState, PrioritizedTargets targets, float cooldownDivider = 1)
     {
+        if (_effects == null || _effects.Length == 0)
+        {
+            return false;
+        }
+
         if (CooldownCounter == null ||
             !_conditionData.EvaluateCondition(castState.Source, targets) ||
             !CooldownCounter.TryReset(cooldownDivider))
@@ -54,26 +60,24 @@ public class Skill : IInitializable
             return false;
         }
 
-        var target = _targetChoosingData.ChooseTarget(castState.Source, targets);
-        if (target == null)
+        var chosenTargets = _targetChoosingData.ChooseTargets(castState.Source, targets);
+        if (chosenTargets == null || chosenTargets.Any(x => x == null))
         {
             return false;
         }
 
-        if (_effects == null || _effects.Length == 0)
+        foreach (var target in chosenTargets)
         {
-            return false;
-        }
-
-        castState.Target = target;
-        foreach (var effect in _effects)
-        {
-            if (effect == null)
+            castState.Target = target;
+            foreach (var effect in _effects)
             {
-                Logger.Error($"Effect in {nameof(Skill)} is null. {nameof(EffectSettings)} name is {_settings.Preview.Name}.");
-                continue;
+                if (effect == null)
+                {
+                    Logger.Error($"Effect in {nameof(Skill)} is null. {nameof(EffectSettings)} name is {_settings.Preview.Name}.");
+                    continue;
+                }
+                effect.Invoke(castState);
             }
-            effect.Invoke(castState);
         }
         return true;
     }

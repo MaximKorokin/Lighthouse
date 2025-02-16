@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -71,5 +70,11 @@ public static class WorldObjectsInteractionUtils
             finalAction.Invoke();
             worldObject.Destroyed -= OnWorldObjectDestroying;
         }
+    }
+
+    public static void SetRigidbodyCollisions(this MovableWorldObject movable, bool value)
+    {
+        movable.RigidbodyExtender.SetExcludeLayers(-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName, Constants.NoIgnoreLayerName), !value);
+        movable.ReloadPhysicsState();
     }
 }

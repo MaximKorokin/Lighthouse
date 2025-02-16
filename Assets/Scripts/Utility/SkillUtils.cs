@@ -56,7 +56,7 @@ public static class SkillUtils
 
     #region Skill target choosing
 
-    public static WorldObject ChooseTarget(this SkillTargetChoosingData targetChoosingData, WorldObject source, PrioritizedTargets targets)
+    public static IEnumerable<WorldObject> ChooseTargets(this SkillTargetChoosingData targetChoosingData, WorldObject source, PrioritizedTargets targets)
     {
         var toChooseFrom = targetChoosingData.Type.ConvertToWorldObjects(source, targets);
 
@@ -64,9 +64,10 @@ public static class SkillUtils
 
         return targetChoosingData.Func switch
         {
-            SkillTargetChoosingFunc.First => toChooseFrom.First(),
-            SkillTargetChoosingFunc.Random => toChooseFrom.Skip(Random.Range(0, toChooseFrom.Count() - 1)).First(),
-            SkillTargetChoosingFunc.Nearest => toChooseFrom.MinBy(w => (w.transform.position - source.transform.position).sqrMagnitude),
+            SkillTargetChoosingFunc.First => toChooseFrom.Take(1),
+            SkillTargetChoosingFunc.Random => toChooseFrom.Skip(Random.Range(0, toChooseFrom.Count() - 1)).Take(1),
+            SkillTargetChoosingFunc.Nearest => toChooseFrom.MinBy(w => (w.transform.position - source.transform.position).sqrMagnitude).Yield(),
+            SkillTargetChoosingFunc.All => toChooseFrom,
             _ => null,
         };
     }

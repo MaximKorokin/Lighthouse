@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lifts1_1
   m_EditorClassIdentifier: 
   <Prefab>k__BackingField: {fileID: 6382580791305350808, guid: 13f4a165affdbba42a8160c681957867, type: 3}
+  <SpawnEffect>k__BackingField: {fileID: 11400000, guid: b2f9528cb0c2afd438bb0a111f1f0bb8, type: 2}
   <Interval>k__BackingField: 1
   <Amount>k__BackingField: 3
   <MaxAliveAmount>k__BackingField: 3

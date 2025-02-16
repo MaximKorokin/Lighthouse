@@ -20,4 +20,5 @@ public enum SkillTargetChoosingFunc
     First = 0,
     Nearest = 1,
     Random = 2,
+    All = 3,
 }

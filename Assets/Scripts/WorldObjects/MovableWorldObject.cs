@@ -23,9 +23,10 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     [field: SerializeField]
     public bool IsFlipped { get; private set; }
 
+    public Rigidbody2DExtender RigidbodyExtender { get; private set; }
+
     private Vector2 _direction;
     private Rigidbody2D _rigidbody;
-    private LayerMask _rigidbodyExcludeLayerMask;
     private bool _previousFlipX;
     private float _currentMoveSpeed;
 
@@ -36,7 +37,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     {
         base.Awake();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbodyExcludeLayerMask = _rigidbody.excludeLayers;
+        RigidbodyExtender = new Rigidbody2DExtender(_rigidbody);
         DirectionSet += OnDirectionSet;
     }
 
@@ -67,14 +68,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
             //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
             _rigidbody.velocity = _currentMoveSpeed * Direction;
         }
-    }
-
-    public void SetRigidbodyCollisions(bool enable)
-    {
-        _rigidbody.excludeLayers = enable
-            ? _rigidbodyExcludeLayerMask
-            : (-1 ^ (LayerMask.GetMask(Constants.ObstacleLayerName)));
-        ReloadPhysicsState();
     }
 
     public virtual void Move(float speedOverride = -1)
