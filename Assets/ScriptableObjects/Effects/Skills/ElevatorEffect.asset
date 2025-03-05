@@ -33,14 +33,14 @@ MonoBehaviour:
     - rid: 6870526322724569098
       type: {class: MovableLayersEffect, ns: , asm: Assembly-CSharp}
       data:
-        _excludeLayerMask:
+        _layerMask:
           serializedVersion: 2
           m_Bits: 128
         _exclude: 1
     - rid: 6870526322724569099
       type: {class: MovableLayersEffect, ns: , asm: Assembly-CSharp}
       data:
-        _excludeLayerMask:
+        _layerMask:
           serializedVersion: 2
           m_Bits: 128
         _exclude: 0

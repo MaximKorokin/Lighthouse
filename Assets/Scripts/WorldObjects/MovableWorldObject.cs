@@ -23,10 +23,13 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     [field: SerializeField]
     public bool IsFlipped { get; private set; }
 
-    public Rigidbody2DExtender RigidbodyExtender { get; private set; }
+    private Rigidbody2D _rigidbody;
+    private Rigidbody2D Rigidbody => gameObject.LazyGetComponent(ref _rigidbody);
+
+    public Rigidbody2DExtender _rigidbodyExtender;
+    public Rigidbody2DExtender RigidbodyExtender => this.LazyInitialize(ref _rigidbodyExtender, () => new Rigidbody2DExtender(Rigidbody));
 
     private Vector2 _direction;
-    private Rigidbody2D _rigidbody;
     private bool _previousFlipX;
     private float _currentMoveSpeed;
 
@@ -36,8 +39,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     protected override void Awake()
     {
         base.Awake();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        RigidbodyExtender = new Rigidbody2DExtender(_rigidbody);
         DirectionSet += OnDirectionSet;
     }
 
@@ -58,15 +59,15 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     protected virtual void FixedUpdate()
     {
         // this helps against "random" velocity sources such as collisions with other colliders
-        if (_rigidbody.velocity != Vector2.zero)
+        if (Rigidbody.velocity != Vector2.zero)
         {
-            _rigidbody.velocity = Vector2.zero;
+            Rigidbody.velocity = Vector2.zero;
         }
 
         if (IsMoving)
         {
-            //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
-            _rigidbody.velocity = _currentMoveSpeed * Direction;
+            //Rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
+            Rigidbody.velocity = _currentMoveSpeed * Direction;
         }
     }
 
@@ -91,7 +92,7 @@ public abstract class MovableWorldObject : DestroyableWorldObject
         // Fog is shown if detects that player left trigger
         if (this is not PlayerCreature)
         {
-            _rigidbody.simulated = false;
+            Rigidbody.simulated = false;
         }
         Stop();
     }

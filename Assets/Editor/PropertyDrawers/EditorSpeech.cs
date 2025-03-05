@@ -12,7 +12,7 @@ public class EditorSpeech : PropertyDrawerBase
         var element = typeof(Speech).CreateTypeFoldout(property);
 
         var speechText = property.FindPropertyRelative(ReflectionUtils.GetBackingField(typeof(Speech), nameof(Speech.Text)).Name).stringValue;
-        speechText = LocalizationData.GetLocalizedValue(SystemLanguage.English, speechText);
+        speechText = LocalizationData.GetLocalizedValue(SystemLanguage.Russian, speechText);
 
         var characterPreview = CharactersPreviewsDataBase.FindById(((Speech)property.boxedValue).CharacterPreviewId);
         element.text = characterPreview != null ? $"{LocalizationData.GetLocalizedValue(SystemLanguage.English, characterPreview.Name)}: {speechText}" : "";

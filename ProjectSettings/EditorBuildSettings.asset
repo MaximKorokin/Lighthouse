@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LobbyFirstVisit.unity
-    guid: 8f5a966a4a3339d40803c593b123e941
-  - enabled: 1
     path: Assets/Scenes/KinsnapHQAttack.unity
     guid: 17577c40f2cfa3e49a6f0784c272c1cc
   - enabled: 1
     path: Assets/Scenes/KinsnapHQVisit.unity
     guid: eeeedf5f1f63ac14790cf8a4788f768f
+  - enabled: 1
+    path: Assets/Scenes/LobbyFirstVisit.unity
+    guid: 8f5a966a4a3339d40803c593b123e941
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

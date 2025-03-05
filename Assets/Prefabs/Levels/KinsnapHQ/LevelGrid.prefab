@@ -17860,7 +17860,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
 --- !u!1 &1511200140136187424
 GameObject:
   m_ObjectHideFlags: 0
@@ -39653,16 +39653,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 46, y: 10, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 47, y: 10, z: 0}
     second:
       serializedVersion: 2
@@ -39971,7 +39961,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7e7634a6616f0cc4f8b5caf8d24cd3c2, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: a9cc7b5a88241cf49a6d6d707ef63537, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 5d5095e2da2259d47bc3ea0c82951a5e, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: fd3b957da22edee448742c424f726417, type: 2}
@@ -40002,7 +39992,7 @@ Tilemap:
     m_Data: {fileID: -165343934, guid: 32d2b8aaac9bc8843b9d4788334fe237, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1065946116, guid: 32d2b8aaac9bc8843b9d4788334fe237, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: -741186161, guid: 32d2b8aaac9bc8843b9d4788334fe237, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1059934147, guid: 32d2b8aaac9bc8843b9d4788334fe237, type: 3}
@@ -40017,7 +40007,7 @@ Tilemap:
   - m_RefCount: 6
     m_Data: {fileID: 338020839, guid: 32d2b8aaac9bc8843b9d4788334fe237, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 76
+  - m_RefCount: 75
     m_Data:
       e00: 1
       e01: 0
@@ -40036,7 +40026,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 76
+  - m_RefCount: 75
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 0.00000052549603, g: 0.00000052549603, b: 0.00000052549603, a: 0.00000052549603}

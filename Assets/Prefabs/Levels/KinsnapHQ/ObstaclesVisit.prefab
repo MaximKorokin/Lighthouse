@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstaclesVisit
       objectReference: {fileID: 0}
+    - target: {fileID: 3961945117626450833, guid: 9d4e1477107d1fe4c81b41548e5c326f, type: 3}
+      propertyPath: _variants.Array.data[0].Relation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8084433550847570784, guid: 9d4e1477107d1fe4c81b41548e5c326f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

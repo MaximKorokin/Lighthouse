@@ -3,7 +3,7 @@ using System;
 
 public abstract class ObservableKeyValueStoreWrapper<K, V> where V : IEquatable<V>
 {
-    private static readonly Dictionary<K, HashSet<Action<V>>> _listeners = new();
+    private readonly Dictionary<K, HashSet<Action<V>>> _listeners = new();
 
     public void Set(K key, V value)
     {

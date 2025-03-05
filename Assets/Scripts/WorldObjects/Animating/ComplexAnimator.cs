@@ -33,11 +33,13 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
         {
             SetShift(new Vector2(0, GetExtents().y));
         }
+
+        SetOrdering();
     }
 
     private void Update()
     {
-        _animators.ForEach(x => x.SetOrdering((Vector2)transform.position + _worldObject.VisualPositionOffset));
+        SetOrdering();
     }
 
     public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
@@ -74,6 +76,11 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
     {
         _animators.ForEach(x => x.SetShift(shift));
         _worldObject.VisualPositionOffset = shift;
+    }
+
+    private void SetOrdering()
+    {
+        _animators.ForEach(x => x.SetOrdering((Vector2)transform.position + _worldObject.VisualPositionOffset));
     }
 }
 

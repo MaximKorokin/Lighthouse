@@ -25,5 +25,5 @@ MonoBehaviour:
     - rid: 4004304902827802626
       type: {class: ComponentOperationEffect, ns: , asm: Assembly-CSharp}
       data:
-        _component: 0
+        _component: 10
         _operation: 1
