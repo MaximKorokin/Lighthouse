@@ -34,15 +34,7 @@ public partial class ScenarioAct : MonoBehaviour
             }
         }
 
-        _phases ??= new();
-        _phases?.Where(x => x == null).ToArray().ForEach(x => _phases.Remove(x));
-        foreach (var phase in GetComponents<ActPhase>())
-        {
-            if (!_phases.Contains(phase))
-            {
-                _phases.Add(phase);
-            }
-        }
+        _phases = GetComponents<ActPhase>().ToList();
 
         _childrenActs ??= new();
         _childrenActs.Where(x => x == null).ToArray().ForEach(x => _childrenActs.Remove(x));

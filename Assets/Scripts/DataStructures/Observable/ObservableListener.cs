@@ -8,10 +8,13 @@ public abstract class ObservableListener<K, V> : MonoBehaviour where V : IEquata
 
     protected abstract ObservableKeyValueStoreWrapper<K, V> Observable { get; }
 
-    protected virtual void Awake()
+    private void Awake()
     {
-        Observable.SetChangeListener(Key, OnObservableValueChanged);
-        OnObservableValueChanged(Observable.Get(Key));
+        BehaviourCallsMediator.RequestAwakeCall(0, () =>
+        {
+            Observable.SetChangeListener(Key, OnObservableValueChanged);
+            OnObservableValueChanged(Observable.Get(Key));
+        });
     }
 
     protected virtual void OnDestroy()

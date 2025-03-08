@@ -1207,8 +1207,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 832276503}
-  - {fileID: 513494152}
   - {fileID: 1417315742}
+  - {fileID: 513494152}
   - {fileID: 1600236692}
   - {fileID: 1022810468}
   - {fileID: 67732103}
@@ -2504,8 +2504,6 @@ GameObject:
   - component: {fileID: 1273768609}
   - component: {fileID: 1273768611}
   - component: {fileID: 1273768610}
-  - component: {fileID: 1273768613}
-  - component: {fileID: 1273768612}
   m_Layer: 0
   m_Name: CeranaMoveAct1
   m_TagString: Untagged
@@ -2546,6 +2544,10 @@ MonoBehaviour:
   _movable: {fileID: 1589808939}
   _overrideController: 1
   _transformPosition: {fileID: 1505709483}
+  _transformPositions:
+  - {fileID: 1505709483}
+  - {fileID: 2070352318}
+  - {fileID: 1110601664}
 --- !u!114 &1273768611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,43 +2563,11 @@ MonoBehaviour:
   _requirements: []
   _phases:
   - {fileID: 1273768610}
-  - {fileID: 1273768613}
-  - {fileID: 1273768612}
   _childrenActs:
   - {fileID: 1071358527}
   _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 0
---- !u!114 &1273768612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273768608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d8d9368661764478206d3abe535662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movable: {fileID: 1589808939}
-  _overrideController: 1
-  _transformPosition: {fileID: 1110601664}
---- !u!114 &1273768613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273768608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d8d9368661764478206d3abe535662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movable: {fileID: 1589808939}
-  _overrideController: 1
-  _transformPosition: {fileID: 2070352318}
 --- !u!1 &1326251850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,6 +2660,8 @@ MonoBehaviour:
   _movable: {fileID: 1273450890}
   _overrideController: 0
   _transformPosition: {fileID: 486209681}
+  _transformPositions:
+  - {fileID: 486209681}
 --- !u!114 &1351659302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,6 +2677,8 @@ MonoBehaviour:
   _movable: {fileID: 1273450890}
   _overrideController: 0
   _transformPosition: {fileID: 250930140}
+  _transformPositions:
+  - {fileID: 250930140}
 --- !u!114 &1351659303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,6 +2719,8 @@ MonoBehaviour:
   _movable: {fileID: 1273450890}
   _overrideController: 0
   _transformPosition: {fileID: 1630924656}
+  _transformPositions:
+  - {fileID: 1630924656}
 --- !u!114 &1351659305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2760,6 +2736,8 @@ MonoBehaviour:
   _movable: {fileID: 1273450890}
   _overrideController: 0
   _transformPosition: {fileID: 364571723}
+  _transformPositions:
+  - {fileID: 364571723}
 --- !u!114 &1351659306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,6 +2753,8 @@ MonoBehaviour:
   _movable: {fileID: 1273450890}
   _overrideController: 0
   _transformPosition: {fileID: 525181163}
+  _transformPositions:
+  - {fileID: 525181163}
 --- !u!114 &1351659307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,6 +2770,8 @@ MonoBehaviour:
   _movable: {fileID: 1273450890}
   _overrideController: 0
   _transformPosition: {fileID: 1133874206}
+  _transformPositions:
+  - {fileID: 1133874206}
 --- !u!1 &1407749076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,6 +3384,8 @@ MonoBehaviour:
   _movable: {fileID: 1909617013}
   _overrideController: 1
   _transformPosition: {fileID: 2128764794}
+  _transformPositions:
+  - {fileID: 2128764794}
 --- !u!114 &1777188329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3818,6 +3802,8 @@ MonoBehaviour:
   _movable: {fileID: 1909617013}
   _overrideController: 1
   _transformPosition: {fileID: 116080818}
+  _transformPositions:
+  - {fileID: 116080818}
 --- !u!114 &2107731792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3946,6 +3932,8 @@ MonoBehaviour:
   _movable: {fileID: 1193811381}
   _overrideController: 1
   _transformPosition: {fileID: 1715881760}
+  _transformPositions:
+  - {fileID: 1715881760}
 --- !u!114 &2110768308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4034,6 +4022,8 @@ MonoBehaviour:
   _movable: {fileID: 1909617013}
   _overrideController: 1
   _transformPosition: {fileID: 1606848638}
+  _transformPositions:
+  - {fileID: 1606848638}
 --- !u!114 &2118684027
 MonoBehaviour:
   m_ObjectHideFlags: 0

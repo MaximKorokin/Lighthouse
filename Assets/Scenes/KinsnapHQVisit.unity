@@ -316,6 +316,8 @@ MonoBehaviour:
   _movable: {fileID: 1582793516}
   _overrideController: 1
   _transformPosition: {fileID: 597403834}
+  _transformPositions:
+  - {fileID: 597403834}
 --- !u!114 &14223267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +388,8 @@ MonoBehaviour:
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
   _transformPosition: {fileID: 549392149}
+  _transformPositions:
+  - {fileID: 549392149}
 --- !u!114 &14223272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +534,6 @@ GameObject:
   - component: {fileID: 465953214}
   - component: {fileID: 465953216}
   - component: {fileID: 465953215}
-  - component: {fileID: 465953217}
   m_Layer: 0
   m_Name: PatrolScenario
   m_TagString: Untagged
@@ -570,6 +573,9 @@ MonoBehaviour:
   _movable: {fileID: 1411155634}
   _overrideController: 1
   _transformPosition: {fileID: 2109439973}
+  _transformPositions:
+  - {fileID: 2109439973}
+  - {fileID: 405173054}
 --- !u!114 &465953216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,27 +591,11 @@ MonoBehaviour:
   _requirements: []
   _phases:
   - {fileID: 465953215}
-  - {fileID: 465953217}
   _childrenActs:
   - {fileID: 465953216}
   _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 1
---- !u!114 &465953217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465953213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d8d9368661764478206d3abe535662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movable: {fileID: 1411155634}
-  _overrideController: 1
-  _transformPosition: {fileID: 405173054}
 --- !u!1 &493253695
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +695,8 @@ MonoBehaviour:
   _movable: {fileID: 1582793516}
   _overrideController: 1
   _transformPosition: {fileID: 1588480437}
+  _transformPositions:
+  - {fileID: 1588480437}
 --- !u!114 &493253700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,6 +1709,8 @@ MonoBehaviour:
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
   _transformPosition: {fileID: 709771612}
+  _transformPositions:
+  - {fileID: 709771612}
 --- !u!114 &1112819574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1900,6 +1894,8 @@ MonoBehaviour:
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
   _transformPosition: {fileID: 2052546962}
+  _transformPositions:
+  - {fileID: 2052546962}
 --- !u!114 &1158463552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1915,6 +1911,8 @@ MonoBehaviour:
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
   _transformPosition: {fileID: 812333493}
+  _transformPositions:
+  - {fileID: 812333493}
 --- !u!114 &1158463553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,6 +1988,8 @@ MonoBehaviour:
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
   _transformPosition: {fileID: 719452271}
+  _transformPositions:
+  - {fileID: 719452271}
 --- !u!114 &1332235850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,6 +2353,8 @@ MonoBehaviour:
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
   _transformPosition: {fileID: 1540445548}
+  _transformPositions:
+  - {fileID: 1540445548}
 --- !u!114 &1652541714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2747,6 +2749,8 @@ MonoBehaviour:
   _movable: {fileID: 1582793516}
   _overrideController: 1
   _transformPosition: {fileID: 607347370}
+  _transformPositions:
+  - {fileID: 607347370}
 --- !u!1 &1977410975
 GameObject:
   m_ObjectHideFlags: 0

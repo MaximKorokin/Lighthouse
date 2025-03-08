@@ -7,7 +7,7 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 {
     [SerializeField]
     private List<ActRequirement> _requirements;
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private List<ActPhase> _phases;
     [SerializeField]
     private List<ScenarioAct> _childrenActs;

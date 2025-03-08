@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class LoadableUIParent : OptionalMonoBehaviorSingleton<LoadableUIParent>
 {
-    private readonly SortedList<int, RectTransform> _prioritizedElements = new(new PriorityComparer());
+    private readonly PrioritizedList<RectTransform> _elements = new();
 
     public void SetUIElement(RectTransform rect, int priority)
     {
-        _prioritizedElements[priority] = rect;
+        _elements.Add(rect, priority);
         rect.SetParent(transform, false);
-        rect.SetSiblingIndex(_prioritizedElements.IndexOfValue(rect));
+        rect.SetSiblingIndex(_elements.IndexOf(rect));
     }
 
     // In case of conflict Priority, the element should be inserted after all same priority elements
