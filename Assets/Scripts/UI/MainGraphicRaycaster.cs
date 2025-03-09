@@ -1,5 +1,7 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(GraphicRaycaster))]
 public class MainGraphicRaycaster : MonoBehaviorSingleton<MainGraphicRaycaster>
 {
     private GraphicRaycaster _raycaster;
