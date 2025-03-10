@@ -18,7 +18,7 @@ public static class DefaultValueAttributeExtensions
         var members = obj.GetType().GetMember(obj.ToString());
         if (members == null || members.Length == 0)
         {
-            Logger.Warn($"Could not be recieve member {obj} in type {obj.GetType()}.");
+            Logger.Warn($"Could not recieve member {obj} in type {obj?.GetType()}.");
             return null;
         }
         var attribute = members[0].GetCustomAttribute<DefaultValueAttribute>(false);
