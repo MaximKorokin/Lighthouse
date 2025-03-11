@@ -44,10 +44,13 @@ TagManager:
   - name: Floor
     uniqueID: 2786993471
     locked: 0
+  - name: FloorDecorations
+    uniqueID: 15643711
+    locked: 0
   - name: Walls
     uniqueID: 3155478673
     locked: 0
-  - name: Decorations1
+  - name: WallsDecorations
     uniqueID: 785706567
     locked: 0
   - name: Decorations2
