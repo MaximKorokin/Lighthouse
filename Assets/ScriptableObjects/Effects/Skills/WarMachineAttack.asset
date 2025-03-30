@@ -43,7 +43,7 @@ MonoBehaviour:
           Distance: 1
           Angle: 30
           Number: 3
-          GeneratingFulcrum: 12
+          GeneratingFulcrum: 11
           GeneratingDistance: 11
           GeneratingOrder: 11
           GeneratingDirection: 11

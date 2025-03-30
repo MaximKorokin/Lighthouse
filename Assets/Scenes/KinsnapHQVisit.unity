@@ -315,7 +315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 1582793516}
   _overrideController: 1
-  _transformPosition: {fileID: 597403834}
   _transformPositions:
   - {fileID: 597403834}
 --- !u!114 &14223267
@@ -387,7 +386,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
-  _transformPosition: {fileID: 549392149}
   _transformPositions:
   - {fileID: 549392149}
 --- !u!114 &14223272
@@ -572,7 +570,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 1411155634}
   _overrideController: 1
-  _transformPosition: {fileID: 2109439973}
   _transformPositions:
   - {fileID: 2109439973}
   - {fileID: 405173054}
@@ -694,7 +691,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 1582793516}
   _overrideController: 1
-  _transformPosition: {fileID: 1588480437}
   _transformPositions:
   - {fileID: 1588480437}
 --- !u!114 &493253700
@@ -1708,7 +1704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
-  _transformPosition: {fileID: 709771612}
   _transformPositions:
   - {fileID: 709771612}
 --- !u!114 &1112819574
@@ -1893,7 +1888,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
-  _transformPosition: {fileID: 2052546962}
   _transformPositions:
   - {fileID: 2052546962}
 --- !u!114 &1158463552
@@ -1910,7 +1904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
-  _transformPosition: {fileID: 812333493}
   _transformPositions:
   - {fileID: 812333493}
 --- !u!114 &1158463553
@@ -1987,7 +1980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
-  _transformPosition: {fileID: 719452271}
   _transformPositions:
   - {fileID: 719452271}
 --- !u!114 &1332235850
@@ -2352,7 +2344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 4731586078543126334}
   _overrideController: 1
-  _transformPosition: {fileID: 1540445548}
   _transformPositions:
   - {fileID: 1540445548}
 --- !u!114 &1652541714
@@ -2478,6 +2469,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5560070174550372139, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3164090444694026915, guid: 20d3a3c0fb5bf1243994c3043a1dab2f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -2748,7 +2742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movable: {fileID: 1582793516}
   _overrideController: 1
-  _transformPosition: {fileID: 607347370}
   _transformPositions:
   - {fileID: 607347370}
 --- !u!1 &1977410975

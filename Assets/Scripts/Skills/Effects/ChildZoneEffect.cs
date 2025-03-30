@@ -28,7 +28,8 @@ public class ChildZoneEffect : ZoneEffect
             {
                 zoneMovable.Direction = turnDirection;
             }
-            zone.transform.localPosition = turnDirection * DistanceFromParent + movable.VisualPositionOffset;
+
+            zone.transform.localPosition = turnDirection * DistanceFromParent + movable.VisualSize * Vector2.up * 0.5f;
         }
     }
 }

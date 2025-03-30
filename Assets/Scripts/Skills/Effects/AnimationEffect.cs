@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class AnimationEffect : Effect
@@ -15,8 +14,6 @@ public class AnimationEffect : Effect
     private bool _flipWithTarget;
     [SerializeField]
     private int _orderInLayer;
-    [SerializeField]
-    private AnimationEffectPositioning _positioning;
 
     public override void Invoke(CastState castState)
     {
@@ -38,63 +35,39 @@ public class AnimationEffect : Effect
 
         if (_hasDuration)
         {
-            target.StartCoroutineSafe(AnimationCoroutine(), () => Cancel(animator));
+            target.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(_duration > 0 ? _duration : _animation.length), () => Cancel(animator));
         }
 
         SetupAnimator(animator, target, castState.GetTargetPosition());
     }
 
-    private IEnumerator AnimationCoroutine()
+    private void SetupAnimator(GenericAnimatorController animator, WorldObject target, Vector2 position)
     {
-        yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
+        animator.transform.position = position;
+
+        var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
+        animatorSpriteRenderer.sortingOrder = _orderInLayer;
+
+        var targetSpriteRenderer = target.GetComponent<SpriteRenderer>();
+        if (_flipWithTarget)
+        {
+            if (target is MovableWorldObject movable)
+            {
+                animatorSpriteRenderer.flipX = movable.IsFlipped;
+            }
+            else if (targetSpriteRenderer != null)
+            {
+                animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
+                animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
+            }
+        }
     }
 
-    private void Cancel(GenericAnimatorController animator)
+    private static void Cancel(GenericAnimatorController animator)
     {
         if (animator != null)
         {
             GenericAnimatorPool.Return(animator);
         }
     }
-
-    // this is gavno
-    private void SetupAnimator(GenericAnimatorController animator, WorldObject target, Vector2 position)
-    {
-        animator.transform.position = _childToTarget ? position + target.VisualPositionOffset : position;
-
-        var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
-        animatorSpriteRenderer.sortingOrder = _orderInLayer;
-
-        var targetComplexAnimator = target.GetComponent<ComplexAnimator>();
-        var targetSpriteRenderer = target.GetComponent<SpriteRenderer>();
-        if (targetComplexAnimator != null)
-        {
-            if (_flipWithTarget && target is MovableWorldObject movable)
-            {
-                animatorSpriteRenderer.flipX = movable.IsFlipped;
-            }
-            if (_positioning == AnimationEffectPositioning.BoundsBottom)
-            {
-                animator.transform.localPosition = new Vector2(0, -targetComplexAnimator.GetExtents().y);
-            }
-        }
-        else if (targetSpriteRenderer != null)
-        {
-            if (_flipWithTarget)
-            {
-                animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
-                animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
-            }
-            if (_positioning == AnimationEffectPositioning.BoundsBottom)
-            {
-                animator.transform.localPosition = new Vector2(0, -targetSpriteRenderer.localBounds.extents.y);
-            }
-        }
-    }
-}
-
-public enum AnimationEffectPositioning
-{
-    Center = 0,
-    BoundsBottom = 1,
 }

@@ -9,7 +9,8 @@ public class ProjectileEffect : EndingEffect
 
     public override void Invoke(CastState castState)
     {
-        var projectile = Object.Instantiate(Projectile, castState.Source.transform.position + (Vector3)castState.Source.VisualPositionOffset, Quaternion.identity);
+        var position = (Vector2)castState.Source.transform.position + castState.Source.VisualSize * Vector2.up * 0.5f;
+        var projectile = Object.Instantiate(Projectile, position, Quaternion.identity);
         projectile.SetProjectileEffect(this, castState);
         projectile.GetComponent<StraightMovingController>().SetTargetPosition(castState.GetTargetPosition());
     }

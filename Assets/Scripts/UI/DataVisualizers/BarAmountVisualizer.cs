@@ -22,6 +22,12 @@ public abstract class BarAmountVisualizer : AmountVisualizerBase, IInitializable
 
     public void Initialize()
     {
+        if (_barControllerPrefab == null)
+        {
+            Logger.Error($"{nameof(_barControllerPrefab)} is null in {name}");
+            return;
+        }
+
         BarController = BarsPool.Take(_barControllerPrefab);
         VisualizeAmount(1, 1, 1);
         Initialized?.Invoke(this);

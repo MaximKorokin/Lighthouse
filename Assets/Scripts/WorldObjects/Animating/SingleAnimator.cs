@@ -1,103 +1,17 @@
-using System;
-using UnityEngine;
-
 /// <summary>
 /// Must be used in conjunction with <see cref="ComplexAnimator"/> which finds instances of this class
 /// </summary>
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(SpriteRenderer))]
-public class SingleAnimator : MonoBehaviour, IAnimator, IInitializable<SingleAnimator>
+public class SingleAnimator : AnimatorBase
 {
-    [SerializeField]
-    private bool _hasExtents = true;
-    [SerializeField]
-    private Vector2 _offset;
-    [SerializeField]
-    private float _orderingOffset;
-    private Vector2 _shift;
-    private Vector3 _initialLocalPosition;
-
-    public event Action<SingleAnimator> Initialized;
-
-    public Animator Animator { get; private set; }
-    public SpriteRenderer SpriteRenderer { get; private set; }
-
-    public virtual void Initialize()
+    private void Start()
     {
-        Animator = GetComponent<Animator>();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
-        _initialLocalPosition = transform.localPosition;
-        SetFlip(false);
-        Initialized?.Invoke(this);
-    }
-
-    public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct
-    {
-        if (Animator == null || Animator.runtimeAnimatorController == null)
+        if (TryGetComponent(out ComplexAnimator animator) || transform.parent.TryGetComponent(out animator))
         {
-            return;
+            animator.AddAnimator(this);
         }
-        var keyName = key.ToString();
-
-        switch (Array.Find(Animator.parameters, x => x.name == keyName)?.type)
+        else
         {
-            case AnimatorControllerParameterType.Bool:
-                Animator.SetBool(keyName, Convert.ToBoolean(value));
-                break;
-            case AnimatorControllerParameterType.Trigger:
-                Animator.SetTrigger(keyName);
-                break;
-            case AnimatorControllerParameterType.Int:
-                Animator.SetInteger(keyName, Convert.ToInt32(value));
-                break;
-            case AnimatorControllerParameterType.Float:
-                Animator.SetFloat(keyName, Convert.ToSingle(value));
-                break;
+            Logger.Warn($"Could not find {typeof(ComplexAnimator)} on sef or parent object.");
         }
     }
-
-    public void SetFlip(bool shouldFlip)
-    {
-        SpriteRenderer.flipX = shouldFlip;
-        Reposition();
-    }
-
-    private void Reposition()
-    {
-        transform.localPosition = _initialLocalPosition;
-        transform.localPosition += new Vector3((SpriteRenderer.flipX ? -1 : 1) * _offset.x, _offset.y) + (Vector3)_shift;
-    }
-
-    public Vector2 GetExtents()
-    {
-        return _hasExtents ? ((Vector2)SpriteRenderer.localBounds.extents) - _offset - _shift : Vector2.zero;
-    }
-
-    public void SetShift(Vector2 shift)
-    {
-        _shift = shift;
-        Reposition();
-    }
-
-    public void SetOrdering(Vector2 globalPosition)
-    {
-        var newSortingOrder = -(int)((globalPosition.y + _orderingOffset) * 10);
-        SpriteRenderer.sortingOrder = newSortingOrder;
-    }
-}
-
-public enum AnimatorKey
-{
-    Attack = 1,
-    Hurt = 2,
-    IsDead = 3,
-    IsMoving = 4,
-    HPRatio = 5,
-    AttackSpeed = 6,
-    MoveSpeed = 7,
-    Transit = 8,
-    Dash = 9,
-    ShieldRatio = 10,
-    PlayAnimation = 11,
-    StopAnimation = 12,
 }

@@ -11,10 +11,7 @@ public enum StatName
     AutoLootRange = 6,
     [DefaultValue(1)]
     ActionCDModifier = 7,
-    MaxShield = 8,
     HPRegen = 9,
-    ShieldRegen = 10,
-    ShieldDelay = 11,
     [DefaultValue(1)]
     VisionRange = 12,
 }

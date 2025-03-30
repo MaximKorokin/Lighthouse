@@ -527,8 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0, y: 0}
-  _orderingOffset: -0.2
+  _orderingOffset: -0.6
 --- !u!114 &4035667311092690169
 MonoBehaviour:
   m_ObjectHideFlags: 0

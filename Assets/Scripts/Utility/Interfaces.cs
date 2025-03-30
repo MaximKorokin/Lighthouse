@@ -6,6 +6,7 @@ public interface ICopyable<in T>
 {
     void CopyTo(T obj);
 }
+
 public interface IInitializable
 {
     void Initialize();

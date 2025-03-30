@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0.15, y: 0}
+  _offset: {x: 0.15, y: 0.375}
   _orderingOffset: 0
 --- !u!1 &8873908040075855237
 GameObject:

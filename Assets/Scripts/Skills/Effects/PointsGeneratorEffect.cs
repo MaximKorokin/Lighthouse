@@ -26,7 +26,6 @@ public class PointsGeneratorEffect : ComplexEffect
         {
             PointsGeneratingFulcrum.Target => castState.Target.transform.position,
             PointsGeneratingFulcrum.Source => castState.Source.transform.position,
-            PointsGeneratingFulcrum.SourceWithVisualOffset => castState.Source.transform.position + (Vector3)castState.Source.VisualPositionOffset,
             _ => castState.Source.transform.position,
         };
     }

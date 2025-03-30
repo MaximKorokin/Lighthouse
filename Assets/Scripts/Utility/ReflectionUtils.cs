@@ -5,9 +5,10 @@ using System.Reflection;
 
 public static class ReflectionUtils
 {
-    public static IEnumerable<Type> GetSubclasses<T>() where T : class
+    public static IEnumerable<Type> GetSubclasses<T>(bool searchInTypeAssembly = false) where T : class
     {
-        return Assembly.GetAssembly(typeof(T)).GetTypes()
+        var assembly = searchInTypeAssembly ? Assembly.GetAssembly(typeof(T)) : Assembly.GetAssembly(typeof(Effect));
+        return assembly.GetTypes()
             .Where(x => x.IsClass && !x.IsAbstract && x.IsSubclassOf(typeof(T)));
     }
 
@@ -16,15 +17,28 @@ public static class ReflectionUtils
         return (T)Activator.CreateInstance(type, constructorArgs);
     }
 
-    public static IEnumerable<FieldInfo> GetAllFields(Type type, bool recursive = false)
+    public static IEnumerable<FieldInfo> GetAllFields(Type type, bool recursive, Type recursiveUpTo = null, BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly)
     {
         if (type == null)
         {
             return Enumerable.Empty<FieldInfo>();
         }
-        BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly;
         var fields = type.GetFields(flags);
-        return recursive ? GetAllFields(type.BaseType, true).Concat(fields) : fields;
+        return (recursive && type != recursiveUpTo)
+            ? GetAllFields(type.BaseType, true, recursiveUpTo, flags).Concat(fields)
+            : fields;
+    }
+
+    public static IEnumerable<PropertyInfo> GetAllProperties(Type type, bool recursive = false, Type recursiveUpTo = null, BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+    {
+        if (type == null)
+        {
+            return Enumerable.Empty<PropertyInfo>();
+        }
+        var properties = type.GetProperties(flags);
+        return (recursive && type != recursiveUpTo)
+            ? GetAllProperties(type.BaseType, true, recursiveUpTo, flags).Concat(properties)
+            : properties;
     }
 
     public static IEnumerable<FieldInfo> GetFieldsWithAttributes(Type type, bool recursive, params Type[] attributes)

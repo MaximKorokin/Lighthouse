@@ -11,9 +11,7 @@ public abstract class DestroyableWorldObject : WorldObject
     public bool IsAlive { get; private set; } = true;
 
     public float MaxHealthPoints => Stats[StatName.MaxHealthPoints];
-    public float MaxShieldValue => Stats[StatName.MaxShield];
     public float HPRegen => Stats[StatName.HPRegen];
-    public float ShieldRegen => Stats[StatName.ShieldRegen];
 
     private float _currentHealthPoints;
     public float CurrentHealthPoints
@@ -33,23 +31,6 @@ public abstract class DestroyableWorldObject : WorldObject
         }
     }
 
-    private readonly CooldownCounter _shieldDelayCounter = new(0);
-    private float _currentShieldValue;
-    public float CurrentShieldValue
-    {
-        get => _currentShieldValue;
-        private set
-        {
-            var previousValue = _currentShieldValue;
-            _currentShieldValue = Math.Max(0, Math.Min(value, MaxShieldValue));
-
-            if (previousValue == _currentShieldValue) return;
-
-            ShieldValueChanged?.Invoke(previousValue, _currentShieldValue, MaxShieldValue);
-            SetAnimatorValue(AnimatorKey.ShieldRatio, MaxShieldValue > 0 ? (_currentShieldValue / MaxShieldValue) : 0);
-        }
-    }
-
     /// <summary>
     /// Action<PreviousHP, CurrentHP, MaxHP>
     /// <typeparam name="PreviousHP"></typeparam>
@@ -57,14 +38,13 @@ public abstract class DestroyableWorldObject : WorldObject
     /// <typeparam name="MaxHP"></typeparam>
     /// </summary>
     public event Action<float, float, float> HealthPointsChanged;
-    public event Action<float, float, float> ShieldValueChanged;
+    public event RefAction<float> Damaged;
     public event Action Destroying;
 
     protected override void Awake()
     {
         base.Awake();
         CurrentHealthPoints = MaxHealthPoints;
-        CurrentShieldValue = MaxShieldValue;
     }
 
     private void Update()
@@ -77,10 +57,6 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             CurrentHealthPoints += HPRegen * Time.deltaTime;
         }
-        if (_shieldDelayCounter.IsOver() && ShieldRegen > 0 && CurrentShieldValue < MaxShieldValue)
-        {
-            CurrentShieldValue += ShieldRegen * Time.deltaTime;
-        }
     }
 
     protected override void OnStatsModified()
@@ -91,53 +67,30 @@ public abstract class DestroyableWorldObject : WorldObject
         {
             CurrentHealthPoints = MaxHealthPoints;
         }
-        
-        if (MaxShieldValue < CurrentShieldValue)
-        {
-            CurrentShieldValue = MaxShieldValue;
-        }
-        _shieldDelayCounter.Cooldown = Stats[StatName.ShieldDelay];
     }
 
     public virtual void Damage(float damageValue)
     {
-        if (!IsAlive || !IsDamagable || damageValue <= 0)
-        {
-            return;
-        }
+        if (!IsAlive || !IsDamagable) return;
 
-        _shieldDelayCounter.Reset();
-        var remainingDamage = damageValue - CurrentShieldValue;
-        CurrentShieldValue -= damageValue;
-        if (remainingDamage <= 0)
-        {
-            return;
-        }
+        Damaged?.Invoke(ref damageValue);
 
-        CurrentHealthPoints -= remainingDamage;
+        if (damageValue <= 0) return;
+
+        CurrentHealthPoints -= damageValue;
         SetAnimatorValue(AnimatorKey.Hurt, true);
     }
 
     public virtual void Heal(float healValue)
     {
-        if (!IsAlive)
-        {
-            return;
-        }
+        if (!IsAlive || healValue <= 0) return;
 
-        if (healValue <= 0)
-        {
-            return;
-        }
         CurrentHealthPoints += healValue;
     }
 
     public virtual void DestroyWorldObject()
     {
-        if (!IsAlive)
-        {
-            return;
-        }
+        if (!IsAlive) return;
 
         SetAnimatorValue(AnimatorKey.IsDead, true);
 
@@ -153,4 +106,6 @@ public abstract class DestroyableWorldObject : WorldObject
             base.SetAnimatorValue(key, value);
         }
     }
+
+    public delegate void RefAction<T>(ref T parameter);
 }

@@ -12,7 +12,7 @@ public abstract class WorldObject : MonoBehaviour
     [field: SerializeField]
     public Faction Faction { get; private set; }
 
-    public Vector2 VisualPositionOffset { get; set; }
+    public Vector2 VisualSize { get; set; }
 
     [SerializeField]
     private Stats _stats;

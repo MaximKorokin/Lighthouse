@@ -12568,7 +12568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: 5141d7c8a1d928b4283ae2ce0f51808a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.416
+      value: 0.907
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: 5141d7c8a1d928b4283ae2ce0f51808a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14624,10 +14624,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4693252188866687689, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
+      propertyPath: _offset.y
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030208844778997697, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
+      propertyPath: _offset.y
+      value: 0.375
+      objectReference: {fileID: 0}
     - target: {fileID: 7537639882005055995, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8190725275004147874, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
+      propertyPath: _startEffectsSettings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190725275004147874, guid: 06a667ebc3e450845a7c0ee14beca697, type: 3}
+      propertyPath: _startEffectsSettings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 78217ca1a058ba54f8431a1234cc68c4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27559,6 +27575,7 @@ GameObject:
   - component: {fileID: 2083514372}
   - component: {fileID: 2083514371}
   - component: {fileID: 2083514370}
+  - component: {fileID: 2083514373}
   m_Layer: 0
   m_Name: ConfigsAct
   m_TagString: Untagged
@@ -27625,10 +27642,25 @@ MonoBehaviour:
   _phases:
   - {fileID: 2083514371}
   - {fileID: 2083514370}
+  - {fileID: 2083514373}
   _childrenActs: []
   _phasesInvokationType: 20
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
+--- !u!114 &2083514373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083514368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c206277104e32d849b5fc87f8a469d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: 100
+  value: 1
 --- !u!1001 &1196967670650986065
 PrefabInstance:
   m_ObjectHideFlags: 0

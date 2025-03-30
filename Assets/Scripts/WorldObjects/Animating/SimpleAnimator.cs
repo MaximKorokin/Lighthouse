@@ -4,7 +4,7 @@
 /// It is <see cref="SingleAnimator"/> and <see cref="ComplexAnimator"/> classes in one
 /// </summary>
 [RequireComponent(typeof(WorldObject))]
-public class SimpleAnimator : SingleAnimator
+public class SimpleAnimator : AnimatorBase
 {
     private WorldObject _worldObject;
 
@@ -15,7 +15,7 @@ public class SimpleAnimator : SingleAnimator
 
     private void Update()
     {
-        SetOrdering((Vector2)transform.position + _worldObject.VisualPositionOffset);
+        SetOrdering((Vector2)transform.position);
     }
 
     public override void Initialize()

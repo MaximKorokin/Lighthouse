@@ -49,6 +49,7 @@ MonoBehaviour:
         <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 0215c199ed4f50b4689cbb14fc6e3b2f, type: 3}
         <DistanceFromParent>k__BackingField: 0.4
         <InvokationCooldown>k__BackingField: 1
+        _relativeSizeOffset: {x: 0, y: 0.5}
     - rid: 4259499536714563598
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
