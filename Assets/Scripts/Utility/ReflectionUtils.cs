@@ -19,24 +19,24 @@ public static class ReflectionUtils
 
     public static IEnumerable<FieldInfo> GetAllFields(Type type, bool recursive, Type recursiveUpTo = null, BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly)
     {
-        if (type == null)
+        if (type == null || type == recursiveUpTo)
         {
             return Enumerable.Empty<FieldInfo>();
         }
         var fields = type.GetFields(flags);
-        return (recursive && type != recursiveUpTo)
+        return recursive
             ? GetAllFields(type.BaseType, true, recursiveUpTo, flags).Concat(fields)
             : fields;
     }
 
     public static IEnumerable<PropertyInfo> GetAllProperties(Type type, bool recursive = false, Type recursiveUpTo = null, BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly)
     {
-        if (type == null)
+        if (type == null || type == recursiveUpTo)
         {
             return Enumerable.Empty<PropertyInfo>();
         }
         var properties = type.GetProperties(flags);
-        return (recursive && type != recursiveUpTo)
+        return recursive
             ? GetAllProperties(type.BaseType, true, recursiveUpTo, flags).Concat(properties)
             : properties;
     }

@@ -42,10 +42,13 @@ public static class EnumerableExtensions
         yield return obj;
     }
 
-    public static IEnumerable<T> YieldWith<T>(this T obj, T other)
+    public static IEnumerable<T> YieldWith<T>(this T obj, params T[] objects)
     {
         yield return obj;
-        yield return other;
+        foreach (var additionalObj in objects)
+        {
+            yield return additionalObj;
+        }
     }
 
     public static IEnumerable<T> YieldWith<T>(this T obj, IEnumerable<T> objects)

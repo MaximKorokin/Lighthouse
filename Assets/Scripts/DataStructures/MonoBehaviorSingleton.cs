@@ -6,6 +6,6 @@ public abstract class MonoBehaviorSingleton<T> : MonoBehaviour where T : MonoBeh
 
     protected virtual void Awake()
     {
-        BehaviourCallsMediator.RequestAwakeCall(int.MinValue, () => Instance = (T)this);
+        BehaviourCallsMediator.RequestLateAwakeCall(int.MinValue, () => Instance = (T)this);
     }
 }

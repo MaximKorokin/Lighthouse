@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -12,8 +13,7 @@ public class ComponentsCopyEffect : Effect
         var target = castState.GetTarget().gameObject;
 
         // Create a copy of Source
-        var sourceCopy = Object.Instantiate(Source);
-        sourceCopy.SetActive(false);
+        var sourceCopy = CopyGameObject(Source);
 
         target.SetActive(false);
         // Copy components on itself
@@ -31,19 +31,52 @@ public class ComponentsCopyEffect : Effect
         Object.Destroy(sourceCopy);
     }
 
+    private static GameObject CopyGameObject(GameObject source)
+    {
+        source.SetActive(false);
+        var sourceCopy = Object.Instantiate(source);
+        sourceCopy.SetActive(false);
+        source.SetActive(true);
+        return sourceCopy;
+    }
+
     private static void CopyComponents(GameObject source, GameObject target)
     {
-        var targetComponents = target.GetComponents<Component>();
-        var sourceComponents = source.GetComponents<Component>();
+        const int MaxCyclesLimit = 1000;
 
-        foreach (var sourceComponent in sourceComponents)
+        var targetComponents = target.GetComponents<Component>().ToList();
+        var sourceComponents = new Queue<Component>(source.GetComponents<Component>());
+
+        var cyclesCount = 0;
+        while (sourceComponents.Count > 0)
         {
+            if (++cyclesCount >= MaxCyclesLimit)
+            {
+                Logger.Error($"Max cycles limit reached in {nameof(ComponentsCopyEffect)}. Something is broken!");
+                return;
+            }
+
+            var sourceComponent = sourceComponents.Dequeue();
             var sourceType = sourceComponent.GetType();
+
             // Ignore component if already exists on Target
             if (targetComponents.Any(x => x.GetType() == sourceType)) continue;
 
-            var targetComponent = target.AddComponent(sourceType);
+            // Lower priority if contains unfulfilled RequireComponent attribute
+            var requireComponentAttribute = sourceType.GetCustomAttributes<RequireComponent>(true);
+            if (requireComponentAttribute
+                .SelectMany(x => x.m_Type0.YieldWith(x.m_Type1, x.m_Type2))
+                .Distinct()
+                .Where(x => x != null)
+                .Except(targetComponents.Select(x => x.GetType()), new TypeWithBaseEqualityComparer())
+                .Any())
+            {
+                sourceComponents.Enqueue(sourceComponent);
+                continue;
+            }
 
+            var targetComponent = target.AddComponent(sourceType);
+            targetComponents.Add(targetComponent);
             CopyComponent(sourceComponent, targetComponent);
         }
     }
@@ -70,15 +103,30 @@ public class ComponentsCopyEffect : Effect
     {
         var sourceType = source.GetType();
         // Iterate through all public and serialized fields
-        foreach (var field in ReflectionUtils.GetAllFields(sourceType, true, typeof(Component), BindingFlags.Instance | BindingFlags.Public).Concat(
-            ReflectionUtils.GetFieldsWithAttributes(sourceType, true, typeof(SerializeField))))
+        foreach (var field in ReflectionUtils
+            .GetAllFields(sourceType, true, typeof(MonoBehaviour), BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
+            .Concat(ReflectionUtils.GetFieldsWithAttributes(sourceType, true, typeof(SerializeField))))
         {
             field.SetValue(target, field.GetValue(source));
         }
         // Iterate through all public properties
-        foreach (var property in ReflectionUtils.GetAllProperties(sourceType, true, typeof(Component), BindingFlags.Instance | BindingFlags.Public))
+        foreach (var property in ReflectionUtils
+            .GetAllProperties(sourceType, true, typeof(MonoBehaviour), BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly))
         {
             if (property.CanWrite) property.SetValue(target, property.GetValue(source));
+        }
+    }
+
+    private class TypeWithBaseEqualityComparer : IEqualityComparer<System.Type>
+    {
+        public bool Equals(System.Type x, System.Type y)
+        {
+            return x.Equals(y) || x.IsSubclassOf(y) || y.IsSubclassOf(x);
+        }
+
+        public int GetHashCode(System.Type obj)
+        {
+            return 1;
         }
     }
 }

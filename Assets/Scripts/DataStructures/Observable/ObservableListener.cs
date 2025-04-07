@@ -10,7 +10,7 @@ public abstract class ObservableListener<K, V> : MonoBehaviour where V : IEquata
 
     private void Awake()
     {
-        BehaviourCallsMediator.RequestAwakeCall(0, () =>
+        BehaviourCallsMediator.RequestLateAwakeCall(0, () =>
         {
             Observable.SetChangeListener(Key, OnObservableValueChanged);
             OnObservableValueChanged(Observable.Get(Key));

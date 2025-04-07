@@ -12,13 +12,15 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
 
     public event Action<AnimatorBase> Initialized;
 
-    public Animator Animator { get; private set; }
-    public SpriteRenderer SpriteRenderer { get; private set; }
+    private Animator _animator;
+    public Animator Animator => gameObject.LazyGetComponent(ref _animator);
+
+    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer SpriteRenderer => gameObject.LazyGetComponent(ref _spriteRenderer);
 
     public virtual void Initialize()
     {
-        Animator = GetComponent<Animator>();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        Animator.keepAnimatorStateOnDisable = true;
         SetFlip(false);
         Initialized?.Invoke(this);
     }
@@ -56,6 +58,9 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
     public Vector2 GetExtents()
     {
         var sprite = SpriteRenderer.sprite;
+
+        if (sprite == null) return Vector2.zero;
+
         var croppedRect = new Rect(
             (sprite.textureRectOffset.x + sprite.textureRect.width / 2) / sprite.pixelsPerUnit,
             (sprite.textureRectOffset.y + sprite.textureRect.height / 2) / sprite.pixelsPerUnit,

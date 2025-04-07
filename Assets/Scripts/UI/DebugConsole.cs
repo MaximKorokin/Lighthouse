@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Text;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Text))]
@@ -23,6 +24,10 @@ public class DebugConsole : MonoBehaviour
 
     public void Log(string logString, string stackTrace, LogType type)
     {
-        _text.text += $"\n {type.ToString().ToUpper()}: {logString}\n\t{stackTrace}";
+        _text.text += type switch
+        {
+            LogType.Error => $"\n {type.ToString().ToUpper()}: {logString}\n\t{stackTrace}",
+            _ => $"\n {type.ToString().ToUpper()}: {logString}",
+        };
     }
 }

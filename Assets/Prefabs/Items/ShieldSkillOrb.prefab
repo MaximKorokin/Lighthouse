@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -3635323585366941415}
   - component: {fileID: 4429670179811112885}
   m_Layer: 6
-  m_Name: HealingOrb
+  m_Name: ShieldSkillOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1885556156, guid: 28dba62a465adea4c97aca7a9e5c3659, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skills:
-  - _settings: {fileID: 11400000, guid: f519d8b4aaacbab4bb985c0c99edfe59, type: 2}
+  - _settings: {fileID: 11400000, guid: 0a85a6ce60caa84419f30155fd3df2d0, type: 2}
     _startsInCooldown: 0
     _conditionData:
       Predicate: 4096

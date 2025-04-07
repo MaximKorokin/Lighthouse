@@ -18,7 +18,7 @@ public class BehaviourCallsMediator : MonoBehaviour
     /// </summary>
     /// <param name="awakable"></param>
     /// <param name="priority"></param>
-    public static void RequestAwakeCall(int priority, Action action)
+    public static void RequestLateAwakeCall(int priority, Action action)
     {
         if (_invoked) action.Invoke();
         else _awakeList.Add(action, priority);

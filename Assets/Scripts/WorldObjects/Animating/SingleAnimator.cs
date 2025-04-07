@@ -3,15 +3,18 @@
 /// </summary>
 public class SingleAnimator : AnimatorBase
 {
-    private void Start()
+    private void Awake()
     {
-        if (TryGetComponent(out ComplexAnimator animator) || transform.parent.TryGetComponent(out animator))
+        BehaviourCallsMediator.RequestLateAwakeCall(0, () =>
         {
-            animator.AddAnimator(this);
-        }
-        else
-        {
-            Logger.Warn($"Could not find {typeof(ComplexAnimator)} on sef or parent object.");
-        }
+            if (TryGetComponent(out ComplexAnimator animator) || transform.parent.TryGetComponent(out animator))
+            {
+                animator.AddAnimator(this);
+            }
+            else
+            {
+                Logger.Warn($"Could not find {typeof(ComplexAnimator)} on self ({name}) or parent ({transform.parent.name}) object.");
+            }
+        });
     }
 }

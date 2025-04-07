@@ -49,7 +49,7 @@ public class DestroyableShield : DestroyableOverrider
     {
         if (_shieldDelayCounter.IsOver() && _regenRatio > 0 && CurrentShieldValue < _maxShieldValue)
         {
-            CurrentShieldValue += _regenRatio * Time.deltaTime;
+            CurrentShieldValue += _maxShieldValue * _regenRatio * Time.deltaTime;
         }
     }
 

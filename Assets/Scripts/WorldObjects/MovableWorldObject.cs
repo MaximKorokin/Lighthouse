@@ -74,6 +74,9 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     public virtual void Move(float speedOverride = -1)
     {
         _currentMoveSpeed = speedOverride < 0 ? Stats[StatName.MoveSpeedModifier] : speedOverride;
+
+        if (IsMoving) return;
+
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
         //SetAnimatorValue(AnimatorKey.MoveSpeed, _currentMoveSpeed * Direction.magnitude);
@@ -81,8 +84,9 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public virtual void Stop()
     {
-        IsMoving = false;
+        if (!IsMoving) return;
 
+        IsMoving = false;
         SetAnimatorValue(AnimatorKey.IsMoving, false);
     }
 

@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 0
-  _offset: {x: 0.15, y: 0.375}
   _orderingOffset: 0
 --- !u!1 &7537639882005055995
 GameObject:
@@ -198,35 +197,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527c144f703be7847a7a3e2ef9c6172e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PositioningType>k__BackingField: 2
-  <TriggeringType>k__BackingField: 2
-  <Faction>k__BackingField: 2
+  <PositioningType>k__BackingField: 0
+  <TriggeringType>k__BackingField: 0
+  <Faction>k__BackingField: 1
   _stats:
-    _stats:
-    - Name: 1
-      Value: 1
-    - Name: 2
-      Value: 20
-    - Name: 3
-      Value: 1
-    - Name: 4
-      Value: 5
-    - Name: 5
-      Value: 1
-    - Name: 6
-      Value: 1
-    - Name: 7
-      Value: 1
-    - Name: 9
-      Value: 0.3
-    - Name: 12
-      Value: 2.5
-  <IsDamagable>k__BackingField: 1
-  <DestroyTime>k__BackingField: 5
+    _stats: []
+  <IsDamagable>k__BackingField: 0
+  <DestroyTime>k__BackingField: 0
   <CanRotate>k__BackingField: 0
-  <CanFlip>k__BackingField: 1
+  <CanFlip>k__BackingField: 0
   <IsFlipped>k__BackingField: 0
-  _levelingSystemSettings: {fileID: 11400000, guid: 10547097463749d4e9f3416e00abf3d6, type: 2}
+  _levelingSystemSettings: {fileID: 0}
 --- !u!114 &3098221627740768917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c880f4276b70c4482c50b234e8302c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shieldRatio: 0.5
-  _regenDelay: 2
-  _regenRatio: 0.2
+  _shieldRatio: 0.7
+  _regenDelay: 1
+  _regenRatio: 0.4
