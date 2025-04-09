@@ -55,6 +55,10 @@ public class DestroyableShield : DestroyableOverrider
 
     protected override void Damaged(ref float damageValue)
     {
+        if (damageValue <= 0) return;
+
+        if (CurrentShieldValue > 0) Destroyable.SetAnimatorValue(AnimatorKey.HurtShield, true);
+
         _shieldDelayCounter.Reset();
         var remainingDamage = damageValue - CurrentShieldValue;
         CurrentShieldValue -= damageValue;

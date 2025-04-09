@@ -99,4 +99,5 @@ public enum AnimatorKey
     ShieldRatio = 10,
     PlayAnimation = 11,
     StopAnimation = 12,
+    HurtShield = 13,
 }

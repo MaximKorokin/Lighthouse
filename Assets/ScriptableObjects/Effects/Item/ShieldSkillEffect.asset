@@ -30,4 +30,4 @@ MonoBehaviour:
     - rid: 1526170114482765825
       type: {class: ComponentsCopyEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Source>k__BackingField: {fileID: 7537639882005055995, guid: a416058081a532d4b96c161a68135284, type: 3}
+        <Source>k__BackingField: {fileID: 7537639882005055995, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
