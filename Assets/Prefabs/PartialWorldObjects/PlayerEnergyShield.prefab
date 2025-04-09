@@ -367,6 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c880f4276b70c4482c50b234e8302c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shieldRatio: 0.7
-  _regenDelay: 1
-  _regenRatio: 0.4
+  _shieldRatio: 2
+  _regenDelay: 3
+  _regenRatio: 0.1
