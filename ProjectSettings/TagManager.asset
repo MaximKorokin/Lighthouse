@@ -68,6 +68,9 @@ TagManager:
   - name: Fog
     uniqueID: 3266443141
     locked: 0
+  - name: FogDecorations
+    uniqueID: 2927348203
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
