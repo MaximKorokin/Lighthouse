@@ -65,6 +65,12 @@ TagManager:
   - name: WorldObjects
     uniqueID: 2012048813
     locked: 0
+  - name: Roof
+    uniqueID: 1768551771
+    locked: 0
+  - name: RoofDecorations
+    uniqueID: 906581463
+    locked: 0
   - name: Fog
     uniqueID: 3266443141
     locked: 0

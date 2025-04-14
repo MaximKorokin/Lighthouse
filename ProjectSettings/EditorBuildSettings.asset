@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Ghetto1.unity
+    guid: 3a507d8ac5332cf4c9e5c3bd4f9f9cf1
+  - enabled: 1
     path: Assets/Scenes/KinsnapHQAttack.unity
     guid: 17577c40f2cfa3e49a6f0784c272c1cc
   - enabled: 1
