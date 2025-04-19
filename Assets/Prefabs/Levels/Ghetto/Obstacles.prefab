@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: d7fa54635931c5142b6ee2ab5a384388, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.229
+      value: 19.218
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: d7fa54635931c5142b6ee2ab5a384388, type: 3}
       propertyPath: m_LocalPosition.y
@@ -239,6 +239,10 @@ PrefabInstance:
     - target: {fileID: 411322585630826401, guid: ba6655e88602eea44819aea26760fc1d, type: 3}
       propertyPath: m_Name
       value: TrashCan1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138098337722001216, guid: ba6655e88602eea44819aea26760fc1d, type: 3}
+      propertyPath: _orderingOffset
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: ba6655e88602eea44819aea26760fc1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -364,6 +368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 4610233587797375053, guid: d7fa54635931c5142b6ee2ab5a384388, type: 3}
+      propertyPath: _orderingOffset
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: d7fa54635931c5142b6ee2ab5a384388, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.037
@@ -432,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: d7fa54635931c5142b6ee2ab5a384388, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.79
+      value: 19.737
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: d7fa54635931c5142b6ee2ab5a384388, type: 3}
       propertyPath: m_LocalPosition.y
@@ -553,6 +561,10 @@ PrefabInstance:
     - target: {fileID: 411322585630826401, guid: caea0d23219f2db42b1c65a499ad4688, type: 3}
       propertyPath: m_Name
       value: TrashCan2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138098337722001216, guid: caea0d23219f2db42b1c65a499ad4688, type: 3}
+      propertyPath: _orderingOffset
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8396571930902365167, guid: caea0d23219f2db42b1c65a499ad4688, type: 3}
       propertyPath: m_LocalPosition.x

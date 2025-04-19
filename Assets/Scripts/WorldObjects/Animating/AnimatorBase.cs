@@ -80,7 +80,7 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
 
     public void SetOrdering(Vector2 globalPosition)
     {
-        var newSortingOrder = -(int)((globalPosition.y + _orderingOffset) * 10);
+        var newSortingOrder = -(int)((globalPosition.y + _orderingOffset) * 100);
         SpriteRenderer.sortingOrder = newSortingOrder;
     }
 }

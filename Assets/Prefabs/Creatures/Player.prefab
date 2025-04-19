@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1776325475, guid: d224741a08f7339488092bd02b29c102, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,8 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 0
-  _visualOffset: {x: 0, y: 0}
-  _orderingOffset: 1
+  _orderingOffset: 0.01
 --- !u!1 &4912764769393047653
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +194,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -715500416, guid: 8359606ee3cf4c94380e7042db95ead7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -242,7 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _visualOffset: {x: 0, y: -0.1}
   _orderingOffset: 0
 --- !u!1 &7537639882005055995
 GameObject:
@@ -255,6 +253,7 @@ GameObject:
   - component: {fileID: 241050426451241158}
   - component: {fileID: 12043226431875375}
   - component: {fileID: 6558767313700139859}
+  - component: {fileID: 2361696291033814857}
   - component: {fileID: 1067456175170885560}
   - component: {fileID: 322627562551336750}
   - component: {fileID: 4808862166265668767}
@@ -342,7 +341,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -362,6 +361,41 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.1}
   m_Size: {x: 0.15, y: 0.3}
   m_Direction: 0
+--- !u!58 &2361696291033814857
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 511
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.1}
+  serializedVersion: 2
+  m_Radius: 0.05
 --- !u!50 &1067456175170885560
 Rigidbody2D:
   serializedVersion: 4

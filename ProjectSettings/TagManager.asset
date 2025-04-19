@@ -14,7 +14,7 @@ TagManager:
   - PlayerLooting
   - Obstacle
   - RaycastTarget2D
-  - 
+  - Fog
   - 
   - 
   - 
@@ -52,12 +52,6 @@ TagManager:
     locked: 0
   - name: WallsDecorations
     uniqueID: 785706567
-    locked: 0
-  - name: Decorations2
-    uniqueID: 2039828077
-    locked: 0
-  - name: Decorations3
-    uniqueID: 4248078507
     locked: 0
   - name: Effects
     uniqueID: 3016488543

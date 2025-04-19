@@ -11551,7 +11551,7 @@ GameObject:
   - component: {fileID: 1175075605}
   - component: {fileID: 1175075606}
   - component: {fileID: 1175075607}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: FogLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12225,7 +12225,7 @@ GameObject:
   - component: {fileID: 1255986394}
   - component: {fileID: 1255986393}
   - component: {fileID: 1255986392}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: FogRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

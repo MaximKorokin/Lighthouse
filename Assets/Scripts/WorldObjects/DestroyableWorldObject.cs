@@ -106,6 +106,4 @@ public abstract class DestroyableWorldObject : WorldObject
             base.SetAnimatorValue(key, value);
         }
     }
-
-    public delegate void RefAction<T>(ref T parameter);
 }

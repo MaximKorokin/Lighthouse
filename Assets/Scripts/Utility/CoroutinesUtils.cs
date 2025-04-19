@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public static class CoroutinesUtils
 {
@@ -74,6 +75,20 @@ public static class CoroutinesUtils
         while (operation != null && !operation.isDone)
         {
             yield return null;
+        }
+    }
+
+    public static IEnumerator TilemapAlphaCoroutine(Tilemap tilemap, float targetAlpha, float stepMultiplier, float time)
+    {
+        yield return new WaitForSeconds(0.1f);
+        while (tilemap.color.a != targetAlpha)
+        {
+            var step = stepMultiplier / time * Time.deltaTime;
+            var newAlpha = stepMultiplier > 0
+                ? Mathf.Clamp(tilemap.color.a + step, 0, targetAlpha)
+                : Mathf.Clamp(tilemap.color.a + step, targetAlpha, 1);
+            tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
+            yield return new WaitForEndOfFrame();
         }
     }
 }

@@ -8,7 +8,11 @@ public static class Logger
 
     public static void Log(object obj)
     {
-        if (obj is IEnumerable enumerable)
+        if (obj is string)
+        {
+            Debug.Log(obj);
+        }
+        else if (obj is IEnumerable enumerable)
         {
             var sb = new StringBuilder();
             foreach (var element in enumerable)
