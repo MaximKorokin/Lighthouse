@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class TemporaryWorldObject : MovableWorldObject
@@ -9,12 +8,13 @@ public class TemporaryWorldObject : MovableWorldObject
     protected override void Awake()
     {
         base.Awake();
-        StartCoroutine(LifeTimeCoroutine());
+        // Calling coroutine from outside because it will stop if this GameObject would be disabled
+        CoroutinesHandler.StartUniqueCoroutine(this, CoroutinesUtils.WaitForSeconds(LifeTime), DestroyWorldObject);
     }
 
-    private IEnumerator LifeTimeCoroutine()
+    // Overriding because GameObject may be destroyed earlier (projectile collided with target)
+    public override void DestroyWorldObject()
     {
-        yield return new WaitForSeconds(LifeTime);
-        DestroyWorldObject();
+        if (this != null) base.DestroyWorldObject();
     }
 }

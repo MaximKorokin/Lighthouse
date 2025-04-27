@@ -1,3 +1,6 @@
+using UnityEngine;
+
+[RequireComponent(typeof(MovableWorldObject))]
 public abstract class MovableController : TriggerController
 {
     protected MovableWorldObject MovableWorldObject { get; private set; }

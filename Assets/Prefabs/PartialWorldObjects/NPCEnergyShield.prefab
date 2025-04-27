@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1228045367931962902
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241050426451241158, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537639882005055995, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      propertyPath: m_Name
+      value: NPCEnergyShield
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 322627562551336750, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+    - {fileID: 3098221627740768917, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+    - {fileID: 2116885410010221246, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7537639882005055995, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2275407278659216492}
+  m_SourcePrefab: {fileID: 100100000, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+--- !u!1 &8760054639494991853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7537639882005055995, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+  m_PrefabInstance: {fileID: 1228045367931962902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2275407278659216492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760054639494991853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ec06ed41d288f4f8886526c53af91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PositioningType>k__BackingField: 0
+  <TriggeringType>k__BackingField: 0
+  <Faction>k__BackingField: 0
+  _stats:
+    _stats:
+    - Name: 1
+      Value: 1
+  <IsDamagable>k__BackingField: 1
+  <DestroyTime>k__BackingField: 0
+  <CanRotate>k__BackingField: 0
+  <CanFlip>k__BackingField: 0
+  <IsFlipped>k__BackingField: 0

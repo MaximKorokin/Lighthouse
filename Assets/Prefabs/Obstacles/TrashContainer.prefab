@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8396571930902365167}
+  - component: {fileID: 8989522481473864287}
   - component: {fileID: 6651486026731912725}
   - component: {fileID: 8869266739702331696}
   - component: {fileID: 2879121165284286293}
@@ -37,6 +38,33 @@ Transform:
   - {fileID: 7525173967935067815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &8989522481473864287
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411322585630826401}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 1
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!70 &6651486026731912725
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -93,7 +121,7 @@ MonoBehaviour:
       Value: 1
     - Name: 2
       Value: 10
-  <IsDamagable>k__BackingField: 1
+  <IsDamagable>k__BackingField: 0
   <DestroyTime>k__BackingField: 3
 --- !u!114 &2879121165284286293
 MonoBehaviour:

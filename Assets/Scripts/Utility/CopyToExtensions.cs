@@ -89,5 +89,8 @@ public static class CopyToExtensions
         target.sprite = source.sprite;
         target.color = source.color;
         target.flipX = source.flipX;
+
+        target.sortingLayerName = source.sortingLayerName;
+        target.sortingOrder = source.sortingOrder;
     }
 }

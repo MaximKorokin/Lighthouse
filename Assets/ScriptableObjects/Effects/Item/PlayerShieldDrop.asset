@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: ShieldSkillEffect
+  m_Name: PlayerShieldDrop
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
@@ -18,16 +18,14 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 0
   _effects:
-  - rid: 1526170114482765824
+  - rid: 1867399668047544320
   references:
     version: 2
     RefIds:
-    - rid: 1526170114482765824
-      type: {class: ItemEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1867399668047544320
+      type: {class: ItemDropEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Effects>k__BackingField:
-        - rid: 1526170114482765825
-    - rid: 1526170114482765825
-      type: {class: ComponentsCopyEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Source>k__BackingField: {fileID: 7537639882005055995, guid: a9e2ddc2e9e2f77439db7786bfa67ac0, type: 3}
+        <Item>k__BackingField: {fileID: 6741397075715308881, guid: defa3fb7f37163749a259ce30d12f355, type: 3}
+        <DropRatio>k__BackingField: 1
+        <InitialForce>k__BackingField: 1
+        <InactiveTime>k__BackingField: 3

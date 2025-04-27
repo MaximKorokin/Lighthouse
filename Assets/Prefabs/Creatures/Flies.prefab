@@ -130,16 +130,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949926551165608891}
-  - component: {fileID: 7547836064825858432}
+  - component: {fileID: 6784906246938871441}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
   - component: {fileID: 8105381655039463507}
   - component: {fileID: 543994037497862892}
   - component: {fileID: 3297319145764835928}
   - component: {fileID: 3898975006173973094}
-  - component: {fileID: 1289666759520043199}
-  - component: {fileID: 6784906246938871441}
-  m_Layer: 8
+  - component: {fileID: 7936865403378721938}
+  m_Layer: 0
   m_Name: Flies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,8 +161,8 @@ Transform:
   - {fileID: 2896726948471722464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &7547836064825858432
-CapsuleCollider2D:
+--- !u!58 &6784906246938871441
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -194,9 +193,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
-  m_Size: {x: 0.15, y: 0.05}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0.1}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!50 &2673697132878341897
 Rigidbody2D:
   serializedVersion: 4
@@ -238,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: 2
-  <Faction>k__BackingField: 4
+  <Faction>k__BackingField: 1
   _stats:
     _stats:
     - Name: 2
@@ -247,14 +246,10 @@ MonoBehaviour:
       Value: 1
     - Name: 3
       Value: 0.5
-    - Name: 4
-      Value: 1
     - Name: 5
       Value: 0.5
     - Name: 7
       Value: 1
-    - Name: 12
-      Value: 5
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
@@ -273,8 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startEffectsSettings: []
-  _damageEffectsSettings:
-  - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
+  _damageEffectsSettings: []
   _destroyEffectsSettings: []
 --- !u!114 &543994037497862892
 MonoBehaviour:
@@ -301,12 +295,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skills:
-  - _settings: {fileID: 11400000, guid: 0a43a191a7b245d439d30aecffd61133, type: 2}
-    _startsInCooldown: 1
+  - _settings: {fileID: 11400000, guid: f32f60932c544b748bd90f980e13c0a1, type: 2}
+    _startsInCooldown: 0
     _conditionData:
-      Predicate: 0
-      ReferenceArgument: 0
-      ValueArgument: 0
+      Predicate: 4096
+      ReferenceArgument: 3
+      ValueArgument: 1
     _targetChoosingData:
       Type: 0
       Func: 0
@@ -325,8 +319,8 @@ MonoBehaviour:
   _variants:
   - TriggerType: 1
     ValidTargets: 1
-    Relation: 1
---- !u!114 &1289666759520043199
+    Relation: 2
+--- !u!114 &7936865403378721938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,41 +329,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 809945631460520319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ebfbb4f557557409350a205d7c2a03, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c5156510a1e45546978a4594771f363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &6784906246938871441
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  serializedVersion: 2
-  m_Radius: 0.3
+  _primaryTargetTypes: 1

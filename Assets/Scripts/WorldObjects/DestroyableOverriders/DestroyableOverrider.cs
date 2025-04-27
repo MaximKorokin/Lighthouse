@@ -5,7 +5,7 @@ public abstract class DestroyableOverrider : MonoBehaviour
 {
     protected DestroyableWorldObject Destroyable { get; private set; }
 
-    public virtual void Awake()
+    protected virtual void Start()
     {
         Destroyable = GetComponent<DestroyableWorldObject>();
         Destroyable.Damaged += Damaged;

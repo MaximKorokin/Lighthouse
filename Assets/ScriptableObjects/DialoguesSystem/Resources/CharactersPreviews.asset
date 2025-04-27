@@ -85,3 +85,9 @@ MonoBehaviour:
     <Icon>k__BackingField: {fileID: -234573256, guid: 853fe2892f607dc478a66f57d100f03d, type: 3}
     <TypingSound>k__BackingField: {fileID: 8300000, guid: f8aec3678169b814489bafb4871e4c6a, type: 3}
     <Id>k__BackingField: b3dbe4be-9b61-42c7-a37f-be54000d4287
+  - <Name>k__BackingField: SmokingMan
+    <DisplayName>k__BackingField: Stranger
+    <Color>k__BackingField: {r: 0.6320754, g: 0.10435206, b: 0.22202156, a: 1}
+    <Icon>k__BackingField: {fileID: 0}
+    <TypingSound>k__BackingField: {fileID: 8300000, guid: f8aec3678169b814489bafb4871e4c6a, type: 3}
+    <Id>k__BackingField: a24ff837-8413-4552-a2f5-14dc65035887

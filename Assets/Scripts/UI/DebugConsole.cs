@@ -30,7 +30,7 @@ public class DebugConsole : MonoBehaviour
         var currentText = _text.text +
             type switch
             {
-                LogType.Error => $"\n {type.ToString().ToUpper()}: {logString}\n\t{stackTrace}",
+                LogType.Error or LogType.Exception => $"\n {type.ToString().ToUpper()}: {logString}\n\t{stackTrace}",
                 _ => $"\n {type.ToString().ToUpper()}: {logString}",
             };
         _text.text = string.Join('\n', currentText.Split('\n').TakeLast(_lineCount));

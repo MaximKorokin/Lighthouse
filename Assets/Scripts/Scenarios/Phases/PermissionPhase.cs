@@ -7,6 +7,8 @@ public class PermissionPhase : ActPhase
     [SerializeField]
     private bool _permit;
 
+    public PermissionRequirement PermissionRequirement => _permissionRequirement;
+
     public override void Invoke()
     {
         if (_permit)

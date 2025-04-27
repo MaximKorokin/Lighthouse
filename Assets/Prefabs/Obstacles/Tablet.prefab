@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 327537774799260059}
   - component: {fileID: 4558272462322291102}
   - component: {fileID: 2437209870028799301}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Tablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1276345359, guid: 9b049725e0fe08942aab15dbea089e74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

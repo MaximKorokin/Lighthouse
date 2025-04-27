@@ -31,4 +31,13 @@ public static class ActRequirementGizmosDrawers
             EditorUtils.DrawArrowWithIcon(requirement.transform.position, worldObject.transform.position, ArrowType.Line, requirement.IconName);
         }
     }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
+    public static void ManualInteractionControllerRequirement(ManualInteractionControllerRequirement requirement, GizmoType gizmoType)
+    {
+        if (requirement.Controller != null)
+        {
+            EditorUtils.DrawArrowWithIcon(requirement.transform.position, requirement.Controller.transform.position, ArrowType.Line, requirement.IconName);
+        }
+    }
 }

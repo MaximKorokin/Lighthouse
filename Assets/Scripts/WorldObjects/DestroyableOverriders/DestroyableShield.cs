@@ -31,16 +31,17 @@ public class DestroyableShield : DestroyableOverrider
 
     public event Action<float, float, float> ShieldValueChanged;
 
-    public override void Awake()
+    protected override void Start()
     {
-        base.Awake();
-        Destroyable.Stats.Modified += DestroyableStatsModified;
-        DestroyableStatsModified();
+        base.Start();
+
+        Destroyable.Stats.Modified += OnDestroyableStatsModified;
+        OnDestroyableStatsModified();
         CurrentShieldValue = _maxShieldValue;
         _shieldDelayCounter.Cooldown = _regenDelay;
     }
 
-    private void DestroyableStatsModified()
+    private void OnDestroyableStatsModified()
     {
         _maxShieldValue = Destroyable.MaxHealthPoints * _shieldRatio;
     }

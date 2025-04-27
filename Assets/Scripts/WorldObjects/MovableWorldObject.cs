@@ -92,13 +92,13 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public override void DestroyWorldObject()
     {
-        base.DestroyWorldObject();
         // Fog is shown if detects that player left trigger
         if (this is not PlayerCreature)
         {
             Rigidbody.simulated = false;
         }
         Stop();
+        base.DestroyWorldObject();
     }
 
     private void OnDirectionSet(Vector2 direction)
