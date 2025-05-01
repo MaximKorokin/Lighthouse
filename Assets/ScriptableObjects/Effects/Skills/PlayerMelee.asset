@@ -46,11 +46,10 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563598
-        <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 0215c199ed4f50b4689cbb14fc6e3b2f, type: 3}
-        <DistanceFromParent>k__BackingField: 0.4
-        <InvokationCooldown>k__BackingField: 1
-        _relativeSizeOffset: {x: 0, y: 0.5}
+        <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 4b9a04bb592c2954e8c50f303188db02, type: 3}
+        <DistanceFromParent>k__BackingField: 0.3
+        <InvokationCooldown>k__BackingField: 0.55
     - rid: 4259499536714563598
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 10
+        <Value>k__BackingField: 2

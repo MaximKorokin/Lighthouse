@@ -14,6 +14,10 @@ public class AnimationEffect : Effect
     private bool _flipWithTarget;
     [SerializeField]
     private int _orderInLayer;
+    [SerializeField]
+    private AnimationPositioning _positioning;
+    [SerializeField]
+    private SortingLayer _sortingLayer = SortingLayer.Effects;
 
     public override void Invoke(CastState castState)
     {
@@ -43,9 +47,13 @@ public class AnimationEffect : Effect
 
     private void SetupAnimator(GenericAnimatorController animator, WorldObject target, Vector2 position)
     {
+        if (_positioning == AnimationPositioning.HalfTargetVisualHeight)
+            position += target.VisualSize * Vector2.up * 0.5f;
+
         animator.transform.position = position;
 
         var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
+        animatorSpriteRenderer.sortingLayerName = _sortingLayer.ToString();
         animatorSpriteRenderer.sortingOrder = _orderInLayer;
 
         var targetSpriteRenderer = target.GetComponent<SpriteRenderer>();
@@ -70,4 +78,16 @@ public class AnimationEffect : Effect
             GenericAnimatorPool.Return(animator);
         }
     }
+}
+
+public enum AnimationPositioning
+{
+    TargetPosition = 0,
+    HalfTargetVisualHeight = 10,
+}
+
+public enum SortingLayer
+{
+    Effects = 0,
+    WorldObjects = 10,
 }

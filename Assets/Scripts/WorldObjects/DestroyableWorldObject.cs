@@ -96,7 +96,9 @@ public abstract class DestroyableWorldObject : WorldObject
 
         IsAlive = false;
         Destroying?.Invoke();
-        Destroy(gameObject, DestroyTime);
+        // Very weird unity feature. Time parameter = 0 leads to disabling of all children components by OnDestroy call.
+        // But if it has some positive value, they still will not be disabled when OnDestroy is called.
+        Destroy(gameObject, MathF.Max(DestroyTime, 0.0000001f));
     }
 
     public override void SetAnimatorValue<T>(AnimatorKey key, T value = default)

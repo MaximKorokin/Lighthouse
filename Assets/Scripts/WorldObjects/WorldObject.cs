@@ -78,10 +78,10 @@ public abstract class WorldObject : MonoBehaviour
     public void SetFaction(Faction faction)
     {
         Faction = faction;
-        // Needs this action to retrigger colliders and triggers with a new faction
         ReloadPhysicsState();
     }
 
+    // Needs this action to retrigger colliders and triggers with a new faction
     public void ReloadPhysicsState()
     {
         PhysicsStateReloading?.Invoke();

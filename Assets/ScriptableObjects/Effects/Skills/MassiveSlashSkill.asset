@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: MassiveSlashSkill
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 5
+  _effects:
+  - rid: 5342966315404754949
+  - rid: 5342966315404754950
+  references:
+    version: 2
+    RefIds:
+    - rid: 5342966315404754949
+      type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _animation: {fileID: 7400000, guid: 540656a1f65d6de418e0f9fea8282773, type: 2}
+        _hasDuration: 1
+        _duration: 0
+        _childToTarget: 1
+        _flipWithTarget: 1
+        _orderInLayer: 111
+        _positioning: 10
+        _sortingLayer: 10
+    - rid: 5342966315404754950
+      type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField: []
+        <EndEffects>k__BackingField:
+        - rid: 5342966315404754952
+        <Duration>k__BackingField: 1
+    - rid: 5342966315404754952
+      type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 5342966315404754954
+        - rid: 5342966315404754956
+        <Radius>k__BackingField: 0.5
+    - rid: 5342966315404754954
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 5
+    - rid: 5342966315404754956
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 0.5
+        Speed: 2

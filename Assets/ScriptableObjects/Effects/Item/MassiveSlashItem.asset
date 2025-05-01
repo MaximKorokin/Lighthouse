@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: MassiveSlashItem
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 0
+  _effects:
+  - rid: 5342966315404754958
+  references:
+    version: 2
+    RefIds:
+    - rid: 5342966315404754958
+      type: {class: ItemEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 5342966315404754959
+    - rid: 5342966315404754959
+      type: {class: SkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Skill>k__BackingField:
+          _settings: {fileID: 11400000, guid: 4d98a0b028c6a43498c89990bdbd1b13, type: 2}
+          _startsInCooldown: 0
+          _conditionData:
+            Predicate: 1
+            ReferenceArgument: 0
+            ValueArgument: 0
+          _targetChoosingData:
+            Type: 10
+            Func: 0
