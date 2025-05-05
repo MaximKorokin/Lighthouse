@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 0
-  _orderingOffset: -1
+  _orderingOffset: -0.1
 --- !u!1 &5582895138495593129
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 0
-  _orderingOffset: -1
+  _orderingOffset: -0.1
 --- !u!1 &7537639882005055995
 GameObject:
   m_ObjectHideFlags: 0

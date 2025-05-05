@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - <Name>k__BackingField: NaNts
-    <DisplayName>k__BackingField: 
+    <DisplayName>k__BackingField: Nodtsag
     <Color>k__BackingField: {r: 0.5647059, g: 0.17254902, b: 0.5137255, a: 1}
     <Icon>k__BackingField: {fileID: 2040720503, guid: 853fe2892f607dc478a66f57d100f03d, type: 3}
     <TypingSound>k__BackingField: {fileID: 0}

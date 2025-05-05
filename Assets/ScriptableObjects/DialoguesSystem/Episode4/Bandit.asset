@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speeches>k__BackingField:
   - <CharacterPreviewId>k__BackingField: c7b77fd0-878d-4800-b4e8-0af51db19a1c
-    <Text>k__BackingField: "\u0442\u044B \u043C\u0435\u043D\u044F \u0441\u043B\u044B\u0448\u0438\u0448\u044C?"
+    <Text>k__BackingField: '!(e4_bandit_s1)'
+    <TypingSpeed>k__BackingField: 0
+  - <CharacterPreviewId>k__BackingField: 232805af-6692-42ed-9652-e05ebe52625c
+    <Text>k__BackingField: '!(e4_bandit_s2)'
+    <TypingSpeed>k__BackingField: 0
+  - <CharacterPreviewId>k__BackingField: c7b77fd0-878d-4800-b4e8-0af51db19a1c
+    <Text>k__BackingField: '!(e4_bandit_s3)'
+    <TypingSpeed>k__BackingField: 0
+  - <CharacterPreviewId>k__BackingField: 232805af-6692-42ed-9652-e05ebe52625c
+    <Text>k__BackingField: '!(e4_bandit_s4)'
     <TypingSpeed>k__BackingField: 0

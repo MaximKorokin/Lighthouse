@@ -26,6 +26,11 @@ public static class ActRequirementGizmosDrawers
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
     public static void ActorActedRequirement(WorldObjectsDestroyRequirement requirement, GizmoType gizmoType)
     {
+        if (requirement.WorldObjects == null)
+        {
+            return;
+        }
+
         foreach (var worldObject in requirement.WorldObjects)
         {
             EditorUtils.DrawArrowWithIcon(requirement.transform.position, worldObject.transform.position, ArrowType.Line, requirement.IconName);

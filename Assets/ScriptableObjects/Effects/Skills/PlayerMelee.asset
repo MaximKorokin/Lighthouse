@@ -48,7 +48,7 @@ MonoBehaviour:
         - rid: 4259499536714563598
         <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 4b9a04bb592c2954e8c50f303188db02, type: 3}
         <DistanceFromParent>k__BackingField: 0.3
-        <InvokationCooldown>k__BackingField: 0.55
+        <InvokationCooldown>k__BackingField: 0.25
     - rid: 4259499536714563598
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

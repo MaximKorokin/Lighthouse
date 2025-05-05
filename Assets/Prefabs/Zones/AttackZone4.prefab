@@ -204,7 +204,7 @@ MonoBehaviour:
   <CanRotate>k__BackingField: 1
   <CanFlip>k__BackingField: 0
   <IsFlipped>k__BackingField: 0
-  <LifeTime>k__BackingField: 1.2
+  <LifeTime>k__BackingField: 0.7
 --- !u!114 &5899376340007028653
 MonoBehaviour:
   m_ObjectHideFlags: 0
