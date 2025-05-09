@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 1
   <TriggeringType>k__BackingField: -1
-  <Faction>k__BackingField: 8
+  <Faction>k__BackingField: 16
   _stats:
     _stats:
     - Name: 1

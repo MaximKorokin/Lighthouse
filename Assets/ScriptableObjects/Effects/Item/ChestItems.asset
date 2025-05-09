@@ -40,10 +40,9 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563603
-        - rid: 4259499536714563604
         <EndEffects>k__BackingField: []
         <PeriodTime>k__BackingField: 0.1
-        <Periods>k__BackingField: 10
+        <Periods>k__BackingField: 100
     - rid: 4259499536714563603
       type: {class: ItemDropEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -51,10 +50,3 @@ MonoBehaviour:
         <DropRatio>k__BackingField: 1
         <InitialForce>k__BackingField: 1
         <InactiveTime>k__BackingField: 0.3
-    - rid: 4259499536714563604
-      type: {class: ItemDropEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Item>k__BackingField: {fileID: 6741397075715308881, guid: 102cc1bc2cd5e40439ff8fccbf5ce068, type: 3}
-        <DropRatio>k__BackingField: 0.1
-        <InitialForce>k__BackingField: 1
-        <InactiveTime>k__BackingField: 0.5

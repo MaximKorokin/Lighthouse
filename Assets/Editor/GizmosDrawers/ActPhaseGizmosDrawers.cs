@@ -93,4 +93,17 @@ public static class ActPhaseGizmosDrawers
             EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.PermissionRequirement.transform.position, ArrowType.Line, phase.IconName);
         }
     }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
+    public static void SetPositionPhase(SetPositionPhase phase, GizmoType gizmoType)
+    {
+        if (phase.TransformPosition != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.transform.position, ArrowType.Line, phase.IconName);
+        }
+        if (phase.TargetTransform != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TargetTransform.transform.position, ArrowType.Arrow, phase.IconName);
+        }
+    }
 }

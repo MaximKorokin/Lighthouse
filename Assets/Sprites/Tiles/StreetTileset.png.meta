@@ -2903,7 +2903,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2924,7 +2924,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2932,6 +2932,27 @@ TextureImporter:
       bones: []
       spriteID: 580d1602af845b940b5830250bdd6d1f
       internalID: -343068365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StreetTileset_134
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed07943452971e4b927aea72a40b66c
+      internalID: -489551458
       vertices: []
       indices: 
       edges: []
@@ -2987,6 +3008,7 @@ TextureImporter:
       StreetTileset_131: 98134806
       StreetTileset_132: -273467689
       StreetTileset_133: -343068365
+      StreetTileset_134: -489551458
       StreetTileset_14: 1182458439
       StreetTileset_15: -128947104
       StreetTileset_16: -1365894651

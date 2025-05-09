@@ -1,7 +1,14 @@
-﻿public abstract class DialoguePhaseBase : SkippableActPhase
+﻿using UnityEngine;
+
+public abstract class DialoguePhaseBase : SkippableActPhase
 {
+    [SerializeField]
+    private bool _pauseGame;
+
     public override void Invoke()
     {
+        if (_pauseGame) GameManager.Pause();
+
         base.Invoke();
         DialoguesSystem.InitDialogue(GetDialogue());
         DialoguesSystem.DialogueFinished -= OnDialogueFinished;
@@ -12,6 +19,8 @@
 
     private void OnDialogueFinished()
     {
+        if (_pauseGame) GameManager.Resume();
+
         DialoguesSystem.DialogueFinished -= OnDialogueFinished;
         InvokeFinished();
     }

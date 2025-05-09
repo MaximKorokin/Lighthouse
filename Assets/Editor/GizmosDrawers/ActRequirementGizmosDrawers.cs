@@ -33,6 +33,7 @@ public static class ActRequirementGizmosDrawers
 
         foreach (var worldObject in requirement.WorldObjects)
         {
+            if (worldObject == null) continue;
             EditorUtils.DrawArrowWithIcon(requirement.transform.position, worldObject.transform.position, ArrowType.Line, requirement.IconName);
         }
     }

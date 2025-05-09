@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5968937ded8e4874da82edf948decf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadableUIParent: {fileID: 0}
   _uiElementPrefab: {fileID: 4824350290712445194, guid: 6f2f60f750f29db4ebbf7118fc6ebc8a, type: 3}
   _priority: 10
 --- !u!1 &3807044328342736071
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2affc4118cd3a074691420f62366cce4, type: 2}
   m_sharedMaterial: {fileID: -2595449137717220047, guid: 2affc4118cd3a074691420f62366cce4, type: 2}
@@ -457,7 +458,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.7
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

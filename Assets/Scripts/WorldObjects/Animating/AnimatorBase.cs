@@ -9,6 +9,7 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
     private bool _hasExtents = true;
     [SerializeField]
     private float _orderingOffset;
+    protected float OrderingOffset { get => _orderingOffset; set => _orderingOffset = value; }
 
     public event Action<AnimatorBase> Initialized;
 
