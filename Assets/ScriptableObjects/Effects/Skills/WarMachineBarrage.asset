@@ -86,6 +86,7 @@ MonoBehaviour:
         _flipWithTarget: 0
         _orderInLayer: 0
         _positioning: 0
+        _sortingLayer: 10
     - rid: 4259499536714563610
       type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
       data:

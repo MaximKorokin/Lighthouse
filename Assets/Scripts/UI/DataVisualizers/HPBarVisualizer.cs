@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public abstract class HPBarVisualizer : BarAmountVisualizer
 {
     protected DestroyableWorldObject WorldObject { get; private set; }
