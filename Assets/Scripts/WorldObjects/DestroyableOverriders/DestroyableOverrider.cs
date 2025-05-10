@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public abstract class DestroyableOverrider : MonoBehaviour
 {
     protected DestroyableWorldObject Destroyable { get; private set; }

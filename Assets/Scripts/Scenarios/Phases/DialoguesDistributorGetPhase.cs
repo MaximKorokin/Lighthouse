@@ -10,5 +10,5 @@ public class DialoguesDistributorGetPhase : DialoguePhaseBase
         return DialoguesDistributorAddPhase.GetNextDialogue(_key);
     }
 
-    public override string IconName => "DialogueRemove.png";
+    public override string IconName => "DialogueGet.png";
 }

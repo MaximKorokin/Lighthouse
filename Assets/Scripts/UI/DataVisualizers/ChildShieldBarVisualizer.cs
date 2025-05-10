@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-
-[RequireComponent(typeof(WorldCanvasProvider))]
-public class ChildShieldBarVisualizer : ShieldBarVisualizer
+﻿public class ChildShieldBarVisualizer : ShieldBarVisualizer
 {
     protected override void Start()
     {

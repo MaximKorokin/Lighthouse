@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class DialogueViewer : DialogueViewerBase
 {
-    private const float SpeechViewTimeConstant = 5;
+    private const float SpeechViewTimeConstant = float.PositiveInfinity;
 
     [SerializeField]
     private Image _characterIcon;

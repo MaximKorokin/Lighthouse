@@ -19,6 +19,7 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 0
   _effects:
   - rid: 5342966315404754958
+  - rid: 7488742037020213248
   references:
     version: 2
     RefIds:
@@ -40,3 +41,7 @@ MonoBehaviour:
           _targetChoosingData:
             Type: 10
             Func: 0
+    - rid: 7488742037020213248
+      type: {class: ComponentsCopyEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Source>k__BackingField: {fileID: 7537639882005055995, guid: 1bc3579647bade14eb7adc868445b856, type: 3}

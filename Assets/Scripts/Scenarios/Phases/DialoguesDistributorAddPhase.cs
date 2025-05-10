@@ -13,7 +13,7 @@ public class DialoguesDistributorAddPhase : ActPhase
         _distributors.AddOrModify(_key, () => new(_dialogues), x => x.Add(_dialogues));
     }
 
-    public override string IconName => "DialogueAdd1.png";
+    public override string IconName => "DialogueAdd2.png";
 
     private static readonly Dictionary<DialoguesDistributorKey, Distributor<Dialogue>> _distributors = new();
 

@@ -1,6 +1,3 @@
-using UnityEngine;
-
-[RequireComponent(typeof(DestroyableShield))]
 public abstract class ShieldBarVisualizer : BarAmountVisualizer
 {
     protected DestroyableShield DestroyableShield { get; private set; }
