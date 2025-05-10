@@ -7,6 +7,6 @@ public class ChildShieldBarVisualizer : ShieldBarVisualizer
     {
         base.Start();
         var canvasProvider = GetComponent<WorldCanvasProvider>();
-        BarController.transform.SetParent(canvasProvider.CanvasController.HPViewParent, false);
+        canvasProvider.CanvasController.HPChildrenSorter.SetChild(BarController.transform, 1);
     }
 }

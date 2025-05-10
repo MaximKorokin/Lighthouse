@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: StatsIncreaseOrbDrop
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 0
+  _effects:
+  - rid: 1867399668047544320
+  references:
+    version: 2
+    RefIds:
+    - rid: 1867399668047544320
+      type: {class: ItemDropEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Item>k__BackingField: {fileID: 6741397075715308881, guid: 1a18799eb8a9fe34993152d959b04b6d, type: 3}
+        <DropRatio>k__BackingField: 1
+        <InitialForce>k__BackingField: 1
+        <InactiveTime>k__BackingField: 3

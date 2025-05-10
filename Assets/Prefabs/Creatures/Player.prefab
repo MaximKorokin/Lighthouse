@@ -264,11 +264,12 @@ GameObject:
   - component: {fileID: 8190725275004147874}
   - component: {fileID: 7450678416333758852}
   - component: {fileID: 8324557593489910904}
-  - component: {fileID: 6304528488409572579}
   - component: {fileID: 8930367440314818539}
   - component: {fileID: 2116885410010221246}
   - component: {fileID: -2806350134372147917}
   - component: {fileID: 7239717305964072017}
+  - component: {fileID: 793532772932991125}
+  - component: {fileID: 5038805364136026342}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -597,20 +598,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
   _skillIndex: 1
---- !u!114 &6304528488409572579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537639882005055995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab951168e25fd34587ddf87bb04903f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
-  _skillIndex: 2
 --- !u!114 &8930367440314818539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,3 +651,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CharacterPreviewId>k__BackingField: 232805af-6692-42ed-9652-e05ebe52625c
+--- !u!114 &793532772932991125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452c9e8404fddb04c877d986aa1a2d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings:
+    Animation: {fileID: 7400000, guid: 7bdac1bc05d9eb14381dd7c2ecc38f6f, type: 2}
+    IsHierarchyPriority: 0
+--- !u!114 &5038805364136026342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537639882005055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2950da43fce77184a86d73511830b784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings:
+    Animation: {fileID: 7400000, guid: 525e92fee2ef0f24a944d8606f9b0570, type: 2}
+    IsHierarchyPriority: 0
+  _hpThreshold: 0.2

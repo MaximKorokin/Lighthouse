@@ -46,7 +46,7 @@ public class Skill : IInitializable
         }
     }
 
-    public bool Invoke(CastState castState, PrioritizedTargets targets, float cooldownDivider = 1)
+    public bool Invoke(CastState castState, PrioritizedTargets targets)
     {
         if (_effects == null || _effects.Length == 0)
         {
@@ -55,7 +55,7 @@ public class Skill : IInitializable
 
         if (CooldownCounter == null ||
             !_conditionData.EvaluateCondition(castState.Source, targets) ||
-            !CooldownCounter.TryReset(cooldownDivider))
+            !CooldownCounter.TryReset())
         {
             return false;
         }

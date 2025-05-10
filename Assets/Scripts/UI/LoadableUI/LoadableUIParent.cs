@@ -1,25 +1,12 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LoadableUIParent : OptionalMonoBehaviorSingleton<LoadableUIParent>
 {
-    private readonly PrioritizedList<RectTransform> _elements = new();
+    private TransformChildrenSorter _elements;
+    private TransformChildrenSorter Elements => this.LazyInitialize(ref _elements, () => new(transform));
 
     public void SetUIElement(RectTransform rect, int priority)
     {
-        _elements.Add(rect, priority);
-        rect.SetParent(transform, false);
-        rect.SetSiblingIndex(_elements.IndexOf(rect));
-    }
-
-    // In case of conflict Priority, the element should be inserted after all same priority elements
-    private class PriorityComparer : IComparer<int>
-    {
-        public int Compare(int x, int y)
-        {
-            var comparison = x.CompareTo(y);
-            if (comparison == 0) return -1;
-            else return comparison;
-        }
+        Elements.SetChild(rect, priority);
     }
 }

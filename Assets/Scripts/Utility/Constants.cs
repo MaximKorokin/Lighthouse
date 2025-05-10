@@ -15,5 +15,6 @@ public static class Constants
         KinsnapHQAttack = 10,
         KinsnapHQVisit = 11,
         LobbyFirstVisit = 100,
+        Ghetto1 = 200,
     }
 }

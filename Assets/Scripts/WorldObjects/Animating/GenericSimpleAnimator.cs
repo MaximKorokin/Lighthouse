@@ -5,6 +5,7 @@ public class GenericSimpleAnimator : AnimatorBase
     private void Awake()
     {
         Initialize();
+        Animator.keepAnimatorStateOnDisable = false;
     }
 
     private void Update()

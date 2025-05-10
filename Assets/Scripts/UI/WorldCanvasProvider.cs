@@ -23,7 +23,13 @@ public class WorldCanvasProvider : MonoBehaviour
 
         var targetScale = new Vector3(1 / _previousParentScale.x, 1 / _previousParentScale.y, 1 / _previousParentScale.z);
 
-        var childrenElements = new Transform[] { _canvasController.SpeechBubbleParent, _canvasController.HPChangeParent, _canvasController.HPViewParent };
+        var childrenElements = new Transform[]
+        {
+            _canvasController.SpeechBubbleParent,
+            _canvasController.HPChangeParent,
+            _canvasController.HPViewParent,
+            _canvasController.SkillsCDParent,
+        };
 
         foreach (var childTransform in childrenElements)
         {
