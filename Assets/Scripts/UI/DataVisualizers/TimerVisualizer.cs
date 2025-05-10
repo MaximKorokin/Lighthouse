@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(WorldCanvasProvider))]
 class TimerVisualizer : BarAmountVisualizer
 {
     private Timer _timer;
@@ -8,7 +7,7 @@ class TimerVisualizer : BarAmountVisualizer
     protected override void Start()
     {
         base.Start();
-        var canvasProvider = GetComponent<WorldCanvasProvider>();
+        var canvasProvider = this.GetRequiredComponent<WorldCanvasProvider>();
         BarController.transform.SetParent(canvasProvider.CanvasController.Canvas.transform, false);
     }
 

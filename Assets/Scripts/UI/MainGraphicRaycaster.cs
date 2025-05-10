@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
-[RequireComponent(typeof(GraphicRaycaster))]
 public class MainGraphicRaycaster : MonoBehaviorSingleton<MainGraphicRaycaster>
 {
     private GraphicRaycaster _raycaster;
@@ -9,7 +7,7 @@ public class MainGraphicRaycaster : MonoBehaviorSingleton<MainGraphicRaycaster>
     protected override void Awake()
     {
         base.Awake();
-        _raycaster = GetComponent<GraphicRaycaster>();
+        _raycaster = this.GetRequiredComponent<GraphicRaycaster>();
     }
 
     public void Set2DBlocking(bool value)

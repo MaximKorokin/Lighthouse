@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.U2D;
 
-[RequireComponent(typeof(Camera))]
-[RequireComponent(typeof(PixelPerfectCamera))]
 public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
 {
     private Camera _camera;
@@ -21,8 +19,8 @@ public class MainCameraController : MonoBehaviorSingleton<MainCameraController>
 
     protected override void Awake()
     {
-        _camera = GetComponent<Camera>();
-        _pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
+        _camera = this.GetRequiredComponent<Camera>();
+        _pixelPerfectCamera = this.GetRequiredComponent<PixelPerfectCamera>();
         _zDifference = _camera.transform.position.z;
         if (_camera == Camera.main)
         {

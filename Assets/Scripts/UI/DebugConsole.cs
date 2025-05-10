@@ -2,7 +2,6 @@
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class DebugConsole : MonoBehaviour
 {
     [SerializeField]
@@ -12,7 +11,7 @@ public class DebugConsole : MonoBehaviour
 
     private void Awake()
     {
-        _text = GetComponent<TMP_Text>();
+        _text = this.GetRequiredComponent<TMP_Text>();
     }
 
     void OnEnable()

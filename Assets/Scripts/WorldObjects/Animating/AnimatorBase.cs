@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(SpriteRenderer))]
 public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<AnimatorBase>
 {
     [SerializeField]

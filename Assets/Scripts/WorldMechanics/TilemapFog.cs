@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(Tilemap))]
-[RequireComponent(typeof(WorldObjectFindingTriggerDetector))]
 public class TilemapFog : MonoBehaviour
 {
     [SerializeField]
@@ -28,7 +26,7 @@ public class TilemapFog : MonoBehaviour
             ShowTilemap(Tilemap);
         }
 
-        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(GetComponent<WorldObjectFindingTriggerDetector>(), x => x is PlayerCreature);
+        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(this.GetRequiredComponent<WorldObjectFindingTriggerDetector>(), x => x is PlayerCreature);
         _triggeredObjectsCollection.Triggered += Triggered;
     }
 

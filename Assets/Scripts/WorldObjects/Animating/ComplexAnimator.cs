@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// Must be used in conjunction with instances of <see cref="SingleAnimator"/> class
 /// </summary>
-[RequireComponent(typeof(WorldObject))]
 public class ComplexAnimator : MonoBehaviour, IAnimator
 {
     private readonly List<SingleAnimator> _animators = new();
@@ -13,7 +12,7 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
 
     private void Awake()
     {
-        _worldObject = GetComponent<WorldObject>();
+        _worldObject = this.GetRequiredComponent<WorldObject>();
         _worldObject.AnimatorValueSet += SetAnimatorValue;
         if (_worldObject is MovableWorldObject movable)
         {

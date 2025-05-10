@@ -3,7 +3,6 @@
 /// <summary>
 /// It is <see cref="SingleAnimator"/> and <see cref="ComplexAnimator"/> classes in one
 /// </summary>
-[RequireComponent(typeof(WorldObject))]
 public class SimpleAnimator : AnimatorBase
 {
     private WorldObject _worldObject;
@@ -21,7 +20,7 @@ public class SimpleAnimator : AnimatorBase
     public override void Initialize()
     {
         base.Initialize();
-        _worldObject = GetComponent<WorldObject>();
+        _worldObject = this.GetRequiredComponent<WorldObject>();
         _worldObject.AnimatorValueSet += SetAnimatorValue;
         if (_worldObject is MovableWorldObject movable)
         {

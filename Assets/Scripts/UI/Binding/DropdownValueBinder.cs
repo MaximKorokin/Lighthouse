@@ -1,14 +1,12 @@
 using TMPro;
-using UnityEngine;
 
-[RequireComponent(typeof(TMP_Dropdown))]
 public class DropdownValueBinder : ConfigValueBinder<string>
 {
     private TMP_Dropdown _dropdown;
 
     private void Awake()
     {
-        _dropdown = GetComponent<TMP_Dropdown>();
+        _dropdown = this.GetRequiredComponent<TMP_Dropdown>();
     }
 
     public override string GetCurrentValue()

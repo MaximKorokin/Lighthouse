@@ -7,7 +7,7 @@ public static class LazyUtils
     {
         if (component == null)
         {
-            component = gameObject.GetComponent<T>();
+            component = gameObject.GetRequiredComponent<T>();
         }
         return component;
     }

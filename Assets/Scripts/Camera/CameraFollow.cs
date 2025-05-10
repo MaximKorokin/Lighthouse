@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MovableWorldObject))]
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
@@ -14,7 +13,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        _movableWorldObject = GetComponent<MovableWorldObject>();
+        _movableWorldObject = this.GetRequiredComponent<MovableWorldObject>();
         _movableWorldObject.DirectionSet += OnDirectionSet;
     }
 

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObject))]
-[RequireComponent(typeof(ActorBase))]
 public abstract class ControllerBase : MonoBehaviour
 {
     public BoolCounter _canControl = new(true);
@@ -12,8 +10,8 @@ public abstract class ControllerBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        WorldObject = GetComponent<WorldObject>();
-        Actors = GetComponents<ActorBase>();
+        WorldObject = this.GetRequiredComponent<WorldObject>();
+        Actors = GetComponents<ActorBase>() ?? new ActorBase[0];
     }
 
     protected virtual void Update()

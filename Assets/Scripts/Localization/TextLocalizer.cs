@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class TextLocalizer : MonoBehaviour
 {
     [SerializeField]

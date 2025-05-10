@@ -2,7 +2,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class FpsCounter : MonoBehaviour
 {
     [SerializeField]
@@ -15,7 +14,7 @@ public class FpsCounter : MonoBehaviour
 
     private void Awake()
     {
-        _text = GetComponent<TMP_Text>();
+        _text = this.GetRequiredComponent<TMP_Text>();
     }
 
     private void OnEnable()

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Toggle))]
 public class ToggleValueBinder : ConfigValueBinder<bool>
 {
     [SerializeField]
@@ -14,8 +13,8 @@ public class ToggleValueBinder : ConfigValueBinder<bool>
 
     private void Awake()
     {
-        _toggle = GetComponent<Toggle>();
-        _image = GetComponent<Image>();
+        _toggle = this.GetRequiredComponent<Toggle>();
+        _image = this.GetRequiredComponent<Image>();
         _image.sprite = _onSprite;
     }
 

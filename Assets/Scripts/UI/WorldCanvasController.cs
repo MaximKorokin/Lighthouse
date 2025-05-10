@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Canvas))]
 public class WorldCanvasController : MonoBehaviour
 {
     [field: SerializeField]
@@ -22,6 +21,6 @@ public class WorldCanvasController : MonoBehaviour
 
     private void Awake()
     {
-        Canvas = GetComponent<Canvas>();
+        Canvas = this.GetRequiredComponent<Canvas>();
     }
 }

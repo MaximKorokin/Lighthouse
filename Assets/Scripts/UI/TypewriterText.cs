@@ -4,7 +4,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class TypewriterText : MonoBehaviour
 {
     private readonly char[] _charsToShowImmediately = new char[] { ' ', '\n', ',', '.', '\'', '\"', '-' };
@@ -19,7 +18,7 @@ public class TypewriterText : MonoBehaviour
 
     private void Awake()
     {
-        Text = GetComponent<TMP_Text>();
+        Text = this.GetRequiredComponent<TMP_Text>();
     }
 
     /// <summary>

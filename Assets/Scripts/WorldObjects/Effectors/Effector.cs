@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObject))]
 public class Effector : MonoBehaviour
 {
     [SerializeField]
@@ -9,7 +8,7 @@ public class Effector : MonoBehaviour
 
     protected virtual void Start()
     {
-        var worldObject = GetComponent<WorldObject>();
+        var worldObject = this.GetRequiredComponent<WorldObject>();
         foreach (var settings in _startEffectsSettings)
         {
             InvokeEffects(settings.GetEffects(), new CastState(worldObject));

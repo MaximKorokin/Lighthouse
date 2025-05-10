@@ -42,41 +42,11 @@ public class ComponentsCopyEffect : Effect
 
     private static void CopyComponents(GameObject source, GameObject target)
     {
-        const int MaxCyclesLimit = 1000;
-
-        var targetComponents = target.GetComponents<Component>().ToList();
-        var sourceComponents = new Queue<Component>(source.GetComponents<Component>());
-
-        var cyclesCount = 0;
-        while (sourceComponents.Count > 0)
+        foreach (var sourceComponent in source.GetComponents<Component>())
         {
-            if (++cyclesCount >= MaxCyclesLimit)
-            {
-                Logger.Error($"Max cycles limit reached in {nameof(ComponentsCopyEffect)}. Something is broken!");
-                return;
-            }
+            if (sourceComponent.GetType() == typeof(Transform)) continue;
 
-            var sourceComponent = sourceComponents.Dequeue();
-            var sourceType = sourceComponent.GetType();
-
-            // Ignore component if already exists on Target
-            if (targetComponents.Any(x => x.GetType() == sourceType)) continue;
-
-            // Lower priority if contains unfulfilled RequireComponent attribute
-            var requireComponentAttribute = sourceType.GetCustomAttributes<RequireComponent>(true);
-            if (requireComponentAttribute
-                .SelectMany(x => x.m_Type0.YieldWith(x.m_Type1, x.m_Type2))
-                .Distinct()
-                .Where(x => x != null)
-                .Except(targetComponents.Select(x => x.GetType()), new TypeWithBaseEqualityComparer())
-                .Any())
-            {
-                sourceComponents.Enqueue(sourceComponent);
-                continue;
-            }
-
-            var targetComponent = target.AddComponent(sourceType);
-            targetComponents.Add(targetComponent);
+            var targetComponent = target.AddComponent(sourceComponent.GetType());
             CopyComponent(sourceComponent, targetComponent);
         }
     }

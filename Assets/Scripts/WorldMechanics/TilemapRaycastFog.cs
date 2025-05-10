@@ -3,8 +3,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(Tilemap))]
-[RequireComponent(typeof(WorldObjectFindingTriggerDetector))]
 public class TilemapRaycastFog : MonoBehaviour
 {
     [SerializeField]
@@ -19,8 +17,8 @@ public class TilemapRaycastFog : MonoBehaviour
 
     private void Awake()
     {
-        _tilemap = GetComponent<Tilemap>();
-        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(GetComponent<WorldObjectFindingTriggerDetector>(), x => x is PlayerCreature);
+        _tilemap = this.GetRequiredComponent<Tilemap>();
+        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(this.GetRequiredComponent<WorldObjectFindingTriggerDetector>(), x => x is PlayerCreature);
         _triggeredObjectsCollection.Triggered += Triggered;
     }
 

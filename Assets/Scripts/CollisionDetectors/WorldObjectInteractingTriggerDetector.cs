@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-
-[RequireComponent(typeof(WorldObject))]
-public class WorldObjectInteractingTriggerDetector : WorldObjectFindingTriggerDetector
+﻿public class WorldObjectInteractingTriggerDetector : WorldObjectFindingTriggerDetector
 {
     private WorldObject _worldObject;
     protected WorldObject WorldObject => gameObject.LazyGetComponent(ref _worldObject);

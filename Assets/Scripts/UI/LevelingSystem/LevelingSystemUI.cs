@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(LoadableUIProvider))]
 public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
 {
     [SerializeField]
@@ -16,7 +15,7 @@ public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
     protected override void Awake()
     {
         base.Awake();
-        _effectsParentProvider = GetComponent<LoadableUIProvider>();
+        _effectsParentProvider = this.GetRequiredComponent<LoadableUIProvider>();
     }
 
     private readonly List<EffectView> _currentViews = new();

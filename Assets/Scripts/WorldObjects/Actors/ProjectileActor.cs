@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public class ProjectileActor : SkilledActor
 {
     private ProjectileEffect _projectileEffect;
@@ -12,7 +11,7 @@ public class ProjectileActor : SkilledActor
     protected override void Awake()
     {
         base.Awake();
-        _destroyable = WorldObject as DestroyableWorldObject;
+        _destroyable = RequireUtils.CastRequired<WorldObject, DestroyableWorldObject>(WorldObject);
         _destroyable.Destroying += OnDestroying;
         _obstacleHitCooldown.Reset();
     }

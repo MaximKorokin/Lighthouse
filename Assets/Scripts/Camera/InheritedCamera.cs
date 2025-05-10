@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
 public class InheritedCamera : MonoBehaviour
 {
     [SerializeField]
@@ -10,7 +9,7 @@ public class InheritedCamera : MonoBehaviour
 
     private void Awake()
     {
-        _camera = GetComponent<Camera>();
+        _camera = this.GetRequiredComponent<Camera>();
     }
 
     private void Update()

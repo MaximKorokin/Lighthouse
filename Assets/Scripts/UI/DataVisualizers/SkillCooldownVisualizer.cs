@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldCanvasProvider))]
-[RequireComponent(typeof(SkilledActor))]
 public class SkillCooldownVisualizer : BarAmountVisualizer
 {
     [SerializeField]
@@ -13,8 +11,8 @@ public class SkillCooldownVisualizer : BarAmountVisualizer
     {
         base.Start();
 
-        var skilledActor = GetComponent<SkilledActor>();
-        var canvasProvider = GetComponent<WorldCanvasProvider>();
+        var skilledActor = this.GetRequiredComponent<SkilledActor>();
+        var canvasProvider = this.GetRequiredComponent<WorldCanvasProvider>();
 
         var skill = skilledActor.Skills.Skip(_skillIndex).FirstOrDefault();
         skill ??= skilledActor.Skills.Last();

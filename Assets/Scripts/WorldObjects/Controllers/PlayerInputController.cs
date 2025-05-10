@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MovableWorldObject))]
 public class PlayerInputController : TargetController
 {
     private Vector2 _direction;

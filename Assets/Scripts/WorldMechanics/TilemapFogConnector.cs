@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(TilemapFog))]
 public class TilemapFogConnector : MonoBehaviour
 {
     [SerializeField]
@@ -14,7 +13,7 @@ public class TilemapFogConnector : MonoBehaviour
 
     private void Start()
     {
-        _middleFog = GetComponent<TilemapFog>();
+        _middleFog = this.GetRequiredComponent<TilemapFog>();
         _middleFog.TilemapHiding += OnTilemapHiding;
         _middleFog.TilemapShowing += OnTilemapShowing;
 

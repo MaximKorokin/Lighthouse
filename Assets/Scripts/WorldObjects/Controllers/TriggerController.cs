@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObjectInteractingTriggerDetector))]
 public abstract class TriggerController : ControllerBase
 {
     private TriggeredWorldObjectsCollection _triggeredWorldObjectsCollection;

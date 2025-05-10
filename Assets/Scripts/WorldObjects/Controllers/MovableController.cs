@@ -1,6 +1,3 @@
-using UnityEngine;
-
-[RequireComponent(typeof(MovableWorldObject))]
 public abstract class MovableController : TriggerController
 {
     protected MovableWorldObject MovableWorldObject { get; private set; }
@@ -8,7 +5,7 @@ public abstract class MovableController : TriggerController
     protected override void Awake()
     {
         base.Awake();
-        MovableWorldObject = GetComponent<MovableWorldObject>();
+        MovableWorldObject = this.GetRequiredComponent<MovableWorldObject>();
     }
 
     protected override void Update()

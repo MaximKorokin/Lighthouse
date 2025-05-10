@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(TimerVisualizer))]
 class DeferredActor : SkilledActor
 {
     [SerializeField]
@@ -20,7 +19,7 @@ class DeferredActor : SkilledActor
         _timer = new Timer(this);
         _timer.Finished += OnTimerFinished;
 
-        GetComponent<TimerVisualizer>().SetTimer(_timer);
+        this.GetRequiredComponent<TimerVisualizer>().SetTimer(_timer);
     }
 
     private void OnTimerFinished()

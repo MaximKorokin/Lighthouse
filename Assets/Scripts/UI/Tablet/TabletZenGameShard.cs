@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
 public class TabletZenGameShard : MonoBehaviour
 {
     [field: SerializeField]
@@ -14,7 +13,7 @@ public class TabletZenGameShard : MonoBehaviour
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
+        _image = this.GetRequiredComponent<Image>();
         _image.color = ShardType switch
         {
             TabletZenGameShardType.Red => Color.red,

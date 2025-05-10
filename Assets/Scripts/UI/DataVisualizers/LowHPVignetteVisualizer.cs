@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public class LowHPVignetteVisualizer : HPVignetteVisualizer
 {
     [SerializeField]
