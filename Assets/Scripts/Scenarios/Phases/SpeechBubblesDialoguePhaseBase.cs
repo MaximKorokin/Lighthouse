@@ -29,6 +29,6 @@ public abstract class SpeechBubblesDialoguePhaseBase : SkippableActPhase
 
     protected override void OnSkipped()
     {
-        DialoguesSystem.SkipDialogue();
+        DialoguesSystem.SkipSpeech();
     }
 }

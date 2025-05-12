@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    /// <summary>
+    /// -1 means LMB,
+    /// 0 means first touch,
+    /// documentation: https://docs.unity3d.com/2018.3/Documentation/ScriptReference/EventSystems.PointerEventData-pointerId.html
+    /// </summary>
+    private readonly int[] _allowedPointerIds = new[] { -1, 0 };
+
     [SerializeField]
     private Image _joystickBackground;
     [SerializeField]
@@ -33,7 +40,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (GameManager.IsControlInputBlocked)
+        if (GameManager.IsControlInputBlocked || !IsAllowedPointerId(eventData))
         {
             return;
         }
@@ -58,7 +65,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.IsControlInputBlocked)
+        if (GameManager.IsControlInputBlocked || !IsAllowedPointerId(eventData))
         {
             return;
         }
@@ -77,7 +84,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Input.touchCount > 1)
+        if (!IsAllowedPointerId(eventData))
         {
             return;
         }
@@ -103,4 +110,6 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
         InputVector = Vector2.zero;
         _joystick.rectTransform.anchoredPosition = Vector2.zero;
     }
+
+    private bool IsAllowedPointerId(PointerEventData eventData) => System.Array.IndexOf(_allowedPointerIds, eventData.pointerId) != -1;
 }

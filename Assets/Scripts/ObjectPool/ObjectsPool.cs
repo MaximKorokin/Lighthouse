@@ -32,7 +32,7 @@ public abstract class ObjectsPool<T, P> : MonoBehaviorSingleton<ObjectsPool<T, P
 
     public static void Return(T obj)
     {
-        if (Instance == null)
+        if (Instance == null || Instance.gameObject == null || !Instance.isActiveAndEnabled)
         {
             return;
         }

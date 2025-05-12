@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 64788ddd2ad3f6a489708ef2998e0b03, type: 2}
 --- !u!114 &14223268
 MonoBehaviour:
@@ -676,6 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: a88a214e32204f84998356dc3304b02e, type: 2}
 --- !u!114 &493253699
 MonoBehaviour:
@@ -793,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 3da4ab89b6eadeb4bac4fa4de05026b7, type: 2}
 --- !u!114 &493253705
 MonoBehaviour:
@@ -819,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 4d9ec55c52f7693498542e081df0203d, type: 2}
 --- !u!114 &493253707
 MonoBehaviour:
@@ -1873,6 +1877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 1442b808bc1f7f74d95ab08d40825f81, type: 2}
 --- !u!114 &1158463551
 MonoBehaviour:
@@ -2358,8 +2363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0acb2c8b7abcc446b92899a378ec699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 11400000, guid: 3bd6db4766b13494facbadad62276969, type: 2}
   _speechViewTime: 1
+  _dialogue: {fileID: 11400000, guid: 3bd6db4766b13494facbadad62276969, type: 2}
 --- !u!114 &1652541715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3181,7 +3186,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.2777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0

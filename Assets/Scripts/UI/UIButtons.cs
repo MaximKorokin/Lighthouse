@@ -46,4 +46,9 @@ public class UIButtons : MonoBehaviour
     {
         SessionDataStorage.Observable.Set(SessionDataKey.PhaseSkipInputRecieved, true.ToString());
     }
+
+    public void LoadSceneLoader()
+    {
+        GameManager.LoadScene(Constants.Scene.DebugLoader, this);
+    }
 }

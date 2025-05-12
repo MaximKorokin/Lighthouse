@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0acb2c8b7abcc446b92899a378ec699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 11400000, guid: 026423c6eb52ac84cbb1b32b2e5e602c, type: 2}
   _speechViewTime: 2
+  _dialogue: {fileID: 11400000, guid: 026423c6eb52ac84cbb1b32b2e5e602c, type: 2}
 --- !u!114 &109261515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,6 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: da9a02204f7c2014f9091d922fafd6cd, type: 2}
 --- !u!114 &879127471
 MonoBehaviour:
@@ -1565,6 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: c83a16a2f4e48a047b8f0256059e3cef, type: 2}
 --- !u!114 &879127473
 MonoBehaviour:
@@ -1720,7 +1722,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.2777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1954,6 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 749620f3a6dcb9b42927173e76ad6641, type: 2}
 --- !u!114 &1051360982
 MonoBehaviour:
@@ -1995,6 +1998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 05a064d24a3b7a344a031a6c3eaf3116, type: 2}
 --- !u!114 &1051360985
 MonoBehaviour:
@@ -2036,6 +2040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: 98ee6eb3d3f9ffd4488e3d5f7361268e, type: 2}
 --- !u!114 &1051360988
 MonoBehaviour:
@@ -2199,6 +2204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: d7193114e8bc1e141926bbd3799b241a, type: 2}
 --- !u!114 &1071358529
 MonoBehaviour:
@@ -2369,8 +2375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0acb2c8b7abcc446b92899a378ec699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 11400000, guid: 5363a19ce930de041a02d0b409690806, type: 2}
   _speechViewTime: 2
+  _dialogue: {fileID: 11400000, guid: 5363a19ce930de041a02d0b409690806, type: 2}
 --- !u!1 &1110601663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,7 +3093,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.2777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3386,8 +3392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0acb2c8b7abcc446b92899a378ec699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 11400000, guid: d3352bcffe4e9254ea0f7fcb3a09d903, type: 2}
   _speechViewTime: 1.5
+  _dialogue: {fileID: 11400000, guid: d3352bcffe4e9254ea0f7fcb3a09d903, type: 2}
 --- !u!114 &1777188331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3750,6 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: b5453ac5bbefbe7409056bc2d71686ca, type: 2}
 --- !u!114 &2107731791
 MonoBehaviour:
@@ -3792,6 +3799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: a06c2a24951edd94093cf189961c3d76, type: 2}
 --- !u!114 &2107731794
 MonoBehaviour:
@@ -3831,6 +3839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: c04c0a86182e8fd4e9ee8c9a6c60a859, type: 2}
 --- !u!114 &2107731797
 MonoBehaviour:
@@ -3908,6 +3917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310c93124e8ae2849b5f46f1da058de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseGame: 0
   _dialogue: {fileID: 11400000, guid: e42303da5948c3f4ea630b31a673734c, type: 2}
 --- !u!114 &2110768309
 MonoBehaviour:

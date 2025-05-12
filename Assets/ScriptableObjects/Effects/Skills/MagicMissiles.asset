@@ -57,7 +57,7 @@ MonoBehaviour:
     - rid: 3932639039221137411
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 1
+        <Value>k__BackingField: 3
     - rid: 3932639127874568198
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:

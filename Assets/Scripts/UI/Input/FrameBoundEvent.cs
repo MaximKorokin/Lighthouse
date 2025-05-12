@@ -17,6 +17,8 @@ public class FrameBoundEvent<T>
     /// </summary>
     public bool HasOccured => _invokeFrame + 1 >= Time.frameCount;
 
+    public T Value { get; private set; }
+
     public void Invoke(object invoker, T val)
     {
         if (_invokeFrame == Time.frameCount) return;
@@ -24,6 +26,7 @@ public class FrameBoundEvent<T>
         if (_invoker == invoker)
         {
             _invokeFrame = Time.frameCount;
+            Value = val;
             _event?.Invoke(val);
         }
         else

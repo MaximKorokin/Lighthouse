@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 792045906607730162}
   - component: {fileID: 2189691964686447022}
   - component: {fileID: 8069756656352211100}
+  - component: {fileID: 497455561109417731}
   - component: {fileID: 844742998062246562}
   - component: {fileID: 740726156351051180}
   - component: {fileID: 2118121083948704928}
@@ -485,6 +486,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
   _skillIndex: 1
+--- !u!114 &497455561109417731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab951168e25fd34587ddf87bb04903f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
+  _skillIndex: 2
 --- !u!114 &844742998062246562
 MonoBehaviour:
   m_ObjectHideFlags: 0

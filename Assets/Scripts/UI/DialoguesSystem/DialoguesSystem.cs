@@ -14,6 +14,7 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     {
         base.Awake();
         _dialogueView.DialogueFinished += OnDialogueFinished;
+        GameManager.SceneChanging += OnSceneChanging;
     }
 
     private void OnDialogueFinished()
@@ -38,12 +39,17 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         Instance.InitDialogueInternal(dialogue);
     }
 
-    public static void SkipDialogue()
+    public static void SkipSpeech()
     {
         if (Instance == null)
         {
             return;
         }
         Instance._dialogueView.FinishViewText();
+    }
+
+    private void OnSceneChanging()
+    {
+        OnDialogueFinished();
     }
 }

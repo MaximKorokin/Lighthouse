@@ -32,7 +32,7 @@ public abstract class AudioTextViewer : TextViewer
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        if (_audioSourceProvider != null && _audioSourceProvider.gameObject.activeInHierarchy)
+        if (_audioSourceProvider != null )
         {
             AudioSourceProviderPool.Return(_audioSourceProvider);
         }

@@ -24,7 +24,7 @@ public class TextLocalizer : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_textObject != null && _textObject.gameObject.activeInHierarchy)
+        if (_textObject != null)
         {
             LocalizationManager.RemoveLanguageChangeListener(_textObject);
         }

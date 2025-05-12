@@ -158,11 +158,11 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
 
     private void OnDestroy()
     {
-        if (_audioSourceProvider1 != null && _audioSourceProvider1.gameObject.activeInHierarchy)
+        if (_audioSourceProvider1 != null)
         {
             AudioSourceProviderPool.Return(_audioSourceProvider1);
         }
-        if (_audioSourceProvider2 != null && _audioSourceProvider2.gameObject.activeInHierarchy)
+        if (_audioSourceProvider2 != null)
         {
             AudioSourceProviderPool.Return(_audioSourceProvider2);
         }

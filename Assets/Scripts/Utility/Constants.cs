@@ -12,6 +12,7 @@ public static class Constants
     /// </summary>
     public enum Scene
     {
+        DebugLoader = 1,
         KinsnapHQAttack = 10,
         KinsnapHQVisit = 11,
         LobbyFirstVisit = 100,

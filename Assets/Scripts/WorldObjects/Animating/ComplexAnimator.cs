@@ -9,12 +9,12 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
 {
     private readonly List<SingleAnimator> _animators = new();
     private WorldObject _worldObject;
+    private WorldObject WorldObject => gameObject.LazyGetComponent(ref _worldObject);
 
     private void Awake()
     {
-        _worldObject = this.GetRequiredComponent<WorldObject>();
-        _worldObject.AnimatorValueSet += SetAnimatorValue;
-        if (_worldObject is MovableWorldObject movable)
+        WorldObject.AnimatorValueSet += SetAnimatorValue;
+        if (WorldObject is MovableWorldObject movable)
         {
             movable.Flipped += SetFlip;
         }
@@ -30,7 +30,7 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
         _animators.Add(animator);
         animator.Initialize();
 
-        _worldObject.VisualSize = GetExtents() * 2;
+        WorldObject.VisualSize = GetExtents() * 2;
     }
 
     public void SetAnimatorValue<T>(AnimatorKey key, T value = default) where T : struct

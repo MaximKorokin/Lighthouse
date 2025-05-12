@@ -40,13 +40,8 @@ MonoBehaviour:
       type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 3932639018172022788
+        - rid: 7488742082232188929
         _redirectTo: 2
-    - rid: 3932639018172022788
-      type: {class: DashEffect, ns: , asm: Assembly-CSharp}
-      data:
-        OverrideTime: 0.8
-        Speed: 3
     - rid: 3932639127874568199
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -69,4 +64,9 @@ MonoBehaviour:
     - rid: 4259499470171930629
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 1
+        <Value>k__BackingField: 2
+    - rid: 7488742082232188929
+      type: {class: InputDashEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 0.8
+        Speed: 3

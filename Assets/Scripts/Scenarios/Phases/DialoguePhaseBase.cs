@@ -27,6 +27,6 @@ public abstract class DialoguePhaseBase : SkippableActPhase
 
     protected override void OnSkipped()
     {
-        DialoguesSystem.SkipDialogue();
+        DialoguesSystem.SkipSpeech();
     }
 }

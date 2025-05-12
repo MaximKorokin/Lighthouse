@@ -1428,15 +1428,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8677281674527476753, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15432243
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8677281674527476753, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4157078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8677281674527476753, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.18386568
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8677281674527476753, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1473,28 +1473,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9085181546571833547, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4661488837166876411}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
---- !u!1 &5430140288436819099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9085181546571833547, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
-  m_PrefabInstance: {fileID: 3841209470005376080}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4661488837166876411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430140288436819099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a30537f626f4ac4b9fb965f08a9c2d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5558939596307232833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8677281674527476753, guid: f4d9b1f643af16f47847613abc741c26, type: 3}
@@ -1508,6 +1488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8244828858906753660}
     m_Modifications:
+    - target: {fileID: 4620833601663530852, guid: 18aa9bdc0a5dc9c47894386326a11a5c, type: 3}
+      propertyPath: _swipeThreshold
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 6176849939272762963, guid: 18aa9bdc0a5dc9c47894386326a11a5c, type: 3}
       propertyPath: m_Name
       value: UserInputSystem
