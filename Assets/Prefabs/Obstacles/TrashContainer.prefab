@@ -122,7 +122,7 @@ MonoBehaviour:
     - Name: 2
       Value: 10
   <IsDamagable>k__BackingField: 0
-  <DestroyTime>k__BackingField: 3
+  <DestroyTime>k__BackingField: 100
 --- !u!114 &2879121165284286293
 MonoBehaviour:
   m_ObjectHideFlags: 0

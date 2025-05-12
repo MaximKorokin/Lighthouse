@@ -20,6 +20,8 @@ public enum ConfigKey
     ViewHPVisualization = 100,
     ViewHPChangeVisualization = 101,
 
+    ViewSkillsCDVisualization = 105,
+
     ViewExperienceBar = 110,
 
     ViewPauseButton = 120,

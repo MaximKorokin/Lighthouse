@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9117184628219312609}
   - component: {fileID: 5072392169342227010}
+  - component: {fileID: 383442319921647082}
   m_Layer: 0
   m_Name: SkillsCDParent
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &383442319921647082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184198421975107736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: 105
 --- !u!1 &1829071556488971722
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3178751910365583119}
   - component: {fileID: 5785972866688991095}
+  - component: {fileID: 915233986056585728}
   m_Layer: 0
   m_Name: HPParent
   m_TagString: Untagged
@@ -270,6 +285,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &915233986056585728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053092545445733607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5861891f9ffec4a93ea2360f5f1b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: 100
 --- !u!1 &6672569625307396641
 GameObject:
   m_ObjectHideFlags: 0
