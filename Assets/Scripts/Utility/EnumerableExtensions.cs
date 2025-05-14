@@ -188,7 +188,7 @@ public static class EnumerableExtensions
     {
         foreach (var e in effects)
         {
-            e.Invoke(castState);
+            e?.Invoke(castState);
         }
     }
 

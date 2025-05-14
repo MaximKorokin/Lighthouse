@@ -11,7 +11,7 @@ public class TabletCopypastas : TabletApplication
 
     private void Awake()
     {
-        _copypastas = new[] { "111", "222", "333", "444", "555" };
+        _copypastas = new[] { "!(copypasta1)", "!(copypasta2)", "!(copypasta3)", "!(copypasta4)", "!(copypasta5)" };
         SetRandomCopypasta();
     }
 

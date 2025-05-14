@@ -29,6 +29,7 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 2717117746704285705
         - rid: 2717117945108234242
+        - rid: 7488742101331214343
         _redirectTo: 2
     - rid: 2717117746704285705
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
@@ -45,3 +46,20 @@ MonoBehaviour:
       data:
         _audioClip: {fileID: 8300000, guid: bc0e6f4460f40614da96eeaea8dfb8e8, type: 3}
         _parentToTarget: 1
+    - rid: 7488742101331214343
+      type: {class: RandomEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _successRatio: 0.01
+        _successEffects:
+        - rid: 7488742101331214344
+        - rid: 7488742101331214345
+        _failureEffects: []
+    - rid: 7488742101331214344
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 8cf9cc852f44ee149ba8b11c5d35ada9, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742101331214345
+      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _animatorController: {fileID: 22100000, guid: 70e04fb68f19cd24cb017e48e35d0c01, type: 2}

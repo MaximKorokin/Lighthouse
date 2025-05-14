@@ -146,7 +146,7 @@ MonoBehaviour:
       Value: 1
     - Name: 2
       Value: 5
-  <IsDamagable>k__BackingField: 1
+  <IsDamagable>k__BackingField: 0
   <DestroyTime>k__BackingField: 100
 --- !u!95 &7493313373310363115
 Animator:

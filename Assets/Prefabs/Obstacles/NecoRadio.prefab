@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5350639494890645368}
   - component: {fileID: 3818650168969038342}
   m_Layer: 0
-  m_Name: NekoRadio
+  m_Name: NecoRadio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
