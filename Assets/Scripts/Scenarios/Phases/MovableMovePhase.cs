@@ -17,6 +17,11 @@ public class MovableMovePhase : SkippableActPhase
 
     public override void Invoke()
     {
+        if (_movable == null)
+        {
+            Logger.Warn($"{nameof(_movable)} parameter is not set in {nameof(MovableMovePhase)}");
+            return;
+        }
         if (_transformPositions == null || _transformPositions.Length == 0)
         {
             Logger.Warn($"{nameof(_transformPositions)} parameter is not set in {nameof(MovableMovePhase)}");

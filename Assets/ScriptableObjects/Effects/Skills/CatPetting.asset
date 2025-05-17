@@ -49,7 +49,7 @@ MonoBehaviour:
     - rid: 7488742101331214343
       type: {class: RandomEffect, ns: , asm: Assembly-CSharp}
       data:
-        _successRatio: 0.01
+        _successRatio: 0.05
         _successEffects:
         - rid: 7488742101331214344
         - rid: 7488742101331214345

@@ -2,6 +2,7 @@
 {
     protected override TabletMailModel[] GetList()
     {
+        // todo: extract hardcoded strings
         return new[] {
             new TabletMailModel(
                 "!(TabletMail1Sender)",

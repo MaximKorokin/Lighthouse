@@ -17,7 +17,7 @@ public abstract class DialoguePhaseBase : SkippableActPhase
 
     protected abstract Dialogue GetDialogue();
 
-    private void OnDialogueFinished()
+    protected virtual void OnDialogueFinished()
     {
         if (_pauseGame) GameManager.Resume();
 

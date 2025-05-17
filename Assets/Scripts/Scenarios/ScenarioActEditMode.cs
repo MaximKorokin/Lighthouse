@@ -10,6 +10,7 @@ public partial class ScenarioAct : MonoBehaviour
     /// <summary>
     /// It is assigned automatically based on Acts hierarchy. Its value is true when an act have no parent.
     /// </summary>
+    [InitialEditorValue(true)]
     [HideInInspector]
     [SerializeField]
     private bool _selfInitializable = true;

@@ -73,7 +73,6 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     {
         _audioClipsQueue.Clear();
         _currentAudioClipItemIndex = 0;
-        ActiveAudioSourceProvider.SetAudioClipType(audioClipItem.Type);
 
         Enqueue(audioClipItem);
     }
@@ -123,7 +122,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
         // Cycle sequence
         else if(CurrentAudioClipItem.EndTime < DspTime)
         {
-            // Update end time if clip is lat in queue and is looped
+            // Update end time if clip is last in queue and is looped
             if (NextAudioClipItem == null)
             {
                 if (ActiveAudioSourceProvider.AudioSource.loop)
@@ -152,7 +151,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     {
         provider.AudioSource.clip = item.Clip;
         provider.AudioSource.PlayScheduled(time);
-        item.EndTime = time + item.Clip.length;
+        item.EndTime = time + (item.Clip != null ? item.Clip.length : 0);
         provider.SetAudioClipType(item.Type);
     }
 

@@ -3203,13 +3203,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Netra
       objectReference: {fileID: 0}
+    - target: {fileID: 6382580791305350808, guid: 6c9f1122185822e4fb2ca8444d921770, type: 3}
+      propertyPath: _stats._stats.Array.data[2].Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 6c9f1122185822e4fb2ca8444d921770, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 74.52
+      value: 75.94
       objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 6c9f1122185822e4fb2ca8444d921770, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.7
+      value: 29.81
       objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 6c9f1122185822e4fb2ca8444d921770, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4505,7 +4509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6382580791305350808, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
       propertyPath: _stats._stats.Array.data[0].Value
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6382580791305350808, guid: 19485bf4e5ae10e4982c198559b48728, type: 3}
       propertyPath: _stats._stats.Array.data[1].Value

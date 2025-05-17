@@ -11,7 +11,8 @@ public class TabletCopypastas : TabletApplication
 
     private void Awake()
     {
-        _copypastas = new[] { "!(copypasta1)", "!(copypasta2)", "!(copypasta3)", "!(copypasta4)", "!(copypasta5)" };
+        // todo: extract hardcoded strings
+        _copypastas = new[] { "!(TabletCopypasta1)", "!(TabletCopypasta2)", "!(TabletCopypasta3)", "!(TabletCopypasta4)", "!(TabletCopypasta5)" };
         SetRandomCopypasta();
     }
 

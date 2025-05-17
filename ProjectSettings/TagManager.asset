@@ -41,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 991129653
     locked: 0
+  - name: Underlay
+    uniqueID: 1668870113
+    locked: 0
   - name: Floor
     uniqueID: 2786993471
     locked: 0

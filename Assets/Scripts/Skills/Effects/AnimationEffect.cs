@@ -93,4 +93,5 @@ public enum SortingLayer
 {
     Effects = 0,
     WorldObjects = 10,
+    Underlay = 100,
 }

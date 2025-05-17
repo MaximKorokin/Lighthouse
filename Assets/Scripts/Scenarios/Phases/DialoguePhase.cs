@@ -10,5 +10,17 @@ public class DialoguePhase : DialoguePhaseBase
         return _dialogue;
     }
 
+    public override void Invoke()
+    {
+        GameManager.IsControlInputBlocked = true;
+        base.Invoke();
+    }
+
+    protected override void OnDialogueFinished()
+    {
+        base.OnDialogueFinished();
+        GameManager.IsControlInputBlocked = false;
+    }
+
     public override string IconName => "Dialogue2.png";
 }
