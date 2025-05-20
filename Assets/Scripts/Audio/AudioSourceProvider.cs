@@ -10,7 +10,7 @@ public class AudioSourceProvider : MonoBehaviour
 
     private readonly List<AudioMixerSnapshot> _snapshotsHistory = new();
 
-    public AudioSource _audioSource;
+    private AudioSource _audioSource;
     public AudioSource AudioSource => gameObject.LazyGetComponent(ref _audioSource);
 
     private void Awake()
@@ -64,6 +64,12 @@ public class AudioSourceProvider : MonoBehaviour
             Logger.Error($"{nameof(AudioMixerGroup)} or {nameof(AudioMixerSnapshot)} is null.");
             return;
         }
+        // Same snapshot is already set
+        if (_snapshotsHistory.Count > 0 && _snapshotsHistory[^1] == snapshot)
+        {
+            return;
+        }
+
         _snapshotsHistory.Add(snapshot);
         AudioSource.outputAudioMixerGroup = group;
         snapshot.TransitionTo(time);

@@ -26,6 +26,7 @@ public abstract class AudioTextViewer : TextViewer
 
     public void SetTypingSound(AudioClip audioClip)
     {
+        AudioSourceProvider.AudioSource.clip = audioClip;
         _audioClip = audioClip;
     }
 

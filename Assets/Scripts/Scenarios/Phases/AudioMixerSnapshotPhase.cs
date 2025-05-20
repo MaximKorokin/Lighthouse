@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 public class AudioMixerSnapshotPhase : ActPhase
 {
     [SerializeField]
-    [Tooltip("If not specified, MainAudioSourceController will be used")]
+    [Tooltip("If not specified, will use MainAudioSourceController")]
     private AudioSourceProvider[] _audioSourceProviders;
     [SerializeField]
     private AudioMixerGroup _audioMixerGroup;

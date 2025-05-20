@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _orderingOffset: 0.7
+  _orderingOffset: 1.2
 --- !u!61 &1121148137191522572
 BoxCollider2D:
   m_ObjectHideFlags: 0

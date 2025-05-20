@@ -35,11 +35,10 @@ public static class GameManager
     public static void Pause()
     {
         _isPaused.Set(true);
+        IsControlInputBlocked = true;
         if (IsPaused)
         {
             Time.timeScale = 0;
-            IsControlInputBlocked = true;
-
             Paused?.Invoke();
         }
     }
@@ -47,11 +46,10 @@ public static class GameManager
     public static void Resume()
     {
         _isPaused.Set(false);
+        IsControlInputBlocked = false;
         if (!IsPaused)
         {
             Time.timeScale = 1;
-            IsControlInputBlocked = false;
-
             Resumed?.Invoke();
         }
     }

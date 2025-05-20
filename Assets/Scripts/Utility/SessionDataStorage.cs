@@ -12,4 +12,6 @@ public enum SessionDataKey
     TabletZenGameScore = 110,
 
     PhaseSkipInputRecieved = 228,
+
+    SceneTransitionRequested = 1001,
 }

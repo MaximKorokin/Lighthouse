@@ -1,6 +1,6 @@
 public class PermissionRequirement : ActRequirement
 {
-    private BoolCounter _hasPermission = new(false);
+    private readonly BoolCounter _hasPermission = new(false);
 
     private void Awake()
     {

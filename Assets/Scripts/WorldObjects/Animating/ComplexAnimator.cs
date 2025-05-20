@@ -20,7 +20,7 @@ public class ComplexAnimator : MonoBehaviour, IAnimator
         }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         SetOrdering();
     }

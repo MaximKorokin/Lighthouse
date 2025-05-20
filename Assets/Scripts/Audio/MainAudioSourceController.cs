@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceController>
 {
+    private const double UnsetAudioClipEndTime = -1;
+
     private AudioSourceProvider _audioSourceProvider1;
     private AudioSourceProvider _audioSourceProvider2;
 
@@ -40,7 +42,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     /// <param name="operation"></param>
     public void SetAudioClip(AudioClip audioClip, AudioClipType type, bool loop, AudioClipOperation operation)
     {
-        var item = new AudioClipItem(audioClip, type, loop, -1);
+        var item = new AudioClipItem(audioClip, type, loop, UnsetAudioClipEndTime);
         switch (operation)
         {
             case AudioClipOperation.Assign:
@@ -114,7 +116,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
         ActiveAudioSourceProvider.AudioSource.loop = CurrentAudioClipItem.Loop && CurrentAudioClipItem == LastAudioClipItem;
 
         // Start sequence
-        if (CurrentAudioClipItem.EndTime == -1)
+        if (CurrentAudioClipItem.EndTime == UnsetAudioClipEndTime)
         {
             // Adding a time offset to prevent initial lag
             SchedulePlay(ActiveAudioSourceProvider, CurrentAudioClipItem, DspTime + 0.25);
@@ -125,7 +127,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
             // Update end time if clip is last in queue and is looped
             if (NextAudioClipItem == null)
             {
-                if (ActiveAudioSourceProvider.AudioSource.loop)
+                if (ActiveAudioSourceProvider.AudioSource.loop && CurrentAudioClipItem.Clip != null)
                 {
                     CurrentAudioClipItem.EndTime += CurrentAudioClipItem.Clip.length;
                     return;
@@ -141,7 +143,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
 
         // Schedule next clip if have one
         // Scheduling when it is 1 second left because of buffer size (I guess)
-        if (NextAudioClipItem != null && NextAudioClipItem.EndTime == -1 && DspTime >= CurrentAudioClipItem.EndTime - 1)
+        if (NextAudioClipItem != null && NextAudioClipItem.EndTime == UnsetAudioClipEndTime && DspTime >= CurrentAudioClipItem.EndTime - 1)
         {
             SchedulePlay(InactiveAudioSourceProvider, NextAudioClipItem, CurrentAudioClipItem.EndTime);
         }

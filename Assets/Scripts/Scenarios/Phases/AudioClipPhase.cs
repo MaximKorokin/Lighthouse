@@ -6,11 +6,27 @@ public class AudioClipPhase : ActPhase
     private AudioClip _audioClip;
     [SerializeField]
     private AudioClipType _type;
+    [Space]
+    [SerializeField]
+    private bool _spatial;
+    [SerializeField]
+    [ConditionalDisplay(nameof(_spatial), true)]
+    private bool _childToTarget;
+    [SerializeField]
+    [ConditionalDisplay(nameof(_spatial), true)]
+    private Transform _transformPosition;
 
     public override void Invoke()
     {
-        var provider = AudioSourceProviderPool.Take(new(false));
+        var provider = _spatial
+            ? AudioSourceProviderPool.Take(new(true, _transformPosition.position))
+            : AudioSourceProviderPool.Take(new(false));
         provider.PlayAudioClip(_audioClip, false, _type, () => AudioSourceProviderPool.Return(provider));
+
+        if (_spatial && _childToTarget)
+        {
+            provider.transform.SetParent(_transformPosition, false);
+        }
 
         InvokeFinished();
     }

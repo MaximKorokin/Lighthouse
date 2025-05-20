@@ -22,7 +22,6 @@ public abstract class ObservableKeyValueStoreWrapper<K, V> where V : IEquatable<
     /// <returns></returns>
     public V Get(K key)
     {
-        // extraction
         if (!HasKey(key))
         {
             var defaultValue = key.GetDefaultValue();

@@ -10,5 +10,5 @@ public class ScenePhase : ActPhase
         GameManager.LoadScene(_sceneName, this, InvokeFinished);
     }
 
-    public override string IconName => base.IconName;
+    public override string IconName => "Door.png";
 }

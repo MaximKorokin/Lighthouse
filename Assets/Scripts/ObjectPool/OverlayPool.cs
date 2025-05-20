@@ -31,7 +31,7 @@ class OverlayPool : ObjectsPool<OverlayController, OverlaySettings>
     {
         if (overlay.TryGetComponent<Image>(out var image))
         {
-            image.color = new(0, 0, 0, 0);
+            image.color = new(0, 0, 0, 1);
         }
     }
 }

@@ -57,7 +57,9 @@ public class ArcUI : MonoBehaviour
             .Then(EnableItems(_transferItems))
             .Then(AppendActionLogLines(_transferActionLogLines, 1))
             .Then(() => _actionLog.SetPrompt(true))
-            .Then(() => GameManager.LoadScene(Constants.Scene.Ghetto1, this)));
+            .Then(() => SessionDataStorage.Observable.Set(SessionDataKey.SceneTransitionRequested, "true"))
+            .Then(CoroutinesUtils.WaitForSeconds(0.5f))
+            .Then(() => UIStateManager.Observable.Set(UIState.ArcUI, false)));
     }
 
     private void DisableAllItems()

@@ -3,23 +3,36 @@ using System.Reflection;
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 [InitializeOnLoad]
 public static class GameObjectsWatcher
 {
-    private static readonly Dictionary<int, GameObject> _previousGameObjects = new();
+    private static readonly HashSet<int> _previousGameObjects = new();
+
+    private static bool _isSceneChanging = false;
 
     static GameObjectsWatcher()
     {
         EditorApplication.update += OnEditorUpdate;
+
+        EditorSceneManager.sceneOpening += (path, mode) => _isSceneChanging = true;
+        EditorSceneManager.sceneOpened += (scene, mode) =>
+        {
+            _isSceneChanging = false;
+            CacheGameObjects();
+        };
+
         CacheGameObjects();
     }
 
     private static void OnEditorUpdate()
     {
+        if (_isSceneChanging) return;
+
         foreach (var obj in UnityEngine.Object.FindObjectsOfType<GameObject>())
         {
-            if (!_previousGameObjects.ContainsKey(obj.GetInstanceID()))
+            if (!_previousGameObjects.Contains(obj.GetInstanceID()))
             {
                 InitializeMarkedFields(obj);
             }
@@ -33,7 +46,7 @@ public static class GameObjectsWatcher
         _previousGameObjects.Clear();
         foreach (var obj in UnityEngine.Object.FindObjectsOfType<GameObject>())
         {
-            _previousGameObjects[obj.GetInstanceID()] = obj;
+            _previousGameObjects.Add(obj.GetInstanceID());
         }
     }
 
