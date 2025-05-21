@@ -152,7 +152,7 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     private void SchedulePlay(AudioSourceProvider provider, AudioClipItem item, double time)
     {
         provider.AudioSource.clip = item.Clip;
-        provider.AudioSource.PlayScheduled(time);
+        if (item.Clip != null) provider.AudioSource.PlayScheduled(time);
         item.EndTime = time + (item.Clip != null ? item.Clip.length : 0);
         provider.SetAudioClipType(item.Type);
     }

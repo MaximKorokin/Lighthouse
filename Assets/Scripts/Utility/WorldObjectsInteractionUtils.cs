@@ -74,7 +74,7 @@ public static class WorldObjectsInteractionUtils
 
     public static void SetRigidbodyCollisions(this MovableWorldObject movable, bool value)
     {
-        movable.RigidbodyExtender.SetExcludeLayers(-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName, Constants.FogLayerName), !value);
+        movable.RigidbodyExtender.SetExcludeLayers(-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName, Constants.FogLayerName, Constants.NoIgnoreLayerName), !value);
         movable.ReloadPhysicsState();
     }
 }

@@ -16,10 +16,17 @@ public class EditorConditionalDisplayAttribute : PropertyDrawerBase
 
         var conditionalDispalyAttribute = attribute as ConditionalDisplayAttribute;
 
-        var conditionProperty = property.serializedObject.FindProperty(conditionalDispalyAttribute.FieldPath);
+        // Display property if conditions are met
+        var displayProperty = true;
+        for (int i = 0; i < conditionalDispalyAttribute.FieldPaths.Length; i++)
+        {
+            if (conditionalDispalyAttribute.EqualityObjects.Length <= i) break;
 
-        // Display property if condition is met
-        if (conditionProperty != null && AreEqual(conditionProperty, conditionalDispalyAttribute.EqualityObject))
+            var conditionProperty = property.serializedObject.FindProperty(conditionalDispalyAttribute.FieldPaths[i]);
+
+            displayProperty &= conditionProperty != null && AreEqual(conditionProperty, conditionalDispalyAttribute.EqualityObjects[i]);
+        }
+        if (displayProperty)
         {
             var propertyField = new PropertyField();
             propertyField.BindProperty(property);
@@ -39,16 +46,19 @@ public class EditorConditionalDisplayAttribute : PropertyDrawerBase
             rootContainer.UnregisterCallback<AttachToPanelEvent>(OnAttach);
             var conditionalDispalyAttribute = attribute as ConditionalDisplayAttribute;
 
-            var element = rootContainer.parent.parent.Children().FirstOrDefault(x => x.name.Contains(conditionalDispalyAttribute.FieldPath)) as PropertyField;
-            element?.RegisterValueChangeCallback(e =>
+            for (int i = 0; i < conditionalDispalyAttribute.FieldPaths.Length; i++)
             {
-                // Property may be Disposed
-                if (property.serializedObject != e.changedProperty.serializedObject)
+                var element = rootContainer.parent.parent.Children().FirstOrDefault(x => x.name.Contains(conditionalDispalyAttribute.FieldPaths[i])) as PropertyField;
+                element?.RegisterValueChangeCallback(e =>
                 {
-                    property = e.changedProperty.serializedObject.FindProperty(_propertyName);
-                }
-                RedrawRootContainer(rootContainer, property);
-            });
+                    // Property may be Disposed
+                    if (property.serializedObject != e.changedProperty.serializedObject)
+                    {
+                        property = e.changedProperty.serializedObject.FindProperty(_propertyName);
+                    }
+                    RedrawRootContainer(rootContainer, property);
+                });
+            }
         }
     }
 

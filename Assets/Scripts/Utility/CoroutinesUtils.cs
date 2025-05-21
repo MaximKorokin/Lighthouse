@@ -91,6 +91,23 @@ public static class CoroutinesUtils
             yield return new WaitForEndOfFrame();
         }
     }
+
+    public static IEnumerator InterpolationCoroutine(Func<float> currentValueGetter, Action<float> nextValueSetter, float targetValue, float time)
+    {
+        float initialValue = currentValueGetter();
+        float elapsed = 0f;
+
+        while (elapsed < time)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            var rate = Mathf.Clamp01(elapsed / time);
+            var newValue = Mathf.Lerp(initialValue, targetValue, rate);
+            nextValueSetter(newValue);
+
+            yield return null;
+        }
+        nextValueSetter(targetValue);
+    }
 }
 
 public class CoroutineWrapper

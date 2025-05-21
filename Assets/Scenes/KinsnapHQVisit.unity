@@ -218,6 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: 6831a379e7cfb274ba12e424bd7eec0a, type: 3}
   _type: 1
+  _spatial: 0
+  _childToTarget: 0
+  _transformPosition: {fileID: 0}
 --- !u!114 &14223260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,7 +1286,7 @@ GameObject:
   - component: {fileID: 779310152}
   - component: {fileID: 779310149}
   - component: {fileID: 779310151}
-  - component: {fileID: 779310150}
+  - component: {fileID: 779310153}
   m_Layer: 0
   m_Name: PauseAct
   m_TagString: Untagged
@@ -1306,28 +1309,11 @@ MonoBehaviour:
   _requirements:
   - {fileID: 779310151}
   _phases:
-  - {fileID: 779310150}
+  - {fileID: 779310153}
   _childrenActs: []
   _phasesInvokationType: 20
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 0
---- !u!114 &779310150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779310148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf40502580eb5547b51120baf243965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSourceProviders: []
-  _audioMixerGroup: {fileID: 24300002, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _phaseType: 1
-  _audioMixerSnapshot: {fileID: 597268950529750252, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _transitionType: 0
 --- !u!114 &779310151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1356,6 +1342,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1456075533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779310153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779310148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48e9eb072318f43abba0206fe15af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceProviders: []
+  _filter: 10
+  _phaseType: 0
+  _returnType: 0
+  _cutoffValue: 500
 --- !u!1 &812333492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1468,7 @@ GameObject:
   - component: {fileID: 984498749}
   - component: {fileID: 984498752}
   - component: {fileID: 984498751}
-  - component: {fileID: 984498750}
+  - component: {fileID: 984498753}
   m_Layer: 0
   m_Name: ResumeAct
   m_TagString: Untagged
@@ -1488,23 +1491,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1456075533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &984498750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984498748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf40502580eb5547b51120baf243965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSourceProviders: []
-  _audioMixerGroup: {fileID: 24300002, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _phaseType: 2
-  _audioMixerSnapshot: {fileID: 0}
-  _transitionType: 1
 --- !u!114 &984498751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,11 +1519,28 @@ MonoBehaviour:
   _requirements:
   - {fileID: 984498751}
   _phases:
-  - {fileID: 984498750}
+  - {fileID: 984498753}
   _childrenActs: []
   _phasesInvokationType: 20
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 0
+--- !u!114 &984498753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984498748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48e9eb072318f43abba0206fe15af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceProviders: []
+  _filter: 10
+  _phaseType: 10
+  _returnType: 1
+  _cutoffValue: 0
 --- !u!1 &1022573384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,6 +2441,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: 6156f1bbdb935424e9b4f7e881112888, type: 3}
   _type: 1
+  _spatial: 0
+  _childToTarget: 0
+  _transformPosition: {fileID: 0}
 --- !u!114 &1652541719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,7 +3046,7 @@ GameObject:
   - component: {fileID: 1980814867}
   - component: {fileID: 1980814870}
   - component: {fileID: 1980814869}
-  - component: {fileID: 1980814868}
+  - component: {fileID: 1980814871}
   m_Layer: 0
   m_Name: SetupAct
   m_TagString: Untagged
@@ -3063,23 +3069,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1456075533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1980814868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980814866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf40502580eb5547b51120baf243965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSourceProviders: []
-  _audioMixerGroup: {fileID: 24300002, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _phaseType: 1
-  _audioMixerSnapshot: {fileID: 24500006, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _transitionType: 0
 --- !u!114 &1980814869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3108,13 +3097,30 @@ MonoBehaviour:
   _requirements: []
   _phases:
   - {fileID: 1980814869}
-  - {fileID: 1980814868}
+  - {fileID: 1980814871}
   _childrenActs:
   - {fileID: 779310149}
   - {fileID: 984498752}
   _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
+--- !u!114 &1980814871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980814866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48e9eb072318f43abba0206fe15af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceProviders: []
+  _filter: 10
+  _phaseType: 0
+  _returnType: 0
+  _cutoffValue: 22000
 --- !u!1 &2052546961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,7 +3214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClipType: 1
-  _audioSource: {fileID: 0}
 --- !u!82 &2118708397
 AudioSource:
   m_ObjectHideFlags: 0

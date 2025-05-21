@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 513494152}
   - component: {fileID: 513494155}
   - component: {fileID: 513494154}
-  - component: {fileID: 513494153}
+  - component: {fileID: 513494156}
   m_Layer: 0
   m_Name: PauseAct
   m_TagString: Untagged
@@ -694,23 +694,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 656566403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &513494153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513494151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf40502580eb5547b51120baf243965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSourceProviders: []
-  _audioMixerGroup: {fileID: 24300002, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _phaseType: 1
-  _audioMixerSnapshot: {fileID: 597268950529750252, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _transitionType: 0
 --- !u!114 &513494154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,11 +722,28 @@ MonoBehaviour:
   _requirements:
   - {fileID: 513494154}
   _phases:
-  - {fileID: 513494153}
+  - {fileID: 513494156}
   _childrenActs: []
   _phasesInvokationType: 20
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 0
+--- !u!114 &513494156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513494151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48e9eb072318f43abba0206fe15af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceProviders: []
+  _filter: 10
+  _phaseType: 0
+  _returnType: 0
+  _cutoffValue: 500
 --- !u!1 &525181162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ GameObject:
   - component: {fileID: 832276503}
   - component: {fileID: 832276506}
   - component: {fileID: 832276505}
-  - component: {fileID: 832276504}
+  - component: {fileID: 832276507}
   m_Layer: 0
   m_Name: SetupAct
   m_TagString: Untagged
@@ -1425,23 +1425,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 656566403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &832276504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832276502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf40502580eb5547b51120baf243965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSourceProviders: []
-  _audioMixerGroup: {fileID: 24300002, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _phaseType: 1
-  _audioMixerSnapshot: {fileID: 24500006, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _transitionType: 0
 --- !u!114 &832276505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,13 +1453,30 @@ MonoBehaviour:
   _requirements: []
   _phases:
   - {fileID: 832276505}
-  - {fileID: 832276504}
+  - {fileID: 832276507}
   _childrenActs:
   - {fileID: 513494155}
   - {fileID: 1417315745}
   _phasesInvokationType: 10
   <IsRepetitive>k__BackingField: 0
   _selfInitializable: 1
+--- !u!114 &832276507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832276502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48e9eb072318f43abba0206fe15af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceProviders: []
+  _filter: 10
+  _phaseType: 0
+  _returnType: 0
+  _cutoffValue: 22000
 --- !u!1 &836356375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,7 +2943,7 @@ GameObject:
   - component: {fileID: 1417315742}
   - component: {fileID: 1417315745}
   - component: {fileID: 1417315744}
-  - component: {fileID: 1417315743}
+  - component: {fileID: 1417315746}
   m_Layer: 0
   m_Name: ResumeAct
   m_TagString: Untagged
@@ -2966,23 +2966,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 656566403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1417315743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417315741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf40502580eb5547b51120baf243965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSourceProviders: []
-  _audioMixerGroup: {fileID: 24300002, guid: 2dcfcc00722897843816b70f1f7c1a3e, type: 2}
-  _phaseType: 2
-  _audioMixerSnapshot: {fileID: 0}
-  _transitionType: 1
 --- !u!114 &1417315744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3011,11 +2994,28 @@ MonoBehaviour:
   _requirements:
   - {fileID: 1417315744}
   _phases:
-  - {fileID: 1417315743}
+  - {fileID: 1417315746}
   _childrenActs: []
   _phasesInvokationType: 20
   <IsRepetitive>k__BackingField: 1
   _selfInitializable: 0
+--- !u!114 &1417315746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417315741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48e9eb072318f43abba0206fe15af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceProviders: []
+  _filter: 10
+  _phaseType: 10
+  _returnType: 1
+  _cutoffValue: 22000
 --- !u!1 &1505709482
 GameObject:
   m_ObjectHideFlags: 0

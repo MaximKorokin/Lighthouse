@@ -133,6 +133,20 @@ public static class EnumerableExtensions
         return default;
     }
 
+    public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet, Func<TValue> factory)
+    {
+        if (dictionary.TryGetValue(toGet, out var value))
+        {
+            return value;
+        }
+        else
+        {
+            value = factory();
+            dictionary[toGet] = value;
+        }
+        return value;
+    }
+
     public static void RemoveRangeByKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, IEnumerable<TKey> toRemove)
     {
         foreach (var val in toRemove)

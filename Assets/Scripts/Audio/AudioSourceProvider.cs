@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class AudioSourceProvider : MonoBehaviour
 {
@@ -8,10 +7,11 @@ public class AudioSourceProvider : MonoBehaviour
     private AudioClipType _audioClipType;
     private AudioClipType _currentAudioClipType;
 
-    private readonly List<AudioMixerSnapshot> _snapshotsHistory = new();
-
     private AudioSource _audioSource;
     public AudioSource AudioSource => gameObject.LazyGetComponent(ref _audioSource);
+
+    private readonly Dictionary<AudioFilter, Component> _filters = new();
+    private readonly Dictionary<AudioFilter, List<object>> _filtersHistory = new();
 
     private void Awake()
     {
@@ -57,34 +57,66 @@ public class AudioSourceProvider : MonoBehaviour
         };
     }
 
-    public void SetAudioMixerSnapshot(AudioMixerGroup group, AudioMixerSnapshot snapshot, float time = 0.3f)
+    public void SetAudioFilterValue(AudioFilter filter, object value)
     {
-        if (group == null || snapshot == null)
+        switch (filter)
         {
-            Logger.Error($"{nameof(AudioMixerGroup)} or {nameof(AudioMixerSnapshot)} is null.");
-            return;
-        }
-        // Same snapshot is already set
-        if (_snapshotsHistory.Count > 0 && _snapshotsHistory[^1] == snapshot)
-        {
-            return;
+            case AudioFilter.LowPass:
+                var component = _filters.GetOrAdd(filter, () => gameObject.AddComponent<AudioLowPassFilter>()) as AudioLowPassFilter;
+                var targetValue = ConvertingUtils.ToFloat(value);
+                if (component != null)
+                {
+                    // Unity bug: without this switch filter just stops changing its value
+                    component.enabled = !component.enabled;
+                    component.enabled = !component.enabled;
+                    CoroutinesHandler.StartUniqueCoroutine(component, CoroutinesUtils.InterpolationCoroutine(
+                        () => component.cutoffFrequency,
+                        x => component.cutoffFrequency = x,
+                        targetValue,
+                        0.3f));
+                }
+
+                break;
+            default:
+                Logger.Error($"Unsupported value of {nameof(AudioFilter)}: {filter}");
+                return;
         }
 
-        _snapshotsHistory.Add(snapshot);
-        AudioSource.outputAudioMixerGroup = group;
-        snapshot.TransitionTo(time);
+        _filtersHistory.AddOrModify(filter, () => new() { value }, x => { x.Add(value); return x; });
     }
 
-    public void ReturnToAudioMixerSnapshot(AudioMixerGroup group, AudioMixerSnapshotsTransitionType transitionType)
+    public void ReturnAudioFilterValue(AudioFilter filter, AudioFilterReturnType returnType)
     {
-        var snapshot = transitionType switch
+        if (!_filtersHistory.TryGetValue(filter, out var history)) return;
+
+        object value;
+        switch (returnType)
         {
-            AudioMixerSnapshotsTransitionType.First => _snapshotsHistory.Count > 0 ? _snapshotsHistory[0] : null,
-            // Get first if history contains only 1 snapshot
-            AudioMixerSnapshotsTransitionType.Previous => _snapshotsHistory.Count == 0 ? null : (_snapshotsHistory.Count == 1 ? _snapshotsHistory[0] : _snapshotsHistory[^2]),
-            _ => _snapshotsHistory.Count > 0 ? _snapshotsHistory[0] : null,
+            case AudioFilterReturnType.Previous:
+                if (history.Count > 1)
+                {
+                    value = history.Count > 1 ? history[^2] : null;
+                    history.RemoveAt(history.Count - 1);
+                }
+                else value = null;
+                break;
+            case AudioFilterReturnType.First:
+                if (history.Count > 0)
+                {
+                    value = history[0];
+                    history.Clear();
+                    history.Add(value);
+                }
+                else value = null;
+                break;
+            default:
+                value = null;
+                break;
         };
-        SetAudioMixerSnapshot(group, snapshot);
+
+        if (value == null) return;
+
+        SetAudioFilterValue(filter, value);
     }
 
     private void RemoveVolumeConfigChangeListeners()
@@ -110,7 +142,12 @@ public enum AudioClipType
     Music = 2,
 }
 
-public enum AudioMixerSnapshotsTransitionType
+public enum AudioFilter
+{
+    LowPass = 10,
+}
+
+public enum AudioFilterReturnType
 {
     First = 0,
     Previous = 1,

@@ -2,12 +2,18 @@
 
 public class ConditionalDisplayAttribute : PropertyAttribute
 {
-    public string FieldPath { get; set; }
-    public object EqualityObject { get; set; }
+    public string[] FieldPaths { get; set; }
+    public object[] EqualityObjects { get; set; }
 
     public ConditionalDisplayAttribute(string fieldPath, object equalityObject)
     {
-        FieldPath = fieldPath;
-        EqualityObject = equalityObject;
+        FieldPaths = new[] { fieldPath };
+        EqualityObjects = new[] { equalityObject };
+    }
+
+    public ConditionalDisplayAttribute(string[] fieldPaths, object[] equalityObjects)
+    {
+        FieldPaths = fieldPaths;
+        EqualityObjects = equalityObjects;
     }
 }
