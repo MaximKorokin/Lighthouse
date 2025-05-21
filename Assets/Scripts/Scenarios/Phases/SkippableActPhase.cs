@@ -18,7 +18,7 @@
 
     private void Update()
     {
-        if (_isInvoking && _skipCooldownCounter.IsOver() && InputReader.SkipInputRecieved.HasOccured)
+        if (_isInvoking && InputReader.SkipInputRecieved.HasOccured && _skipCooldownCounter.TryReset())
         {
             OnSkipped();
         }

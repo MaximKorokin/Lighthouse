@@ -46,6 +46,8 @@ public class AudioFilterPhase : ActPhase
     {
         providers.ForEach(x => x.ReturnAudioFilterValue(_filter, _returnType));
     }
+
+    public override string IconName => "SoundSettings.png";
 }
 
 public enum AudioFilterPhaseType

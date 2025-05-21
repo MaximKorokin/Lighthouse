@@ -45,11 +45,17 @@ MonoBehaviour:
       type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 4259499536714563598
+        - rid: 7488742307054485504
         <Zone>k__BackingField: {fileID: 4322612965802900331, guid: 4b9a04bb592c2954e8c50f303188db02, type: 3}
         <DistanceFromParent>k__BackingField: 0.3
         <InvokationCooldown>k__BackingField: 0.25
-    - rid: 4259499536714563598
+    - rid: 7488742307054485504
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742307054485505
+        _conditions: 2
+    - rid: 7488742307054485505
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 2

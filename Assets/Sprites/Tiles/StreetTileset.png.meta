@@ -2945,7 +2945,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2953,6 +2953,90 @@ TextureImporter:
       bones: []
       spriteID: 3ed07943452971e4b927aea72a40b66c
       internalID: -489551458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StreetTileset_135
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8891f738081724bbba8d5eb5c0fe25
+      internalID: -1714886207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StreetTileset_136
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfa7a8eab1f91b46b01a6eb7df00c2a
+      internalID: -1911810570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StreetTileset_137
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776ce0c0cf505d6489ba5dcc624341c8
+      internalID: -1539738287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StreetTileset_138
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 671c496591bb49649b5fd8e4967e5434
+      internalID: 1915617267
       vertices: []
       indices: 
       edges: []
@@ -3009,6 +3093,10 @@ TextureImporter:
       StreetTileset_132: -273467689
       StreetTileset_133: -343068365
       StreetTileset_134: -489551458
+      StreetTileset_135: -1714886207
+      StreetTileset_136: -1911810570
+      StreetTileset_137: -1539738287
+      StreetTileset_138: 1915617267
       StreetTileset_14: 1182458439
       StreetTileset_15: -128947104
       StreetTileset_16: -1365894651

@@ -25,11 +25,6 @@ public static class GameManager
         {
             InputBlockChanged?.Invoke(v);
         };
-        SceneChanging += () =>
-        {
-            _isPaused.Reset(false);
-            _isControlInputBlocked.Reset(false);
-        };
     }
 
     public static void Pause()
@@ -57,6 +52,7 @@ public static class GameManager
     public static void LoadScene(Constants.Scene sceneName, MonoBehaviour behaviour, Action finalAction = null)
     {
         SceneChanging?.Invoke();
+        OnSceneChangingInternal();
         var operation = SceneManager.LoadSceneAsync(sceneName.ToString(), LoadSceneMode.Single);
         behaviour.StartCoroutineSafe(CoroutinesUtils.WaitForAsyncOperation(operation), finalAction);
     }
@@ -64,6 +60,13 @@ public static class GameManager
     public static void ReloadScene()
     {
         SceneChanging?.Invoke();
+        OnSceneChangingInternal();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private static void OnSceneChangingInternal()
+    {
+        _isPaused.Reset(false);
+        _isControlInputBlocked.Reset(false);
     }
 }

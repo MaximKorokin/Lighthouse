@@ -46,7 +46,7 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 3932639314526863361
-        _conditions: 4
+        _conditions: 5
     - rid: 3932639314526863361
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:

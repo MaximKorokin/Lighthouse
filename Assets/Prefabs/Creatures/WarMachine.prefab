@@ -321,7 +321,7 @@ MonoBehaviour:
   - _settings: {fileID: 11400000, guid: cc741e8f20656294f9b388cb45036f41, type: 2}
     _startsInCooldown: 1
     _conditionData:
-      Predicate: 4096
+      Predicate: 32768
       ReferenceArgument: 1
       ValueArgument: 1
     _targetChoosingData:

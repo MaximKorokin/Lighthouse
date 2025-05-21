@@ -52,12 +52,12 @@ public static class AudioSourceProviderExtensions
     public static void PlayAudioClip(this AudioSourceProvider provider, AudioClip clip, bool loop, AudioClipType type, Action finalAction = null)
     {
         // Prevents sounds interferencing
-        if (_clipsStartTime.TryGetValue(clip, out var previousStartTime) && Time.time - previousStartTime < 0.05f)
+        if (_clipsStartTime.TryGetValue(clip, out var previousStartTime) && Time.unscaledTime - previousStartTime < 0.05f)
         {
             finalAction?.Invoke();
             return;
         }
-        _clipsStartTime[clip] = Time.time;
+        _clipsStartTime[clip] = Time.unscaledTime;
 
         provider.SetAudioClipType(type);
         provider.AudioSource.loop = loop;

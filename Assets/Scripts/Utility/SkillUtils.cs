@@ -14,6 +14,15 @@ public static class SkillUtils
             SkillConditionPredicate.ActiveAbilityInputRecieved => InputReader.ActiveAbilityInputRecieved.HasOccured,
             SkillConditionPredicate.MoveAbilityInputRecieved => InputReader.MoveAbilityInputRecieved.HasOccured,
 
+            SkillConditionPredicate.IsAccessibleBelowRange =>
+                ConvertToWorldObjects(conditionData.ReferenceArgument, targets)
+                    .Any(x => x != null &&
+                        Vector2.Distance(source.transform.position, x.transform.position) < conditionData.ValueArgument.ConvertToFloat(source) &&
+                        !x.gameObject.IsBlockedByObstacle(
+                            source.transform.position,
+                            ((Vector2)x.transform.position - (Vector2)source.transform.position).normalized,
+                            conditionData.ValueArgument.ConvertToFloat(source))),
+
             SkillConditionPredicate.Has =>
                 ConvertToWorldObjects(conditionData.ReferenceArgument, targets).Any(),
             SkillConditionPredicate.AboveRange =>
