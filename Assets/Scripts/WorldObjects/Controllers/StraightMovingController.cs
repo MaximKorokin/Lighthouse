@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class StraightMovingController : MovableController
@@ -11,16 +12,16 @@ public class StraightMovingController : MovableController
 
     protected override void Control()
     {
-        MovableWorldObject.Direction = Direction.normalized;
-        MovableWorldObject.Move();
-    }
-
-    protected override void Trigger(WorldObject worldObject, bool entered)
-    {
-        base.Trigger(worldObject, entered);
-        if (entered)
+        if (Direction == Vector2.zero)
         {
-            InvokeActors(new PrioritizedTargets(worldObject, TriggeredWorldObjects, TriggeredWorldObjects, TriggeredWorldObjects));
+            MovableWorldObject.Direction = Vector2.zero;
+            MovableWorldObject.Stop();
         }
+        else
+        {
+            MovableWorldObject.Direction = Direction.normalized;
+            MovableWorldObject.Move();
+        }
+        InvokeActors(new PrioritizedTargets(TriggeredWorldObjects.ToArray()));
     }
 }

@@ -130,15 +130,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949926551165608891}
-  - component: {fileID: 7547836064825858432}
   - component: {fileID: 2673697132878341897}
   - component: {fileID: 6382580791305350808}
   - component: {fileID: 8105381655039463507}
   - component: {fileID: 543994037497862892}
   - component: {fileID: 3297319145764835928}
-  - component: {fileID: 3898975006173973094}
-  - component: {fileID: 1289666759520043199}
-  - component: {fileID: 6784906246938871441}
+  - component: {fileID: 529741686628306203}
+  - component: {fileID: 90889566913946874}
+  - component: {fileID: 5055269558395080835}
+  - component: {fileID: 8988709643136424425}
   m_Layer: 0
   m_Name: RatBlack
   m_TagString: Untagged
@@ -162,41 +162,6 @@ Transform:
   - {fileID: 2896726948471722464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &7547836064825858432
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809945631460520319}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
-  m_Size: {x: 0.15, y: 0.05}
-  m_Direction: 1
 --- !u!50 &2673697132878341897
 Rigidbody2D:
   serializedVersion: 4
@@ -238,23 +203,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: 2
-  <Faction>k__BackingField: 4
+  <Faction>k__BackingField: 16
   _stats:
     _stats:
     - Name: 2
-      Value: 10
+      Value: 1
     - Name: 1
       Value: 1
     - Name: 3
-      Value: 0.5
+      Value: 1.4
     - Name: 4
       Value: 1
     - Name: 5
-      Value: 0.5
+      Value: 5
     - Name: 7
       Value: 1
     - Name: 12
-      Value: 5
+      Value: 6
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
@@ -274,8 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startEffectsSettings:
   - {fileID: 11400000, guid: 06a2a5e409082cb4da80843041647a5b, type: 2}
-  _damageEffectsSettings:
-  - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
+  _damageEffectsSettings: []
   _destroyEffectsSettings: []
 --- !u!114 &543994037497862892
 MonoBehaviour:
@@ -302,16 +266,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skills:
-  - _settings: {fileID: 11400000, guid: 0a43a191a7b245d439d30aecffd61133, type: 2}
-    _startsInCooldown: 1
+  - _settings: {fileID: 11400000, guid: 878de887c50b4464ebae3833588e15f2, type: 2}
+    _startsInCooldown: 0
     _conditionData:
-      Predicate: 0
-      ReferenceArgument: 0
-      ValueArgument: 0
+      Predicate: 32768
+      ReferenceArgument: 2
+      ValueArgument: 4
     _targetChoosingData:
       Type: 0
       Func: 0
---- !u!114 &3898975006173973094
+  - _settings: {fileID: 11400000, guid: 33a22293df8e7ec41a3d7cafb26a3de4, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 2048
+      ReferenceArgument: 2
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
+--- !u!114 &529741686628306203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ad852864dcd58449d96ea8c3ad50ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &90889566913946874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,8 +311,8 @@ MonoBehaviour:
   _variants:
   - TriggerType: 1
     ValidTargets: 1
-    Relation: 1
---- !u!114 &1289666759520043199
+    Relation: 4
+--- !u!114 &5055269558395080835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,11 +321,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 809945631460520319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ebfbb4f557557409350a205d7c2a03, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &6784906246938871441
-CircleCollider2D:
+--- !u!70 &8988709643136424425
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -368,9 +353,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  serializedVersion: 2
-  m_Radius: 0.3
+  m_Offset: {x: 0, y: 0.025}
+  m_Size: {x: 0.2, y: 0.05}
+  m_Direction: 1

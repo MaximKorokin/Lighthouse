@@ -6,27 +6,23 @@ public class MainAudioSourceController : MonoBehaviorSingleton<MainAudioSourceCo
     private const double UnsetAudioClipEndTime = -1;
 
     private AudioSourceProvider _audioSourceProvider1;
+    private AudioSourceProvider AudioSourceProvider1 => this.LazyInitialize(ref _audioSourceProvider1, () => AudioSourceProviderPool.Take(new(false)));
     private AudioSourceProvider _audioSourceProvider2;
+    private AudioSourceProvider AudioSourceProvider2 => this.LazyInitialize(ref _audioSourceProvider2, () => AudioSourceProviderPool.Take(new(false)));
 
     private bool _areSourcesSwitched;
     private int _currentAudioClipItemIndex = 0;
 
     private readonly List<AudioClipItem> _audioClipsQueue = new();
 
-    public AudioSourceProvider ActiveAudioSourceProvider => _areSourcesSwitched ? _audioSourceProvider2 : _audioSourceProvider1;
-    public AudioSourceProvider InactiveAudioSourceProvider => _areSourcesSwitched ? _audioSourceProvider1 : _audioSourceProvider2;
+    public AudioSourceProvider ActiveAudioSourceProvider => _areSourcesSwitched ? AudioSourceProvider2 : AudioSourceProvider1;
+    public AudioSourceProvider InactiveAudioSourceProvider => _areSourcesSwitched ? AudioSourceProvider1 : AudioSourceProvider2;
 
     private AudioClipItem CurrentAudioClipItem => _audioClipsQueue.Count > _currentAudioClipItemIndex ? _audioClipsQueue[_currentAudioClipItemIndex] : null;
     private AudioClipItem NextAudioClipItem => _audioClipsQueue.Count > (_currentAudioClipItemIndex + 1) ? _audioClipsQueue[_currentAudioClipItemIndex + 1] : null;
     private AudioClipItem LastAudioClipItem => _audioClipsQueue.Count > 0 && _audioClipsQueue.Count > _currentAudioClipItemIndex ? _audioClipsQueue[^1] : null;
 
     private double DspTime => AudioSettings.dspTime;
-
-    private void Start()
-    {
-        _audioSourceProvider1 = AudioSourceProviderPool.Take(new(false));
-        _audioSourceProvider2 = AudioSourceProviderPool.Take(new(false));
-    }
 
     private void Update()
     {

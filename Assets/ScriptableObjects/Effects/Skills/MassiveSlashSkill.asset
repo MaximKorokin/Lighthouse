@@ -45,15 +45,21 @@ MonoBehaviour:
       type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 5342966315404754954
-        - rid: 5342966315404754956
+        - rid: 7488742377012854798
         <Radius>k__BackingField: 0.5
-    - rid: 5342966315404754954
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+    - rid: 7488742377012854798
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Value>k__BackingField: 5
-    - rid: 5342966315404754956
+        <Effects>k__BackingField:
+        - rid: 7488742377012854799
+        - rid: 7488742377012854800
+        _conditions: 2
+    - rid: 7488742377012854799
       type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
       data:
         OverrideTime: 0.5
         Speed: 2
+    - rid: 7488742377012854800
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 5

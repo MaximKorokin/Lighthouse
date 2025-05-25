@@ -51,22 +51,28 @@ MonoBehaviour:
       type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 4259499470171930628
-        - rid: 4259499470171930629
+        - rid: 7488742377012854795
         <Zone>k__BackingField: {fileID: 4775625874383946485, guid: 1c21b3ff23453f84aa214e1e576b3acd, type: 3}
         <DistanceFromParent>k__BackingField: 0
         <InvokationCooldown>k__BackingField: 1
-    - rid: 4259499470171930628
-      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        OverrideTime: 0.3
-        Speed: 0.5
-    - rid: 4259499470171930629
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Value>k__BackingField: 2
     - rid: 7488742082232188929
       type: {class: InputDashEffect, ns: , asm: Assembly-CSharp}
       data:
         OverrideTime: 0.8
         Speed: 3
+    - rid: 7488742377012854795
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742377012854796
+        - rid: 7488742377012854797
+        _conditions: 2
+    - rid: 7488742377012854796
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 2
+    - rid: 7488742377012854797
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 0.3
+        Speed: 0.5

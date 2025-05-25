@@ -9,6 +9,8 @@ overlay_endOfDemo_part1,"Конец демо",,
 overlay_endOfDemo_part2,"Спасибо за игру",,
 
 PauseLabel,Настройки,Settings,Налаштування
+DebugMode,Режим отладки,Debug mode,Режим налагодження
+ShowFps,Показывать fps,View fps,Показувати fps
 
 ArcUIMainMenuText,Arc UI v0.3.24b\nВыберите вариант:,Arc UI v0.3.24b\nChoose an option:,
 ArcUISettingsButton,Настройки аватара,Avatar settings,

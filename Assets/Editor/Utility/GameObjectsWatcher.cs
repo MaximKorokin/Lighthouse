@@ -1,25 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
-using System;
 using UnityEditor;
-using UnityEngine;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 
 [InitializeOnLoad]
 public static class GameObjectsWatcher
 {
     private static readonly HashSet<int> _previousGameObjects = new();
 
-    private static bool _isSceneChanging = false;
-
     static GameObjectsWatcher()
     {
         EditorApplication.update += OnEditorUpdate;
 
-        EditorSceneManager.sceneOpening += (path, mode) => _isSceneChanging = true;
-        EditorSceneManager.sceneOpened += (scene, mode) =>
+        EditorSceneManager.activeSceneChangedInEditMode += (s1, s2) =>
         {
-            _isSceneChanging = false;
             CacheGameObjects();
         };
 
@@ -28,7 +24,7 @@ public static class GameObjectsWatcher
 
     private static void OnEditorUpdate()
     {
-        if (_isSceneChanging) return;
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
 
         foreach (var obj in UnityEngine.Object.FindObjectsOfType<GameObject>())
         {

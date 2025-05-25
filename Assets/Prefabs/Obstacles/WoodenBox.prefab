@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startEffectsSettings:
-  - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
+  - {fileID: 11400000, guid: 5b9e4249c57fcfe41b1cce21f86a1913, type: 2}
   _damageEffectsSettings: []
   _destroyEffectsSettings: []
 --- !u!114 &5138098337722001216

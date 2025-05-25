@@ -1715,7 +1715,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1112819571}
   - component: {fileID: 1112819572}
+  - component: {fileID: 1112819576}
   - component: {fileID: 1112819573}
+  - component: {fileID: 1112819575}
   - component: {fileID: 1112819574}
   m_Layer: 0
   m_Name: RoyasAct1
@@ -1754,7 +1756,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _requirements: []
   _phases:
+  - {fileID: 1112819576}
   - {fileID: 1112819573}
+  - {fileID: 1112819575}
   - {fileID: 1112819574}
   _childrenActs: []
   _phasesInvokationType: 20
@@ -1790,6 +1794,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transformPosition: {fileID: 709771612}
   _speed: 1
+--- !u!114 &1112819575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112819570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2489ef1144bb64eafd92502379f4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _priorityOverride: 20
+--- !u!114 &1112819576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112819570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2489ef1144bb64eafd92502379f4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _priorityOverride: 30
 --- !u!1 &1158463544
 GameObject:
   m_ObjectHideFlags: 0

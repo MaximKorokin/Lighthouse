@@ -3200,6 +3200,7 @@ GameObject:
   - component: {fileID: 1541318016}
   - component: {fileID: 1541318019}
   - component: {fileID: 1541318018}
+  - component: {fileID: 1541318021}
   - component: {fileID: 1541318020}
   - component: {fileID: 1541318017}
   m_Layer: 0
@@ -3218,7 +3219,7 @@ Transform:
   m_GameObject: {fileID: 1541318015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.806, y: 0.984, z: 0}
+  m_LocalPosition: {x: 1.196, y: 1.846, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3267,6 +3268,7 @@ MonoBehaviour:
   _requirements:
   - {fileID: 1541318018}
   _phases:
+  - {fileID: 1541318021}
   - {fileID: 1541318020}
   - {fileID: 1541318017}
   _childrenActs:
@@ -3291,6 +3293,20 @@ MonoBehaviour:
   _type: 1
   _loop: 0
   _operation: 2
+--- !u!114 &1541318021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541318015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec140df00692e644a219b1072712de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: 1001
+  value: 0
 --- !u!114 &1589808939 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248463282845368049, guid: 8947049ed03df7345ba642ca8441e0b8, type: 3}

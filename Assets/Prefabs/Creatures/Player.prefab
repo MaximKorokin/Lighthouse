@@ -460,7 +460,7 @@ MonoBehaviour:
     - Name: 9
       Value: 0.3
     - Name: 12
-      Value: 2.5
+      Value: 1.5
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _variants:
-  - TriggerType: 1
+  - TriggerType: -1
     ValidTargets: 1
     Relation: 4
 --- !u!114 &2116885410010221246

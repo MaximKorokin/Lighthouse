@@ -57,7 +57,7 @@ public class ArcUI : MonoBehaviour
             .Then(EnableItems(_transferItems))
             .Then(AppendActionLogLines(_transferActionLogLines, 1))
             .Then(() => _actionLog.SetPrompt(true))
-            .Then(() => SessionDataStorage.Observable.Set(SessionDataKey.SceneTransitionRequested, "true"))
+            .Then(() => SessionDataStorage.Observable.Set(SessionDataKey.SceneTransitionRequested, true.ToString()))
             .Then(CoroutinesUtils.WaitForSeconds(0.5f))
             .Then(() => UIStateManager.Observable.Set(UIState.ArcUI, false)));
     }

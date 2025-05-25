@@ -2,7 +2,7 @@ public class DamageEffect : SimpleValueEffect
 {
     public override void Invoke(CastState castState)
     {
-        if (castState.Target is DestroyableWorldObject destroyableWorldObject)
+        if (castState.GetTarget() is DestroyableWorldObject destroyableWorldObject)
         {
             destroyableWorldObject.Damage(Value);
         }
