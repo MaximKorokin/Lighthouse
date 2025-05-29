@@ -3655,6 +3655,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 868775331}
     m_Modifications:
+    - target: {fileID: 936868907519147701, guid: 023f5ebdc357eca4587c3ba376d7f728, type: 3}
+      propertyPath: m_Mass
+      value: 999999
+      objectReference: {fileID: 0}
     - target: {fileID: 2533008073219221699, guid: 023f5ebdc357eca4587c3ba376d7f728, type: 3}
       propertyPath: m_Name
       value: Royas

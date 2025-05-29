@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3292321424933142019}
   - component: {fileID: -6978404448541048970}
   - component: {fileID: 8121949299076477301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CartonBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: -1
-  <Faction>k__BackingField: 32
+  <Faction>k__BackingField: 1
   _stats:
     _stats:
     - Name: 1
@@ -185,7 +185,8 @@ MonoBehaviour:
   _startEffectsSettings:
   - {fileID: 11400000, guid: 5b9e4249c57fcfe41b1cce21f86a1913, type: 2}
   _damageEffectsSettings: []
-  _destroyEffectsSettings: []
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: ce33b9476fdf3d447a21530c8dcf3f79, type: 2}
 --- !u!114 &3292321424933142019
 MonoBehaviour:
   m_ObjectHideFlags: 0

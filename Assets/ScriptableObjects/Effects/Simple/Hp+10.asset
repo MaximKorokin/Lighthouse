@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: HP
-    <Description>k__BackingField: HP +10 per level
+    <Description>k__BackingField: HP +10
     <Sprite>k__BackingField: {fileID: 21300000, guid: 774ff287ee3121841b6c83e8b8cac9b8, type: 3}
   <Cooldown>k__BackingField: 0
   _effects:

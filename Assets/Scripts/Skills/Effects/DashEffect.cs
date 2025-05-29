@@ -19,16 +19,18 @@ public class DashEffect : MoveOverrideEffect
     protected override void StartOverride(CastState castState)
     {
         base.StartOverride(castState);
-        if (castState.GetTarget() is MovableWorldObject movable)
+        var movable = castState.GetMovableTarget();
+        if (movable != null)
         {
             movable.SetRigidbodyCollisions(false);
-        } 
+        }
     }
 
-    protected override void StopOverride(WorldObject worldObject)
+    protected override void StopOverride(CastState castState)
     {
-        base.StopOverride(worldObject);
-        if (worldObject is MovableWorldObject movable)
+        base.StopOverride(castState);
+        var movable = castState.GetMovableTarget();
+        if (movable != null)
         {
             movable.SetRigidbodyCollisions(true);
         }

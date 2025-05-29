@@ -8,7 +8,8 @@ public abstract class MoveOverrideEffect : ControllerOverrideEffect
 
     protected override void StartOverride(CastState castState)
     {
-        if (castState.GetTarget() is not MovableWorldObject movable)
+        var movable = castState.GetMovableTarget();
+        if (movable == null)
         {
             return;
         }
@@ -18,8 +19,8 @@ public abstract class MoveOverrideEffect : ControllerOverrideEffect
 
     protected override IEnumerator ControllerOverrideCoroutine(CastState castState)
     {
-        var moveTarget = castState.GetTarget();
-        if (moveTarget is not MovableWorldObject movable)
+        var movable = castState.GetMovableTarget();
+        if (movable == null)
         {
             yield break;
         }
@@ -34,13 +35,14 @@ public abstract class MoveOverrideEffect : ControllerOverrideEffect
         }
     }
 
-    protected override void StopOverride(WorldObject worldObject)
+    protected override void StopOverride(CastState castState)
     {
-        if (worldObject is MovableWorldObject movable)
+        base.StopOverride(castState);
+        var movable = castState.GetMovableTarget();
+        if (movable != null)
         {
             movable.Stop();
         }
-        base.StopOverride(worldObject);
     }
 
     protected abstract Vector2 GetDirection(CastState castState);

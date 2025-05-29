@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5138098337722001216}
   - component: {fileID: 5642452819628804966}
   - component: {fileID: 7430353629895024167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WoodenBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,8 @@ MonoBehaviour:
   _startEffectsSettings:
   - {fileID: 11400000, guid: 5b9e4249c57fcfe41b1cce21f86a1913, type: 2}
   _damageEffectsSettings: []
-  _destroyEffectsSettings: []
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: ce33b9476fdf3d447a21530c8dcf3f79, type: 2}
 --- !u!114 &5138098337722001216
 MonoBehaviour:
   m_ObjectHideFlags: 0

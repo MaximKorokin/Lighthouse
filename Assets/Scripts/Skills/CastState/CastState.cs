@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+
+// todo: rename to EffectState / EffectContext
+// todo: maybe change it to class
 public struct CastState
 {
     /// <summary>
@@ -8,6 +12,7 @@ public struct CastState
     public WorldObject Source { get; set; }
     public WorldObject Target { get; set; }
     public ICastStatePayload Payload { get; set; }
+    public readonly DataStore Cache;
 
     public CastState(WorldObject initialSource, WorldObject source, WorldObject target)
     {
@@ -16,6 +21,7 @@ public struct CastState
         Source = source;
         Target = target;
         Payload = null;
+        Cache = new();
     }
 
     public CastState(WorldObject initialSource)
@@ -25,6 +31,7 @@ public struct CastState
         Source = initialSource;
         Target = initialSource;
         Payload = null;
+        Cache = new();
     }
 }
 

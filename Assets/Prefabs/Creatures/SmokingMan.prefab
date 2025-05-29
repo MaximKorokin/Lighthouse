@@ -141,6 +141,8 @@ GameObject:
   - component: {fileID: 1289666759520043199}
   - component: {fileID: 6884517998728013230}
   - component: {fileID: 3315532733448611922}
+  - component: {fileID: 8044511837207413618}
+  - component: {fileID: 6602845756320698346}
   m_Layer: 0
   m_Name: SmokingMan
   m_TagString: Untagged
@@ -250,7 +252,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 19a87bf51ff2c5f42935e561d40e55bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -338,7 +340,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d237c886ee20ebc4d9d38ad8c1ed7669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skills: []
+  _skills:
+  - _settings: {fileID: 11400000, guid: 69cbb49d9dc8f4f4b91423e631bc1d2b, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 2
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
 --- !u!114 &3898975006173973094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,3 +403,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CharacterPreviewId>k__BackingField: a24ff837-8413-4552-a2f5-14dc65035887
+--- !u!114 &8044511837207413618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6602845756320698346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24a5b7999b4c334987053506ced0754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
