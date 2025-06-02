@@ -8,6 +8,8 @@ using UnityEngine;
 public class ArcUI : MonoBehaviour
 {
     [SerializeField]
+    private AudioClip _actionAudioClip;
+    [SerializeField]
     private ArcUIActionLog _actionLog;
     [Space]
     [SerializeField]
@@ -77,7 +79,9 @@ public class ArcUI : MonoBehaviour
     private IEnumerator AppendActionLogLines(IList<string> lines, float timeForLine)
     {
         return lines
-            .Enumerate(x => EnumeratorUtils.Yield(() => _actionLog.AppendActionLogLine(x))
+            .Enumerate(x => EnumeratorUtils
+                .Yield(() => _actionLog.AppendActionLogLine(x))
+                .Then(CoroutinesUtils.AudioClipCoroutine(_actionAudioClip))
                 .Then(CoroutinesUtils.WaitForSeconds(timeForLine)));
     }
 

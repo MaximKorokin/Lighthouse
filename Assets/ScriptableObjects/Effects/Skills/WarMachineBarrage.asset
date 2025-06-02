@@ -40,6 +40,7 @@ MonoBehaviour:
         <Effects>k__BackingField:
         - rid: 4259499536714563586
         - rid: 2221015825264934932
+        - rid: 8929639750872596485
         <EndEffects>k__BackingField: []
         <PeriodTime>k__BackingField: 0.5
         <Periods>k__BackingField: 5
@@ -63,6 +64,7 @@ MonoBehaviour:
         <EndEffects>k__BackingField:
         - rid: 4259499536714563606
         - rid: 4259499536714563608
+        - rid: 8929639750872596487
         <Duration>k__BackingField: 1
         _startRadius: 0.3
         _endRadius: 0.5
@@ -97,3 +99,13 @@ MonoBehaviour:
       type: {class: DisableEffect, ns: , asm: Assembly-CSharp}
       data:
         OverrideTime: 2.5
+    - rid: 8929639750872596485
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: f0124b0f218a76a4f927ab2f92bb9676, type: 3}
+        _parentToTarget: 0
+    - rid: 8929639750872596487
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 99b0f517725b08143beac5b241d1b400, type: 3}
+        _parentToTarget: 1

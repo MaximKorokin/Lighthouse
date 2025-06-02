@@ -78,6 +78,14 @@ public static class CoroutinesUtils
         }
     }
 
+    public static IEnumerator AudioClipCoroutine(AudioClip audioClip)
+    {
+        var provider = AudioSourceProviderPool.Take(new(false));
+        provider.PlayAudioClip(audioClip, false, AudioClipType.Sound);
+        yield return new WaitForSeconds(audioClip.length);
+        AudioSourceProviderPool.Return(provider);
+    }
+
     public static IEnumerator TilemapAlphaCoroutine(Tilemap tilemap, float targetAlpha, float stepMultiplier, float time)
     {
         yield return new WaitForSeconds(0.1f);

@@ -50,14 +50,10 @@ MonoBehaviour:
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 3932639039221137411
+        - rid: 7488742525668425732
         <EndEffects>k__BackingField: []
         <Projectile>k__BackingField: {fileID: -4888402200594630173, guid: 4bfbc0e3af987224882e034a42541124, type: 3}
         <PierceAmount>k__BackingField: 1
-    - rid: 3932639039221137411
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Value>k__BackingField: 3
     - rid: 3932639127874568198
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -72,3 +68,13 @@ MonoBehaviour:
         - rid: 3932639039221137409
         - rid: 3932639127874568198
         <Duration>k__BackingField: 0.2
+    - rid: 7488742525668425732
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425733
+        _redirectTo: 3
+    - rid: 7488742525668425733
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 3

@@ -40,6 +40,7 @@ MonoBehaviour:
         - rid: 2221015825264934917
         <EndEffects>k__BackingField:
         - rid: 4259499536714563590
+        - rid: 7488742535282294792
         <Duration>k__BackingField: 0.3
     - rid: 4259499536714563590
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
@@ -53,3 +54,8 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 1
+    - rid: 7488742535282294792
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 9b985a4a35145df4189f68bff44621c5, type: 3}
+        _parentToTarget: 0

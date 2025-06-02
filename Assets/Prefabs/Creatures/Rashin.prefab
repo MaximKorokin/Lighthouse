@@ -409,7 +409,7 @@ MonoBehaviour:
     _targetChoosingData:
       Type: 0
       Func: 0
-  - _settings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
+  - _settings: {fileID: 11400000, guid: a45b78a64cbda3c40a184997d70b266a, type: 2}
     _startsInCooldown: 0
     _conditionData:
       Predicate: 2
@@ -455,6 +455,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
+  - {fileID: 11400000, guid: 8f92453333c0a8e438d7b3964a00e090, type: 2}
   _destroyEffectsSettings: []
 --- !u!114 &2189691964686447022
 MonoBehaviour:

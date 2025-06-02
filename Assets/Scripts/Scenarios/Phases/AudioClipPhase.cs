@@ -25,7 +25,7 @@ public class AudioClipPhase : ActPhase
 
         if (_spatial && _childToTarget)
         {
-            provider.transform.SetParent(_transformPosition, false);
+            provider.transform.SetParent(_transformPosition, true);
         }
 
         InvokeFinished();

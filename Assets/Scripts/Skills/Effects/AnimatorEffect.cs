@@ -8,14 +8,14 @@ public class AnimatorEffect : Effect
     public override void Invoke(CastState castState)
     {
         var target = castState.GetTarget();
-        if (target.TryGetComponent(out Animator animator) ||
+        if (target.TryGetComponent(out AnimatorBase animator) ||
             target.transform.GetChild(0).TryGetComponent(out animator))
         {
-            animator.runtimeAnimatorController = _animatorController;
+            animator.SetAnimatorController(_animatorController);
         }
         else
         {
-            Logger.Warn($"Target object {target} doesn't contain {typeof(Animator)}");
+            Logger.Warn($"Target object {target} doesn't contain {typeof(AnimatorBase)}");
         }
     }
 }

@@ -14,7 +14,14 @@ public class AudioClipEffect : Effect
         var provider = AudioSourceProviderPool.Take(new(castState.Source.transform.position));
         if (_parentToTarget)
         {
-            provider.transform.SetParent(castState.GetTarget().transform);
+            if (castState.TargetingType == TargetingType.Point)
+            {
+                provider.transform.position = castState.GetTargetPosition();
+            }
+            else
+            {
+                provider.transform.SetParent(castState.GetTarget().transform);
+            }
         }
         provider.PlayAudioClip(_audioClip, false, AudioClipType.Sound, () => AudioSourceProviderPool.Return(provider));
     }

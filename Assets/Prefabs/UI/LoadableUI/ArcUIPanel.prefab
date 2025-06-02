@@ -2331,6 +2331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cfc0291244d9c4f9c1cc4290e098ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actionAudioClip: {fileID: 8300000, guid: c6e269b0971e92844b6a12b706c8bb80, type: 3}
   _actionLog:
     _text: {fileID: 1605573103058807394}
     _maxVisibleLines: 5

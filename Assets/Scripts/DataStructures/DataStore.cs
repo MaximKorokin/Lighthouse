@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
-public class DataStore
+public class DataStore<K> : IEnumerable<KeyValuePair<K, object>>
 {
-    private readonly Dictionary<string, object> data = new();
+    private readonly Dictionary<K, object> data = new();
 
-    public void Set<T>(string key, T value)
+    public void Set<T>(K key, T value)
     {
         data[key] = value;
     }
 
-    public T Get<T>(string key, T defaultValue = default)
+    public T Get<T>(K key, T defaultValue = default)
     {
         if (data.TryGetValue(key, out var value))
         {
@@ -22,7 +23,7 @@ public class DataStore
         return defaultValue;
     }
 
-    public bool TryGet<T>(string key, out T value)
+    public bool TryGet<T>(K key, out T value)
     {
         if (data.TryGetValue(key, out var valueObject) && valueObject is T castedValue)
         {
@@ -34,9 +35,19 @@ public class DataStore
         return false;
     }
 
-    public bool HasKey(string key) => data.ContainsKey(key);
+    public bool HasKey(K key) => data.ContainsKey(key);
 
-    public bool Remove(string key) => data.Remove(key);
+    public bool Remove(K key) => data.Remove(key);
 
     public void Clear() => data.Clear();
+
+    public IEnumerator<KeyValuePair<K, object>> GetEnumerator()
+    {
+        return data.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 }

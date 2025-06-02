@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: PlayerDash
+  m_Name: RashinDash
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
@@ -45,8 +45,8 @@ MonoBehaviour:
     - rid: 3932639127874568199
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
-        _audioClip: {fileID: 8300000, guid: d0050ea9d162a1b4e97c2d63540ea9cf, type: 3}
-        _parentToTarget: 0
+        _audioClip: {fileID: 8300000, guid: fb1d46e87bb09a64fbf7423cd81d37b9, type: 3}
+        _parentToTarget: 1
     - rid: 4259499470171930625
       type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:

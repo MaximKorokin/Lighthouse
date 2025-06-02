@@ -6861,6 +6861,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RatBlack (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2896726948471722464, guid: 0de041ffd2db7974693d0ba9e17902c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896726948471722464, guid: 0de041ffd2db7974693d0ba9e17902c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.45
+      objectReference: {fileID: 0}
     - target: {fileID: 6949926551165608891, guid: 0de041ffd2db7974693d0ba9e17902c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.85

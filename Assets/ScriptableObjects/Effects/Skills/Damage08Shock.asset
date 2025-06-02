@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: Damage08
+  m_Name: Damage08Shock
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
@@ -36,7 +36,7 @@ MonoBehaviour:
     - rid: 3932639127874568207
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
-        _audioClip: {fileID: 8300000, guid: 8c7afd0dfc152e64892b2bc3b3d20048, type: 3}
+        _audioClip: {fileID: 8300000, guid: bfb6cdc40701a044580713b56f35c7df, type: 3}
         _parentToTarget: 0
     - rid: 4259499536714563593
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}

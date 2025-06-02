@@ -10,6 +10,7 @@ public static class EffectUtils
         {
             TargetingType.Source => castState.Source,
             TargetingType.Target => castState.Target,
+            TargetingType.Point => castState.Target,
             _ => castState.InitialSource,
         };
     }
@@ -23,6 +24,11 @@ public static class EffectUtils
             TargetingType.Point => castState.Payload is PointCastStatePayload payload ? payload.Position : castState.InitialSource.transform.position,
             _ => castState.InitialSource.transform.position,
         };
+    }
+
+    public static DestroyableWorldObject GetDestroyableTarget(this CastState state)
+    {
+        return state.GetTarget() as DestroyableWorldObject;
     }
 
     public static MovableWorldObject GetMovableTarget(this CastState state)

@@ -17,6 +17,8 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
     private SpriteRenderer _spriteRenderer;
     public SpriteRenderer SpriteRenderer => gameObject.LazyGetComponent(ref _spriteRenderer);
 
+    private readonly DataStore<AnimatorKey> _animatorValuesCache = new();
+
     public virtual void Initialize()
     {
         Animator.keepAnimatorStateOnDisable = true;
@@ -30,8 +32,14 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
         {
             return;
         }
-        var keyName = key.ToString();
 
+        _animatorValuesCache.Set(key, value);
+        SetAnimatorValueInternal(key, value);
+    }
+
+    private void SetAnimatorValueInternal<T>(AnimatorKey key, T value = default) where T : struct
+    {
+        var keyName = key.ToString();
         switch (Array.Find(Animator.parameters, x => x.name == keyName)?.type)
         {
             case AnimatorControllerParameterType.Bool:
@@ -81,6 +89,28 @@ public abstract class AnimatorBase : MonoBehaviour, IAnimator, IInitializable<An
     {
         var newSortingOrder = -(int)((globalPosition.y + _orderingOffset) * 100);
         SpriteRenderer.sortingOrder = newSortingOrder;
+    }
+
+    public void SetAnimatorController(RuntimeAnimatorController controller)
+    {
+        if (Animator.runtimeAnimatorController == controller) return;
+
+        Animator.runtimeAnimatorController = controller;
+        _animatorValuesCache.ForEach(x =>
+        {
+            switch (x.Value)
+            {
+                case int:
+                    SetAnimatorValueInternal(x.Key, (int)x.Value);
+                    break;
+                case float:
+                    SetAnimatorValueInternal(x.Key, (float)x.Value);
+                    break;
+                case bool:
+                    SetAnimatorValueInternal(x.Key, (bool)x.Value);
+                    break;
+            }
+        });
     }
 }
 

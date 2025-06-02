@@ -19,6 +19,7 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 5
   _effects:
   - rid: 5342966315404754949
+  - rid: 7488742525668425751
   - rid: 5342966315404754950
   references:
     version: 2
@@ -37,7 +38,8 @@ MonoBehaviour:
     - rid: 5342966315404754950
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
-        <Effects>k__BackingField: []
+        <Effects>k__BackingField:
+        - rid: 7488742525668425747
         <EndEffects>k__BackingField:
         - rid: 5342966315404754952
         <Duration>k__BackingField: 1
@@ -59,7 +61,37 @@ MonoBehaviour:
       data:
         OverrideTime: 0.5
         Speed: 2
+        _toSource: 0
     - rid: 7488742377012854800
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 5
+    - rid: 7488742525668425747
+      type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425748
+        <Radius>k__BackingField: 1
+    - rid: 7488742525668425748
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425749
+        _conditions: 2
+    - rid: 7488742525668425749
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 0.9
+        Speed: 1.5
+        _toSource: 1
+    - rid: 7488742525668425751
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425753
+        _redirectTo: 2
+    - rid: 7488742525668425753
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 4bf3504a0eb5cdb478f9f3bcc843ca06, type: 3}
+        _parentToTarget: 1

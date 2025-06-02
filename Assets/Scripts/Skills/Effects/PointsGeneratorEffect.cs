@@ -36,7 +36,7 @@ public class PointsGeneratorEffect : ComplexEffect
         return _data.GeneratingDirection switch
         {
             PointsGeneratingDirection.Random => Random.insideUnitCircle,
-            PointsGeneratingDirection.Forward => (castState.GetTarget() is MovableWorldObject movable) ? movable.TurnDirection : Vector2.down,
+            PointsGeneratingDirection.Forward => (castState.Source is MovableWorldObject movable) ? movable.TurnDirection : Vector2.down,
             PointsGeneratingDirection.Down => Vector2.down,
             _ => Vector2.down,
         };

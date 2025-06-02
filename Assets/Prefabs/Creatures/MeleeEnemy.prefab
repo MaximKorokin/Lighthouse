@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skills:
-  - _settings: {fileID: 11400000, guid: 0a199c07deaab9b4db859b7494cecd8a, type: 2}
+  - _settings: {fileID: 11400000, guid: 8a3a306d4a8453047a064033821efd33, type: 2}
     _startsInCooldown: 0
     _conditionData:
       Predicate: 32768

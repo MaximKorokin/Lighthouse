@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
+    // todo: replace these bools with BoolCounter
     [field: SerializeField]
     public bool CanRotate { get; set; }
     [field: SerializeField]

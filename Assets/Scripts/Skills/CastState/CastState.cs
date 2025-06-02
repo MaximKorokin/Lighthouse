@@ -12,7 +12,7 @@ public struct CastState
     public WorldObject Source { get; set; }
     public WorldObject Target { get; set; }
     public ICastStatePayload Payload { get; set; }
-    public readonly DataStore Cache;
+    public readonly DataStore<string> Cache;
 
     public CastState(WorldObject initialSource, WorldObject source, WorldObject target)
     {

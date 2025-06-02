@@ -16,7 +16,6 @@ public abstract class ControllerOverrideEffect : Effect
         var controller = castState.GetTargetController();
         if (controller != null)
         {
-            castState.Cache.Set(this.GetIdentifier(controller), controller.CanControl);
             controller.CanControl = false;
         }
         var target = castState.GetTarget();
@@ -28,7 +27,7 @@ public abstract class ControllerOverrideEffect : Effect
         var controller = castState.GetTargetController();
         if (controller != null)
         {
-            controller.CanControl = castState.Cache.Get<bool>(this.GetIdentifier(controller));
+            controller.CanControl = true;
         }
     }
 

@@ -2,9 +2,15 @@
 
 public class KnockbackEffect : MoveOverrideEffect
 {
+    [SerializeField]
+    private bool _toSource = false;
+
     protected override Vector2 GetDirection(CastState castState)
     {
-        return castState.Target.transform.position - castState.Source.transform.position;
+        if (_toSource)
+            return (Vector2)castState.Source.transform.position - castState.GetTargetPosition();
+        else
+            return castState.GetTargetPosition() - (Vector2)castState.Source.transform.position;
     }
 
     protected override void StartOverride(CastState castState)
