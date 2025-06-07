@@ -19,7 +19,12 @@ public class TilemapsAlphaPhase : ActPhase
         }
         else
         {
-            _tilemaps.ForEach(tilemap => CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.TilemapAlphaCoroutine(tilemap, _alpha, _alpha - tilemap.color.a, _time)));
+            _tilemaps.ForEach(tilemap => CoroutinesHandler.StartUniqueCoroutine(tilemap,
+                CoroutinesUtils.InterpolationCoroutine(
+                    () => tilemap.color.a,
+                    a => tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, a),
+                    _alpha,
+                    _time)));
         }
         InvokeFinished();
     }

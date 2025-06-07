@@ -86,20 +86,6 @@ public static class CoroutinesUtils
         AudioSourceProviderPool.Return(provider);
     }
 
-    public static IEnumerator TilemapAlphaCoroutine(Tilemap tilemap, float targetAlpha, float stepMultiplier, float time)
-    {
-        yield return new WaitForSeconds(0.1f);
-        while (tilemap.color.a != targetAlpha)
-        {
-            var step = stepMultiplier / time * Time.deltaTime;
-            var newAlpha = stepMultiplier > 0
-                ? Mathf.Clamp(tilemap.color.a + step, 0, targetAlpha)
-                : Mathf.Clamp(tilemap.color.a + step, targetAlpha, 1);
-            tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
     public static IEnumerator InterpolationCoroutine(Func<float> currentValueGetter, Action<float> nextValueSetter, float targetValue, float time)
     {
         float initialValue = currentValueGetter();
