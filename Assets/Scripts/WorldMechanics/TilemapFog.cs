@@ -8,6 +8,12 @@ public class TilemapFog : MonoBehaviour
     private bool _showOnStart;
     [SerializeField]
     private float _time;
+    [SerializeField]
+    [Range(0, 1)]
+    private float _showAlpha = 1;
+    [SerializeField]
+    [Range(0, 1)]
+    private float _hideAlpha = 0;
 
     private readonly List<Tilemap> _tilemaps = new();
     private TriggeredWorldObjectsCollection _triggeredObjectsCollection;
@@ -50,12 +56,12 @@ public class TilemapFog : MonoBehaviour
 
     private void ShowTilemap(Tilemap tilemap)
     {
-        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.TilemapAlphaCoroutine(tilemap, 1, 1, _time));
+        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.TilemapAlphaCoroutine(tilemap, _showAlpha, 1, _time));
     }
 
     private void HideTilemap(Tilemap tilemap)
     {
-        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.TilemapAlphaCoroutine(tilemap, 0, -1, _time));
+        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.TilemapAlphaCoroutine(tilemap, _hideAlpha, -1, _time));
     }
 
     public void AddTilemap(Tilemap tilemap)

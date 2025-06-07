@@ -65,7 +65,7 @@ MonoBehaviour:
     <DisplayName>k__BackingField: '!(Anton)'
     <Color>k__BackingField: {r: 0.68962485, g: 0.16789784, b: 0.7264151, a: 1}
     <Icon>k__BackingField: {fileID: -1216866689, guid: bb770cd325c7adc4caba6eea54431cb9, type: 3}
-    <TypingSound>k__BackingField: {fileID: 8300000, guid: c0bb94d53ca6c0d4fa9006cef990d432, type: 3}
+    <TypingSound>k__BackingField: {fileID: 8300000, guid: 52fce05975336b04486f1528657844ed, type: 3}
     <Id>k__BackingField: c25b4d00-a7c6-4857-9e4a-811d36fbae6e
   - <Name>k__BackingField: Neko
     <DisplayName>k__BackingField: 
@@ -83,7 +83,7 @@ MonoBehaviour:
     <DisplayName>k__BackingField: 
     <Color>k__BackingField: {r: 0.6320754, g: 0.10435206, b: 0.22202156, a: 1}
     <Icon>k__BackingField: {fileID: -234573256, guid: 853fe2892f607dc478a66f57d100f03d, type: 3}
-    <TypingSound>k__BackingField: {fileID: 8300000, guid: 52fce05975336b04486f1528657844ed, type: 3}
+    <TypingSound>k__BackingField: {fileID: 8300000, guid: 22da6093bf1fe4147bf886cb6be783a0, type: 3}
     <Id>k__BackingField: b3dbe4be-9b61-42c7-a37f-be54000d4287
   - <Name>k__BackingField: SmokingMan
     <DisplayName>k__BackingField: Stranger
@@ -97,3 +97,9 @@ MonoBehaviour:
     <Icon>k__BackingField: {fileID: -1943759776, guid: 853fe2892f607dc478a66f57d100f03d, type: 3}
     <TypingSound>k__BackingField: {fileID: 8300000, guid: cbd33219687b07e429467857339ace67, type: 3}
     <Id>k__BackingField: 90340eca-9ddc-49ca-8059-a899de6e7c5a
+  - <Name>k__BackingField: CoreEdge
+    <DisplayName>k__BackingField: ...
+    <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+    <Icon>k__BackingField: {fileID: -110282196, guid: 853fe2892f607dc478a66f57d100f03d, type: 3}
+    <TypingSound>k__BackingField: {fileID: 8300000, guid: c0bb94d53ca6c0d4fa9006cef990d432, type: 3}
+    <Id>k__BackingField: 7146d068-7111-404f-b18c-0e7109d6c15e

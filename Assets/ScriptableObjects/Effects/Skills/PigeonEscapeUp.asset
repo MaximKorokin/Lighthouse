@@ -27,7 +27,7 @@ MonoBehaviour:
     - rid: 7488742377012854794
       type: {class: StraightMovingControllerDirectionEffect, ns: , asm: Assembly-CSharp}
       data:
-        _initialDirection: {x: 0, y: -4}
+        _initialDirection: {x: 0, y: -2.5}
         _directionType: 2
     - rid: 7488742377012854802
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
