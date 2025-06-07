@@ -20,7 +20,7 @@ public abstract class AudioTextViewer : TextViewer
     {
         if (_audioClip != null)
         {
-            AudioSourceProvider.PlayAudioClip(_audioClip, false, AudioClipType.Sound);
+            AudioSourceProvider.PlayAudioClip(_audioClip, false, AudioClipType.Sound, interferenceBlockingTime: .1f);
         }
     }
 

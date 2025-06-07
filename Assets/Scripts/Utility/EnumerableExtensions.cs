@@ -124,13 +124,13 @@ public static class EnumerableExtensions
         }
     }
 
-    public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet)
+    public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet, TValue defaultValue = default)
     {
         if (dictionary.TryGetValue(toGet, out var value))
         {
             return value;
         }
-        return default;
+        return defaultValue;
     }
 
     public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet, Func<TValue> factory)

@@ -1,12 +1,25 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class TypewriterText : MonoBehaviour
 {
-    private readonly char[] _charsToShowImmediately = new char[] { ' ', '\n', ',', '.', '\'', '\"', '-' };
+    private readonly char[] _charsToSkipCharTypingEvent = new char[] { ' ', '\n', ',', '.', '\'', '\"', '-' };
+    private static readonly Dictionary<char, float> _charsShowMultipliers = new()
+    {
+        { '\n', 0 },
+        { '\'', 0 },
+        { '\"', 0 },
+        { ' ', 2 },
+        { ',', 3 },
+        { '.', 3 },
+        { '?', 3 },
+        { '!', 3 },
+        { '-', 0 },
+    };
 
     private string _currentTextString;
     private Coroutine _coroutine;
@@ -55,7 +68,7 @@ public class TypewriterText : MonoBehaviour
 
         _coroutine = StartCoroutine(Typewrite(charTime));
 
-        return (textString.Length - textString.Count(x => ShouldShowImmediately(x))) * charTime;
+        return textString.Sum(c => _charsShowMultipliers.GetOrDefault(c, 1)) * charTime;
     }
 
     private IEnumerator Typewrite(float charTime)
@@ -64,18 +77,20 @@ public class TypewriterText : MonoBehaviour
         {
             var c = _currentTextString[i];
 
-            if (charTime > 0 && !ShouldShowImmediately(c))
+            if (!_charsToSkipCharTypingEvent.Contains(c))
             {
                 CharTyping?.Invoke();
-                yield return new WaitForSecondsRealtime(charTime);
+            }
+            var currentCharTime = charTime * _charsShowMultipliers.GetOrDefault(c, 1);
+            if (currentCharTime > 0)
+            {
+                yield return new WaitForSecondsRealtime(currentCharTime);
             }
 
             Text.text += c;
         }
         _coroutine = null;
     }
-
-    private bool ShouldShowImmediately(char c) => Array.IndexOf(_charsToShowImmediately, c) != -1;
 }
 
 public enum TypingSpeed

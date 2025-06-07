@@ -24,7 +24,7 @@ public abstract class TextViewer : MonoBehaviour
         }
     }
 
-    // mb change text with a collection of strings to have ability to show series of them in a row
+    // todo: mb change text with a collection of strings to have ability to show series of them in a row
     public void ViewText(string text, float showTime, TypingSpeed typingSpeed)
     {
         FinishViewText();

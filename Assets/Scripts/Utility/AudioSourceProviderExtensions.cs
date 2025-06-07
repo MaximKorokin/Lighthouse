@@ -49,10 +49,10 @@ public static class AudioSourceProviderExtensions
     /// <param name="loop"></param>
     /// <param name="type"></param>
     /// <param name="finalAction"></param>
-    public static void PlayAudioClip(this AudioSourceProvider provider, AudioClip clip, bool loop, AudioClipType type, Action finalAction = null)
+    public static void PlayAudioClip(this AudioSourceProvider provider, AudioClip clip, bool loop, AudioClipType type, Action finalAction = null, float interferenceBlockingTime = 0.05f)
     {
         // Prevents sounds interferencing
-        if (_clipsStartTime.TryGetValue(clip, out var previousStartTime) && Time.unscaledTime - previousStartTime < 0.05f)
+        if (_clipsStartTime.TryGetValue(clip, out var previousStartTime) && Time.unscaledTime - previousStartTime < interferenceBlockingTime)
         {
             finalAction?.Invoke();
             return;

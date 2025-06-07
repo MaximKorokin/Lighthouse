@@ -390,11 +390,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Text: '!(e2_i2)'
-    Color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 100
     Font: {fileID: 11400000, guid: 3d2e2493db76f2347aebb308ac97dbef, type: 2}
     Material: {fileID: 2100000, guid: 7cb9d4b2135aac840a270a9891bf5808, type: 2}
-    TypingSound: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
+    TypingSound: {fileID: 8300000, guid: 605ca3b13edea754ea35edf413b44de5, type: 3}
     TypingSpeed: 1
     ShowTime: 2
 --- !u!114 &14223274
@@ -411,11 +411,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Text: '!(e2_i1)'
-    Color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 100
     Font: {fileID: 11400000, guid: 3d2e2493db76f2347aebb308ac97dbef, type: 2}
     Material: {fileID: 2100000, guid: 7cb9d4b2135aac840a270a9891bf5808, type: 2}
-    TypingSound: {fileID: 8300000, guid: bcef88d339890ba44a9545fa5fcfc6c0, type: 3}
+    TypingSound: {fileID: 8300000, guid: 605ca3b13edea754ea35edf413b44de5, type: 3}
     TypingSpeed: 1
     ShowTime: 2
 --- !u!1001 &149042799
