@@ -291,6 +291,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d97b0bf0bd754a42ae4d98793414b6d, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
+  - {fileID: 11400000, guid: c578f93befb7e774f9159accfafff46d, type: 2}
   _destroyEffectsSettings: []
 --- !u!114 &5893237358921338281
 MonoBehaviour:

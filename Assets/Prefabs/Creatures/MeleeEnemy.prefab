@@ -184,6 +184,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
+  - {fileID: 11400000, guid: 8f92453333c0a8e438d7b3964a00e090, type: 2}
   _destroyEffectsSettings:
   - {fileID: 11400000, guid: bc32551aefece9b45a7ed757e07c68c2, type: 2}
 --- !u!114 &4613729088056806375

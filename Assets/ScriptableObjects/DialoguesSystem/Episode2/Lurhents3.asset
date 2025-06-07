@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lurhents3
   m_EditorClassIdentifier: 
   <Speeches>k__BackingField:
-  - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
+  - <CharacterPreviewId>k__BackingField: b3dbe4be-9b61-42c7-a37f-be54000d4287
     <Text>k__BackingField: '!(e2_lurhents3_s1)'
     <TypingSpeed>k__BackingField: 0
   - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
@@ -22,16 +22,16 @@ MonoBehaviour:
   - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
     <Text>k__BackingField: '!(e2_lurhents3_s3)'
     <TypingSpeed>k__BackingField: 0
-  - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
+  - <CharacterPreviewId>k__BackingField: b3dbe4be-9b61-42c7-a37f-be54000d4287
     <Text>k__BackingField: '!(e2_lurhents3_s4)'
     <TypingSpeed>k__BackingField: 0
-  - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
+  - <CharacterPreviewId>k__BackingField: b3dbe4be-9b61-42c7-a37f-be54000d4287
     <Text>k__BackingField: '!(e2_lurhents3_s5)'
     <TypingSpeed>k__BackingField: 0
   - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
     <Text>k__BackingField: '!(e2_lurhents3_s6)'
     <TypingSpeed>k__BackingField: 0
-  - <CharacterPreviewId>k__BackingField: b3dbe4be-9b61-42c7-a37f-be54000d4287
+  - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5
     <Text>k__BackingField: '!(e2_lurhents3_s7)'
     <TypingSpeed>k__BackingField: 0
   - <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5

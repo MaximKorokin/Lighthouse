@@ -61,8 +61,9 @@ public static class AudioSourceProviderExtensions
 
         provider.SetAudioClipType(type);
         provider.AudioSource.loop = loop;
-        provider.AudioSource.clip = clip;
-        provider.AudioSource.Play();
+        //provider.AudioSource.clip = clip;
+        //provider.AudioSource.Play();
+        provider.AudioSource.PlayOneShot(clip);
 
         provider.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(clip.length), finalAction);
     }
