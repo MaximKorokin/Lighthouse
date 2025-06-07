@@ -22,7 +22,6 @@ public abstract class InputReader : MonoBehaviour
     #endregion
 
     private Vector2 _moveInput = new();
-    private Vector2 _moveAbilityInput = new();
 
     protected abstract bool IsAnyKeyClicked();
     protected abstract bool IsSkipInputRecieved();
@@ -82,9 +81,7 @@ public abstract class InputReader : MonoBehaviour
     protected bool TryGetMoveAbilityVectorInput(out Vector2 input)
     {
         input = GetMoveAbilityInput();
-        if (_moveAbilityInput == input) return false;
-        _moveAbilityInput = input;
-        return true;
+        return input != default;
     }
 
     private static void ResetInput()

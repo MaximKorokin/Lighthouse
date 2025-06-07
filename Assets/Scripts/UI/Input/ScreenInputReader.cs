@@ -82,11 +82,6 @@ public class ScreenInputReader : InputReader, IPointerDownHandler, IPointerUpHan
 
     protected override Vector2 GetMoveAbilityInput()
     {
-        // 0+ are indices for touches
-        //return _touches.Any(x => x.Key > 0 && x.Value.IsDown && x.Value.LastTime - x.Value.StartTime >= _timeForSecondaryHold)
-        //    ? GetMoveInput()
-        //    : CheckForSwipe();
-
         return CheckForSwipe();
     }
 

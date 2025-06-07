@@ -56,20 +56,20 @@ public class TilemapFog : MonoBehaviour
 
     private void ShowTilemap(Tilemap tilemap)
     {
-        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.InterpolationCoroutine(
+        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.WaitForSeconds(0.1f).Then(CoroutinesUtils.InterpolationCoroutine(
             () => tilemap.color.a,
             a => tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, a),
             _showAlpha,
-            _time));
+            _time)));
     }
 
     private void HideTilemap(Tilemap tilemap)
     {
-        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.InterpolationCoroutine(
+        CoroutinesHandler.StartUniqueCoroutine(tilemap, CoroutinesUtils.WaitForSeconds(0.1f).Then(CoroutinesUtils.InterpolationCoroutine(
             () => tilemap.color.a,
             a => tilemap.color = new(tilemap.color.r, tilemap.color.g, tilemap.color.b, a),
             _hideAlpha,
-            _time));
+            _time)));
     }
 
     public void AddTilemap(Tilemap tilemap)
