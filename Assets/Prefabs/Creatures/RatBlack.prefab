@@ -215,7 +215,7 @@ MonoBehaviour:
     - Name: 4
       Value: 1
     - Name: 5
-      Value: 5
+      Value: 4
     - Name: 7
       Value: 1
     - Name: 12
@@ -240,7 +240,8 @@ MonoBehaviour:
   _startEffectsSettings:
   - {fileID: 11400000, guid: 06a2a5e409082cb4da80843041647a5b, type: 2}
   _damageEffectsSettings: []
-  _destroyEffectsSettings: []
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: 7c4f0f7a3d0595443b15167d2dc6a42c, type: 2}
 --- !u!114 &543994037497862892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +274,8 @@ MonoBehaviour:
       ReferenceArgument: 2
       ValueArgument: 4
     _targetChoosingData:
-      Type: 0
-      Func: 0
+      Type: 1
+      Func: 1
   - _settings: {fileID: 11400000, guid: 33a22293df8e7ec41a3d7cafb26a3de4, type: 2}
     _startsInCooldown: 0
     _conditionData:
@@ -282,8 +283,8 @@ MonoBehaviour:
       ReferenceArgument: 2
       ValueArgument: 1
     _targetChoosingData:
-      Type: 0
-      Func: 0
+      Type: 1
+      Func: 1
 --- !u!114 &529741686628306203
 MonoBehaviour:
   m_ObjectHideFlags: 0

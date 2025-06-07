@@ -44,6 +44,7 @@ public static class SkillUtils
             SkillConditionValueArgument.HalfActionRange => source.ActionRange / 2,
             SkillConditionValueArgument.ThirdActionRange => source.ActionRange / 3,
             SkillConditionValueArgument.QuarterActionRange => source.ActionRange / 4,
+            SkillConditionValueArgument.VisionRange => source.VisionRange,
             _ => 0f,
         };
     }

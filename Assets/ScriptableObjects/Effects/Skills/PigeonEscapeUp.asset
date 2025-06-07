@@ -16,10 +16,11 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 0
+  <Cooldown>k__BackingField: 5
   _effects:
   - rid: 7488742377012854794
   - rid: 7488742377012854802
+  - rid: 8929639862089547777
   references:
     version: 2
     RefIds:
@@ -45,3 +46,14 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 111
+    - rid: 8929639862089547777
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 8929639862089547778
+        _redirectTo: 2
+    - rid: 8929639862089547778
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 1661e5cc920ad4c4f95f17831ffbdb96, type: 3}
+        _parentToTarget: 1

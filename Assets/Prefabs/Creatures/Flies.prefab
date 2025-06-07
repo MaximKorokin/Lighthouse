@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 3297319145764835928}
   - component: {fileID: 3898975006173973094}
   - component: {fileID: 7936865403378721938}
+  - component: {fileID: 281875120786200545}
   m_Layer: 0
   m_Name: Flies
   m_TagString: Untagged
@@ -250,6 +251,8 @@ MonoBehaviour:
       Value: 0.5
     - Name: 7
       Value: 1
+    - Name: 12
+      Value: 1.5
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
@@ -304,6 +307,24 @@ MonoBehaviour:
     _targetChoosingData:
       Type: 0
       Func: 0
+  - _settings: {fileID: 11400000, guid: ee8e1d9ce16e27341a920bb2344cb903, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 3
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 10
+      Func: 0
+  - _settings: {fileID: 11400000, guid: a8af4c695275f384e84100b90d0a4942, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 3
+      ValueArgument: 11
+    _targetChoosingData:
+      Type: 10
+      Func: 0
 --- !u!114 &3898975006173973094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,3 +354,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _primaryTargetTypes: 1
+--- !u!114 &281875120786200545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b510822ceb4b7142b14468fe34cb601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

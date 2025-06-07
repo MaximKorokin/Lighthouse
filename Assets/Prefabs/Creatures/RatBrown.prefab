@@ -242,7 +242,8 @@ MonoBehaviour:
   _startEffectsSettings:
   - {fileID: 11400000, guid: 06a2a5e409082cb4da80843041647a5b, type: 2}
   _damageEffectsSettings: []
-  _destroyEffectsSettings: []
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: 7c4f0f7a3d0595443b15167d2dc6a42c, type: 2}
 --- !u!114 &543994037497862892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +277,15 @@ MonoBehaviour:
       ValueArgument: 1
     _targetChoosingData:
       Type: 0
+      Func: 0
+  - _settings: {fileID: 11400000, guid: 8ccd3732c6d1bd74f81a800a82791265, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 32768
+      ReferenceArgument: 2
+      ValueArgument: 11
+    _targetChoosingData:
+      Type: 10
       Func: 0
 --- !u!114 &8138260431111848866
 MonoBehaviour:

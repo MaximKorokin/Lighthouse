@@ -277,6 +277,15 @@ MonoBehaviour:
     _targetChoosingData:
       Type: 0
       Func: 0
+  - _settings: {fileID: 11400000, guid: cae3fd20bb63d5148813b2e342bc2412, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 1
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
 --- !u!114 &8627536216688132997
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,4 +38,5 @@ public enum SkillConditionValueArgument
     HalfActionRange = 2,
     ThirdActionRange = 3,
     QuarterActionRange = 4,
+    VisionRange = 11,
 }

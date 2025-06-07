@@ -10,32 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
-  m_Name: StraightEscape
+  m_Name: FliesIdleSound
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
     <Name>k__BackingField: 
     <Description>k__BackingField: 
     <Sprite>k__BackingField: {fileID: 0}
-  <Cooldown>k__BackingField: 1.5
+  <Cooldown>k__BackingField: 34
   _effects:
-  - rid: 7488742377012854792
-  - rid: 8929639862089547779
+  - rid: 8929639862089547781
   references:
     version: 2
     RefIds:
-    - rid: 7488742377012854792
-      type: {class: StraightMovingControllerDirectionEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _initialDirection: {x: 0, y: 0}
-        _directionType: 2
-    - rid: 8929639862089547779
-      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Effects>k__BackingField:
-        - rid: 8929639862089547780
-        _redirectTo: 2
-    - rid: 8929639862089547780
+    - rid: 8929639862089547781
       type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
       data:
-        _audioClip: {fileID: 8300000, guid: 2e8862d4b403fda40ad8c57394109130, type: 3}
+        _audioClip: {fileID: 8300000, guid: a297741e4ed572c46ac80ddc76d67023, type: 3}
         _parentToTarget: 1

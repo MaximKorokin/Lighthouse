@@ -192,6 +192,15 @@ MonoBehaviour:
     _targetChoosingData:
       Type: 10
       Func: 0
+  - _settings: {fileID: 11400000, guid: cc89db92440508643b9fc83fb9e9b6cf, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 0
+      ReferenceArgument: 0
+      ValueArgument: 0
+    _targetChoosingData:
+      Type: 10
+      Func: 0
   _timeToAct: 3
   _actsAmount: 1
 --- !u!95 &3078007347813226423

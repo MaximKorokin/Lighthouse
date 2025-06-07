@@ -214,11 +214,11 @@ MonoBehaviour:
     - Name: 4
       Value: 1
     - Name: 5
-      Value: 2
+      Value: 4
     - Name: 7
       Value: 1
     - Name: 12
-      Value: 2
+      Value: 4
   <IsDamagable>k__BackingField: 1
   <DestroyTime>k__BackingField: 5
   <CanRotate>k__BackingField: 0
@@ -269,9 +269,18 @@ MonoBehaviour:
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 2
+      ValueArgument: 4
+    _targetChoosingData:
+      Type: 10
+      Func: 0
+  - _settings: {fileID: 11400000, guid: 3d11a3125b7514a45a5dfe6bd8dd7eb9, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 2
       ValueArgument: 1
     _targetChoosingData:
-      Type: 0
+      Type: 10
       Func: 0
 --- !u!114 &3898975006173973094
 MonoBehaviour:
