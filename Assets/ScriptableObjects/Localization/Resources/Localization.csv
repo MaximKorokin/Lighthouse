@@ -2,284 +2,297 @@
 
 LanguageName,Русский,English,Українська
 
-overlay_gameTitle_part1,Candea Chronicles:\n ,,
-overlay_gameTitle_part2, \nAntaro,,
+overlay_gameTitle_part1,Candea Chronicles:\n ,Candea Chronicles:\n ,Candea Chronicles:\n 
+overlay_gameTitle_part2, \nAntaro, \nAntaro, \nAntaro
 
-overlay_endOfDemo_part1,"Конец демо",,
-overlay_endOfDemo_part2,"Спасибо за игру",,
+overlay_endOfDemo_part1,"Конец демо",End of demo,Кінець демо
+overlay_endOfDemo_part2,"Спасибо за игру",Thank you for playing,Дякую за гру
 
 PauseLabel,Настройки,Settings,Налаштування
 DebugMode,Режим отладки,Debug mode,Режим налагодження
 ShowFps,Показывать fps,View fps,Показувати fps
 
-ArcUIMainMenuText,Arc UI v0.3.24b\nВыберите вариант:,Arc UI v0.3.24b\nChoose an option:,
-ArcUISettingsButton,Настройки аватара,Avatar settings,
-ArcUITransferButton,Начать перенос,Start transfer,
-ArcUISettingsText,Настройки аватара,Avatar settings,
-ArcUIDisplayDamageSetting,Оценка урона,Damage evaluation,
-ArcUIDisplayHealthSetting,Отслеживание сосотояния,Condition tracking,
-ArcUIBackButton,Назад,Back,
-ArcUITransfer1Text,Перенос в аватара начат...,Transfer to avatar in progress...,
+ArcUIMainMenuText,Arc UI v0.3.24b\nВыберите вариант:,Arc UI v0.3.24b\nChoose an option:,Arc UI v0.3.24b\nВиберіть варіант:
+ArcUISettingsButton,Настройки аватара,Avatar settings,	Налаштування аватара
+ArcUITransferButton,Начать перенос,Start transfer,Почати перенесення
+ArcUISettingsText,Настройки аватара,Avatar settings,Налаштування аватара
+ArcUIDisplayDamageSetting,Оценка урона,Damage evaluation,Оцінка шкоди
+ArcUIDisplayHealthSetting,Отслеживание сосотояния,Condition tracking,Відстеження стану
+ArcUIBackButton,Назад,Back,Назад
+ArcUITransfer1Text,Перенос в аватара начат...,Transfer to avatar in progress...,Перенос в аватара почато
 
 TabletMail1Title,"Не пропустите!!!","Don't miss it!!!","Не пропустіть"
 TabletMail1Sender,"LuckyWin_67001","LuckyWin_67001","LuckyWin_67001"
 TabletMail1Body,"Здравствуйте, [Имя]!\n\nУ нас для вас отличная новость! Вы стали победителем в эксклюзивной акции и теперь можете получить ценный подарок совершенно бесплатно!\n\nЧтобы забрать свой приз, просто перейдите по ссылке ниже и подтвердите свои данные:\n[вставить фишинговую ссылку]\n\nПоторопитесь! Акция действует только 24 часа!","Hello, [Name]!\n\nGreat news for you! You have been selected as a winner in our exclusive promotion and can now claim a valuable gift absolutely free!\n\nTo receive your prize, simply follow the link below and confirm your details:\n[insert phishing link]\n\nHurry up! This offer is valid for 24 hours only!","Привіт, [Ім'я]!\n\nУ нас для вас чудова новина! Ви стали переможцем в ексклюзивній акції та тепер можете отримати цінний подарунок абсолютно безкоштовно!\n\nЩоб забрати свій приз, просто перейдіть за посиланням нижче та підтвердьте свої дані:\n[вставити фішингове посилання]\n\nПоспішайте! Акція діє лише 24 години!"
-TabletMail2Title,"<пусто>",,
-TabletMail2Sender,"анонимный отправитель",,
-TabletMail2Body,"зря ты сбежал\n\nтвоя сестра у нас\n\nхочешь её увидеть, ответь на письмо\n\nтвои игрушки мы тоже заберём\n\n",,
-TabletMail3Title,"Офис Кинснап",,
-TabletMail3Sender,"СБ Кинснап",,
-TabletMail3Body,"Уважаемый Нодцаг,\n\nВаша заявка рассмотрена. Вы приглашены посетить наш главный офис Кинснап для обсуждения важных вопросов. Ваш визит назначен на завтра.\n\nПри себе иметь документ, удостоверяющий личность.\n\nС уважением,\nРояс\nГлава СБ\nКинснап",,
+TabletMail2Title,"<пусто>","<empty>","<пусто>"
+TabletMail2Sender,"анонимный отправитель","anonymous sender","анонімний відправник"
+TabletMail2Body,"зря ты сбежал\n\nтвоя сестра у нас\n\nхочешь её увидеть, ответь на письмо\n\nтвои игрушки мы тоже заберём\n\n","you shouldn't have run away\n\nyour sister is with us\n\nif you want to see her, reply to this letter\n\nwe'll take your toys too\n\n","дарма ти втік\n\nтвоя сестра у нас\n\nхочеш її побачити - відповідай на лист\n\nтвої іграшки ми теж заберемо\n\n"
+TabletMail3Title,"Офис Кинснап","Kinsnap Office","Офіс Кінснап"
+TabletMail3Sender,"СБ Кинснап","Kinsnap Security","СБ Кінснап"
+TabletMail3Body,"Уважаемый Нодцаг,\n\nВаша заявка рассмотрена. Вы приглашены посетить наш главный офис Кинснап для обсуждения важных вопросов. Ваш визит назначен на завтра.\n\nПри себе иметь документ, удостоверяющий личность.\n\nС уважением,\nРояс\nГлава СБ\nКинснап","Dear Nodtsag,\n\nYour application has been reviewed. You are invited to visit our Kinsnap headquarters to discuss important matters. Your visit is scheduled for tomorrow.\n\nPlease bring a valid ID.\n\nSincerely,\nRoyas\nHead of Security\nKinsnap","Шановний Нодцаг,\n\nВашу заявку розглянуто. Вас запрошено до головного офісу Кінснап для обговорення важливих питань. Візит призначено на завтра.\n\nМайте при собі документ, що посвідчує особу.\n\nЗ повагою,\nРояс\nГолова СБ\nКінснап"
 
-TabletCopypasta1,"<i>Цитата из анонимного форума</i>\n\nЯ увидел что-то странное. Я <color=#ad2b2b>гладил</color> своего кота слишком много, и с ним что-то случилось...",,
-TabletCopypasta2,"<i>Цитата из анонимного форума</i>\n\n ... Почему мы не ходим за море? Почему не пересекаем экватор или полюс? Почему не покоряем космос? Все эти наработки глубоко заморожены, и все вокруг считают, что это правильно ...",,
-TabletCopypasta3,"<i>Вырезка из научно-популярной статьи</i>\n\nМы должны сосредоточиться на собственном развитии. Нам не нужна экспансия, мы знаем, сколько люди заплатили за объединение Колыбели.",,
-TabletCopypasta4,"Люди достигли почти всего, что нужно их природе. Близится новый этап эволюции. Близится Эпоха Легенд.\n\n\n<i>all numbers are real</i>",,
-TabletCopypasta5,"<i>Новость недельной давности</i>\n\n...Сны с двойником наблюдаются у резидентов по всему Антаро. Редакция связывает это с недавним выбросом токсинов в воздух недалеко от столицы как результат...",,
+TabletCopypasta1,"<i>Цитата из анонимного форума</i>\n\nЯ увидел что-то странное. Я <color=#ad2b2b>гладил</color> своего кота слишком много, и с ним что-то случилось...","<i>Quote from an anonymous forum</i>\n\nI saw something strange. I <color=#ad2b2b>petted</color> my cat too much, and something happened to him...","<i>Цитата з анонімного форуму</i>\n\nЯ побачив дещо дивне. Я <color=#ad2b2b>гладив</color> свого кота занадто довго, і з ним щось сталося..."
+TabletCopypasta2,"<i>Цитата из анонимного форума</i>\n\n ... Почему мы не ходим за море? Почему не пересекаем экватор или полюс? Почему не покоряем космос? Все эти наработки глубоко заморожены, и все вокруг считают, что это правильно ...","<i>Quote from an anonymous forum</i>\n\n... Why don’t we go beyond the seas? Why don’t we cross the equator or the pole? Why don’t we conquer space? All these developments are deeply frozen, and everyone around thinks that’s right ...","<i>Цитата з анонімного форуму</i>\n\n... Чому ми не ходимо за море? Чому не перетинаємо екватор або полюс? Чому не підкорюємо космос? Усі ці напрацювання глибоко заморожені, і всі навколо вважають, що це правильно ..."
+TabletCopypasta3,"<i>Вырезка из научно-популярной статьи</i>\n\nМы должны сосредоточиться на собственном развитии. Нам не нужна экспансия, мы знаем, сколько люди заплатили за объединение Колыбели.","<i>Excerpt from a science article</i>\n\nWe must focus on our own development. We don’t need expansion-we know how much people paid for uniting the Cradle.","<i>Уривок з науково-популярної статті</i>\n\nМи повинні зосередитись на власному розвитку. Нам не потрібна експансія - ми знаємо, якою ціною було об'єднання Колиски."
+TabletCopypasta4,"Люди достигли почти всего, что нужно их природе. Близится новый этап эволюции. Близится Эпоха Легенд.\n\n\n<i>all numbers are real</i>","Humans have achieved nearly everything their nature demands. A new stage of evolution approaches. The Age of Legends is near.\n\n\n<i>all numbers are real</i>","Люди досягли майже всього, що відповідає їхній природі. Наближається новий етап еволюції. Наближається Епоха Легенд.\n\n\n<i>всі числа справжні</i>"
+TabletCopypasta5,"<i>Новость недельной давности</i>\n\n...Сны с двойником наблюдаются у резидентов по всему Антаро. Редакция связывает это с недавним выбросом токсинов в воздух недалеко от столицы как результат...","<i>News from a week ago</i>\n\n...Dreams involving a double have been reported by residents across Antaro. The editorial team links it to a recent airborne toxin release near the capital as a result...","<i>Новина тижневої давності</i>\n\n...Сни з двійником спостерігаються у мешканців по всьому Антаро. Редакція пов’язує це з нещодавнім викидом токсинів у повітря поблизу столиці внаслідок..."
 
-Anton,Антон,Anton,Антiн
+nants,Нодцаг,Nodtsag,Нодцаг
+bandit,Бандит,Bandit,Бандит
+lurhents,Лархенц,Lurhents,Лархенц
+cerana,Церана,Cerana,Церана
+rashin,Решин,Rashin,Решин
+guard,Охранник,Guard,Охоронець
+bodyguard,Телохранитель,Bodyguard,Тілоохоронець
+anton,Антон,Anton,Антiн
+neco,Неко,Neco,Неко
+royas,Рояс,Royas,Рояс
+nodtsag,Нодцаг,Nodtsag,Нодцаг
+stranger,Незнакомец,Stranger,Незнайомець
+netra,Нетра,Netra,Нетра
+coreEdge,...,...,...
 
-e1_neko1_s1,СРОЧНЫЕ НОВОСТИ,,
-e1_neko1_s2,Считанные минуты назад...,,
-e1_neko1_s3,Погиб глава клана Орслинд!,,
-e1_neko1_s4,Чего??,,
-e1_neko1_s5,А теперь к другим событиям,,
-e1_neko1_s6,МЁРТВЫЙ???,,
+e1_neko1_s1,СРОЧНЫЕ НОВОСТИ,BREAKING NEWS,ТЕРМІНОВІ НОВИНИ
+e1_neko1_s2,Считанные минуты назад...,Just moments ago...,Лише кілька хвилин тому...
+e1_neko1_s3,Погиб глава клана Орслинд!,The head of the Orslind clan has died!,Загинув голова клану Орслінд!
+e1_neko1_s4,Чего??,What??,Що??
+e1_neko1_s5,А теперь к другим событиям,And now to other news,А тепер до інших подій
+e1_neko1_s6,МЁРТВЫЙ???,DEAD???,МЕРТВИЙ???
 
-e1_i1,Штабквартира\nКинснап,,
-e1_i2,4 месяца спустя,,
+e1_i1,Штабквартира\nКинснап,Headquarters\nKinsnap,Штаб-квартира\nКінснап
+e1_i2,4 месяца спустя,4 months later,4 місяці потому
 
-e1_window1_s1,Там что-то было,,
-e1_window1_s2,Я ничего не заметил,,
+e1_window1_s1,Там что-то было,There was something there,Там щось було
+e1_window1_s2,Я ничего не заметил,I didn't notice anything,Я нічого не помітив
 
-e1_window2_s1,Какого?,,
-e1_window2_s2,СДОХНИ,,
+e1_window2_s1,Какого?,What the?,Якого?
+e1_window2_s2,СДОХНИ,DIE,ПОМРИ
 
-e1_ambush1_s1,Убить его,,
+e1_ambush1_s1,Убить его,Kill him,Вбий його
 
-e1_ambush2_sb1,Не дайте ему пройти,,
-e1_ambush2_sb2,"Это всё, что вы можете?",,
+e1_ambush2_sb1,Не дайте ему пройти,Don't let him pass,Не дай йому пройти
+e1_ambush2_sb2,"Это всё, что вы можете?","Is that all you got?","Це все, що ви можете?"
 
-e1_royasFight1_s1,"Прошу, остановитесь. Всё ещё можно исправить.",,
-e1_royasFight1_s2,"Вот как теперь запел",,
-e1_royasFight1_s3,"Вы все поплатитесь перед Орслинд",,
-e1_royasFight1_s4,"У меня не остаётся выбора",,
+e1_royasFight1_s1,"Прошу, остановитесь. Всё ещё можно исправить.","Please, stop. It's still fixable.","Прошу, зупиніться. Все ще можна виправити."
+e1_royasFight1_s2,"Вот как теперь запел","Look who’s suddenly so gentle","Ось як тепер заспівав"
+e1_royasFight1_s3,"Вы все поплатитесь перед Орслинд","You will all regret this","Ви всі поплатитеся перед Орслінд"
+e1_royasFight1_s4,"У меня не остаётся выбора","I have no choice left","У мене не залишається вибору"
 
-e1_royasFight2_s1,Шустрый,,
-e1_royasFight2_s2,Устаёте?,,
-e1_royasFight2_s3,СТОЯТЬ,,
+e1_royasFight2_s1,Шустрый,Nimble,Шустрий
+e1_royasFight2_s2,Устаёте?,Getting tired?,Втомлюєтесь?
+e1_royasFight2_s3,СТОЯТЬ,STOP,СТОЯТИ
 
-e1_royasFight3_s1,Вы,,
-e1_royasFight3_s2,Не,,
-e1_royasFight3_s3,Осознаёте,,
-e1_royasFight3_s4,Последствий,,
+e1_royasFight3_s1,Вы,You,Ви
+e1_royasFight3_s2,Не,Don't,Не
+e1_royasFight3_s3,Осознаёте,Realize,Розумієте
+e1_royasFight3_s4,Последствий,Consequences,Наслідків
 
-e1_lurhents_s1,"Ты даже не представляешь, во что влез",,
-e1_lurhents_s2,Это было наименьшее доступное зло,,
+e1_lurhents_s1,"Ты даже не представляешь, во что влез","You have no idea what you got into","Ти навіть не уявляєш, у що вплутався"
+e1_lurhents_s2,Это было наименьшее доступное зло,It was the lesser evil available,Це було найменше доступне зло
 
-e2_oob_text,Здесь нет ничего интересного,Nothing interesting here,
-e2_i1,Штабквартира\nКинснап,,
-e2_i2,Наше время,,
+e2_oob_text,Здесь нет ничего интересного,Nothing interesting here,Тут немає нічого цікавого
+e2_i1,Штаб-квартира\nКинснап,Kinsnap\nHeadquarters,Штаб-квартира\nКінснап
+e2_i2,Наше время,Our time,Наш час
 
-e2_lift_s1,Приветствуем Вас в Кинснап,,
-e2_lift_s2,Эээ... Добрый день,,
-e2_lift_s3,"Пожалуйста, следуйте за мной",,
+e2_lift_s1,Приветствуем Вас в Кинснап,Welcome to Kinsnap,Вітаємо вас у Кінснапі
+e2_lift_s2,Эээ... Добрый день,Uhh... Good day,Еее... Добрий день
+e2_lift_s3,"Пожалуйста, следуйте за мной","Please, follow me","Будь ласка, слідуйте за мною"
 
-e2_royasInivte_s1,"Проходите, я подожду здесь",,
-e2_royasInivte_s2,"Господин Лархенц ожидает",,
+e2_royasInivte_s1,"Проходите, я подожду здесь","Come in, I'll wait here","Проходьте, я почекаю тут"
+e2_royasInivte_s2,"Господин Лархенц ожидает","Mr. Lurhents is waiting","Пан Лархенц чекає"
 
-e2_lurhents1_s1,"Эм... приветствую?",,
-e2_lurhents1_s2,"Господин... директор?",,
+e2_lurhents1_s1,"Эм... приветствую?","Um... greetings?","Ем... вітаю?"
+e2_lurhents1_s2,"Господин... директор?","Sir... director?","Пане... директоре?"
 
-e2_lurhents2_s1,"Для простолюдина сойдёт. Продолжай.",,
+e2_lurhents2_s1,"Для простолюдина сойдёт. Продолжай.","Good enough for a commoner. Continue.","Для простолюдина піде. Продовжуй."
 
-e2_lurhents3_s1,"Я пришёл... за сделкой... но хочу обсудить...",,
-e2_lurhents3_s2,"Ты не в том состоянии, чтобы что-то требовать",,
-e2_lurhents3_s3,"Ты же не глуп. Сам должен понимать.",,
-e2_lurhents3_s4,"Это... слишком грязно. Всё, что вы предлагаете.",,
-e2_lurhents3_s5,"Мне просто нужна помощь",,
-e2_lurhents3_s6,"Кинснап благотворительностью не занимается, мальчик.",,
-e2_lurhents3_s7,"Здесь ничего не дают. Если могут - берут, не могут - покупают.",,
-e2_lurhents3_s8,"Ты всё это и без меня прекрасно знаешь",,
-e2_lurhents3_s9,"Мне нужно выбраться из этого всего... без крови",,
-e2_lurhents3_s10,"У тебя нет выбора. Тебе некуда идти.",,
-e2_lurhents3_s11,"Простите...",,
+e2_lurhents3_s1,"Я пришёл... за сделкой... но хочу обсудить...","I came... for the deal... but want to discuss...","Я прийшов... за угодою... але хочу обговорити..."
+e2_lurhents3_s2,"Ты не в том состоянии, чтобы что-то требовать","You're not in a condition to demand anything","Ти не в стані щось вимагати"
+e2_lurhents3_s3,"Ты же не глуп. Сам должен понимать.","You're not stupid. You should understand yourself.","Ти ж не дурень. Маєш розуміти сам."
+e2_lurhents3_s4,"Это... слишком грязно. Всё, что вы предлагаете.","It's... too dirty. Everything you offer.","Це... занадто брудно. Все, що ви пропонуєте."
+e2_lurhents3_s5,"Мне просто нужна помощь","I just need help","Мені просто потрібна допомога"
+e2_lurhents3_s6,"Кинснап благотворительностью не занимается, мальчик.","Kinsnap doesn't do charity, boy.","Кінснап благодійністю не займається, хлопче."
+e2_lurhents3_s7,"Здесь ничего не дают. Если могут - берут, не могут - покупают.","Nothing is given here. If they can - they take, if not - they buy.","Тут нічого не дають. Якщо можуть - беруть, не можуть - купують."
+e2_lurhents3_s8,"Ты всё это и без меня прекрасно знаешь","You know all this perfectly well without me","Ти все це і без мене чудово знаєш"
+e2_lurhents3_s9,"Мне нужно выбраться из этого всего... без крови","I need to get out of all this... without blood","Мені потрібно вибратися з усього цього... без крові"
+e2_lurhents3_s10,"У тебя нет выбора. Тебе некуда идти.","You have no choice. You have nowhere to go.","У тебе немає вибору. Тобі нікуди йти."
+e2_lurhents3_s11,"Простите...","Sorry...","Вибачте..."
 
-e2_lurhents4_s1,"Рой",,
+e2_lurhents4_s1,"Рой","Roy","Рой"
 
-e2_nodtsag_s1,"Мне нужно в другую сторону",,
+e2_nodtsag_s1,"Мне нужно в другую сторону","I need to go the other way","Мені потрібно в інший бік"
 
-e3_monologue1_s1,Сделать ... возможное,,
-e3_monologue1_s2,Ты кто? Это сон?,,
+e3_monologue1_s1,Сделать ... возможное,Do ... possible,Зробити ... можливе
+e3_monologue1_s2,Ты кто? Это сон?,Who are you? Is this a dream?,Хто ти? Це сон?
 
-e3_monologue2_s1,Останови его,,
+e3_monologue2_s1,Останови его,Stop him,Зупини його
 
-e3_monologue3_s1,... есть ... возможность ...,,
+e3_monologue3_s1,... есть ... возможность ...,... there is ... a chance ...,... є ... можливість ...
 
-e3_chair1_s1,Слышишь меня?,,
-e3_chair1_s2,Голова,,
+e3_chair1_s1,Слышишь меня?,Can you hear me?,Чуєш мене?
+e3_chair1_s2,Голова,My head,Голова
 
-e3_chair2_s1,Господин Ройас,,
-e3_chair2_s2,Он пришёл в себя,,
+e3_chair2_s1,Господин Ройас,Mr. Royas,Пан Ройас
+e3_chair2_s2,Он пришёл в себя,He came to,Він прийшов до тями
 
-e3_chair3_s1,"Как себя чувствуешь, Нодцаг?",,
-e3_chair3_s2,Где я?,,
-e3_chair3_s3,В безопасности,,
-e3_chair3_s4,Это похищение?,,
-e3_chair3_s5,Выпустите меня!,,
-e3_chair3_s6,"Тише, всё в порядке",,
-e3_chair3_s7,Я вам не верю,,
-e3_chair3_s8,Почему мне не дали уйти?,,
-e3_chair3_s9,"Это было необходимо, домой бы ты не добрался",,
-e3_chair3_s10,"Ты знал, что за тобой следят, Нодцаг?",,
-e3_chair3_s11,Нет,,
-e3_chair3_s12,"Догадываешься, кто они?",,
-e3_chair3_s13,Наверно...,,
-e3_chair3_s14,Давай ближе к делу,,
-e3_chair3_s15,Можешь стоять на ногах?,,
+e3_chair3_s1,"Как себя чувствуешь, Нодцаг?","How do you feel, Nodtsag?","Як себе почуваєш, Нодцаг?"
+e3_chair3_s2,Где я?,Where am I?,"Де я?"
+e3_chair3_s3,В безопасности,You're safe,"Ти в безпеці"
+e3_chair3_s4,Это похищение?,Is this a kidnapping?,"Це викрадення?"
+e3_chair3_s5,Выпустите меня!,Let me out!,"Відпустіть мене!"
+e3_chair3_s6,"Тише, всё в порядке","Quiet, everything is fine","Тише, все добре"
+e3_chair3_s7,Я вам не верю,I don't trust you,"Я вам не вірю"
+e3_chair3_s8,Почему мне не дали уйти?,Why didn't you let me go?,"Чому мені не дали піти?"
+e3_chair3_s9,"Это было необходимо, домой бы ты не добрался","It was necessary, you wouldn't have made it home","Це було необхідно, додому ти б не добрався"
+e3_chair3_s10,"Ты знал, что за тобой следят, Нодцаг?","Did you know you were being watched, Nodtsag?","Ти знав, що за тобою стежать, Нодцаг?"
+e3_chair3_s11,Нет,No,"Ні"
+e3_chair3_s12,"Догадываешься, кто они?","Do you guess who they are?","Припускаєш, хто вони?"
+e3_chair3_s13,Наверно...,Probably...,"Напевно..."
+e3_chair3_s14,Давай ближе к делу,Let's get to the point,"Давай ближче до справи"
+e3_chair3_s15,Можешь стоять на ногах?,Can you stand on your feet?,"Можеш стояти на ногах?"
 
-e3_royas1_s1,Иди за нами,,
+e3_royas1_s1,Иди за нами,Follow us,Іди за нами
 
-e3_chat1_s1,Ну какой же я господин?,,
-e3_chat1_s2,Простите,,
-e3_chat1_s3,Эх,,
+e3_chat1_s1,Ну какой же я господин?,You can call me just Royas?,Ну який же я пан?
+e3_chat1_s2,Простите,Sorry,Вибачте
+e3_chat1_s3,Эх,Ah,Ех
 
-e3_arc1_s1,"Что?",,
-e3_arc1_s2,"Это Арка? Но как?",,
-e3_arc1_s3,"Её же захватили",,
-e3_arc1_s4,"Кинснап может поставить выскочек на место",,
-e3_arc1_s5,"Не переживай, они её даже касались",,
-e3_arc1_s6,"Если Арка у вас, зачем тогда вам нужен я?",,
-e3_arc1_s7,"У нас очень мало времени",,
-e3_arc1_s8,"А она настроена на тебя",,
+e3_arc1_s1,"Что?","What?","Що?"
+e3_arc1_s2,"Это Арка? Но как?","Is that Arc? But how?","Це Арка? Але як?"
+e3_arc1_s3,"Её же захватили","It was captured","Її ж захопили"
+e3_arc1_s4,"Кинснап может поставить выскочек на место","Kinsnap can put upstarts in their place","Кінснап може показати нахабам їх місце"
+e3_arc1_s5,"Не переживай, они её даже касались","Don't worry, they didn't even touch it","Не переживай, вони її навіть не чіпали"
+e3_arc1_s6,"Если Арка у вас, зачем тогда вам нужен я?","If you have Arc, then why do you need me?","Якщо Арка у вас, навіщо тоді вам я?"
+e3_arc1_s7,"У нас очень мало времени","We have very little time","У нас дуже мало часу"
+e3_arc1_s8,"А она настроена на тебя","And it is tuned to you","А вона налаштована на тебе"
 
-e3_arc2_s1,"Я же сказал, что не пойду на это",,
-e3_arc2_s2,"Давай так",,
-e3_arc2_s3,"Если ты сюда ляжешь",,
-e3_arc2_s4,"То сможешь спаси сестру",,
-e3_arc2_s5,"И да, мы знаем, где она",,
+e3_arc2_s1,"Я же сказал, что не пойду на это","I already said I won't do it","Я ж казав, що не піду на це"
+e3_arc2_s2,"Давай так","Let's do it this way","Давай так"
+e3_arc2_s3,"Если ты сюда ляжешь","If you lie down here","Якщо ти сюди ляжеш"
+e3_arc2_s4,"То сможешь спаси сестру","Then you can save your sister","Тоді зможеш врятувати сестру"
+e3_arc2_s5,"И да, мы знаем, где она","And yes, we know where she is","І так, ми знаємо, де вона"
 
-e3_arc3_s1,"Хорошо",,
-e3_arc3_s2,"Можешь осмотреться, но не трать время зря",,
+e3_arc3_s1,"Хорошо","Alright","Добре"
+e3_arc3_s2,"Можешь осмотреться, но не трать время зря","You can look around, but don't waste time","Можеш оглянутися, але не марнуй час"
 
-e3_carrot_s1,"О, привет Морковка",,
+e3_carrot_s1,"О, привет Морковка","Oh, hi Carrot","О, привіт Морквина"
 
-e3_tablet_s1,"Мой планшет?",,
+e3_tablet_s1,"Мой планшет?","My tablet?","Мій планшет?"
 
-e3_cerana_s1,"Привет, я Церана",,
-e3_cerana_s2,"Приветствую",,
-e3_cerana_s3,"Мне очень жаль, что с тобой так обошлись",,
-e3_cerana_s4,"Не нужно этого... Вы все тут просто исполняете приказы",,
-e3_cerana_s5,"Ты не прав",,
-e3_cerana_s6,"Как скажешь",,
-e3_cerana_s7,"Это не моё. Что это?",,
-e3_cerana_s8,"Это модифицированное оборудование для обслуживания экзокостюмов Кинснап",,
-e3_cerana_s9,"Твой аватар должен быть способен выполнять возложенные на него задачи",,
-e3_cerana_s10,"Позже я покажу тебе, как всем этим пользоваться",,
+e3_cerana_s1,"Привет, я Церана","Hi, I'm Cerana","Привіт, я Церана"
+e3_cerana_s2,"Приветствую","Greetings","Вітаю"
+e3_cerana_s3,"Мне очень жаль, что с тобой так обошлись","I'm very sorry they treated you like that","Мені дуже шкода, що з тобою так вчинили"
+e3_cerana_s4,"Не нужно этого... Вы все тут просто исполняете приказы","No need for that... You all are just following orders","Не потрібно цього... Ви всі тут просто виконуєте накази"
+e3_cerana_s5,"Ты не прав","You're wrong","Ти не правий"
+e3_cerana_s6,"Как скажешь","As you say","Як скажеш"
+e3_cerana_s7,"Это не моё. Что это?","This is not mine. What is this?","Це не моє. Що це?"
+e3_cerana_s8,"Это модифицированное оборудование для обслуживания экзокостюмов Кинснап","This is modified equipment for servicing Kinsnap exosuits","Це модифіковане обладнання для обслуговування екзокостюмів Кінснап"
+e3_cerana_s9,"Твой аватар должен быть способен выполнять возложенные на него задачи","Your avatar must be capable of performing the tasks assigned to it","Твій аватар повинен бути здатний виконувати покладені на нього задачі"
+e3_cerana_s10,"Позже я покажу тебе, как всем этим пользоваться","Later I'll show you how to use all this","Пізніше я покажу тобі, як цим користуватися"
 
-e4_cerana1_s1,"Нодцаг",,
-e4_cerana1_s2,"Слышишь меня?",,
-e4_cerana1_s3,"Да",,
-e4_cerana1_s4,"Все показатели в порядке",,
-e4_cerana1_s5,"Активирую сенсоры чувств",,
+e4_cerana1_s1,"Нодцаг","Nodtsag","Нодцаг"
+e4_cerana1_s2,"Слышишь меня?","Can you hear me?","Чуєш мене?"
+e4_cerana1_s3,"Да","Yes","Так"
+e4_cerana1_s4,"Все показатели в порядке","All indicators are ok","Всі показники в нормі"
+e4_cerana1_s5,"Активирую сенсоры чувств","Activating sensors","Активую сенсорні датчики"
 
-e4_cerana2_s1,"Подействовало?",,
-e4_cerana2_s2,"Ага, всё привычно, кроме тела",,
-e4_cerana2_s3,"Для такой задачи нужно лучшее из доступного",,
-e4_cerana2_s4,"Перейдём к делу",,
-e4_cerana2_s5,"Конечно, найди вход в здание, возле которого ты стоишь",,
-e4_cerana2_s6,"Далее нужно будет выбраться на крышу и найти серверный узел",,
-e4_cerana2_s7,"Понял",,
-e4_cerana2_s8,"Будь осторожен",,
+e4_cerana2_s1,"Подействовало?","Did it work?","Подіяло?"
+e4_cerana2_s2,"Ага, всё привычно, кроме тела","Yeah, everything is familiar except the body","Ага, все звично, крім тіла"
+e4_cerana2_s3,"Для такой задачи нужно лучшее из доступного","For such a task, the best available is needed","Для такого завдання потрібно найкраще з доступного"
+e4_cerana2_s4,"Перейдём к делу","Let's get to business","Перейдемо до справи"
+e4_cerana2_s5,"Конечно, найди вход в здание, возле которого ты стоишь","Sure, find the entrance to the building you are standing near","Звичайно, знайди вхід у будівлю, біля якої стоїш"
+e4_cerana2_s6,"Далее нужно будет выбраться на крышу и найти серверный узел","Next, you need to get to the roof and find the server node","Далі потрібно вибратися на дах і знайти серверний вузол"
+e4_cerana2_s7,"Понял","Understood","Зрозумів"
+e4_cerana2_s8,"Будь осторожен","Be careful","Будь обережний"
 
-e4_cerana3_s1,"Я получила контроль над системой безопасности первого этажа",,
-e4_cerana3_s2,"Сейчас открою лифт",,
+e4_cerana3_s1,"Я получила контроль над системой безопасности первого этажа","I gained control over the first floor security system","Я отримала контроль над системою безпеки першого поверху"
+e4_cerana3_s2,"Сейчас открою лифт","I will open the elevator now","Зараз відкрию ліфт"
 
-e4_cerana4_s1,"Я тут покопалась в их системе безопсаности",,
-e4_cerana4_s2,"Это не та группировка, что похитила твою сестру",,
-e4_cerana4_s3,"Что это значит?",,
-e4_cerana4_s4,"Нет достаточных данных, но продали её уже давно, а сюда привезли пару дней назад",,
-e4_cerana4_s5,"Ты уверена, что она тут?",,
-e4_cerana4_s6,"Да, есть даже записи с камер",,
-e4_cerana4_s7,"Кажется, это место - перевалочный пункт для таких как она. И этих людей пристально охраняют",,
-e4_cerana4_s8,"С ней всё в порядке?",,
-e4_cerana4_s9,"Выглядит хорошо, как для пленника",,
-e4_cerana4_s10,"Ты почти на крыше",,
-e4_cerana4_s11,"И ещё, погода слегка испортилась",,
+e4_cerana4_s1,"Я тут покопалась в их системе безопсаности","I dug into their security system","Я тут покопалась у їхній системі безпеки"
+e4_cerana4_s2,"Это не та группировка, что похитила твою сестру","This is not the group that kidnapped your sister","Це не та група, що викрала твою сестру"
+e4_cerana4_s3,"Что это значит?","What does this mean?","Що це означає?"
+e4_cerana4_s4,"Нет достаточных данных, но продали её уже давно, а сюда привезли пару дней назад","There is not enough data, but she was sold long ago and brought here a few days ago","Немає достатніх даних, але її продали давно, а сюди привезли кілька днів тому"
+e4_cerana4_s5,"Ты уверена, что она тут?","Are you sure she is here?","Ти впевнена, що вона тут?"
+e4_cerana4_s6,"Да, есть даже записи с камер","Yes, there are even camera recordings","Так, є навіть записи з камер"
+e4_cerana4_s7,"Кажется, это место - перевалочный пункт для таких как она. И этих людей пристально охраняют","Seems this place is a transit point for people like her. And these people are closely guarded","Здається, це місце - перевалочний пункт для таких, як вона. І цих людей пильно охороняють"
+e4_cerana4_s8,"С ней всё в порядке?","Is she okay?","З нею все гаразд?"
+e4_cerana4_s9,"Выглядит хорошо, как для пленника","Looks good for a captive","Виглядає добре для полоненої"
+e4_cerana4_s10,"Ты почти на крыше","You are almost on the roof","Ти майже на даху"
+e4_cerana4_s11,"И ещё, погода слегка испортилась","And also, the weather has slightly worsened","І ще, погода трохи зіпсувалась"
 
-e4_cerana5_s1,"Отлично! Доступ получен",,
-e4_cerana5_s2,"Иди за ней, Нодцаг",,
+e4_cerana5_s1,"Отлично! Доступ получен","Excellent! Access granted","Чудово! Доступ отримано"
+e4_cerana5_s2,"Иди за ней, Нодцаг","Follow her, Nodtsag","Іди за нею, Нодцаг"
 
-e4_bandit1_s1,"Ты ещё что за страхолюдина?",,
-e4_bandit1_s2,"Я же предупреждал, что доберусь до вас",,
-e4_bandit1_s3,"Что? Ты кто такой вообще?",,
-e4_bandit1_s4,"Сейчас узнаешь",,
+e4_bandit1_s1,"Ты ещё что за страхолюдина?","What kind of freak are you?","Хто ти такий, страшило?"
+e4_bandit1_s2,"Я же предупреждал, что доберусь до вас","I warned you I would get to you","Я ж попереджав, що доберусь до вас"
+e4_bandit1_s3,"Что? Ты кто такой вообще?","What? Who are you anyway?","Що? Хто ти взагалі?"
+e4_bandit1_s4,"Сейчас узнаешь","You will find out now","Зараз дізнаєшся"
 
-e4_bandit2_s1,"Его нужно задержать",,
+e4_bandit2_s1,"Его нужно задержать","He must be detained","Його потрібно затримати"
 
-e4_bandit3_s1,"Отходим",,
+e4_bandit3_s1,"Отходим","Retreating","Відходьмо"
 
-e4_royas1_s1,"Попробуй обойтись без насилия",,
-e4_royas1_s2,"Посмотрим",,
+e4_royas1_s1,"Попробуй обойтись без насилия","Try to manage without violence","Спробуй обійтись без насильства"
+e4_royas1_s2,"Посмотрим","We'll see","Побачимо"
 
-e4_royas2_s1,"Дело становится очень серьёзным",,
-e4_royas2_s2,"Ты должен попасть к серверам",,
+e4_royas2_s1,"Дело становится очень серьёзным","This is getting very serious","Справи стають дуже серйозними"
+e4_royas2_s2,"Ты должен попасть к серверам","You have to get to the servers","Ти повинен дістатися до серверів"
 
-e4_loot1_s1,"Маркировка Эреден. Но ведь это...",,
-e4_loot1_s2,"Невозможно",,
-e4_loot1_s3,"Откуда у них военные технологии?",,
-e4_loot1_s4,"Я такое только на картинках видел",,
+e4_loot1_s1,"Маркировка Эреден. Но ведь это...","Ereden marking. But this is...","Маркування Ереден. Але це..."
+e4_loot1_s2,"Невозможно","Impossible","Неможливо"
+e4_loot1_s3,"Откуда у них военные технологии?","Where do they get military technology?","Звідки у них військові технології?"
+e4_loot1_s4,"Я такое только на картинках видел","I've only seen this in pictures","Я таке бачив лише на картинках"
 
-e4_loot2_s1,"И опять Эреден, я почти не удивлён",,
-e4_loot2_s2,"Я не понимаю как такое может быть",,
-e4_loot2_s3,"Орслинд не мог такое пропустить",,
+e4_loot2_s1,"И опять Эреден, я почти не удивлён","And again Ereden, I'm almost not surprised","І знову Ереден, я майже не здивований"
+e4_loot2_s2,"Я не понимаю как такое может быть","I don't understand how this could be","Я не розумію, як це могло статися"
+e4_loot2_s3,"Орслинд не мог такое пропустить","Orslind couldn't have missed this","Орслінд не міг цього пропустити"
 
-e4_loot3_s1,"Эреден",,
-e4_loot3_s2,"Этим вопросом уже занимаются",,
+e4_loot3_s1,"Эреден","Ereden","Ереден"
+e4_loot3_s2,"Этим вопросом уже занимаются","This issue is already being handled","Цим питанням уже займаються"
 
-e4_stranger1_s1,"Бро, я думал, ты манекен",,
-e4_stranger1_s2,"Как попасть в это здание?",,
+e4_stranger1_s1,"Бро, я думал, ты манекен","Bro, I thought you were a mannequin","Бро, я думав, ти манекен"
+e4_stranger1_s2,"Как попасть в это здание?","How to get into this building?","Як потрапити у цю будівлю?"
 
-e4_stranger2_s1,"Иди вдоль кирпичного корпуса",,
-e4_stranger2_s2,"Но не советую туда соваться",,
+e4_stranger2_s1,"Иди вдоль кирпичного корпуса","Go along the brick building","Іди вздовж цегляного корпусу"
+e4_stranger2_s2,"Но не советую туда соваться","But I don’t recommend going there","Але не раджу туди лізти"
 
-e4_stranger3_s1,"Почему это место такое неприветливое?",,
-e4_stranger3_s2,"Давно на окраинах не бывал?",,
-e4_stranger3_s3,"Тут везде так...",,
+e4_stranger3_s1,"Почему это место такое неприветливое?","Why is this place so unfriendly?","Чому це місце таке непривітне?"
+e4_stranger3_s2,"Давно на окраинах не бывал?","Haven't been to the outskirts for a long time?","Давно не бував на окраїнах?"
+e4_stranger3_s3,"Тут везде так...","It's like this everywhere here...","Тут усюди так..."
 
-e4_stranger4_s1,"Что ты тут делаешь?",,
-e4_stranger4_s2,"А ты не видишь?",,
-e4_stranger4_s3,"Какаю",,
+e4_stranger4_s1,"Что ты тут делаешь?","What are you doing here?","Що ти тут робиш?"
+e4_stranger4_s2,"А ты не видишь?","Can't you see?","Ти не бачиш?"
+e4_stranger4_s3,"Какаю","Pooping","Какаю"
 
-e4_stranger5_s1,"Будут ещё вопросы - обращайся",,
+e4_stranger5_s1,"Будут ещё вопросы - обращайся","If you have more questions, ask","Якщо будуть ще питання - звертайся"
 
-e4_strangerAnar1_s1,"Видел недалеко большую букву А на стене",,
-e4_strangerAnar1_s2,"Что это такое?",,
-e4_strangerAnar1_s3,"ANAR... культисты... хм",,
-e4_strangerAnar1_s4,"Знаешь, шёл бы ты отсюда",,
+e4_strangerAnar1_s1,"Видел недалеко большую букву А на стене","Saw a big letter A on the wall nearby","Бачив неподалік велику букву А на стіні"
+e4_strangerAnar1_s2,"Что это такое?","What is that?","Що це таке?"
+e4_strangerAnar1_s3,"ANAR... культисты... хм","ANAR... cultists... hmm","ANAR... культисти... хм"
+e4_strangerAnar1_s4,"Знаешь, шёл бы ты отсюда","You know, you better leave","Знаєш, краще йди звідси"
 
-e4_strangerAnar2_s1,"Отвали",,
+e4_strangerAnar2_s1,"Отвали","Get lost","Відвали"
 
-e4_nants1_s1,"Что это?",,
-e4_nants1_s2,"Выглядит знакомо",,
+e4_nants1_s1,"Что это?","What is this?","Що це?"
+e4_nants1_s2,"Выглядит знакомо","Looks familiar","Виглядає знайомо"
 
-e4_nants2_s1,"Наверно, мне сюда",,
+e4_nants2_s1,"Наверно, мне сюда","Probably, I should go here","Напевно, мені сюди"
 
-e4_netra1_s1,"Нетра",,
-e4_netra1_s2,"Ты...",,
-e4_netra1_s3,"Это я, Нодцаг",,
-e4_netra1_s4,"Я догадалась",,
-e4_netra1_s5,"Теперь всё будет хорошо, отойди от края",,
-e4_netra1_s6,"Нет, не будет",,
-e4_netra1_s7,"Ты не слышишь это?",,
+e4_netra1_s1,"Нетра","Netra","Нетра"
+e4_netra1_s2,"Ты...","You...","Ти..."
+e4_netra1_s3,"Это я, Нодцаг","It's me, Nodtsag","Це я, Нодцаг"
+e4_netra1_s4,"Я догадалась","I figured it out","Я здогадалась"
+e4_netra1_s5,"Теперь всё будет хорошо, отойди от края","Now everything will be fine, step away from the edge","Тепер все буде добре, відійди від краю"
+e4_netra1_s6,"Нет, не будет","No, it won't","Ні, не буде"
+e4_netra1_s7,"Ты не слышишь это?","Don't you hear it?","Ти не чуєш це?"
 
-e4_netra2_s1,"Стой",,
-e4_netra2_s2,"Нетра",,
-e4_netra2_s3,"Слышу что?",,
-e4_netra2_s4,"Прощай",,
-e4_netra2_s5,"Нанц",,
+e4_netra2_s1,"Стой","Stop","Стой"
+e4_netra2_s2,"Нетра","Netra","Нетра"
+e4_netra2_s3,"Слышу что?","Hear what?","Чую що?"
+e4_netra2_s4,"Прощай","Goodbye","Прощавай"
+e4_netra2_s5,"Нанц","Nants","Нанц"
 
-e4_final_s1,"Проклятье",,
-e4_final_s2,"Срочно направь туда ближайших людей",,
-e4_final_s3,"И выводи его",,
-e4_final_s4,"Уже начала",,
+e4_final_s1,"Проклятье","Damn","Прокляття"
+e4_final_s2,"Срочно направь туда ближайших людей","Send the nearest people there immediately","Терміново направ туди найближчих людей"
+e4_final_s3,"И выводи его","And get him out","І виводь його"
+e4_final_s4,"Уже начала","Already started","Вже почала"
