@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-public abstract class SkippableActPhase : ActPhase
+﻿public abstract class SkippableActPhase : ActPhase
 {
-    private readonly CooldownCounter _skipCooldownCounter = new(.1f);
+    private readonly CooldownCounter _skipCooldownCounter = new(0.1f);
 
     private bool _isInvoking;
 
@@ -20,7 +18,7 @@ public abstract class SkippableActPhase : ActPhase
 
     private void Update()
     {
-        if (_isInvoking && _skipCooldownCounter.IsOver() && InputReader.SkipInputRecieved.HasOccured)
+        if (_isInvoking && InputReader.SkipInputRecieved.HasOccured && _skipCooldownCounter.TryReset())
         {
             OnSkipped();
         }

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: R_LightImpact
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 0
+  _effects:
+  - rid: 7488742525668425734
+  references:
+    version: 2
+    RefIds:
+    - rid: 7488742525668425734
+      type: {class: RandomListEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425735
+        - rid: 7488742525668425736
+        - rid: 7488742525668425737
+        - rid: 7488742525668425740
+    - rid: 7488742525668425735
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 395093f49a480e64c82cb04370c7d54e, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425736
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: c420f0764d628b74fa9a848bbb5770fd, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425737
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: ca90bfdcb6666d34f843ab5fd077caa2, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425740
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 1d87aaf1631db75489ea90906767ebf6, type: 3}
+        _parentToTarget: 1

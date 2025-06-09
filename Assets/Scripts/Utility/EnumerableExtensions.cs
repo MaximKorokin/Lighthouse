@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public static class EnumerableExtensions
 {
@@ -22,15 +21,34 @@ public static class EnumerableExtensions
         }
     }
 
+    public static void For<T>(this IList<T> list, Action<T> action)
+    {
+        for (var i = 0; i < list.Count; i++)
+        {
+            action(list[i]);
+        }
+    }
+
+    public static void For<T>(this IList<T> list, Action<T, int> action)
+    {
+        for (var i = 0; i < list.Count; i++)
+        {
+            action(list[i], i);
+        }
+    }
+
     public static IEnumerable<T> Yield<T>(this T obj)
     {
         yield return obj;
     }
 
-    public static IEnumerable<T> YieldWith<T>(this T obj, T other)
+    public static IEnumerable<T> YieldWith<T>(this T obj, params T[] objects)
     {
         yield return obj;
-        yield return other;
+        foreach (var additionalObj in objects)
+        {
+            yield return additionalObj;
+        }
     }
 
     public static IEnumerable<T> YieldWith<T>(this T obj, IEnumerable<T> objects)
@@ -106,13 +124,27 @@ public static class EnumerableExtensions
         }
     }
 
-    public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet)
+    public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet, TValue defaultValue = default)
     {
         if (dictionary.TryGetValue(toGet, out var value))
         {
             return value;
         }
-        return default;
+        return defaultValue;
+    }
+
+    public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey toGet, Func<TValue> factory)
+    {
+        if (dictionary.TryGetValue(toGet, out var value))
+        {
+            return value;
+        }
+        else
+        {
+            value = factory();
+            dictionary[toGet] = value;
+        }
+        return value;
     }
 
     public static void RemoveRangeByKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, IEnumerable<TKey> toRemove)
@@ -121,6 +153,20 @@ public static class EnumerableExtensions
         {
             dictionary.Remove(val);
         }
+    }
+
+    public static Dictionary<K, V> AddOrModify<K, V>(this Dictionary<K, V> dictionary, K key, Func<V> valueCreator, Func<V, V> valueModifier)
+    {
+        if (dictionary.TryGetValue(key, out var value))
+        {
+            dictionary[key] = valueModifier(value);
+        }
+        else
+        {
+            dictionary.Add(key, valueCreator());
+        }
+
+        return dictionary;
     }
 
     public static void AddRange<T>(this HashSet<T> set, IEnumerable<T> toAdd)
@@ -156,7 +202,7 @@ public static class EnumerableExtensions
     {
         foreach (var e in effects)
         {
-            e.Invoke(castState);
+            e?.Invoke(castState);
         }
     }
 

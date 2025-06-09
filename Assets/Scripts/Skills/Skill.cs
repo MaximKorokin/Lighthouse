@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -45,25 +46,38 @@ public class Skill : IInitializable
         }
     }
 
-    public bool Invoke(CastState castState, PrioritizedTargets targets, float cooldownDivider = 1)
+    public bool Invoke(CastState castState, PrioritizedTargets targets)
     {
+        if (_effects == null || _effects.Length == 0)
+        {
+            return false;
+        }
+
         if (CooldownCounter == null ||
             !_conditionData.EvaluateCondition(castState.Source, targets) ||
-            !CooldownCounter.TryReset(cooldownDivider))
+            !CooldownCounter.TryReset())
         {
             return false;
         }
 
-        var target = _targetChoosingData.ChooseTarget(castState.Source, targets);
-        if (target == null)
+        var chosenTargets = _targetChoosingData.ChooseTargets(castState.Source, targets);
+        if (chosenTargets == null || chosenTargets.Any(x => x == null))
         {
             return false;
         }
 
-        castState.Target = target;
-        foreach (var effect in _effects)
+        foreach (var target in chosenTargets)
         {
-            effect.Invoke(castState);
+            castState.Target = target;
+            foreach (var effect in _effects)
+            {
+                if (effect == null)
+                {
+                    Logger.Error($"Effect in {nameof(Skill)} is null. {nameof(EffectSettings)} name is {_settings.Preview.Name}.");
+                    continue;
+                }
+                effect.Invoke(castState);
+            }
         }
         return true;
     }

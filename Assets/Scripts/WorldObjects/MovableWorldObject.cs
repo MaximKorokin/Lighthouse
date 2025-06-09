@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public abstract class MovableWorldObject : DestroyableWorldObject
 {
+    // todo: replace these bools with BoolCounter
     [field: SerializeField]
     public bool CanRotate { get; set; }
     [field: SerializeField]
@@ -23,9 +23,13 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     [field: SerializeField]
     public bool IsFlipped { get; private set; }
 
-    private Vector2 _direction;
     private Rigidbody2D _rigidbody;
-    private LayerMask _rigidbodyExcludeLayerMask;
+    private Rigidbody2D Rigidbody => gameObject.LazyGetComponent(ref _rigidbody);
+
+    public Rigidbody2DExtender _rigidbodyExtender;
+    public Rigidbody2DExtender RigidbodyExtender => this.LazyInitialize(ref _rigidbodyExtender, () => new Rigidbody2DExtender(Rigidbody));
+
+    private Vector2 _direction;
     private bool _previousFlipX;
     private float _currentMoveSpeed;
 
@@ -35,8 +39,6 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     protected override void Awake()
     {
         base.Awake();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbodyExcludeLayerMask = _rigidbody.excludeLayers;
         DirectionSet += OnDirectionSet;
     }
 
@@ -57,29 +59,24 @@ public abstract class MovableWorldObject : DestroyableWorldObject
     protected virtual void FixedUpdate()
     {
         // this helps against "random" velocity sources such as collisions with other colliders
-        if (_rigidbody.velocity != Vector2.zero)
+        if (Rigidbody.velocity != Vector2.zero)
         {
-            _rigidbody.velocity = Vector2.zero;
+            Rigidbody.velocity = Vector2.zero;
         }
 
         if (IsMoving)
         {
-            //_rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
-            _rigidbody.velocity = _currentMoveSpeed * Direction;
+            //Rigidbody.MovePosition((Vector2)transform.position + MoveSpeedModifier * _speed * Time.fixedDeltaTime * Direction);
+            Rigidbody.velocity = _currentMoveSpeed * Direction;
         }
-    }
-
-    public void SetRigidbodyCollisions(bool enable)
-    {
-        _rigidbody.excludeLayers = enable
-            ? _rigidbodyExcludeLayerMask
-            : (-1 ^ (LayerMask.GetMask(Constants.ObstacleLayerName)));
-        ReloadPhysicsState();
     }
 
     public virtual void Move(float speedOverride = -1)
     {
         _currentMoveSpeed = speedOverride < 0 ? Stats[StatName.MoveSpeedModifier] : speedOverride;
+
+        if (IsMoving) return;
+
         IsMoving = true;
         SetAnimatorValue(AnimatorKey.IsMoving, true);
         //SetAnimatorValue(AnimatorKey.MoveSpeed, _currentMoveSpeed * Direction.magnitude);
@@ -87,20 +84,21 @@ public abstract class MovableWorldObject : DestroyableWorldObject
 
     public virtual void Stop()
     {
-        IsMoving = false;
+        if (!IsMoving) return;
 
+        IsMoving = false;
         SetAnimatorValue(AnimatorKey.IsMoving, false);
     }
 
     public override void DestroyWorldObject()
     {
-        base.DestroyWorldObject();
         // Fog is shown if detects that player left trigger
         if (this is not PlayerCreature)
         {
-            _rigidbody.simulated = false;
+            Rigidbody.simulated = false;
         }
         Stop();
+        base.DestroyWorldObject();
     }
 
     private void OnDirectionSet(Vector2 direction)

@@ -1,18 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public class ProjectileActor : SkilledActor
 {
     private ProjectileEffect _projectileEffect;
     private int _pierceLeft;
     private DestroyableWorldObject _destroyable;
 
+    private readonly HashSet<WorldObject> _hits = new();
     private readonly CooldownCounter _obstacleHitCooldown = new(.1f);
 
     protected override void Awake()
     {
         base.Awake();
-        _destroyable = WorldObject as DestroyableWorldObject;
+        _destroyable = RequireUtils.CastRequired<WorldObject, DestroyableWorldObject>(WorldObject);
         _destroyable.Destroying += OnDestroying;
         _obstacleHitCooldown.Reset();
     }
@@ -28,11 +28,13 @@ public class ProjectileActor : SkilledActor
         if (!_destroyable.IsAlive ||
             _pierceLeft <= 0 ||
             targets.MainTarget == null ||
+            _hits.Contains(targets.MainTarget) ||
             (targets.MainTarget.gameObject.IsObstacle() && !_obstacleHitCooldown.IsOver()))
         {
             return;
         }
 
+        _hits.Add(targets.MainTarget);
         base.ActInternal(targets);
 
         if (--_pierceLeft <= 0 || targets.MainTarget.gameObject.IsObstacle())

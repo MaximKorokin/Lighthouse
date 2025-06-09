@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: CatPetting
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 5
+  _effects:
+  - rid: 2717117746704285704
+  - rid: 2717117746704285707
+  references:
+    version: 2
+    RefIds:
+    - rid: 2717117746704285704
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 2717117746704285705
+        - rid: 7488742101331214343
+        _redirectTo: 2
+    - rid: 2717117746704285705
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 1
+    - rid: 2717117746704285707
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 1
+        _key: 1
+    - rid: 7488742101331214343
+      type: {class: RandomEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _successRatio: 0.05
+        _successEffects:
+        - rid: 7488742101331214344
+        - rid: 7488742101331214345
+        _failureEffects:
+        - rid: 7488742525668425728
+        - rid: 7488742525668425729
+    - rid: 7488742101331214344
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 8cf9cc852f44ee149ba8b11c5d35ada9, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742101331214345
+      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _animatorController: {fileID: 22100000, guid: 70e04fb68f19cd24cb017e48e35d0c01, type: 2}
+    - rid: 7488742525668425728
+      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _animatorController: {fileID: 22100000, guid: f49a827aec8979f4293aecf6f70be7d9, type: 2}
+    - rid: 7488742525668425729
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: bc0e6f4460f40614da96eeaea8dfb8e8, type: 3}
+        _parentToTarget: 1

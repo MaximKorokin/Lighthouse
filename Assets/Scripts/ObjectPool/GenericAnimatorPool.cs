@@ -18,5 +18,9 @@ public class GenericAnimatorPool : ObjectsPool<GenericAnimatorController, Animat
             spriteRenderer.color = Color.white;
             spriteRenderer.sprite = null;
         }
+        if (controller.TryGetComponent<GenericSimpleAnimator>(out var genericSimpleAnimator))
+        {
+            genericSimpleAnimator.SetLayerAndOrderingOffset(SortingLayer.Effects.ToString(), 0);
+        }
     }
 }

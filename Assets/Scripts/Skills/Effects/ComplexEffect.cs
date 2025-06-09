@@ -7,9 +7,6 @@ public class ComplexEffect : Effect
 
     public override void Invoke(CastState castState)
     {
-        foreach (var effect in Effects)
-        {
-            effect?.Invoke(castState);
-        }
+        Effects?.Invoke(castState);
     }
 }

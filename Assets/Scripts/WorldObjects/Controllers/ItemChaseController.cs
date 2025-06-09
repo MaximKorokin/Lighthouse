@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Item))]
 class ItemChaseController : ChaseController
 {
     [SerializeField]
@@ -11,7 +10,7 @@ class ItemChaseController : ChaseController
     protected override void Awake()
     {
         base.Awake();
-        _item = GetComponent<Item>();
+        _item = this.GetRequiredComponent<Item>();
     }
 
     protected override void Control()

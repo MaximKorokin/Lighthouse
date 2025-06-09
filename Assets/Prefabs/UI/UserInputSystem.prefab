@@ -217,8 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 5806672101201530259}
-  _swipeThreshold: 500
+  _swipeThreshold: 400
   _timeForSwipe: 0.3
+  _timeForDoubleTap: 0.5
 --- !u!114 &5806672101201530259
 MonoBehaviour:
   m_ObjectHideFlags: 0

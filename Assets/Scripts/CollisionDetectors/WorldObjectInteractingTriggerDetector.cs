@@ -1,10 +1,7 @@
-﻿using UnityEngine;
-
-[RequireComponent(typeof(WorldObject))]
-public class WorldObjectInteractingTriggerDetector : WorldObjectFindingTriggerDetector
+﻿public class WorldObjectInteractingTriggerDetector : WorldObjectFindingTriggerDetector
 {
     private WorldObject _worldObject;
-    protected WorldObject WorldObject => _worldObject = _worldObject != null ? _worldObject : GetComponent<WorldObject>();
+    protected WorldObject WorldObject => gameObject.LazyGetComponent(ref _worldObject);
 
     protected override bool IsValidTarget(WorldObject obj, DetectingVariant variant)
     {

@@ -341,7 +341,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,7 +362,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -370,6 +370,27 @@ TextureImporter:
       bones: []
       spriteID: d09092bcc8d200c46b4c8236c3dcb545
       internalID: 718601431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DialogueIcons_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 512
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d13e562d0b49e41a59a3af3d8bcedf
+      internalID: -110282196
       vertices: []
       indices: 
       edges: []
@@ -389,6 +410,7 @@ TextureImporter:
       DialogueIcons_1: -271979055
       DialogueIcons_10: -1725678961
       DialogueIcons_11: 718601431
+      DialogueIcons_12: -110282196
       DialogueIcons_2: -1625071335
       DialogueIcons_3: -94024728
       DialogueIcons_4: 324146388

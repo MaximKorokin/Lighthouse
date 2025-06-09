@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public abstract class InputReader : MonoBehaviour
@@ -6,27 +5,18 @@ public abstract class InputReader : MonoBehaviour
     #region static
     private static readonly object _eventsInvoker = new();
 
-    private static BoolCounter _isControlInputBlocked = new(false);
-    public static bool IsControlInputBlocked
-    {
-        get => _isControlInputBlocked;
-        set => _isControlInputBlocked.Set(value);
-    }
-
-    public static event Action<bool> InputBlockChanging;
-
     public static FrameBoundEvent<bool> AnyKeyClicked = new(_eventsInvoker);
     public static FrameBoundEvent<bool> SkipInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<Vector2> MoveInputRecieved = new(_eventsInvoker);
     public static FrameBoundEvent<bool> ActiveAbilityInputRecieved = new(_eventsInvoker);
-    public static FrameBoundEvent<bool> MoveAbilityInputRecieved = new(_eventsInvoker);
+    public static FrameBoundEvent<Vector2> MoveAbilityInputRecieved = new(_eventsInvoker);
+    public static FrameBoundEvent<bool> BackInputRecieved = new(_eventsInvoker);
 
     static InputReader()
     {
-        _isControlInputBlocked.ValueChanged += v =>
+        GameManager.InputBlockChanged += v =>
         {
             if (v) ResetInput();
-            InputBlockChanging?.Invoke(v);
         };
     }
     #endregion
@@ -37,7 +27,8 @@ public abstract class InputReader : MonoBehaviour
     protected abstract bool IsSkipInputRecieved();
     protected abstract Vector2 GetMoveInput();
     protected abstract bool IsActiveAbilityUsed();
-    protected abstract bool IsMoveAbilityUsed();
+    protected abstract Vector2 GetMoveAbilityInput();
+    protected abstract bool IsBackInputRecieved();
 
     protected virtual void Update()
     {
@@ -46,13 +37,19 @@ public abstract class InputReader : MonoBehaviour
             AnyKeyClicked?.Invoke(_eventsInvoker, true);
         }
 
+        if (IsBackInputRecieved())
+        {
+            BackInputRecieved?.Invoke(_eventsInvoker, true);
+        }
+
         if (IsSkipInputRecieved())
         {
             SkipInputRecieved?.Invoke(_eventsInvoker, true);
         }
 
         // controls
-        if (IsControlInputBlocked)
+
+        if (GameManager.IsControlInputBlocked)
         {
             return;
         }
@@ -67,9 +64,9 @@ public abstract class InputReader : MonoBehaviour
             ActiveAbilityInputRecieved?.Invoke(_eventsInvoker, true);
         }
 
-        if (IsMoveAbilityUsed())
+        if (TryGetMoveAbilityVectorInput(out var moveAbilityInput))
         {
-            MoveAbilityInputRecieved?.Invoke(_eventsInvoker, true);
+            MoveAbilityInputRecieved?.Invoke(_eventsInvoker, moveAbilityInput);
         }
     }
 
@@ -79,6 +76,12 @@ public abstract class InputReader : MonoBehaviour
         if (_moveInput == input) return false;
         _moveInput = input;
         return true;
+    }
+
+    protected bool TryGetMoveAbilityVectorInput(out Vector2 input)
+    {
+        input = GetMoveAbilityInput();
+        return input != default;
     }
 
     private static void ResetInput()

@@ -20,8 +20,15 @@ public static class WorldObjectsSpawner
             {
                 var obj = UnityEngine.Object.Instantiate(settings.Prefab);
                 spawnedAmount++;
+                obj.name += $"_{spawnedAmount}";
+
                 aliveAmount++;
                 obj.OnDestroying(() => aliveAmount--);
+                if (settings.SpawnEffect != null)
+                {
+                    settings.SpawnEffect.GetEffects().Invoke(obj);
+                }
+
                 perSpawnCallback?.Invoke(obj);
                 yield return new WaitForSeconds(settings.Interval);
             }

@@ -13,6 +13,6 @@ public class GameObjectSetActivePhase : ActPhase
         InvokeFinished();
     }
 
-    public override string IconName => "Tick.png";
+    public override string IconName => "Switch.png";
     public override Color IconColor => _setActive ? MyColors.Green : MyColors.Red;
 }

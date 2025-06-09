@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NoIgnore
   - Water
   - UI
   - PlayerLooting
   - Obstacle
-  - Creature
-  - 
+  - RaycastTarget2D
+  - Fog
   - 
   - 
   - 
@@ -41,20 +41,20 @@ TagManager:
   - name: Background
     uniqueID: 991129653
     locked: 0
+  - name: Underlay
+    uniqueID: 1668870113
+    locked: 0
   - name: Floor
     uniqueID: 2786993471
+    locked: 0
+  - name: FloorDecorations
+    uniqueID: 15643711
     locked: 0
   - name: Walls
     uniqueID: 3155478673
     locked: 0
-  - name: Decorations1
+  - name: WallsDecorations
     uniqueID: 785706567
-    locked: 0
-  - name: Decorations2
-    uniqueID: 2039828077
-    locked: 0
-  - name: Decorations3
-    uniqueID: 4248078507
     locked: 0
   - name: Effects
     uniqueID: 3016488543
@@ -62,8 +62,17 @@ TagManager:
   - name: WorldObjects
     uniqueID: 2012048813
     locked: 0
+  - name: Roof
+    uniqueID: 1768551771
+    locked: 0
+  - name: RoofDecorations
+    uniqueID: 906581463
+    locked: 0
   - name: Fog
     uniqueID: 3266443141
+    locked: 0
+  - name: FogDecorations
+    uniqueID: 2927348203
     locked: 0
   - name: Default
     uniqueID: 0

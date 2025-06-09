@@ -126,12 +126,12 @@ TextureImporter:
       name: Walk_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 20
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: Walk_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 48
         y: 0
-        width: 21
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: Walk_2
       rect:
         serializedVersion: 2
-        x: 98
+        x: 96
         y: 0
-        width: 24
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: Walk_3
       rect:
         serializedVersion: 2
-        x: 145
+        x: 144
         y: 0
-        width: 26
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: Walk_4
       rect:
         serializedVersion: 2
-        x: 195
+        x: 192
         y: 0
-        width: 23
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Walk_5
       rect:
         serializedVersion: 2
-        x: 244
+        x: 240
         y: 0
-        width: 21
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

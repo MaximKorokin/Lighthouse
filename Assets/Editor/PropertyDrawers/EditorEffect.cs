@@ -6,29 +6,83 @@ using UnityEngine.UIElements;
 [CustomPropertyDrawer(typeof(Effect), true)]
 public class EditorEffect : PropertyDrawerBase
 {
-    protected override void RedrawRootContainer()
+    private static Effect _effectToCopy;
+
+    protected override void RedrawRootContainer(VisualElement rootContainer, SerializedProperty property)
     {
-        RootContainer.Clear();
-        if (Property.managedReferenceValue == null)
+        rootContainer.Clear();
+
+        var buttonsContainer = new VisualElement();
+        buttonsContainer.style.flexDirection = FlexDirection.RowReverse;
+        buttonsContainer.style.alignSelf = Align.FlexEnd;
+        rootContainer.Add(buttonsContainer);
+        buttonsContainer.Add(CreatePasteButton(rootContainer, property));
+
+        if (property.managedReferenceValue == null)
         {
-            RootContainer.Add(CreateTypePopup());
+            var typePopup = CreateTypePopup(rootContainer, property);
+            typePopup.style.flexGrow = 1;
+            rootContainer.Add(typePopup);
+            rootContainer.Add(buttonsContainer);
+            rootContainer.style.flexDirection = FlexDirection.Row;
         }
         else
         {
-            var propertyType = Property.managedReferenceValue.GetType();
-            RootContainer.Add(propertyType.CreateTypeFoldout(Property));
+            buttonsContainer.Add(CreateCopyButton(rootContainer, property));
+
+            var typeFoldout = property.managedReferenceValue.GetType().CreateTypeFoldout(property);
+            var foldoutToggle = typeFoldout.Q<Toggle>();
+            foldoutToggle.style.marginRight = 0;
+            foldoutToggle.Add(buttonsContainer);
+            rootContainer.Add(typeFoldout);
         }
     }
 
-    private VisualElement CreateTypePopup()
+    private VisualElement CreateTypePopup(VisualElement rootContainer, SerializedProperty property)
     {
         var popup = new PopupField<Type>(typeof(Effect).Yield().Concat(ReflectionUtils.GetSubclasses<Effect>()).ToList(), 0);
         popup.RegisterValueChangedCallback(x =>
         {
-            Property.managedReferenceValue = ReflectionUtils.CreateInstance<Effect>(x.newValue);
-            Property.serializedObject.ApplyModifiedProperties();
-            RedrawRootContainer();
+            property.managedReferenceValue = ReflectionUtils.CreateInstance<Effect>(x.newValue);
+            property.serializedObject.ApplyModifiedProperties();
+            RedrawRootContainer(rootContainer, property);
         });
         return popup;
+    }
+
+    private Button CreateCopyButton(VisualElement rootContainer, SerializedProperty property)
+    {
+        var button = new Button(() =>
+        {
+            _effectToCopy = property.managedReferenceValue as Effect;
+        })
+        { text = "Copy" };
+        button.style.width = 50;
+        return button;
+    }
+
+    private Button CreatePasteButton(VisualElement rootContainer, SerializedProperty property)
+    {
+        var button = new Button(() =>
+        {
+            if (_effectToCopy == null)
+            {
+                Logger.Warn("No Effect copied.");
+                return;
+            }
+
+            var json = EditorJsonUtility.ToJson(_effectToCopy);
+            var copiedEffect = ReflectionUtils.CreateInstance<Effect>(_effectToCopy.GetType());
+            EditorJsonUtility.FromJsonOverwrite(json, copiedEffect);
+
+            property.managedReferenceValue = copiedEffect;
+            property.serializedObject.ApplyModifiedProperties();
+            property.serializedObject.Update();
+
+            RedrawRootContainer(rootContainer, property);
+        })
+        { text = "Paste" };
+        button.style.width = 50;
+        return button;
     }
 }

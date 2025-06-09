@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 [CustomPropertyDrawer(typeof(DataMappingAttribute))]
 public class EditorDataMappingAttribute : PropertyDrawerBase
 {
-    protected override void RedrawRootContainer()
+    protected override void RedrawRootContainer(VisualElement rootContainer, SerializedProperty property)
     {
         var dataMappingAttribute = attribute as DataMappingAttribute;
         
@@ -19,18 +19,18 @@ public class EditorDataMappingAttribute : PropertyDrawerBase
         Func<IDataBaseEntry, string> displayNameSelector = prev => prev != null ? prev.ToString() : "Select value";
         // Create a popup and populate with Items casted to IDataBaseEntry
         var popup = new PopupField<IDataBaseEntry>(((IEnumerable)dbItems).Cast<IDataBaseEntry>().ToList(), 0, displayNameSelector, displayNameSelector);
-        RootContainer.Add(popup);
+        rootContainer.Add(popup);
 
         // Find static FindById method
         var dbFindByIdMethod = dataMappingAttribute.DBType.GetMethod(nameof(DataBase<IDataBaseEntry>.FindById), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
         // Try to find db entry using serialized property
-        popup.value = (IDataBaseEntry)dbFindByIdMethod.Invoke(null, new object[] { Property.stringValue });
+        popup.value = (IDataBaseEntry)dbFindByIdMethod.Invoke(null, new object[] { property.stringValue });
 
         popup.RegisterValueChangedCallback(x =>
         {
             // Serialize id of selected db entry
-            Property.stringValue = x.newValue.Id;
-            Property.serializedObject.ApplyModifiedProperties();
+            property.stringValue = x.newValue.Id;
+            property.serializedObject.ApplyModifiedProperties();
         });
     }
 }

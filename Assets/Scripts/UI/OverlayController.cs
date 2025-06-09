@@ -1,16 +1,13 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-[RequireComponent(typeof(Animator))]
 public class OverlayController : MonoBehaviour
 {
     public GenericAnimatorController AnimatorController { get; private set; }
 
     private void Awake()
     {
-        AnimatorController = GetComponent<GenericAnimatorController>();
+        AnimatorController = this.GetRequiredComponent<GenericAnimatorController>();
     }
 
     public void SetSettings(OverlaySettings settings)
@@ -23,4 +20,5 @@ public class OverlayController : MonoBehaviour
 public struct OverlaySettings
 {
     public AnimationClip Animation;
+    public bool IsHierarchyPriority;
 }

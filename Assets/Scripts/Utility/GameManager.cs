@@ -1,34 +1,72 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class GameManager
 {
-    private static int _pauseCalls;
-    private static int PauseCalls { get => _pauseCalls; set => _pauseCalls = value < 0 ? 0 : value; }
+    private static readonly BoolCounter _isPaused = new(false);
+    public static bool IsPaused => _isPaused;
 
-    public static bool IsPaused { get ; private set; }
+    private static readonly BoolCounter _isControlInputBlocked = new(false);
+    public static bool IsControlInputBlocked
+    {
+        get => _isControlInputBlocked;
+        set => _isControlInputBlocked.Set(value);
+    }
+
+    public static event Action Paused;
+    public static event Action Resumed;
+    public static event Action SceneChanging;
+    public static event Action<bool> InputBlockChanged;
+
+    static GameManager()
+    {
+        _isControlInputBlocked.ValueChanged += v =>
+        {
+            InputBlockChanged?.Invoke(v);
+        };
+    }
 
     public static void Pause()
     {
-        PauseCalls++;
-        Time.timeScale = 0;
-        IsPaused = true;
-        InputReader.IsControlInputBlocked = true;
+        _isPaused.Set(true);
+        IsControlInputBlocked = true;
+        if (IsPaused)
+        {
+            Time.timeScale = 0;
+            Paused?.Invoke();
+        }
     }
 
     public static void Resume()
     {
-        PauseCalls--;
-        if (PauseCalls <= 0)
+        _isPaused.Set(false);
+        IsControlInputBlocked = false;
+        if (!IsPaused)
         {
             Time.timeScale = 1;
-            IsPaused = false;
-            InputReader.IsControlInputBlocked = false;
+            Resumed?.Invoke();
         }
+    }
+
+    public static void LoadScene(Constants.Scene sceneName, MonoBehaviour behaviour, Action finalAction = null)
+    {
+        SceneChanging?.Invoke();
+        OnSceneChangingInternal();
+        var operation = SceneManager.LoadSceneAsync(sceneName.ToString(), LoadSceneMode.Single);
+        behaviour.StartCoroutineSafe(CoroutinesUtils.WaitForAsyncOperation(operation), finalAction);
     }
 
     public static void ReloadScene()
     {
+        SceneChanging?.Invoke();
+        OnSceneChangingInternal();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private static void OnSceneChangingInternal()
+    {
+        _isPaused.Reset(false);
+        _isControlInputBlocked.Reset(false);
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class AnimationEffect : Effect
@@ -14,15 +13,20 @@ public class AnimationEffect : Effect
     [SerializeField]
     private bool _flipWithTarget;
     [SerializeField]
-    private int _orderInLayer;
+    private float _orderInLayer;
     [SerializeField]
-    private AnimationEffectPositioning _positioning;
+    private AnimationPositioning _positioning;
+    [SerializeField]
+    private SortingLayer _sortingLayer = SortingLayer.Effects;
 
     public override void Invoke(CastState castState)
     {
         var animator = GenericAnimatorPool.Take(_animation);
         animator.PlayAnimation(false);
         var target = castState.GetTarget();
+
+        var genericSimpleAnimator = animator.GetComponent<GenericSimpleAnimator>();
+        genericSimpleAnimator.SetLayerAndOrderingOffset(_sortingLayer.ToString(), _orderInLayer);
 
         if (_childToTarget)
         {
@@ -32,69 +36,63 @@ public class AnimationEffect : Effect
 
             if (!_hasDuration)
             {
-                target.OnDestroyed(() => Cancel(animator));
+                target.OnDestroyed(() => Cancel(animator, target, genericSimpleAnimator));
             }
         }
 
         if (_hasDuration)
         {
-            target.StartCoroutineSafe(AnimationCoroutine(), () => Cancel(animator));
+            target.StartCoroutineSafe(CoroutinesUtils.WaitForSeconds(_duration > 0 ? _duration : _animation.length), () => Cancel(animator, target, genericSimpleAnimator));
         }
 
-        SetupAnimator(animator, target, castState.GetTargetPosition());
+        SetupAnimator(animator, genericSimpleAnimator, target, castState.GetTargetPosition());
     }
 
-    private IEnumerator AnimationCoroutine()
+    private void SetupAnimator(GenericAnimatorController animator, GenericSimpleAnimator genericSimpleAnimator, WorldObject target, Vector2 position)
     {
-        yield return new WaitForSeconds(_duration > 0 ? _duration : _animation.length);
+        if (_positioning == AnimationPositioning.HalfTargetVisualHeight)
+            position += target.VisualSize * Vector2.up * 0.5f;
+
+        animator.transform.position = position;
+
+        if (_flipWithTarget)
+        {
+            if (target is MovableWorldObject movable)
+            {
+                movable.Flipped += genericSimpleAnimator.SetFlip;
+                genericSimpleAnimator.SetFlip(movable.IsFlipped);
+            }
+            else if (animator.TryGetComponent<SpriteRenderer>(out var animatorSpriteRenderer) && target.TryGetComponent<SpriteRenderer>(out var targetSpriteRenderer))
+            {
+                animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
+                animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
+            }
+        }
     }
 
-    private void Cancel(GenericAnimatorController animator)
+    private static void Cancel(GenericAnimatorController animator, WorldObject worldObject, GenericSimpleAnimator genericSimpleAnimator)
     {
+        if (worldObject is MovableWorldObject movable && genericSimpleAnimator != null)
+        {
+            movable.Flipped -= genericSimpleAnimator.SetFlip;
+        }
         if (animator != null)
         {
             GenericAnimatorPool.Return(animator);
         }
     }
-
-    // this is gavno
-    private void SetupAnimator(GenericAnimatorController animator, WorldObject target, Vector2 position)
-    {
-        animator.transform.position = _childToTarget ? position + target.VisualPositionOffset : position;
-
-        var animatorSpriteRenderer = animator.GetComponent<SpriteRenderer>();
-        animatorSpriteRenderer.sortingOrder = _orderInLayer;
-
-        var targetComplexAnimator = target.GetComponent<ComplexAnimator>();
-        var targetSpriteRenderer = target.GetComponent<SpriteRenderer>();
-        if (targetComplexAnimator != null)
-        {
-            if (_flipWithTarget && target is MovableWorldObject movable)
-            {
-                animatorSpriteRenderer.flipX = movable.IsFlipped;
-            }
-            if (_positioning == AnimationEffectPositioning.BoundsBottom)
-            {
-                animator.transform.localPosition = new Vector2(0, -targetComplexAnimator.GetExtents().y);
-            }
-        }
-        else if (targetSpriteRenderer != null)
-        {
-            if (_flipWithTarget)
-            {
-                animatorSpriteRenderer.flipX = targetSpriteRenderer.flipX;
-                animatorSpriteRenderer.flipY = targetSpriteRenderer.flipY;
-            }
-            if (_positioning == AnimationEffectPositioning.BoundsBottom)
-            {
-                animator.transform.localPosition = new Vector2(0, -targetSpriteRenderer.localBounds.extents.y);
-            }
-        }
-    }
 }
 
-public enum AnimationEffectPositioning
+public enum AnimationPositioning
 {
-    Center = 0,
-    BoundsBottom = 1,
+    TargetPosition = 0,
+    HalfTargetVisualHeight = 10,
+}
+
+public enum SortingLayer
+{
+    Effects = 0,
+    WorldObjects = 10,
+    Underlay = 100,
+    Default = 1_000_000,
 }

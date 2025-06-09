@@ -73,7 +73,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
   m_Radius: 0.1
 --- !u!50 &8539793273622966556
@@ -137,7 +137,7 @@ MonoBehaviour:
   <CanRotate>k__BackingField: 0
   <CanFlip>k__BackingField: 0
   <IsFlipped>k__BackingField: 0
-  <InactiveTime>k__BackingField: 0
+  <InactiveTime>k__BackingField: 0.3
 --- !u!212 &8725931171154606055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 374747432, guid: a24a154fb46f9e34680cefaa32c150e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -269,6 +269,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: 8f935806eb0f92e44a3a7f2ea36b63da, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 4096
+      ReferenceArgument: 1
+      ValueArgument: 1
+    _targetChoosingData:
+      Type: 0
+      Func: 0
+  - _settings: {fileID: 11400000, guid: cae3fd20bb63d5148813b2e342bc2412, type: 2}
     _startsInCooldown: 0
     _conditionData:
       Predicate: 4096

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 790479954, guid: 17ee7a8335720494b9dcc68fe2b910d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!1 &809945631460520319
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +135,9 @@ GameObject:
   - component: {fileID: 6382580791305350808}
   - component: {fileID: 8105381655039463507}
   - component: {fileID: 543994037497862892}
-  m_Layer: 8
+  - component: {fileID: 494187537268497159}
+  - component: {fileID: 2708845319277972257}
+  m_Layer: 0
   m_Name: Lurhents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +211,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 19a87bf51ff2c5f42935e561d40e55bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -285,4 +287,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222eebc6ff85a544902751695bf7c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shift: 1
+--- !u!114 &494187537268497159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2b8d0853e89c40bc205dc3db1f901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2708845319277972257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809945631460520319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4f38a2a123604fa2f47703b976434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CharacterPreviewId>k__BackingField: f3d68cce-c6d7-4eb3-afcd-5f811be665b5

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Speed+1
   m_EditorClassIdentifier: 
   <Preview>k__BackingField:
-    <Name>k__BackingField: 
-    <Description>k__BackingField: 
+    <Name>k__BackingField: Speed
+    <Description>k__BackingField: Speed +1
     <Sprite>k__BackingField: {fileID: 0}
   <Cooldown>k__BackingField: 0
   _effects:

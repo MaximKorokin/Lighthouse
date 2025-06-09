@@ -1,20 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ScreenInputReader : InputReader, IPointerDownHandler
+public class ScreenInputReader : InputReader, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField]
     private Joystick _joystick;
     [SerializeField]
-    private  float _swipeThreshold = Screen.width / 3f;
+    private float _swipeThreshold = Screen.width / 3f;
     [SerializeField]
-    private  float _timeForSwipe = 0.3f;
+    private float _timeForSwipe = 0.3f;
+    [SerializeField]
+    private float _timeForDoubleTap = 0.2f;
 
-    private bool _isActiveAbilityUsed;
-    private Vector2 swipeStartPosition;
-    private float swipeStartTime;
+    private readonly ReadOnceValue<bool> _isSkipInputRecieved = new(false);
+    private readonly ReadOnceValue<bool> _gotDoubleTap = new(false);
 
-    private bool _isSkipInputRecieved;
+    private readonly Dictionary<int, ScreenTouch> _touches = new();
+
+    private void Awake()
+    {
+        SessionDataStorage.Observable.SetChangeListener(SessionDataKey.PhaseSkipInputRecieved, RecieveSkipInput);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        foreach (var inputTouch in Input.touches)
+        {
+            UpdateTouch(inputTouch.fingerId, inputTouch.position);
+        }
+    }
 
     protected override Vector2 GetMoveInput()
     {
@@ -23,36 +41,58 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
 
     protected override bool IsActiveAbilityUsed()
     {
-        var used = _isActiveAbilityUsed;
-        _isActiveAbilityUsed = false;
-        return used;
+        return _gotDoubleTap;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _isActiveAbilityUsed = Input.touchCount > 1;
+        if (_touches.Values.Any(x =>
+            !x.IsDown &&
+            (eventData.position - x.LastPosition).sqrMagnitude <= 10_000 &&
+            Time.time - x.StartTime <= _timeForDoubleTap))
+        {
+            _gotDoubleTap.Set(true);
+        }
+
+        _touches[eventData.pointerId] = new(true, eventData.position, eventData.position, Time.time, Time.time);
     }
 
-    protected override bool IsMoveAbilityUsed()
+    // Needs this because Input.touches that is used in Update only applies to touch screen
+    public void OnDrag(PointerEventData eventData)
+    {
+        UpdateTouch(eventData.pointerId, eventData.position);
+    }
+
+    private void UpdateTouch(int id, Vector2 position)
+    {
+        if (_touches.TryGetValue(id, out var touch))
+        {
+            touch.LastPosition = position;
+            touch.LastTime = Time.time;
+            _touches[id] = touch;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        var touch = _touches[eventData.pointerId];
+        touch.IsDown = false;
+        _touches[eventData.pointerId] = touch;
+    }
+
+    protected override Vector2 GetMoveAbilityInput()
     {
         return CheckForSwipe();
     }
 
-    private bool CheckForSwipe()
+    private Vector2 CheckForSwipe()
     {
-        if (!Input.GetMouseButton(0))
-        {
-            return false;
-        }
+        var touch = _touches.Values.FirstOrDefault(x =>
+            x.IsDown &&
+            x.LastTime - x.StartTime <= _timeForSwipe &&
+            Vector2.Distance(x.LastPosition, x.StartPosition) >= _swipeThreshold);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            swipeStartTime = Time.time;
-            swipeStartPosition = Input.mousePosition;
-            return false;
-        }
-
-        return Time.time <= swipeStartTime + _timeForSwipe && Vector2.Distance(swipeStartPosition, Input.mousePosition) >= _swipeThreshold;
+        return (touch.LastPosition - touch.StartPosition).normalized;
     }
 
     protected override bool IsAnyKeyClicked()
@@ -60,15 +100,45 @@ public class ScreenInputReader : InputReader, IPointerDownHandler
         return Input.touchCount > 0;
     }
 
-    protected override bool IsSkipInputRecieved()
+    protected override bool IsBackInputRecieved()
     {
-        var returnValue = _isSkipInputRecieved;
-        _isSkipInputRecieved = false;
-        return returnValue;
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 
-    public void RecieveSkipInput()
+    protected override bool IsSkipInputRecieved()
     {
-        _isSkipInputRecieved = true;
+        return _isSkipInputRecieved;
+    }
+
+    public void RecieveSkipInput(object value)
+    {
+        if (ConvertingUtils.ToBool(value))
+        {
+            _isSkipInputRecieved.Set(true);
+            SessionDataStorage.Observable.Set(SessionDataKey.PhaseSkipInputRecieved, false.ToString());
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SessionDataStorage.Observable.RemoveChangeListener(SessionDataKey.PhaseSkipInputRecieved, RecieveSkipInput);
+    }
+
+    struct ScreenTouch
+    {
+        public bool IsDown;
+        public Vector2 StartPosition;
+        public Vector2 LastPosition;
+        public float StartTime;
+        public float LastTime;
+
+        public ScreenTouch(bool isDown, Vector2 startPosition, Vector2 currentPosition, float startTime, float lastTime)
+        {
+            IsDown = isDown;
+            StartPosition = startPosition;
+            LastPosition = currentPosition;
+            StartTime = startTime;
+            LastTime = lastTime;
+        }
     }
 }

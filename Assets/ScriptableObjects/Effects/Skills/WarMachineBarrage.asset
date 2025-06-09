@@ -23,12 +23,24 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 2221015825264934932
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 2221015825264934933
+        _redirectTo: 2
+    - rid: 2221015825264934933
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 1
     - rid: 4259499536714563584
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563586
-        - rid: 4259499536714563614
+        - rid: 2221015825264934932
+        - rid: 8929639750872596485
         <EndEffects>k__BackingField: []
         <PeriodTime>k__BackingField: 0.5
         <Periods>k__BackingField: 5
@@ -37,9 +49,14 @@ MonoBehaviour:
       data:
         <Effects>k__BackingField:
         - rid: 4259499536714563587
-        _baseOnTarget: 1
-        _pointsNumber: 3
-        _maxRandomDistance: 1
+        _data:
+          Distance: 1
+          Angle: 360
+          Number: 4
+          GeneratingFulcrum: 1
+          GeneratingDistance: 1
+          GeneratingOrder: 1
+          GeneratingDirection: 1
     - rid: 4259499536714563587
       type: {class: AreaWarningEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -47,6 +64,7 @@ MonoBehaviour:
         <EndEffects>k__BackingField:
         - rid: 4259499536714563606
         - rid: 4259499536714563608
+        - rid: 8929639750872596487
         <Duration>k__BackingField: 1
         _startRadius: 0.3
         _endRadius: 0.5
@@ -70,18 +88,24 @@ MonoBehaviour:
         _flipWithTarget: 0
         _orderInLayer: 0
         _positioning: 0
+        _sortingLayer: 10
     - rid: 4259499536714563610
       type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
         - rid: 4259499606198190080
         _redirectTo: 2
-    - rid: 4259499536714563614
-      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
-      data:
-        <Value>k__BackingField: 0
-        _key: 1
     - rid: 4259499606198190080
       type: {class: DisableEffect, ns: , asm: Assembly-CSharp}
       data:
-        OverrideTime: 5
+        OverrideTime: 2.5
+    - rid: 8929639750872596485
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: f0124b0f218a76a4f927ab2f92bb9676, type: 3}
+        _parentToTarget: 0
+    - rid: 8929639750872596487
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 99b0f517725b08143beac5b241d1b400, type: 3}
+        _parentToTarget: 1

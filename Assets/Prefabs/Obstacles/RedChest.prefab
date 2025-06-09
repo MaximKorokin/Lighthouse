@@ -75,7 +75,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
+  m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
   m_Radius: 0.15
 --- !u!212 &335914252250989574
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1509295045, guid: 2380ce28ce441df499444bbd531053f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -184,12 +184,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: 8e8d881f9edff9745a9eb8c6352943ea, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 0
       ReferenceArgument: 0
       ValueArgument: 0
     _targetChoosingData:
-      Type: 0
+      Type: 10
+      Func: 0
+  - _settings: {fileID: 11400000, guid: cc89db92440508643b9fc83fb9e9b6cf, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 0
+      ReferenceArgument: 0
+      ValueArgument: 0
+    _targetChoosingData:
+      Type: 10
       Func: 0
   _timeToAct: 3
   _actsAmount: 1
@@ -227,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!114 &5156025027915981016
 MonoBehaviour:
   m_ObjectHideFlags: 0

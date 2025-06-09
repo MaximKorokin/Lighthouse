@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: R_HeavyImpact
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 0
+  _effects:
+  - rid: 7488742525668425734
+  references:
+    version: 2
+    RefIds:
+    - rid: 7488742525668425734
+      type: {class: RandomListEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425735
+        - rid: 7488742525668425736
+        - rid: 7488742525668425737
+        - rid: 7488742525668425738
+        - rid: 7488742525668425739
+    - rid: 7488742525668425735
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 311fe4370fea92944ab785c73c5812c0, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425736
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 9d8bc604d443b7249acb915d1428f555, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425737
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: b38fba3d68629784e85f806871a620b9, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425738
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 347a2161185ce884380de894b225151c, type: 3}
+        _parentToTarget: 1
+    - rid: 7488742525668425739
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 4f2aec4747014d64ea5973bb455f602d, type: 3}
+        _parentToTarget: 1

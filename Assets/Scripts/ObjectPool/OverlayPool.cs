@@ -3,11 +3,19 @@ using UnityEngine.UI;
 
 class OverlayPool : ObjectsPool<OverlayController, OverlaySettings>
 {
-    protected override void Initialize(OverlayController overlay, OverlaySettings parameter)
+    protected override void Initialize(OverlayController overlay, OverlaySettings settings)
     {
-        overlay.SetSettings(parameter);
+        overlay.SetSettings(settings);
 
         overlay.transform.SetParent(OverlaysParent.Instance.transform);
+        if (settings.IsHierarchyPriority)
+        {
+            overlay.transform.SetAsLastSibling();
+        }
+        else
+        {
+            overlay.transform.SetAsFirstSibling();
+        }
 
         var rectTransform = overlay.transform as RectTransform;
         rectTransform.transform.localPosition = Vector2.zero;
@@ -23,7 +31,7 @@ class OverlayPool : ObjectsPool<OverlayController, OverlaySettings>
     {
         if (overlay.TryGetComponent<Image>(out var image))
         {
-            image.color = new(0, 0, 0, 0);
+            image.color = new(0, 0, 0, 1);
         }
     }
 }

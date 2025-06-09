@@ -39,6 +39,7 @@ MonoBehaviour:
         - rid: 4259499607476142084
         - rid: 4259499607476142088
         - rid: 4259499607476142090
+        - rid: 8929639746050457600
         _redirectTo: 2
     - rid: 4259499607476142084
       type: {class: DashEffect, ns: , asm: Assembly-CSharp}
@@ -64,11 +65,22 @@ MonoBehaviour:
       type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 4259499607476142091
+        - rid: 8929639750872596481
         <Zone>k__BackingField: {fileID: 4775625874383946485, guid: 7a22c4805bb8a5147b5609295d5f6967, type: 3}
         <DistanceFromParent>k__BackingField: 0
         <InvokationCooldown>k__BackingField: 1
-    - rid: 4259499607476142091
+    - rid: 8929639746050457600
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 17166e3051770e94c8084a4fe45cc201, type: 3}
+        _parentToTarget: 1
+    - rid: 8929639750872596481
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 8929639750872596482
+        _redirectTo: 3
+    - rid: 8929639750872596482
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 5

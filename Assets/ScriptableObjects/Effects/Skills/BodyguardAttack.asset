@@ -26,36 +26,69 @@ MonoBehaviour:
       type: {class: ContinuousEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 834406860253822978
+        - rid: 2221015825264934913
         <EndEffects>k__BackingField:
-        - rid: 834406860253822980
+        - rid: 3932639282344755200
         <Duration>k__BackingField: 0.3
-    - rid: 834406860253822978
+    - rid: 2221015825264934913
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 2221015825264934914
+        _redirectTo: 2
+    - rid: 2221015825264934914
       type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 0
         _key: 1
-    - rid: 834406860253822980
+    - rid: 3932639282344755200
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639314526863361
+        _conditions: 5
+    - rid: 3932639314526863361
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 834406860253822981
+        - rid: 3932639314526863362
         <EndEffects>k__BackingField: []
         <PeriodTime>k__BackingField: 0.1
         <Periods>k__BackingField: 3
-    - rid: 834406860253822981
+    - rid: 3932639314526863362
+      type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 3932639314526863363
+        - rid: 3932639314526863364
+        _data:
+          Distance: 3
+          Angle: 15
+          Number: 1
+          GeneratingFulcrum: 11
+          GeneratingDistance: 11
+          GeneratingOrder: 1
+          GeneratingDirection: 11
+    - rid: 3932639314526863363
       type: {class: ProjectileEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
-        - rid: 834406860253822982
+        - rid: 7488742525668425730
         <EndEffects>k__BackingField: []
         <Projectile>k__BackingField: {fileID: -8909341099840797249, guid: 77593db7c6d7b6946a0e3158cce3b976, type: 3}
         <PierceAmount>k__BackingField: 1
-        <Amount>k__BackingField: 1
-        <AmountSpread>k__BackingField: 0
-        <RandomSpread>k__BackingField: 10
-        <TargetType>k__BackingField: 0
-    - rid: 834406860253822982
+    - rid: 3932639314526863364
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 7b39c94aff30d4a4793a0dd619fb475f, type: 3}
+        _parentToTarget: 0
+    - rid: 7488742525668425730
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742525668425731
+        _redirectTo: 3
+    - rid: 7488742525668425731
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 1

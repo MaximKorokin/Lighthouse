@@ -18,6 +18,8 @@ public enum SkillConditionPredicate
     Has = 1 << 10,                          // 1024
     AboveRange = 1 << 11,                   // 2048
     BelowRange = 1 << 12,                   // 4096
+
+    IsAccessibleBelowRange = 1 << 15,
 }
 
 public enum SkillConditionReferenceArgument
@@ -36,4 +38,5 @@ public enum SkillConditionValueArgument
     HalfActionRange = 2,
     ThirdActionRange = 3,
     QuarterActionRange = 4,
+    VisionRange = 11,
 }

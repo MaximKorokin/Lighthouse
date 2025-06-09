@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -30,27 +29,6 @@ public static class WorldObjectsInteractionUtils
         }
     }
 
-    public static WorldObject GetTarget(this CastState castState)
-    {
-        return castState.TargetingType switch
-        {
-            TargetingType.Source => castState.Source,
-            TargetingType.Target => castState.Target,
-            _ => castState.InitialSource,
-        };
-    }
-
-    public static Vector2 GetTargetPosition(this CastState castState)
-    {
-        return castState.TargetingType switch
-        {
-            TargetingType.Source => castState.Source.transform.position,
-            TargetingType.Target => castState.Target.transform.position,
-            TargetingType.Point => castState.Payload is PointCastStatePayload payload ? payload.Position : castState.InitialSource.transform.position,
-            _ => castState.InitialSource.transform.position,
-        };
-    }
-
     public static void OnDestroyed(this WorldObject worldObject, Action finalAction)
     {
         worldObject.Destroyed += OnWorldObjectDestroyed;
@@ -71,5 +49,11 @@ public static class WorldObjectsInteractionUtils
             finalAction.Invoke();
             worldObject.Destroyed -= OnWorldObjectDestroying;
         }
+    }
+
+    public static void SetRigidbodyCollisions(this MovableWorldObject movable, bool value)
+    {
+        movable.RigidbodyExtender.SetExcludeLayers(-1 ^ LayerMask.GetMask(Constants.ObstacleLayerName, Constants.FogLayerName, Constants.NoIgnoreLayerName), !value);
+        movable.ReloadPhysicsState();
     }
 }

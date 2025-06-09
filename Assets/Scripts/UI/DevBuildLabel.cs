@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class DevBuildLabel : MonoBehaviour
 {
     [SerializeField]
@@ -9,6 +8,6 @@ public class DevBuildLabel : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<TMP_Text>().text = string.Format(_formatString, Application.version);
+        this.GetRequiredComponent<TMP_Text>().text = string.Format(_formatString, Application.version);
     }
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SmokingManAC
+  m_Controller: {fileID: 9100000, guid: 2b178bae42e140b418985dd7886e7ae9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e02c4ea2f28edb941bfe1b85691b325f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 27ec343336160964ea54b44f444e0ee0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 365a4c7fdabdabf47968424c72f72c9a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cf616984aa484644aa5d0e051f6bc4af, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f29e799850c3232418bc69d25ebbcbfc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 79a5e5e33bdaa6c4687560bd30b05dd2, type: 2}

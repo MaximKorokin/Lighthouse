@@ -39,6 +39,7 @@ public class LocalizationData : ScriptableObjectSingleton<LocalizationData>
             Logger.Error($"{x} language is not recognized");
             return SystemLanguage.Unknown;
         }).ToList();
+
         _localizationDictionary = data.Skip(1)
             .Select(x => ParsingUtils.ParseCsvLine(x).ToArray())
             .ToDictionary(

@@ -23,6 +23,10 @@ public static class CharactersMapper
         if (_charactersMapping.TryGetValue(id, out var gameObjects))
         {
             gameObjects.Remove(gameObject);
+            if (!gameObjects.Any())
+            {
+                _charactersMapping.Remove(id);
+            }
         }
     }
 

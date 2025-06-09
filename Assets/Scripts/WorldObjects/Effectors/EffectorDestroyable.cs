@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(DestroyableWorldObject))]
 public class EffectorDestroyable : Effector
 {
     [SerializeField]
@@ -17,7 +16,7 @@ public class EffectorDestroyable : Effector
     {
         base.Start();
 
-        var worldObject = GetComponent<DestroyableWorldObject>();
+        var worldObject = this.GetRequiredComponent<DestroyableWorldObject>();
 
         _damageEffects = _damageEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject));
         _destroyEffects = _destroyEffectsSettings.ToDictionary(x => x.GetEffects(), x => new CastState(worldObject));

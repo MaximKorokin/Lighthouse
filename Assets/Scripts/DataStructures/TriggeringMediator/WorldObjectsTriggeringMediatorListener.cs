@@ -1,13 +1,10 @@
-﻿using UnityEngine;
-
-[RequireComponent(typeof(WorldObjectInteractingTriggerDetector))]
-public class WorldObjectsTriggeringMediatorListener : WorldObjectsTriggeringMediatorAgent
+﻿public class WorldObjectsTriggeringMediatorListener : WorldObjectsTriggeringMediatorAgent
 {
     protected override void Start()
     {
         base.Start();
 
-        var detector = GetComponent<WorldObjectInteractingTriggerDetector>();
+        var detector = this.GetRequiredComponent<WorldObjectInteractingTriggerDetector>();
         WorldObjectsTriggeringMediator.Instance.AddListener(WorldObject, detector);
 
         WorldObject.PhysicsStateReloading += OnPhysicsStateReloaded;

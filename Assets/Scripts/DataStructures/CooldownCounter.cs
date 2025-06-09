@@ -5,7 +5,24 @@ public class CooldownCounter
     private float _lastUsedTime;
 
     public float Cooldown { get; set; }
+
+    private float _cooldownDivider = 1;
+    public float CooldownDivider
+    {
+        get => _cooldownDivider;
+        set
+        {
+            if (value == 0)
+            {
+                Logger.Error($"{nameof(CooldownDivider)}'s value can't be 0");
+                return;
+            }
+            _cooldownDivider = value;
+        }
+    }
+
     public float TimeSinceReset => Time.time - _lastUsedTime;
+
 
     public CooldownCounter(float cooldown)
     {
@@ -13,22 +30,14 @@ public class CooldownCounter
         _lastUsedTime = float.MinValue;
     }
 
-    public bool IsOver(float divider = 1)
+    public bool IsOver()
     {
-        if (divider == 0)
-        {
-            return false;
-        }
-        return TimeSinceReset >= Cooldown / divider;
+        return TimeSinceReset >= Cooldown / CooldownDivider;
     }
 
-    public bool TryReset(float divider = 1)
+    public bool TryReset()
     {
-        if (divider == 0)
-        {
-            return false;
-        }
-        var isOver = IsOver(divider);
+        var isOver = IsOver();
         if (isOver)
         {
             Reset();

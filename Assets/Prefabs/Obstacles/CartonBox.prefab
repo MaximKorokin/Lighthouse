@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 3205102812550467014}
   - component: {fileID: 3292321424933142019}
   - component: {fileID: -6978404448541048970}
-  m_Layer: 0
+  - component: {fileID: 8121949299076477301}
+  m_Layer: 7
   m_Name: CartonBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2000669516, guid: cb6ca045c66eae84684a6f68aa7dd8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,7 +123,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
   m_Radius: 0.1
 --- !u!114 &532703644928023312
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PositioningType>k__BackingField: 2
   <TriggeringType>k__BackingField: -1
-  <Faction>k__BackingField: 32
+  <Faction>k__BackingField: 1
   _stats:
     _stats:
     - Name: 1
@@ -147,7 +148,7 @@ MonoBehaviour:
     - Name: 2
       Value: 5
   <IsDamagable>k__BackingField: 1
-  <DestroyTime>k__BackingField: 3
+  <DestroyTime>k__BackingField: 100
 --- !u!95 &6678305225708000804
 Animator:
   serializedVersion: 5
@@ -182,9 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startEffectsSettings:
-  - {fileID: 11400000, guid: f0182ee93a94cc0439b26a1ffbb245c1, type: 2}
-  _damageEffectsSettings: []
-  _destroyEffectsSettings: []
+  - {fileID: 11400000, guid: 5b9e4249c57fcfe41b1cce21f86a1913, type: 2}
+  _damageEffectsSettings:
+  - {fileID: 11400000, guid: 8bb0fea76eea1a84a9a9e83bb398e96b, type: 2}
+  _destroyEffectsSettings:
+  - {fileID: 11400000, guid: ce33b9476fdf3d447a21530c8dcf3f79, type: 2}
 --- !u!114 &3292321424933142019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!114 &-6978404448541048970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +214,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb876f0f7074a442b6425ce59445676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8121949299076477301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521127911754497452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5044eda101819734688c804bfefe62f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _disceteDamage: 1

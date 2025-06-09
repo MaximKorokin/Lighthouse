@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SkilledActor : ActorBase
@@ -15,13 +14,23 @@ public class SkilledActor : ActorBase
     {
         _skills.ForEach(x => x.Initialize());
         CastState = new CastState(WorldObject);
+
+        WorldObject.Stats.Modified += OnWorldObjectStatsModified;
+        OnWorldObjectStatsModified();
+    }
+
+    private void OnWorldObjectStatsModified()
+    {
+        _skills.ForEach(x => x.CooldownCounter.CooldownDivider = WorldObject.AttackSpeed);
     }
 
     protected override void ActInternal(PrioritizedTargets targets)
     {
         base.ActInternal(targets);
         CastState.Target = targets.MainTarget;
-        _skills.Any(x => x.Invoke(CastState, targets, WorldObject.AttackSpeed));
+
+        //_skills.Any(x => x.Invoke(CastState, targets));
+        _skills.ForEach(x => x.Invoke(CastState, targets));
     }
 
     public void AddSkill(Skill skill)

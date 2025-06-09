@@ -1,12 +1,9 @@
-﻿using UnityEngine;
-
-[RequireComponent(typeof(WorldCanvasProvider))]
-public class ChildShieldBarVisualizer : ShieldBarVisualizer
+﻿public class ChildShieldBarVisualizer : ShieldBarVisualizer
 {
     protected override void Start()
     {
         base.Start();
         var canvasProvider = GetComponent<WorldCanvasProvider>();
-        BarController.transform.SetParent(canvasProvider.CanvasController.HPViewParent, false);
+        canvasProvider.CanvasController.HPChildrenSorter.SetChild(BarController.transform, 1);
     }
 }

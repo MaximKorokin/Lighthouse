@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Item))]
 public class ItemTriggerDetector : WorldObjectInteractingTriggerDetector
 {
     private Item _item;
@@ -9,7 +8,7 @@ public class ItemTriggerDetector : WorldObjectInteractingTriggerDetector
 
     protected void Awake()
     {
-        _item = WorldObject as Item;
+        _item = RequireUtils.CastRequired<WorldObject, Item>(WorldObject);
         _item.Activated += () => _collidersInactive.ForEach(x => OnTriggerEnter2D(x));
     }
 

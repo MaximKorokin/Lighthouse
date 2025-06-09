@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 778539060, guid: bed7865ea7407cd4bad3b33e533ed4f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0.15, y: 0}
+  _orderingOffset: 0
 --- !u!1 &8873908040075855237
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 8550672845687707803}
   - component: {fileID: 2091749189058761862}
   - component: {fileID: 146833736881088354}
+  - component: {fileID: 5224256568735500738}
   - component: {fileID: 3251087844827923757}
   - component: {fileID: 3714879933402528441}
   - component: {fileID: 2419617520290294306}
@@ -142,13 +143,14 @@ GameObject:
   - component: {fileID: 792045906607730162}
   - component: {fileID: 2189691964686447022}
   - component: {fileID: 8069756656352211100}
+  - component: {fileID: 497455561109417731}
   - component: {fileID: 844742998062246562}
   - component: {fileID: 740726156351051180}
   - component: {fileID: 2118121083948704928}
   - component: {fileID: 8681387949396865609}
   - component: {fileID: 3284562034359535098}
   - component: {fileID: 1929431496788061061}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Rashin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +223,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -241,6 +243,41 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.1}
   m_Size: {x: 0.15, y: 0.3}
   m_Direction: 0
+--- !u!58 &5224256568735500738
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 511
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.1}
+  serializedVersion: 2
+  m_Radius: 0.05
 --- !u!50 &3251087844827923757
 Rigidbody2D:
   serializedVersion: 4
@@ -257,7 +294,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 19a87bf51ff2c5f42935e561d40e55bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -321,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3902a68b1357c439f45ddaf11c7faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _primaryTargetTypes: 1
 --- !u!114 &5518852754763388740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,22 +401,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: 91716cd173d3bb343a72565ec55d69f3, type: 2}
-    _startsWithCooldown: 0
+    _startsInCooldown: 0
     _conditionData:
-      Predicate: 1024
+      Predicate: 32768
       ReferenceArgument: 2
-      ValueArgument: 0
+      ValueArgument: 1
     _targetChoosingData:
       Type: 0
       Func: 0
-  - _settings: {fileID: 11400000, guid: c7c9193f4b4e1e34f8aa0cd7f412bffa, type: 2}
-    _startsWithCooldown: 0
+  - _settings: {fileID: 11400000, guid: a45b78a64cbda3c40a184997d70b266a, type: 2}
+    _startsInCooldown: 0
     _conditionData:
       Predicate: 2
       ReferenceArgument: 0
       ValueArgument: 0
     _targetChoosingData:
-      Type: 0
+      Type: 10
+      Func: 0
+  - _settings: {fileID: 11400000, guid: 00e9c160590802b42955c8eb415ec0dd, type: 2}
+    _startsInCooldown: 0
+    _conditionData:
+      Predicate: 1
+      ReferenceArgument: 0
+      ValueArgument: 0
+    _targetChoosingData:
+      Type: 10
       Func: 0
 --- !u!114 &1623174105441629562
 MonoBehaviour:
@@ -392,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222eebc6ff85a544902751695bf7c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shift: 1
 --- !u!114 &792045906607730162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +455,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9f49f109f9c3c3469d87a32254d1bbd, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: 02d1355bdde54c44abb8d01f164200cf, type: 2}
+  - {fileID: 11400000, guid: 8f92453333c0a8e438d7b3964a00e090, type: 2}
   _destroyEffectsSettings: []
 --- !u!114 &2189691964686447022
 MonoBehaviour:
@@ -440,6 +487,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
   _skillIndex: 1
+--- !u!114 &497455561109417731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873908040075855237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab951168e25fd34587ddf87bb04903f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barControllerPrefab: {fileID: 4154270156817789517, guid: bb33d38535e24ff4580b2d036b3cc5d7, type: 3}
+  _skillIndex: 2
 --- !u!114 &844742998062246562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Animation: {fileID: 7400000, guid: 525e92fee2ef0f24a944d8606f9b0570, type: 2}
+    IsHierarchyPriority: 0
   _hpThreshold: 0.4
 --- !u!114 &740726156351051180
 MonoBehaviour:
@@ -469,6 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Animation: {fileID: 7400000, guid: 7bdac1bc05d9eb14381dd7c2ecc38f6f, type: 2}
+    IsHierarchyPriority: 0
 --- !u!114 &2118121083948704928
 MonoBehaviour:
   m_ObjectHideFlags: 0

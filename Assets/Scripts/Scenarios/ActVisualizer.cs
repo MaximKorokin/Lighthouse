@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(ScenarioAct))]
 public class ActVisualizer : MonoBehaviour
 {
     [SerializeField]
@@ -11,7 +10,7 @@ public class ActVisualizer : MonoBehaviour
 
     private void Awake()
     {
-        _act = GetComponent<ScenarioAct>();
+        _act = this.GetRequiredComponent<ScenarioAct>();
         _act.Initialized += x => AddVisualization(x);
         _act.Finished += x => RemoveVisualization(x);
     }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class WaitingPhase : SkippableActPhase
@@ -9,13 +8,7 @@ public class WaitingPhase : SkippableActPhase
     public override void Invoke()
     {
         base.Invoke();
-        StartCoroutine(WaitCoroutine());
-    }
-
-    private IEnumerator WaitCoroutine()
-    {
-        yield return new WaitForSeconds(_waitTime);
-        InvokeFinished();
+        CoroutinesHandler.StartUniqueCoroutine(this, CoroutinesUtils.WaitForSeconds(_waitTime), InvokeFinished);
     }
 
     protected override void OnSkipped()

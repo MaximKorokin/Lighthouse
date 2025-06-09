@@ -17,9 +17,14 @@ public class DeviceInputReader : InputReader
         return Input.anyKeyDown;
     }
 
-    protected override bool IsMoveAbilityUsed()
+    protected override bool IsBackInputRecieved()
     {
-        return Input.GetKeyDown(KeyCode.LeftShift);
+        return Input.GetKeyDown(KeyCode.Escape);
+    }
+
+    protected override Vector2 GetMoveAbilityInput()
+    {
+        return Input.GetKeyDown(KeyCode.LeftShift) ? GetMoveInput() : Vector2.zero;
     }
 
     protected override bool IsSkipInputRecieved()

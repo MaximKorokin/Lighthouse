@@ -94,7 +94,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2012048813
-  m_SortingLayer: -2
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 356630316, guid: bdc4108849994d24ea4c3bb221ba3ca6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasExtents: 1
-  _offset: {x: 0, y: 0}
+  _orderingOffset: 0
 --- !u!1 &1382743352609133667
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4930249111672775480}
   - component: {fileID: 6030350402885892639}
   - component: {fileID: -1344805533852282761}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WarMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 19a87bf51ff2c5f42935e561d40e55bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -275,7 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1222eebc6ff85a544902751695bf7c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shift: 1
 --- !u!114 &8057892309787658375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +291,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d97b0bf0bd754a42ae4d98793414b6d, type: 2}
   _damageEffectsSettings:
   - {fileID: 11400000, guid: e26ce75317421b040924f72f0676c507, type: 2}
+  - {fileID: 11400000, guid: c578f93befb7e774f9159accfafff46d, type: 2}
   _destroyEffectsSettings: []
 --- !u!114 &5893237358921338281
 MonoBehaviour:
@@ -320,14 +320,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - _settings: {fileID: 11400000, guid: cc741e8f20656294f9b388cb45036f41, type: 2}
+    _startsInCooldown: 1
     _conditionData:
-      Predicate: 4096
+      Predicate: 32768
       ReferenceArgument: 1
       ValueArgument: 1
     _targetChoosingData:
       Type: 0
       Func: 0
   - _settings: {fileID: 11400000, guid: a02a9888357734a438e4d4442bd961f4, type: 2}
+    _startsInCooldown: 1
     _conditionData:
       Predicate: 4096
       ReferenceArgument: 1
@@ -336,6 +338,7 @@ MonoBehaviour:
       Type: 0
       Func: 0
   - _settings: {fileID: 11400000, guid: 6c7c5363057e0e84a99e938293906fac, type: 2}
+    _startsInCooldown: 1
     _conditionData:
       Predicate: 2048
       ReferenceArgument: 1
@@ -372,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barControllerPrefab: {fileID: 6297715463519980086, guid: 5169738f66dbc734ba5c5af5425058f0, type: 3}
+  _onDestroyingShowTime: 2
 --- !u!114 &4930249111672775480
 MonoBehaviour:
   m_ObjectHideFlags: 0

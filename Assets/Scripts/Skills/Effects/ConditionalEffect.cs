@@ -21,14 +21,14 @@ public class ConditionalEffect : ComplexEffect
             return true;
         }
 
-        var direction = (Vector2)castState.InitialSource.transform.position - (Vector2)castState.Target.transform.position;
+        var direction = (Vector2)castState.Target.transform.position - (Vector2)castState.InitialSource.transform.position;
         if (_conditions.HasFlag(EffectCondition.InActionRange) &&
             castState.InitialSource.ActionRange * castState.InitialSource.ActionRange < direction.sqrMagnitude)
         {
             return false;
         }
-        if (_conditions.HasFlag(EffectCondition.IsReachable) &&
-            castState.Target.gameObject.IsReachable(
+        if (_conditions.HasFlag(EffectCondition.IsAccessible) &&
+            castState.Target.gameObject.IsBlockedByObstacle(
                 castState.InitialSource.transform.position,
                 direction.normalized,
                 castState.InitialSource.ActionRange))
@@ -49,6 +49,6 @@ public enum EffectCondition
 {
     None = 0,
     InActionRange = 1,
-    IsReachable = 2,
+    IsAccessible = 2,
     IsSourceAlive = 4,
 }

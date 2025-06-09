@@ -2,43 +2,42 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(MovableWorldObject))]
-public abstract class TargetController : TriggerController
+public abstract class TargetController : MovableController
 {
     [SerializeField]
     private ValidTarget _primaryTargetTypes;
 
-    protected MovableWorldObject MovableWorldObject { get; private set; }
+    public WorldObject Target { get; set; }
+
     protected IEnumerable<WorldObject> PrimaryTargets => TriggeredWorldObjects.Where(IsPrimaryTarget);
     protected IEnumerable<WorldObject> SecondaryTargets => TriggeredWorldObjects.Except(PrimaryTargets);
 
-    protected override void Awake()
-    {
-        base.Awake();
-        MovableWorldObject = GetComponent<MovableWorldObject>();
-    }
-
-    protected override void Update()
-    {
-        if (MovableWorldObject.IsAlive)
-        {
-            base.Update();
-        }
-    }
+    private readonly CooldownCounter _targetSwitchAttemptCooldown = new(1.5f);
 
     public bool IsPrimaryTarget(WorldObject worldObject)
     {
         return _primaryTargetTypes.IsValidTarget(worldObject);
     }
 
-    public abstract void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw);
+    protected override void Control()
+    {
+        if (!Detector.IsValidTarget(Target) || _targetSwitchAttemptCooldown.TryReset() || !TriggeredWorldObjects.Contains(Target))
+        {
+            Target = GetNearestTarget();
+        }
+    }
 
-    public abstract void SetTarget(WorldObject worldObject, float yaw);
-}
-
-public enum TargetSearchingType
-{
-    Nearest,
-    Random,
-    Forward
+    private WorldObject GetNearestTarget()
+    {
+        WorldObject target = null;
+        if (TriggeredWorldObjects.Any())
+        {
+            var primaryTargets = TriggeredWorldObjects.Where(x => IsPrimaryTarget(x)).ToArray();
+            if (primaryTargets.Any())
+            {
+                target = primaryTargets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude);
+            }
+        }
+        return target;
+    }
 }

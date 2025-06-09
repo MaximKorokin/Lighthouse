@@ -21,7 +21,8 @@ public class CoroutinesHandler : MonoBehaviorSingleton<CoroutinesHandler>
         {
             Instance.StopCoroutine(coroutine);
         }
-        coroutine = Instance.StartCoroutineSafe(enumerator, finalAction);
+
+        coroutine = Instance.StartCoroutineSafe(enumerator, (() => _uniqueCoroutines.Remove(obj)) + finalAction);
         _uniqueCoroutines[obj] = coroutine;
         return coroutine;
     }

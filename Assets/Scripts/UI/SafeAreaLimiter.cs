@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
+[ExecuteAlways]
 public class SafeAreaLimiter : MonoBehaviour
 {
     [SerializeField]
@@ -13,11 +13,15 @@ public class SafeAreaLimiter : MonoBehaviour
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
+        if (_canvasScaler == null)
+        {
+            Logger.Error($"{nameof(_canvasScaler)} in {nameof(SafeAreaLimiter)} is null");
+        }
     }
 
     private void Update()
     {
-        if (_safeArea != Screen.safeArea)
+        if (_safeArea != Screen.safeArea && _canvasScaler != null)
         {
             _safeArea = Screen.safeArea;
             LimitSafeArea();

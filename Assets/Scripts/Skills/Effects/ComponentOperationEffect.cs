@@ -22,6 +22,7 @@ public class ComponentOperationEffect : Effect
         return type switch
         {
             ComponentType.Collider2D => gameObject.GetComponents<Collider2D>().FirstOrDefault(x => !x.isTrigger),
+            ComponentType.Trigger2D => gameObject.GetComponents<Collider2D>().FirstOrDefault(x => x.isTrigger),
             ComponentType.SpriteRenderer => gameObject.GetComponents<SpriteRenderer>().FirstOrDefault(),
             _ => null,
         };
@@ -45,8 +46,9 @@ public class ComponentOperationEffect : Effect
 
 public enum ComponentType
 {
-    Collider2D,
-    SpriteRenderer,
+    Collider2D = 10,
+    Trigger2D = 11,
+    SpriteRenderer = 20,
 }
 
 public enum ComponentOperationType

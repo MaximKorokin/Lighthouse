@@ -7,31 +7,35 @@ public abstract class TextViewer : MonoBehaviour
     protected TypewriterText Typewriter;
 
     private readonly CooldownCounter _showCounter = new(0);
+    private readonly ReadOnceValue<bool> _isViewing = new(false);
 
     public event Action ViewFinished;
+
+    protected virtual void Awake()
+    {
+        ViewFinished += OnViewFinished;
+    }
 
     private void Update()
     {
         if (_showCounter.IsOver())
         {
-            EndView();
-            ViewFinished?.Invoke();
+            FinishViewText();
         }
     }
 
-    public void ShowText(string text, float showTime, TypingSpeed typingSpeed)
+    // todo: mb change text with a collection of strings to have ability to show series of them in a row
+    public void ViewText(string text, float showTime, TypingSpeed typingSpeed)
     {
-        // mb change text with a collection of strings to have ability to show series of them in a row
-        if (!_showCounter.IsOver())
-        {
-            ViewFinished?.Invoke();
-        }
+        FinishViewText();
+        OnViewStarted();
 
-        StartView();
+        _isViewing.Set(true);
         _showCounter.Cooldown = float.MaxValue;
         _showCounter.Reset();
+
         LocalizationManager.SetLanguageChangeListener(
-            Typewriter.Text,
+            Typewriter,
             text,
             t =>
             {
@@ -40,11 +44,23 @@ public abstract class TextViewer : MonoBehaviour
             });
     }
 
-    protected abstract void StartView();
-    protected abstract void EndView();
-
-    private void OnDestroy()
+    /// <summary>
+    /// Immediately finishes viewing text if not finished.
+    /// </summary>
+    public void FinishViewText()
     {
-        LocalizationManager.RemoveLanguageChangeListener(Typewriter.Text);
+        if (_isViewing)
+        {
+            Typewriter.SetText("", TypingSpeed.Instant);
+            ViewFinished?.Invoke();
+        }
+    }
+
+    protected abstract void OnViewStarted();
+    protected abstract void OnViewFinished();
+
+    protected virtual void OnDestroy()
+    {
+        LocalizationManager.RemoveLanguageChangeListener(Typewriter);
     }
 }

@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObjectFindingTriggerDetector))]
 public class TriggerRequirement : ActRequirement
 {
     [SerializeField]
@@ -13,7 +12,7 @@ public class TriggerRequirement : ActRequirement
 
     private void Awake()
     {
-        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(GetComponent<WorldObjectFindingTriggerDetector>(), IsProperWorldObject);
+        _triggeredObjectsCollection = new TriggeredWorldObjectsCollection(this.GetRequiredComponent<WorldObjectFindingTriggerDetector>(), IsProperWorldObject);
         _triggeredObjectsCollection.Triggered += OnTriggered;
     }
 
@@ -27,6 +26,7 @@ public class TriggerRequirement : ActRequirement
         return _triggerTarget switch
         {
             TriggerTarget.Player => worldObject is PlayerCreature,
+            TriggerTarget.Creature => worldObject is Creature,
             _ => false
         };
     }
@@ -49,6 +49,7 @@ public class TriggerRequirement : ActRequirement
 public enum TriggerTarget
 {
     Player,
+    Creature,
 }
 
 public enum TriggerOn

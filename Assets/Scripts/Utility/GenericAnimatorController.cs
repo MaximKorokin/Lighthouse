@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class GenericAnimatorController : MonoBehaviour
 {
     private static readonly string PlayAnimationKey = AnimatorKey.PlayAnimation.ToString();
@@ -20,7 +19,7 @@ public class GenericAnimatorController : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = this.GetRequiredComponent<Animator>();
         _playingCounter = new(0);
     }
 

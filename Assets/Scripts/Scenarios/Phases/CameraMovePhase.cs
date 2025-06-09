@@ -19,8 +19,9 @@ public class CameraMovePhase : SkippableActPhase
             return;
         }
         base.Invoke();
-        MainCameraController.SetMovement(_transformPosition.position, _speed, false, Priority);
+        MainCameraController.MoveFinished -= OnMoveFinished;
         MainCameraController.MoveFinished += OnMoveFinished;
+        MainCameraController.SetMovement(_transformPosition.position, _speed, false, Priority);
     }
 
     private void OnMoveFinished()

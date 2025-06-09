@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
 {
+    private const UIState UIStateKey = UIState.Dialogue;
+
     [SerializeField]
-    private DialogueView _dialogueView;
+    private DialogueViewer _dialogueView;
 
     public static event Action DialogueFinished;
 
@@ -12,22 +14,23 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
     {
         base.Awake();
         _dialogueView.DialogueFinished += OnDialogueFinished;
+        GameManager.SceneChanging += OnSceneChanging;
     }
 
     private void OnDialogueFinished()
     {
-        _dialogueView.gameObject.SetActive(false);
+        UIStateManager.Observable.Set(UIStateKey, false);
         DialogueFinished?.Invoke();
     }
 
     private void InitDialogueInternal(Dialogue dialogue)
     {
-        _dialogueView.gameObject.SetActive(true);
         _dialogueView.SetDialogue(dialogue);
     }
 
     public static void InitDialogue(Dialogue dialogue)
     {
+        UIStateManager.Observable.Set(UIStateKey, true);
         if (Instance == null)
         {
             Logger.Warn($"{nameof(Instance)} of {nameof(DialoguesSystem)} singletone is null.");
@@ -36,12 +39,17 @@ public class DialoguesSystem : MonoBehaviorSingleton<DialoguesSystem>
         Instance.InitDialogueInternal(dialogue);
     }
 
-    public static void SkipDialogue()
+    public static void SkipSpeech()
     {
         if (Instance == null)
         {
             return;
         }
-        Instance.OnDialogueFinished();
+        Instance._dialogueView.FinishViewText();
+    }
+
+    private void OnSceneChanging()
+    {
+        OnDialogueFinished();
     }
 }

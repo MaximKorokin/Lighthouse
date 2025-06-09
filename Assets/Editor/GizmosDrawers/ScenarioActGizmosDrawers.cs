@@ -4,9 +4,11 @@ using UnityEngine;
 
 public static class ScenarioActGizmosDrawers
 {
-    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
-    public static void ScenarioAct(ScenarioAct act, GizmoType gizmoType)
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy | GizmoType.Active)]
+    public static void DrawScenarioAct(ScenarioAct act, GizmoType gizmoType)
     {
+        if (Selection.activeGameObject == null || Selection.activeGameObject.GetComponent<ScenarioAct>() == null) return;
+
         act.Requirements?.Where(x => !string.IsNullOrWhiteSpace(x.IconName)).ToArray().HorizontallyAlignIcons(act.transform.position, 1);
         act.Phases?.Where(x => !string.IsNullOrWhiteSpace(x.IconName)).ToArray().HorizontallyAlignIcons(act.transform.position, -1);
 

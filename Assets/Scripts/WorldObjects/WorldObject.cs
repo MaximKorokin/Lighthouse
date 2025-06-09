@@ -12,7 +12,7 @@ public abstract class WorldObject : MonoBehaviour
     [field: SerializeField]
     public Faction Faction { get; private set; }
 
-    public Vector2 VisualPositionOffset { get; set; }
+    public Vector2 VisualSize { get; set; }
 
     [SerializeField]
     private Stats _stats;
@@ -78,10 +78,10 @@ public abstract class WorldObject : MonoBehaviour
     public void SetFaction(Faction faction)
     {
         Faction = faction;
-        // Needs this action to retrigger colliders and triggers with a new faction
         ReloadPhysicsState();
     }
 
+    // Needs this action to retrigger colliders and triggers with a new faction
     public void ReloadPhysicsState()
     {
         PhysicsStateReloading?.Invoke();

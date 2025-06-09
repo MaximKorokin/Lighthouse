@@ -10,7 +10,7 @@ public class EscapingDashEffect : DashEffect
 
     protected override Vector2 GetDirection(CastState castState)
     {
-        var dangerAngle = Vector2.SignedAngle(Vector2.up, castState.Target.transform.position - castState.Source.transform.position);
+        var dangerAngle = Vector2.SignedAngle(Vector2.up, castState.GetTargetPosition() - (Vector2)castState.Source.transform.position);
         return _directions
             .OrderBy(x => Random.Range(int.MinValue, int.MaxValue))
             .Select(x => (_normalizeDirection ? x.normalized : x).Rotate(dangerAngle))

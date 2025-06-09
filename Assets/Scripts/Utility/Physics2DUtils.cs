@@ -13,11 +13,14 @@ public static class Physics2DUtils
             .Distinct();
     }
 
-    public static bool IsReachable(this GameObject obj, Vector2 origin, Vector2 direction, float distance)
+    public static bool IsBlockedByObstacle(this GameObject obj, Vector2 origin, Vector2 direction, float distance, IEnumerable<GameObject> objectsToSkip = null)
     {
+        objectsToSkip ??= Enumerable.Empty<GameObject>();
+
         return Physics2D.RaycastAll(origin, direction, distance)
             .Where(x => !x.collider.isTrigger)
+            .OrderBy(x => x.distance)
             .TakeWhile(x => x.transform.gameObject != obj)
-            .OrderBy(x => x.distance).Any(x => x.transform.gameObject.GetComponent<Obstacle>() != null);
+            .Any(x => !objectsToSkip.Contains(x.transform.gameObject) && x.transform.gameObject.IsObstacle());
     }
 }

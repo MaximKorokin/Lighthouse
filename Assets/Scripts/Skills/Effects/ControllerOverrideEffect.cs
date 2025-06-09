@@ -13,14 +13,22 @@ public abstract class ControllerOverrideEffect : Effect
 
     protected virtual void StartOverride(CastState castState)
     {
+        var controller = castState.GetTargetController();
+        if (controller != null)
+        {
+            controller.CanControl = false;
+        }
         var target = castState.GetTarget();
-        target.GetComponent<ControllerBase>().CanControl = false;
-        target.StartCoroutineSafe(ControllerOverrideCoroutine(castState), () => StopOverride(target));
+        target.StartCoroutineSafe(ControllerOverrideCoroutine(castState), () => StopOverride(castState));
     }
 
-    protected virtual void StopOverride(WorldObject worldObject)
+    protected virtual void StopOverride(CastState castState)
     {
-        worldObject.GetComponent<ControllerBase>().CanControl = true;
+        var controller = castState.GetTargetController();
+        if (controller != null)
+        {
+            controller.CanControl = true;
+        }
     }
 
     protected abstract IEnumerator ControllerOverrideCoroutine(CastState castState);

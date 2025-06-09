@@ -19,9 +19,14 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 10
   _effects:
   - rid: 4004305113478070287
+  - rid: 3932639127874568209
   references:
     version: 2
     RefIds:
+    - rid: 3932639127874568209
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 56574efd51888b64e8d109b969cd6f01, type: 3}
     - rid: 4004305113478070287
       type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
       data:

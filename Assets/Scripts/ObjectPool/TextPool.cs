@@ -1,14 +1,9 @@
 ﻿using TMPro;
 
-class TextPool : ObjectsPool<TMP_Text, TMP_Text>
+class TextPool : ObjectsPool<TMP_Text, object>
 {
-    protected override void Initialize(TMP_Text text, TMP_Text _)
+    protected override void Initialize(TMP_Text text, object _)
     {
-        if (text == null)
-        {
-            return;
-        }
-
         text.gameObject.SetActive(true);
     }
 

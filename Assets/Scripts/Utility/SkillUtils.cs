@@ -14,6 +14,15 @@ public static class SkillUtils
             SkillConditionPredicate.ActiveAbilityInputRecieved => InputReader.ActiveAbilityInputRecieved.HasOccured,
             SkillConditionPredicate.MoveAbilityInputRecieved => InputReader.MoveAbilityInputRecieved.HasOccured,
 
+            SkillConditionPredicate.IsAccessibleBelowRange =>
+                ConvertToWorldObjects(conditionData.ReferenceArgument, targets)
+                    .Any(x => x != null &&
+                        Vector2.Distance(source.transform.position, x.transform.position) < conditionData.ValueArgument.ConvertToFloat(source) &&
+                        !x.gameObject.IsBlockedByObstacle(
+                            source.transform.position,
+                            ((Vector2)x.transform.position - (Vector2)source.transform.position).normalized,
+                            conditionData.ValueArgument.ConvertToFloat(source))),
+
             SkillConditionPredicate.Has =>
                 ConvertToWorldObjects(conditionData.ReferenceArgument, targets).Any(),
             SkillConditionPredicate.AboveRange =>
@@ -35,6 +44,7 @@ public static class SkillUtils
             SkillConditionValueArgument.HalfActionRange => source.ActionRange / 2,
             SkillConditionValueArgument.ThirdActionRange => source.ActionRange / 3,
             SkillConditionValueArgument.QuarterActionRange => source.ActionRange / 4,
+            SkillConditionValueArgument.VisionRange => source.VisionRange,
             _ => 0f,
         };
     }
@@ -56,28 +66,30 @@ public static class SkillUtils
 
     #region Skill target choosing
 
-    public static WorldObject ChooseTarget(this SkillTargetChoosingData targetChoosingData, WorldObject source, PrioritizedTargets targets)
+    public static IEnumerable<WorldObject> ChooseTargets(this SkillTargetChoosingData targetChoosingData, WorldObject source, PrioritizedTargets targets)
     {
-        var toChooseFrom = targetChoosingData.Type.ConvertToWorldObjects(targets);
+        var toChooseFrom = targetChoosingData.Type.ConvertToWorldObjects(source, targets);
 
         if (!toChooseFrom.Any()) return null;
 
         return targetChoosingData.Func switch
         {
-            SkillTargetChoosingFunc.First => toChooseFrom.First(),
-            SkillTargetChoosingFunc.Random => toChooseFrom.Skip(Random.Range(0, toChooseFrom.Count() - 1)).First(),
-            SkillTargetChoosingFunc.Nearest => toChooseFrom.MinBy(w => (w.transform.position - source.transform.position).sqrMagnitude),
+            SkillTargetChoosingFunc.First => toChooseFrom.Take(1),
+            SkillTargetChoosingFunc.Random => toChooseFrom.Skip(Random.Range(0, toChooseFrom.Count() - 1)).Take(1),
+            SkillTargetChoosingFunc.Nearest => toChooseFrom.MinBy(w => (w.transform.position - source.transform.position).sqrMagnitude).Yield(),
+            SkillTargetChoosingFunc.All => toChooseFrom,
             _ => null,
         };
     }
 
-    public static IEnumerable<WorldObject> ConvertToWorldObjects(this SkillTargetChoosingType targetChoosingType, PrioritizedTargets targets)
+    public static IEnumerable<WorldObject> ConvertToWorldObjects(this SkillTargetChoosingType targetChoosingType, WorldObject source, PrioritizedTargets targets)
     {
         return targetChoosingType switch
         {
             SkillTargetChoosingType.Main => targets.MainTarget.Yield(),
             SkillTargetChoosingType.Primary => targets.PrimaryTargets,
             SkillTargetChoosingType.Secondary => targets.SecondaryTargets,
+            SkillTargetChoosingType.Source => source.Yield(),
             _ => Enumerable.Empty<WorldObject>(),
         };
     }

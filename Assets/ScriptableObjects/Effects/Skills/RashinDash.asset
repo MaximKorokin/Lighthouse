@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374d1409b0fc9084286183de74204678, type: 3}
+  m_Name: RashinDash
+  m_EditorClassIdentifier: 
+  <Preview>k__BackingField:
+    <Name>k__BackingField: 
+    <Description>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  <Cooldown>k__BackingField: 3
+  _effects:
+  - rid: 2221015825264934923
+  - rid: 4259499470171930625
+  - rid: 3932639018172022786
+  - rid: 3932639127874568199
+  references:
+    version: 2
+    RefIds:
+    - rid: 2221015825264934923
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 2221015825264934924
+        _redirectTo: 2
+    - rid: 2221015825264934924
+      type: {class: AnimatorValueEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 0
+        _key: 9
+    - rid: 3932639018172022786
+      type: {class: TargetRedirectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742082232188929
+        _redirectTo: 2
+    - rid: 3932639127874568199
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: fb1d46e87bb09a64fbf7423cd81d37b9, type: 3}
+        _parentToTarget: 1
+    - rid: 4259499470171930625
+      type: {class: ChildZoneEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742377012854795
+        <Zone>k__BackingField: {fileID: 4775625874383946485, guid: 1c21b3ff23453f84aa214e1e576b3acd, type: 3}
+        <DistanceFromParent>k__BackingField: 0
+        <InvokationCooldown>k__BackingField: 1
+    - rid: 7488742082232188929
+      type: {class: InputDashEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 0.8
+        Speed: 3
+    - rid: 7488742377012854795
+      type: {class: ConditionalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 7488742377012854796
+        - rid: 7488742377012854797
+        _conditions: 2
+    - rid: 7488742377012854796
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Value>k__BackingField: 2
+    - rid: 7488742377012854797
+      type: {class: KnockbackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        OverrideTime: 0.3
+        Speed: 1

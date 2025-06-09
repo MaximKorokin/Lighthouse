@@ -1,8 +1,31 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using System.Reflection;
+using UnityEngine;
 using UnityEngine.UI;
 
 public static class CopyToExtensions
 {
+    /// <summary>
+    /// Tries to find a suitable method called CopyTo in this class and invokes it
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="target"></param>
+    public static bool TryCopyTo<T>(this T source, T target) where T : Component
+    {
+        var sourceType = source.GetType();
+        var method = typeof(CopyToExtensions)
+            .GetMethods(BindingFlags.Static | BindingFlags.Public)
+            .Where(x => x.Name == nameof(CopyTo))
+            .FirstOrDefault(x => x.GetParameters()[0].ParameterType == sourceType);
+
+        if (method == null) return false;
+
+        method.Invoke(source, new object[] { source, target });
+
+        return true;
+    }
+
     private static bool AreValid<T>(T source, T target)
     {
         if (source == null || target == null)
@@ -46,52 +69,28 @@ public static class CopyToExtensions
         target.fillCenter = source.fillCenter;
     }
 
-    public static void CopyTo(this WorldObject source, WorldObject target)
+    public static void CopyTo(this Animator source, Animator target)
     {
         if (!AreValid(source, target))
         {
             return;
         }
 
-        target.PositioningType = source.PositioningType;
-        target.TriggeringType = source.TriggeringType;
-        target.SetFaction(source.Faction);
-        target.Stats.Modify(source.Stats, StatsModificationType.Assign);
-
-        // Collider2D[]
-        // Sprite
-        // Animator
+        target.runtimeAnimatorController = source.runtimeAnimatorController;
     }
 
-    public static void CopyTo(this DestroyableWorldObject source, DestroyableWorldObject target)
+    public static void CopyTo(this SpriteRenderer source, SpriteRenderer target)
     {
-        (source as WorldObject).CopyTo(target);
+        if (!AreValid(source, target))
+        {
+            return;
+        }
 
-        target.IsDamagable = source.IsDamagable;
-        target.DestroyTime = source.DestroyTime;
-    }
+        target.sprite = source.sprite;
+        target.color = source.color;
+        target.flipX = source.flipX;
 
-    public static void CopyTo(this MovableWorldObject source, MovableWorldObject target)
-    {
-        (source as DestroyableWorldObject).CopyTo(target);
-
-        target.CanFlip = source.CanFlip;
-        target.CanRotate = source.CanRotate;
-
-        // Rigidbody2D
-    }
-
-    public static void CopyTo(this Item source, Item target)
-    {
-        (source as MovableWorldObject).CopyTo(target);
-
-        target.InactiveTime = source.InactiveTime;
-    }
-
-    public static void CopyTo(this TemporaryWorldObject source, TemporaryWorldObject target)
-    {
-        (source as MovableWorldObject).CopyTo(target);
-
-        target.LifeTime = source.LifeTime;
+        target.sortingLayerName = source.sortingLayerName;
+        target.sortingOrder = source.sortingOrder;
     }
 }

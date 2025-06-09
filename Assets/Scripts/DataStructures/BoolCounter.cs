@@ -1,17 +1,16 @@
 ﻿using System;
 
-public struct BoolCounter
+public class BoolCounter
 {
     private int _counter;
 
-    public readonly bool Value => _counter > 0;
+    public bool Value => _counter > 0;
 
     public event Action<bool> ValueChanged;
 
     public BoolCounter(bool initialValue)
     {
-        _counter = initialValue ? 1 : 0;
-        ValueChanged = null;
+        Reset(initialValue);
     }
 
     public void Set(bool value)
@@ -25,8 +24,14 @@ public struct BoolCounter
         {
             ValueChanged?.Invoke(Value);
         }
-
     }
+
+    public void Reset(bool value)
+    {
+        _counter = value ? 1 : 0;
+    }
+
+    public override string ToString() => (Value, _counter).ToString();
 
     public static implicit operator bool(BoolCounter counter) => counter.Value;
 }

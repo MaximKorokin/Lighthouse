@@ -11,7 +11,6 @@ public class OverlayPhase : SkippableActPhase
     {
         base.Invoke();
         _overlay = OverlayPool.Take(_settings);
-        _overlay.SetSettings(_settings);
         _overlay.AnimatorController.PlayAnimation(true);
         _overlay.AnimatorController.FinishedPlaying -= OnFinishedPlaying;
         _overlay.AnimatorController.FinishedPlaying += OnFinishedPlaying;

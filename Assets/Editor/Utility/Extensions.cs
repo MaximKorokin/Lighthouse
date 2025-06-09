@@ -13,20 +13,34 @@ public static class Extensions
             text = type.Name,
             value = opened,
         };
+        foldout.PopulateVisualElement(type, property);
+        return foldout;
+    }
+
+    public static void PopulateVisualElement(this VisualElement visualElement, Type type, SerializedProperty property, Func<SerializedProperty, VisualElement> childPropertyOverride = null)
+    {
         foreach (var field in ReflectionUtils.GetFieldsWithAttributes(type, true, typeof(SerializeField), typeof(SerializeReference)))
         {
             if (field.HasAttribute(typeof(HideInInspector)))
             {
                 continue;
             }
-            var propertyField = new PropertyField();
+
             var relativeProperty = property.FindPropertyRelative(field.Name);
             if (relativeProperty != null)
             {
-                propertyField.BindProperty(relativeProperty);
-                foldout.Add(propertyField);
+                VisualElement propertyField = null;
+                if (childPropertyOverride != null)
+                {
+                    propertyField = childPropertyOverride(relativeProperty);
+                }
+                if (propertyField == null)
+                {
+                    propertyField = new PropertyField();
+                    (propertyField as PropertyField).BindProperty(relativeProperty);
+                }
+                visualElement.Add(propertyField);
             }
         }
-        return foldout;
     }
 }

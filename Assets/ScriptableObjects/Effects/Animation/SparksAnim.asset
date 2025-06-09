@@ -32,3 +32,4 @@ MonoBehaviour:
         _flipWithTarget: 1
         _orderInLayer: 10
         _positioning: 0
+        _sortingLayer: 0

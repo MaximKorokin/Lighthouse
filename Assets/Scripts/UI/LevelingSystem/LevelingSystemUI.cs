@@ -6,11 +6,17 @@ using UnityEngine;
 public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
 {
     [SerializeField]
-    private Transform _effectsParent;
-    [SerializeField]
     private BarController _expBarController;
     [SerializeField]
     private TMP_Text _levelText;
+
+    private LoadableUIProvider _effectsParentProvider;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _effectsParentProvider = this.GetRequiredComponent<LoadableUIProvider>();
+    }
 
     private readonly List<EffectView> _currentViews = new();
 
@@ -19,13 +25,13 @@ public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
     public void DisplayEffects(IEnumerable<EffectPreview> effectPreviews)
     {
         GameManager.Pause();
+        _effectsParentProvider.UIElement.gameObject.SetActive(true);
 
-        _effectsParent.gameObject.SetActive(true);
         foreach (var effectPreview in effectPreviews)
         {
             var view = EffectViewPool.Take(effectPreview);
             _currentViews.Add(view);
-            view.transform.SetParent(_effectsParent, false);
+            view.transform.SetParent(_effectsParentProvider.UIElement.transform, false);
             view.Clicked -= OnViewClicked;
             view.Clicked += OnViewClicked;
         }
@@ -51,7 +57,7 @@ public class LevelingSystemUI : MonoBehaviorSingleton<LevelingSystemUI>
     {
         GameManager.Resume();
 
-        _effectsParent.gameObject.SetActive(false);
+        _effectsParentProvider.UIElement.gameObject.SetActive(false);
         _currentViews.ForEach(EffectViewPool.Return);
         _currentViews.Clear();
         EffectChosen?.Invoke(effectPreview);

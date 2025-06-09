@@ -4,12 +4,12 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 [CustomPropertyDrawer(typeof(Stat))]
-public class EditorStat : PropertyDrawer
+public class EditorStat : PropertyDrawerBase
 {
     private const string NameFieldName = "Name";
     private const string ValueFieldName = "Value";
 
-    public override VisualElement CreatePropertyGUI(SerializedProperty property)
+    protected override void RedrawRootContainer(VisualElement rootContainer, SerializedProperty property)
     {
         var root = new BindableElement();
         root.Bind(property.serializedObject);
@@ -21,7 +21,7 @@ public class EditorStat : PropertyDrawer
         valueField.style.width = Length.Percent(100);
 
         root.Add(valueField);
-        return root;
+        rootContainer.Add(root);
     }
 
     public static string GetStatName(SerializedProperty property)

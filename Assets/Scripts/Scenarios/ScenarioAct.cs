@@ -7,13 +7,14 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 {
     [SerializeField]
     private List<ActRequirement> _requirements;
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private List<ActPhase> _phases;
     [SerializeField]
     private List<ScenarioAct> _childrenActs;
 
-    [field: SerializeField]
-    public bool IsConsecutive { get; private set; }
+    [SerializeField]
+    private PhasesInvokationType _phasesInvokationType = PhasesInvokationType.Consecutive;
+
     [field: SerializeField]
     public bool IsRepetitive { get; private set; }
 
@@ -31,27 +32,31 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
 
     public void Initialize()
     {
-        if (_hasInitialized)
+        if (!_hasInitialized)
         {
-            return;
+            _invoker = _phasesInvokationType switch
+            {
+                PhasesInvokationType.Consecutive => new ConsecutivePhasesInvoker(_phases),
+                PhasesInvokationType.Simultaneous => new SimultaneousPhasesInvoker(_phases),
+                PhasesInvokationType.RandomSingle => new RandomSinglePhasesInvoker(_phases),
+                _ => null,
+            };
+            _invoker.Finished += OnFinished;
+            _hasInitialized = true;
+
+            Initialized?.Invoke(this);
         }
-        _hasInitialized = true;
 
-        _invoker = IsConsecutive ? new ConsecutivePhasesInvoker(_phases) : new SimultaneousPhasesInvoker(_phases);
-        _invoker.Finished += OnFinished;
+        foreach (var requirement in _requirements)
+        {
+            requirement.OnFulfilled -= OnRequirementFulfilled;
+            requirement.OnFulfilled += OnRequirementFulfilled;
+        }
 
-        if (_requirements.Count == 0)
+        if (_requirements.Count == 0 || _requirements.All(x => x.IsFulfilled()))
         {
             _invoker.Invoke();
         }
-        else
-        {
-            foreach (var requirement in _requirements)
-            {
-                requirement.OnFulfilled += OnRequirementFulfilled;
-            }
-        }
-        Initialized?.Invoke(this);
     }
 
     private void OnFinished()
@@ -79,6 +84,13 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
     }
 
     #region PhasesInvoker
+    private enum PhasesInvokationType
+    {
+        Consecutive = 10,
+        Simultaneous = 20,
+        RandomSingle = 30,
+    }
+
     private abstract class PhasesInvoker
     {
         protected List<ActPhase> Phases;
@@ -173,6 +185,21 @@ public partial class ScenarioAct : MonoBehaviour, IInitializable<ScenarioAct>
             {
                 InvokeFinished();
             }
+        }
+    }
+
+    private class RandomSinglePhasesInvoker : PhasesInvoker
+    {
+        public RandomSinglePhasesInvoker(List<ActPhase> _phases) : base(_phases) { }
+
+        protected override void InvokeInternal()
+        {
+            Phases[UnityEngine.Random.Range(0, Phases.Count)].Invoke();
+        }
+
+        protected override void OnPhaseFinished(ActPhase phase)
+        {
+            InvokeFinished();
         }
     }
     #endregion

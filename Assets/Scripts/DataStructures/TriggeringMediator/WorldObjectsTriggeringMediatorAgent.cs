@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(WorldObject))]
 public class WorldObjectsTriggeringMediatorAgent : MonoBehaviour
 {
     protected WorldObject WorldObject { get; private set; }
 
     protected virtual void Start()
     {
-        WorldObject = GetComponent<WorldObject>();
+        WorldObject = this.GetRequiredComponent<WorldObject>();
         WorldObjectsTriggeringMediator.Instance.AddItem(WorldObject);
 
         WorldObject.Destroyed += OnDestroyed;

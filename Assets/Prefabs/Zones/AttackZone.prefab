@@ -246,3 +246,6 @@ MonoBehaviour:
   - TriggerType: 1
     ValidTargets: 3
     Relation: 4
+  - TriggerType: 1
+    ValidTargets: 6
+    Relation: 2

@@ -7,7 +7,7 @@ public abstract class ActPhase : MonoBehaviour, IEditorIcon
 
     protected virtual void InvokeFinished()
     {
-        Finished?.Invoke(this);
+        if (this != null) Finished?.Invoke(this);
     }
 
     public abstract void Invoke();

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldCanvasProvider))]
 public class SkillCooldownVisualizer : BarAmountVisualizer
 {
     [SerializeField]
@@ -11,21 +10,23 @@ public class SkillCooldownVisualizer : BarAmountVisualizer
     protected override void Start()
     {
         base.Start();
-        var skill = GetComponent<SkilledActor>().Skills.Skip(_skillIndex).FirstOrDefault();
-        if (skill == null)
-        {
-            return;
-        }
+
+        var skilledActor = this.GetRequiredComponent<SkilledActor>();
+        var canvasProvider = this.GetRequiredComponent<WorldCanvasProvider>();
+
+        var skill = skilledActor.Skills.Skip(_skillIndex).FirstOrDefault();
+        skill ??= skilledActor.Skills.Last();
+
         _cooldownCounter = skill.CooldownCounter;
-        var canvasProvider = GetComponent<WorldCanvasProvider>();
-        BarController.transform.SetParent(canvasProvider.CanvasController.HPViewParent, false);
+
+        canvasProvider.CanvasController.SkillsCDChildrenSorter.SetChild(BarController.transform, 1);
     }
 
     private void Update()
     {
         if (_cooldownCounter != null && _cooldownCounter.Cooldown >= _cooldownCounter.TimeSinceReset)
         {
-            VisualizeAmount(_cooldownCounter.TimeSinceReset, _cooldownCounter.TimeSinceReset, _cooldownCounter.Cooldown);
+            VisualizeAmount(_cooldownCounter.TimeSinceReset, _cooldownCounter.TimeSinceReset, _cooldownCounter.Cooldown / _cooldownCounter.CooldownDivider);
         }
     }
 }

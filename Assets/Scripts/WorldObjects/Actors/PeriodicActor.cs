@@ -11,7 +11,8 @@ public class PeriodicActor : SkilledActor
         foreach (var target in targets.Targets)
         {
             _cooldowns.TryAdd(target, new CooldownCounter(Cooldown));
-            if (_cooldowns[target].TryReset(WorldObject.AttackSpeed))
+            _cooldowns[target].CooldownDivider = WorldObject.AttackSpeed;
+            if (_cooldowns[target].TryReset())
             {
                 targets.MainTarget = target;
                 base.ActInternal(targets);

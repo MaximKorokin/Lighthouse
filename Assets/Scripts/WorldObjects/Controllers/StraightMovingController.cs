@@ -1,41 +1,27 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class StraightMovingController : TargetController
+public class StraightMovingController : MovableController
 {
     public Vector2 Direction { get; set; }
 
-    public override void SetTarget(WorldObject worldObject, float yaw)
+    public void SetTargetPosition(Vector2 targetPosition)
     {
-        Direction = Quaternion.Euler(0, 0, yaw) * (worldObject.transform.position - transform.position);
-    }
-
-    public override void ChooseTarget(IEnumerable<WorldObject> targets, TargetSearchingType targetType, WorldObject source, float yaw)
-    {
-        targets = targets.Where(x => IsPrimaryTarget(x));
-        Vector2 targetDirection = targetType switch
-        {
-            TargetSearchingType.Nearest => targets.MinBy(w => (w.transform.position - transform.position).sqrMagnitude).transform.position - transform.position,
-            TargetSearchingType.Random => Random.insideUnitCircle,
-            TargetSearchingType.Forward => source is MovableWorldObject movableSource ? movableSource.Direction : Direction,
-            _ => Direction
-        };
-        Direction = targetDirection.Rotate(yaw);
+        Direction = targetPosition - (Vector2)transform.position;
     }
 
     protected override void Control()
     {
-        MovableWorldObject.Direction = Direction.normalized;
-        MovableWorldObject.Move();
-    }
-
-    protected override void Trigger(WorldObject worldObject, bool entered)
-    {
-        base.Trigger(worldObject, entered);
-        if (entered)
+        if (Direction == Vector2.zero)
         {
-            InvokeActors(new PrioritizedTargets(worldObject, TriggeredWorldObjects, PrimaryTargets, SecondaryTargets));
+            MovableWorldObject.Direction = Vector2.zero;
+            MovableWorldObject.Stop();
         }
+        else
+        {
+            MovableWorldObject.Direction = Direction.normalized;
+            MovableWorldObject.Move();
+        }
+        InvokeActors(new PrioritizedTargets(TriggeredWorldObjects.ToArray()));
     }
 }

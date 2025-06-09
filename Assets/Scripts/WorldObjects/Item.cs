@@ -16,11 +16,7 @@ public class Item : MovableWorldObject
         IsActive = InactiveTime <= 0;
         if (!IsActive)
         {
-            var coroutine = StartCoroutine(InactiveCoroutine());
-            Destroying += () =>
-            {
-                if (coroutine != null) StopCoroutine(coroutine);
-            };
+            this.StartCoroutineSafe(InactiveCoroutine());
         }
     }
 

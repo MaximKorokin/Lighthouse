@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldObject))]
 public abstract class ActorBase : MonoBehaviour
 {
     public BoolCounter _canAct = new(true);
     public bool CanAct { get => _canAct; set => _canAct.Set(value); }
 
     private WorldObject _worldObject;
-    public WorldObject WorldObject { get => _worldObject = _worldObject != null ? _worldObject : GetComponent<WorldObject>(); }
+    public WorldObject WorldObject => gameObject.LazyGetComponent(ref _worldObject);
 
     public event Action Acting;
 

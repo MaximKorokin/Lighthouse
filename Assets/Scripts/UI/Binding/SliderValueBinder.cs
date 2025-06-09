@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
-public class SliderValueBinder : ValueBinder<float>
+public class SliderValueBinder : ConfigValueBinder<float>
 {
     private Slider _slider;
 
     private void Awake()
     {
-        _slider = GetComponent<Slider>();
+        _slider = this.GetRequiredComponent<Slider>();
     }
 
     public override float GetCurrentValue()

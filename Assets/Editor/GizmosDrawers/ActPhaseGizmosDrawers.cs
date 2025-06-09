@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 public static class ActPhaseGizmosDrawers
 {
@@ -41,13 +42,19 @@ public static class ActPhaseGizmosDrawers
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
     public static void MovableMovePhase(MovableMovePhase phase, GizmoType gizmoType)
     {
-        if (phase.Movable != null)
+        if (phase.Movable == null) return;
+
+        EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.Movable.transform.position, ArrowType.Line, phase.IconName);
+        if (phase.TransformPositions != null)
         {
-            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.Movable.transform.position, ArrowType.Line, phase.IconName);
-        }
-        if (phase.TransformPosition != null)
-        {
-            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.position, ArrowType.Circle, phase.IconName);
+            var first = phase.Movable.transform.position;
+            Vector2 second;
+            foreach (var transformPosition in phase.TransformPositions)
+            {
+                second = transformPosition.position;
+                EditorUtils.DrawArrowWithIcon(first, second, ArrowType.Arrow, phase.IconName);
+                first = second;
+            }
         }
     }
 
@@ -75,6 +82,28 @@ public static class ActPhaseGizmosDrawers
         if (phase.CanvasProvider != null)
         {
             EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.CanvasProvider.transform.position, ArrowType.Line, phase.IconName);
+        }
+    }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
+    public static void PermissionPhase(PermissionPhase phase, GizmoType gizmoType)
+    {
+        if (phase.PermissionRequirement != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.PermissionRequirement.transform.position, ArrowType.Line, phase.IconName);
+        }
+    }
+
+    [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.Active)]
+    public static void SetPositionPhase(SetPositionPhase phase, GizmoType gizmoType)
+    {
+        if (phase.TransformPosition != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TransformPosition.transform.position, ArrowType.Line, phase.IconName);
+        }
+        if (phase.TargetTransform != null)
+        {
+            EditorUtils.DrawArrowWithIcon(phase.transform.position, phase.TargetTransform.transform.position, ArrowType.Arrow, phase.IconName);
         }
     }
 }

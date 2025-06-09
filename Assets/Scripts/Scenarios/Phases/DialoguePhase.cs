@@ -1,27 +1,25 @@
 using UnityEngine;
 
-public class DialoguePhase : SkippableActPhase
+public class DialoguePhase : DialoguePhaseBase
 {
     [SerializeField]
     private Dialogue _dialogue;
 
+    protected override Dialogue GetDialogue()
+    {
+        return _dialogue;
+    }
+
     public override void Invoke()
     {
+        GameManager.IsControlInputBlocked = true;
         base.Invoke();
-        DialoguesSystem.InitDialogue(_dialogue);
-        DialoguesSystem.DialogueFinished -= OnDialogueFinished;
-        DialoguesSystem.DialogueFinished += OnDialogueFinished;
     }
 
-    private void OnDialogueFinished()
+    protected override void OnDialogueFinished()
     {
-        DialoguesSystem.DialogueFinished -= OnDialogueFinished;
-        InvokeFinished();
-    }
-
-    protected override void OnSkipped()
-    {
-        DialoguesSystem.SkipDialogue();
+        base.OnDialogueFinished();
+        GameManager.IsControlInputBlocked = false;
     }
 
     public override string IconName => "Dialogue2.png";

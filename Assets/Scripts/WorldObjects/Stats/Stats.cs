@@ -50,7 +50,7 @@ public class Stats
         {
             if (!StatsDictionary.TryGetValue(name, out var statValue))
             {
-                statValue = name.GetDefaultValue();
+                statValue = ConvertingUtils.ToFloat(name.GetDefaultValue());
                 this[name] = statValue;
             }
             return statValue;

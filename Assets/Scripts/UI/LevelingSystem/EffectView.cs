@@ -8,9 +8,9 @@ public class EffectView : MonoBehaviour
     [SerializeField]
     private Image _image;
     [SerializeField]
-    private TMP_Text _title;
+    private TextLocalizer _title;
     [SerializeField]
-    private TMP_Text _description;
+    private TextLocalizer _description;
 
     private EffectPreview _effectPreview;
 
@@ -20,18 +20,12 @@ public class EffectView : MonoBehaviour
     {
         _effectPreview = effect;
         _image.sprite = effect.Sprite;
-        LocalizationManager.SetLanguageChangeListener(_title, effect.Name, text => _title.text = text);
-        LocalizationManager.SetLanguageChangeListener(_description, effect.Description, text => _description.text = text);
+        _title.SetText(effect.Name);
+        _description.SetText(effect.Description);
     }
 
     public void InvokeClicked()
     {
         Clicked?.Invoke(this, _effectPreview);
-    }
-
-    private void OnDestroy()
-    {
-        LocalizationManager.RemoveLanguageChangeListener(_title);
-        LocalizationManager.RemoveLanguageChangeListener(_description);
     }
 }

@@ -19,26 +19,37 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 0
   _effects:
   - rid: 4004305113478070272
+  - rid: 3932639127874568203
   references:
     version: 2
     RefIds:
+    - rid: 3932639127874568203
+      type: {class: AudioClipEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _audioClip: {fileID: 8300000, guid: 599d01c2da6219748a3b64420e837618, type: 3}
+        _parentToTarget: 0
     - rid: 4004305113478070272
       type: {class: PeriodicEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
         - rid: 4004305113478070273
         <EndEffects>k__BackingField: []
-        <PeriodTime>k__BackingField: 0.1
-        <Periods>k__BackingField: 10
+        <PeriodTime>k__BackingField: 0.5
+        <Periods>k__BackingField: 6
     - rid: 4004305113478070273
       type: {class: PointsGeneratorEffect, ns: , asm: Assembly-CSharp}
       data:
         <Effects>k__BackingField:
         - rid: 4004305113478070277
-        - rid: 4004305113478070278
-        _baseOnTarget: 0
-        _pointsNumber: 4
-        _maxRandomDistance: 1.5
+        - rid: 6870526416552460288
+        _data:
+          Distance: 1.5
+          Angle: 360
+          Number: 4
+          GeneratingFulcrum: 1
+          GeneratingDistance: 1
+          GeneratingOrder: 11
+          GeneratingDirection: 21
     - rid: 4004305113478070277
       type: {class: AnimationEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -49,7 +60,13 @@ MonoBehaviour:
         _flipWithTarget: 0
         _orderInLayer: 0
         _positioning: 0
-    - rid: 4004305113478070278
+    - rid: 6870526416552460288
+      type: {class: AreaEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <Effects>k__BackingField:
+        - rid: 6870526416552460289
+        <Radius>k__BackingField: 0.5
+    - rid: 6870526416552460289
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         <Value>k__BackingField: 1
