@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/WebStart.unity
+    guid: 33823886265ffe140a8de200fb54622a
   - enabled: 1
     path: Assets/Scenes/KinsnapHQAttack.unity
     guid: 17577c40f2cfa3e49a6f0784c272c1cc
@@ -20,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DebugLoader.unity
     guid: 9296f397872f54649be6445e0c114e73
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

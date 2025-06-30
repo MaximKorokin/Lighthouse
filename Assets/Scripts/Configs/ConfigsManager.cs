@@ -10,9 +10,9 @@ public enum ConfigKey
     [DefaultValue(false)]
     ViewFpsCounter = 11,
 
-    [DefaultValue(5)]
+    [DefaultValue("5")]
     SoundVolume = 20,
-    [DefaultValue(5)]
+    [DefaultValue("5")]
     MusicVolume = 21,
 
     Language = 30,
